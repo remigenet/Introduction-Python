@@ -6,6 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Rémi Genet">
+<meta name="dcterms.date" content="2024-01-03">
 <meta name="description" content="Explorer les diverses implémentations de Python et le processus de compilation pour comprendre la diversité et la flexibilité du langage.">
 
 <title>Introduction à Python - Versions et Compilation de Python</title>
@@ -33,6 +35,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../../">
 <link href="../../content/Cours_1/4-Path.html" rel="next">
 <link href="../../content/Cours_1/2-Python_Execution.html" rel="prev">
+<link href="../..//content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -64,12 +67,25 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background: #e9f3fa;
+      }
+</style>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<meta name="citation_title" content="Versions et Compilation de Python">
+<meta name="citation_author" content="Rémi Genet">
+<meta name="citation_publication_date" content="2024-01-03">
+<meta name="citation_cover_date" content="2024-01-03">
+<meta name="citation_year" content="2024">
+<meta name="citation_online_date" content="2024-01-03">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Introduction-Python//content/Cours_1/3-ManyPythons.html">
+<meta name="citation_language" content="en">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -123,6 +139,22 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../content/Cours_1/7-Notebooks.html" rel="" target="">
  <span class="dropdown-text">Les Notebooks</span></a>
   </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Quelques IDEs en Python</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/VsCode.html" rel="" target="">
+ <span class="dropdown-text">VsCode - L’IDE Flexible et Polyvalent</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Spyder.html" rel="" target="">
+ <span class="dropdown-text">Spyder - Un IDE Orienté Science des Données</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Pycharm.html" rel="" target="">
+ <span class="dropdown-text">PyCharm - L’IDE orienté Python</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
         <li>
     <a class="dropdown-item" href="../../content/Cours_1/TP-ConstruireSonPython.html" rel="" target="">
  <span class="dropdown-text">TP - Construire son python depuis la source</span></a>
@@ -192,7 +224,44 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Versions et Compilation de Python</h1>
+                  <div>
+        <div class="description">
+          Explorer les diverses implémentations de Python et le processus de compilation pour comprendre la diversité et la flexibilité du langage.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Cours</div>
+                <div class="quarto-category">Introduction</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Rémi Genet </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2024-01-03</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
@@ -239,60 +308,63 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Les Notebooks</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Quelques IDEs en Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/IDEs/VsCode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VsCode - L’IDE Flexible et Polyvalent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/IDEs/Spyder.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spyder - Un IDE Orienté Science des Données</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/IDEs/Pycharm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PyCharm - L’IDE orienté Python</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Travaux Pratiques</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_1/TP-ConstruireSonPython.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TP - Construire son python depuis la source</span></a>
   </div>
 </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#versions-et-compilation-de-python" id="toc-versions-et-compilation-de-python" class="nav-link active" data-scroll-target="#versions-et-compilation-de-python">3. Versions et Compilation de Python</a>
-  <ul class="collapse">
-  <li><a href="#a---les-différentes-saveurs-de-python-cpython-jython-ironpython-pypy" id="toc-a---les-différentes-saveurs-de-python-cpython-jython-ironpython-pypy" class="nav-link" data-scroll-target="#a---les-différentes-saveurs-de-python-cpython-jython-ironpython-pypy">a - Les Différentes “Saveurs” de Python: CPython, Jython, IronPython, PyPy</a></li>
-  <li><a href="#b---pourquoi-pypy-ne-remplace-pas-complètement-cpython-différences-et-limitations" id="toc-b---pourquoi-pypy-ne-remplace-pas-complètement-cpython-différences-et-limitations" class="nav-link" data-scroll-target="#b---pourquoi-pypy-ne-remplace-pas-complètement-cpython-différences-et-limitations">b - Pourquoi PyPy ne remplace pas complètement CPython: Différences et Limitations</a></li>
-  <li><a href="#c---compiler-un-code-python-cloner-et-construire-cpython" id="toc-c---compiler-un-code-python-cloner-et-construire-cpython" class="nav-link" data-scroll-target="#c---compiler-un-code-python-cloner-et-construire-cpython">c - Compiler un Code Python: Cloner et Construire CPython</a></li>
-  <li><a href="#d---les-étapes" id="toc-d---les-étapes" class="nav-link" data-scroll-target="#d---les-étapes">d - Les étapes</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Versions et Compilation de Python</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">Cours</div>
-    <div class="quarto-category">Introduction</div>
-  </div>
-  </div>
-
-<div>
-  <div class="description">
-    Explorer les diverses implémentations de Python et le processus de compilation pour comprendre la diversité et la flexibilité du langage.
-  </div>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-</header>
 
 <section id="versions-et-compilation-de-python" class="level2">
 <h2 class="anchored" data-anchor-id="versions-et-compilation-de-python">3. Versions et Compilation de Python</h2>
@@ -308,9 +380,9 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 <li><strong>Jython</strong>:
 <ul>
-<li><strong>Description</strong>: Jython est une implémentation de Python écrite pour fonctionner sur la machine virtuelle Java (JVM).</li>
+<li><strong>Description</strong>: Jython est conçu pour la machine virtuelle Java (JVM), permettant l’intégration avec des environnements Java. Contrairement à CPython, Jython n’est pas restreint par le GIL, ce qui le rend plus adapté pour des applications nécessitant du multithreading.</li>
 <li><strong>Utilisation</strong>: Elle permet aux développeurs d’utiliser des bibliothèques Java dans leurs programmes Python et vice-versa.</li>
-<li><strong>Caractéristiques</strong>: Jython est particulièrement utile pour les applications nécessitant l’intégration de Python avec des environnements Java existants. Cette version elle ne dépend pas du GIL, Java étant d’ailleurs bien plus adapté que Python pour l’utilisation de multithreading.</li>
+<li><strong>Caractéristiques</strong>: Jython est particulièrement utile pour les applications nécessitant l’intégration de Python avec des environnements Java existants.</li>
 </ul></li>
 <li><strong>IronPython</strong>:
 <ul>
@@ -325,7 +397,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Caractéristiques</strong>: PyPy utilise la compilation JIT (Just-In-Time) pour accélérer l’exécution des programmes Python. Cela peut entraîner des performances nettement meilleures, en particulier pour les programmes lourds en calcul. Attention toutefois à ne pas confondre vitesse et précipitations, cette versions repose toutefois toujours sur le GIL.</li>
 </ul></li>
 </ol>
-<p>Chacune de ces implémentations présente des avantages uniques et peut être choisie en fonction des besoins spécifiques d’un projet. CPython reste l’implémentation la plus populaire, mais les autres offrent des options précieuses pour l’intégration avec d’autres langages et plateformes, ainsi que pour des améliorations de performance.</p>
+<p>Chaque implémentation a ses avantages et peut être choisie selon les exigences spécifiques d’un projet. CPython reste l’implémentation dominante, mais les autres offrent des alternatives précieuses pour divers cas d’utilisation.</p>
 </section>
 <section id="b---pourquoi-pypy-ne-remplace-pas-complètement-cpython-différences-et-limitations" class="level3">
 <h3 class="anchored" data-anchor-id="b---pourquoi-pypy-ne-remplace-pas-complètement-cpython-différences-et-limitations">b - Pourquoi PyPy ne remplace pas complètement CPython: Différences et Limitations</h3>
@@ -357,11 +429,15 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ol>
 <p>En résumé, bien que PyPy soit une alternative puissante à CPython, surtout en termes de vitesse d’exécution pour certains types de programmes, il ne peut pas remplacer complètement CPython en raison de problèmes de compatibilité, de différences de performance dans certains scénarios, et de la prévalence de CPython dans la communauté Python.</p>
-<p><strong>Et pour vous, comment utiliser cette information?</strong>: Bien que ces versions n’offrent pas toujours les même possibilités, le language reste strictement le même. Ainsi, dans certains cas où le besoin de performance est plus important, le fait de simplement changé d’interpreteur peut si il n’y a pas de conflit permettre de gagner de très nombreuses heures d’optimisation!</p>
+<p><strong>Et pour vous, comment utiliser cette information?</strong>:
+Bien que ces versions n’offrent pas toujours les même possibilités, le language reste strictement le même. Ainsi, dans certains cas où le besoin de performance est plus important, le fait de simplement changé d’interpreteur peut si il n’y a pas de conflit permettre de gagner de très nombreuses heures d’optimisation!</p>
 </section>
 <section id="c---compiler-un-code-python-cloner-et-construire-cpython" class="level3">
 <h3 class="anchored" data-anchor-id="c---compiler-un-code-python-cloner-et-construire-cpython">c - Compiler un Code Python: Cloner et Construire CPython</h3>
-<p>Nous avons vu la théorie, mais dans la pratique, très peu de développeur ont recompiler leur binaire de python. Mais, où trouver le code ? Le compilateur ? Y-a-t-il un interet à compiler Python soit même, dans la vie de tout les jours du développeur NON, l’intérêt reste marginale, mais pour autant: - Il y a un interet <strong>pédagique</strong> - cela permet de comprendre comment compiler depuis la source (le code brut), installer un binaire etc… Ainsi cela peut vous permettre d’ajouter par exemple sans droit administrateur des versions de python de votre choix, par exemple à l’université ! - Cela peut permettre d’améliorer la performance de votre intepreteur, celui-ci étant alors compilé spécficiquement pour votre PC, les compilateurs proposant par exemple l’utilisation de la PGO (Profile Guided Optimization), où l’interet est d’améliorer le premier binaire créer après l’avoir fait tourner sur la machine sur une charge de travail représentative pour le rendre plus performant. - Profiter des améliorations de Python qui n’ont pas encore été intégré - possiblements des mois avant qu’ils ne soient disponibles</p>
+<p>Nous avons vu la théorie, mais dans la pratique, très peu de développeur ont recompiler leur binaire de python. Mais, où trouver le code ? Le compilateur ? Y-a-t-il un interet à compiler Python soit même, dans la vie de tout les jours du développeur NON, l’intérêt reste marginale, mais pour autant:
+- Il y a un interet <strong>pédagogique</strong> - cela permet de comprendre comment compiler depuis la source (le code brut), installer un binaire etc… Ainsi cela peut vous permettre d’ajouter par exemple sans droit administrateur des versions de python de votre choix, par exemple à l’université !
+- Cela peut permettre d’améliorer la performance de votre intepreteur, celui-ci étant alors compilé spécficiquement pour votre PC, les compilateurs proposant par exemple l’utilisation de la PGO (Profile Guided Optimization), où l’interet est d’améliorer le premier binaire créer après l’avoir fait tourner sur la machine sur une charge de travail représentative pour le rendre plus performant.
+- Profiter des améliorations de Python qui n’ont pas encore été intégré - possiblements des mois avant qu’ils ne soient disponibles</p>
 </section>
 <section id="d---les-étapes" class="level3">
 <h3 class="anchored" data-anchor-id="d---les-étapes">d - Les étapes</h3>
@@ -620,11 +696,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Introduction à Python, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></div>   
+    <div class="nav-footer-left">Introduction à Python, Rémi Genet.<br>
+Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br>
+Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></div>
+    <div class="nav-footer-right">Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br>
+Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br>
+<a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></div>
   </div>
 </footer>
 

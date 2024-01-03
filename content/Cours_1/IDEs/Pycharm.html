@@ -6,6 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Rémi Genet">
+<meta name="dcterms.date" content="2024-01-03">
 <meta name="description" content="Avant de se lancer">
 
 <title>Introduction à Python - PyCharm - L’IDE orienté Python</title>
@@ -31,6 +33,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
+<link href="../../../content/Cours_1/TP-ConstruireSonPython.html" rel="next">
+<link href="../../../content/Cours_1/IDEs/Spyder.html" rel="prev">
+<link href="../../..//content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -62,12 +67,25 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background: #e9f3fa;
+      }
+</style>
 
 
-<link rel="stylesheet" href="../../../styles.css">
+<meta name="citation_title" content="PyCharm - L&amp;amp;#039;IDE orienté Python">
+<meta name="citation_author" content="Rémi Genet">
+<meta name="citation_publication_date" content="2024-01-03">
+<meta name="citation_cover_date" content="2024-01-03">
+<meta name="citation_year" content="2024">
+<meta name="citation_online_date" content="2024-01-03">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Introduction-Python//content/Cours_1/IDEs/Pycharm.html">
+<meta name="citation_language" content="en">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -121,6 +139,22 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../../content/Cours_1/7-Notebooks.html" rel="" target="">
  <span class="dropdown-text">Les Notebooks</span></a>
   </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Quelques IDEs en Python</li>
+        <li>
+    <a class="dropdown-item" href="../../../content/Cours_1/IDEs/VsCode.html" rel="" target="">
+ <span class="dropdown-text">VsCode - L’IDE Flexible et Polyvalent</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/Cours_1/IDEs/Spyder.html" rel="" target="">
+ <span class="dropdown-text">Spyder - Un IDE Orienté Science des Données</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/Cours_1/IDEs/Pycharm.html" rel="" target="">
+ <span class="dropdown-text">PyCharm - L’IDE orienté Python</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
         <li>
     <a class="dropdown-item" href="../../../content/Cours_1/TP-ConstruireSonPython.html" rel="" target="">
  <span class="dropdown-text">TP - Construire son python depuis la source</span></a>
@@ -178,77 +212,219 @@ ul.task-list li input[type="checkbox"] {
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../content/Cours_1/IDEs/VsCode.html">Quelques IDEs en Python</a></li><li class="breadcrumb-item"><a href="../../../content/Cours_1/IDEs/Pycharm.html">PyCharm - L’IDE orienté Python</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">PyCharm - L’IDE orienté Python</h1>
+                  <div>
+        <div class="description">
+          Avant de se lancer
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Utils</div>
+                <div class="quarto-category">IDEs</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Rémi Genet </p>
+            </div>
     </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2024-01-03</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/Cours_1/1-Histoire.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Histoire du Langage</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/Cours_1/2-Python_Execution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exécution d’un Programme Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/Cours_1/3-ManyPythons.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Versions et Compilation de Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/Cours_1/4-Path.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Le PATH</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/Cours_1/5-PathandVirtualEnv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Path.. et environnements virtuels!</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/Cours_1/6-IDEs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les IDEs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/Cours_1/7-Notebooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les Notebooks</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Quelques IDEs en Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/Cours_1/IDEs/VsCode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VsCode - L’IDE Flexible et Polyvalent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/Cours_1/IDEs/Spyder.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spyder - Un IDE Orienté Science des Données</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/Cours_1/IDEs/Pycharm.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">PyCharm - L’IDE orienté Python</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Travaux Pratiques</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/Cours_1/TP-ConstruireSonPython.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP - Construire son python depuis la source</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">PyCharm - L’IDE orienté Python</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">Cours</div>
-    <div class="quarto-category">Introduction</div>
-  </div>
-  </div>
-
-<div>
-  <div class="description">
-    Avant de se lancer
-  </div>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
 
-</header>
-
-<section id="présentation-de-pycharm" class="level4">
-<h4 class="anchored" data-anchor-id="présentation-de-pycharm">Présentation de PyCharm</h4>
-<p>PyCharm est un IDE développé par JetBrains spécifiquement pour la programmation en Python. Il est largement reconnu pour sa puissance et ses nombreuses fonctionnalités qui facilitent le développement Python. Voici quelques aspects clés de PyCharm :</p>
-<ol type="1">
-<li><strong>Fonctionnalités de PyCharm</strong>:
+<section id="présentation-générale-de-pycharm" class="level4">
+<h4 class="anchored" data-anchor-id="présentation-générale-de-pycharm">Présentation Générale de PyCharm</h4>
+<p>PyCharm, développé par JetBrains, est un Environnement de Développement Intégré (IDE) conçu spécifiquement pour Python. Il est reconnu pour son ensemble complet de fonctionnalités qui soutiennent et facilitent le développement en Python. Voyons de plus près ce qui rend PyCharm si apprécié dans la communauté Python.</p>
+</section>
+<section id="fonctionnalités-de-pycharm" class="level4">
+<h4 class="anchored" data-anchor-id="fonctionnalités-de-pycharm">1. Fonctionnalités de PyCharm</h4>
 <ul>
-<li><strong>Support Intelligent du Code</strong> : PyCharm offre une complétion de code avancée, la vérification d’erreurs en temps réel, et des capacités de refactorisation rapide.</li>
-<li><strong>Intégration avec des Frameworks et des Bibliothèques</strong> : Il prend en charge de nombreux frameworks Python comme Django, Flask, ainsi que des bibliothèques comme NumPy et Pandas.</li>
-<li><strong>Outils de Débogage et de Test</strong> : PyCharm intègre un débogueur puissant et des outils pour le test unitaire, ce qui facilite la détection et la correction des erreurs.</li>
-<li><strong>Intégration de Systèmes de Gestion de Version</strong> : Compatible avec Git, SVN, Mercurial, et d’autres, facilitant le suivi des modifications et la collaboration.</li>
-</ul></li>
-<li><strong>Environnements Virtuels et Gestion des Dépendances</strong>:
+<li><strong>Support Intelligent du Code</strong> :
 <ul>
-<li>PyCharm facilite la gestion des environnements virtuels Python, permettant aux développeurs de maintenir séparées les dépendances de différents projets.</li>
-<li>Il offre également une interface utilisateur intuitive pour gérer les packages Python, ce qui simplifie l’installation, la mise à jour et la suppression des bibliothèques.</li>
+<li>PyCharm propose une complétion de code sophistiquée, une vérification d’erreurs en temps réel, et des outils de refactorisation. Ces fonctionnalités aident à augmenter la productivité et à réduire les erreurs potentielles.</li>
 </ul></li>
-<li><strong>Interface Utilisateur et Personnalisation</strong>:
+<li><strong>Intégration de Frameworks et Bibliothèques</strong> :
 <ul>
-<li>L’interface</li>
+<li>L’IDE prend en charge de nombreux frameworks Python populaires, comme Django et Flask, ainsi que des bibliothèques scientifiques telles que NumPy et Pandas. Cette intégration facilite le travail sur des projets complexes et spécialisés.</li>
 </ul></li>
-</ol>
-<p>utilisateur de PyCharm est conçue pour offrir une expérience de développement confortable et productive, avec des options de personnalisation pour adapter l’IDE à vos préférences. - Il supporte également des plugins, permettant aux utilisateurs d’étendre ses fonctionnalités.</p>
-<ol start="4" type="1">
-<li><strong>Support de Développement Web et de Data Science</strong>:
+<li><strong>Outils de Débogage et de Test</strong> :
 <ul>
-<li>PyCharm offre des outils spécifiques pour le développement web, y compris le support de HTML, CSS, JavaScript, et des frameworks front-end.</li>
-<li>Pour la data science, PyCharm intègre des outils tels que Jupyter Notebook, une console IPython, et des visualisations de données.</li>
+<li>PyCharm intègre un débogueur puissant et des outils pour les tests unitaires. Ces outils sont cruciaux pour la maintenance et l’assurance de la qualité du code.</li>
 </ul></li>
-<li><strong>Versions de PyCharm</strong>:
+<li><strong>Gestion des Systèmes de Version</strong> :
 <ul>
-<li>PyCharm est disponible en deux versions : Professional (payante) et Community (gratuite). La version Professional offre des fonctionnalités supplémentaires, notamment pour le développement web et la data science.</li>
+<li>Compatible avec divers systèmes de gestion de version tels que Git, SVN, et Mercurial, PyCharm simplifie le suivi des modifications et la collaboration au sein d’équipes de développement.</li>
 </ul></li>
-</ol>
-<p>PyCharm est un choix populaire parmi les développeurs Python, offrant une vaste gamme de fonctionnalités qui couvrent presque tous les aspects du développement Python, de l’écriture de code à la gestion de projet, en passant par le déploiement.</p>
+</ul>
+</section>
+<section id="environnements-virtuels-et-gestion-des-dépendances" class="level4">
+<h4 class="anchored" data-anchor-id="environnements-virtuels-et-gestion-des-dépendances">2. Environnements Virtuels et Gestion des Dépendances</h4>
+<ul>
+<li>PyCharm simplifie la création et la gestion des environnements virtuels Python, permettant une séparation efficace des dépendances entre les projets.</li>
+<li>L’IDE offre une interface utilisateur intuitive pour la gestion des packages Python, facilitant l’installation et la mise à jour des bibliothèques.</li>
+</ul>
+</section>
+<section id="interface-utilisateur-et-personnalisation" class="level4">
+<h4 class="anchored" data-anchor-id="interface-utilisateur-et-personnalisation">3. Interface Utilisateur et Personnalisation</h4>
+<ul>
+<li>L’interface de PyCharm est conçue pour être à la fois confortable et productive, avec des options de personnalisation pour l’adapter aux préférences de chaque utilisateur.</li>
+<li>La prise en charge des plugins permet une extension des fonctionnalités, rendant l’IDE adaptable à divers besoins de développement.</li>
+</ul>
+</section>
+<section id="support-pour-le-développement-web-et-la-data-science" class="level4">
+<h4 class="anchored" data-anchor-id="support-pour-le-développement-web-et-la-data-science">4. Support pour le Développement Web et la Data Science</h4>
+<ul>
+<li>PyCharm excelle également dans les domaines du développement web et de la data science. Pour le web, il offre des outils pour HTML, CSS, JavaScript, et des frameworks front-end.</li>
+<li>En data science, des fonctionnalités comme le support de Jupyter Notebook, la console IPython, et les outils de visualisation de données sont intégrées.</li>
+</ul>
+</section>
+<section id="versions-de-pycharm" class="level4">
+<h4 class="anchored" data-anchor-id="versions-de-pycharm">5. Versions de PyCharm</h4>
+<ul>
+<li>PyCharm est disponible en deux éditions :
+<ul>
+<li><strong>Professional</strong> : une version payante qui offre des fonctionnalités avancées, notamment pour le développement web et la data science.</li>
+<li><strong>Community</strong> : une version gratuite qui couvre les fonctionnalités de base du développement Python.</li>
+</ul></li>
+</ul>
+</section>
+<section id="conclusion" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion">Conclusion</h4>
+<p>PyCharm se distingue comme un choix privilégié pour les développeurs Python grâce à sa gamme étendue de fonctionnalités. Qu’il s’agisse de coder, de tester, de déboguer ou de gérer des projets complexes, PyCharm offre des outils puissants et une expérience de développement intégrée et fluide.</p>
 
 
 </section>
@@ -487,14 +663,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../content/Cours_1/IDEs/Spyder.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Spyder - Un IDE Orienté Science des Données</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../content/Cours_1/TP-ConstruireSonPython.html" class="pagination-link">
+        <span class="nav-page-text">TP - Construire son python depuis la source</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Introduction à Python, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></div>   
+    <div class="nav-footer-left">Introduction à Python, Rémi Genet.<br>
+Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br>
+Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></div>
+    <div class="nav-footer-right">Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br>
+Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br>
+<a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></div>
   </div>
 </footer>
 

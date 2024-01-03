@@ -6,6 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Rémi Genet">
+<meta name="dcterms.date" content="2024-01-03">
 <meta name="description" content="Explorer l’histoire de Python, c’est comprendre ses choix de conception, son évolution et sa place actuelle dans le monde de la programmation. Ce chapitre se concentre sur les origines de Python, son développement au fil des ans, les raisons de sa popularité, ses critiques, et les défis futurs. Il offre un aperçu complet de Python, de sa première version à la version actuelle, en mettant en lumière les évolutions majeures et les choix qui ont façonné ce langage.">
 
 <title>Introduction à Python - Histoire du Langage</title>
@@ -66,6 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../content/Cours_1/2-Python_Execution.html" rel="next">
+<link href="../..//content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -97,12 +100,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background: #e9f3fa;
+      }
+</style>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<meta name="citation_title" content="Histoire du Langage">
+<meta name="citation_author" content="Rémi Genet">
+<meta name="citation_publication_date" content="2024-01-03">
+<meta name="citation_cover_date" content="2024-01-03">
+<meta name="citation_year" content="2024">
+<meta name="citation_online_date" content="2024-01-03">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Introduction-Python//content/Cours_1/1-Histoire.html">
+<meta name="citation_language" content="en">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -156,6 +172,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../content/Cours_1/7-Notebooks.html" rel="" target="">
  <span class="dropdown-text">Les Notebooks</span></a>
   </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Quelques IDEs en Python</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/VsCode.html" rel="" target="">
+ <span class="dropdown-text">VsCode - L’IDE Flexible et Polyvalent</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Spyder.html" rel="" target="">
+ <span class="dropdown-text">Spyder - Un IDE Orienté Science des Données</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Pycharm.html" rel="" target="">
+ <span class="dropdown-text">PyCharm - L’IDE orienté Python</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
         <li>
     <a class="dropdown-item" href="../../content/Cours_1/TP-ConstruireSonPython.html" rel="" target="">
  <span class="dropdown-text">TP - Construire son python depuis la source</span></a>
@@ -225,7 +257,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Histoire du Langage</h1>
+                  <div>
+        <div class="description">
+          Explorer l’histoire de Python, c’est comprendre ses choix de conception, son évolution et sa place actuelle dans le monde de la programmation. Ce chapitre se concentre sur les origines de Python, son développement au fil des ans, les raisons de sa popularité, ses critiques, et les défis futurs. Il offre un aperçu complet de Python, de sa première version à la version actuelle, en mettant en lumière les évolutions majeures et les choix qui ont façonné ce langage.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Cours</div>
+                <div class="quarto-category">Introduction</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Rémi Genet </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2024-01-03</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
@@ -272,64 +341,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Les Notebooks</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Quelques IDEs en Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/IDEs/VsCode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VsCode - L’IDE Flexible et Polyvalent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/IDEs/Spyder.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spyder - Un IDE Orienté Science des Données</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/IDEs/Pycharm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PyCharm - L’IDE orienté Python</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Travaux Pratiques</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_1/TP-ConstruireSonPython.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TP - Construire son python depuis la source</span></a>
   </div>
 </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#a---origines" id="toc-a---origines" class="nav-link active" data-scroll-target="#a---origines">a - Origines</a></li>
-  <li><a href="#b---et-évolution" id="toc-b---et-évolution" class="nav-link" data-scroll-target="#b---et-évolution">b - et évolution</a></li>
-  <li><a href="#c---popularité-et-critiques" id="toc-c---popularité-et-critiques" class="nav-link" data-scroll-target="#c---popularité-et-critiques">c - Popularité et Critiques</a></li>
-  <li><a href="#d---comprendre-ces-limites" id="toc-d---comprendre-ces-limites" class="nav-link" data-scroll-target="#d---comprendre-ces-limites">d - Comprendre ces limites</a></li>
-  <li><a href="#e---les-peps" id="toc-e---les-peps" class="nav-link" data-scroll-target="#e---les-peps">e - Les Peps</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Histoire du Langage</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">Cours</div>
-    <div class="quarto-category">Introduction</div>
-  </div>
-  </div>
-
-<div>
-  <div class="description">
-    Explorer l’histoire de Python, c’est comprendre ses choix de conception, son évolution et sa place actuelle dans le monde de la programmation. Ce chapitre se concentre sur les origines de Python, son développement au fil des ans, les raisons de sa popularité, ses critiques, et les défis futurs. Il offre un aperçu complet de Python, de sa première version à la version actuelle, en mettant en lumière les évolutions majeures et les choix qui ont façonné ce langage.
-  </div>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-</header>
 
 <section id="a---origines" class="level3">
 <h3 class="anchored" data-anchor-id="a---origines">a - Origines</h3>
 <p>Python, un langage de programmation de haut niveau, a été inventé par Guido van Rossum, dont la première version a été publiée en 1991. Ce langage, nommé d’après la série télévisée britannique “Monty Python’s Flying Circus”, a été conçu pour allier clarté syntaxique et puissance fonctionnelle.</p>
 <p>Python a évolué au fil des années, en gardant son principe directeur : une syntaxe qui favorise la lisibilité et la simplicité. Cette approche a conduit à un langage qui est à la fois facile à apprendre pour les débutants et puissant pour les développeurs expérimentés. Python est interprété, ce qui signifie que les scripts sont exécutés ligne par ligne, permettant une débogage et une interaction faciles.</p>
-<p>Sa philosophie, encapsulée dans le <a href="https://peps.python.org/pep-0020/"><strong>“Zen de Python” (PEP 20)</strong></a>, guide la rédaction de programmes efficaces et lisibles. Il s’agit un ensemble de 19 aphorismes pour écrire de bons programmes en Python. Parmi les plus célèbres, on trouve “Beautiful is better than ugly”, “Explicit is better than implicit” et “Simple is better than complex”. Cette philosophie a été un facteur clé dans le succès de Python, en particulier pour les débutants qui peuvent facilement apprendre le langage et écrire des programmes simples et lisibles et est à garder en tête lors de l’écriture de code Python.</p>
+<p>Sa philosophie, encapsulée dans le <a href="https://peps.python.org/pep-0020/"><strong>“Zen de Python” (PEP 20)</strong></a>, guide la rédaction de programmes efficaces et lisibles. Il s’agit un ensemble de 19 aphorismes pour écrire de bons programmes en Python. Parmi les plus célèbres, on trouve “Beautiful is better than ugly”, “Explicit is better than implicit” et “Simple is better than complex”.
+Cette philosophie a été un facteur clé dans le succès de Python, en particulier pour les débutants qui peuvent facilement apprendre le langage et écrire des programmes simples et lisibles et est à garder en tête lors de l’écriture de code Python.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Beautiful is better than ugly.</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Explicit is better than implicit.</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Simple is better than complex.</span>
@@ -356,15 +431,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="b---et-évolution">b - et évolution</h3>
 <p>Mais le language existe depuis 1991, et a donc évolué au fil des années. En effet, les besoins comme les machines ont changé, et comme la langue humaine, le language de programmation a évolué pour s’adapter à ces changements.</p>
 <p>Ce qui est connu de presque tous, c’est que Python a deux grandes versions : Python 2 et Python 3. Python 2 a été largement utilisé et apprécié, mais en 2020, il a été officiellement abandonné au profit de Python 3, qui a été publié en 2008. Et oui, il a fallu 12 ans pour que Python 3 devienne la version officielle de Python, car les différences entre les versions 2 et 3 étaient importantes, et il a fallu du temps pour que les développeurs s’adaptent.</p>
-<p>Cela va de la syntaxe à la gestion de la mémoire, en passant par la gestion des chaînes de caractères et des bibliothèques, et l’un des exemples les plus connus est le passage de <code>print</code> à une fonction, qui a été introduit dans Python 3: - Python 2 : <code>print "Hello World"</code> - Python 3 : <code>print("Hello World")</code></p>
+<p>Cela va de la syntaxe à la gestion de la mémoire, en passant par la gestion des chaînes de caractères et des bibliothèques, et l’un des exemples les plus connus est le passage de <code>print</code> à une fonction, qui a été introduit dans Python 3:
+- Python 2 : <code>print "Hello World"</code>
+- Python 3 : <code>print("Hello World")</code></p>
 <p>D’exterieur, cela peut sembler être un changement mineur, mais au niveau de ce que cela signifie en terme de fonctionnement interne, c’est un changement majeur. En effet, dans Python 2, <code>print</code> est un mot clé, alors que dans Python 3, c’est une fonction. Cela signifie que dans Python 2, <code>print</code> est un mot clé qui est interprété par l’interpréteur Python, alors que dans Python 3, <code>print</code> est une fonction qui est appelée par l’interpréteur Python.</p>
 <p>Cela cache en fait une forme d’uniformisation du code, car Python a la particularité d’être un language objet, et donc tout est un objet, y compris les fonctions. Cela signifie que les fonctions peuvent être passées en paramètre, et donc que les fonctions peuvent être appelées par d’autres fonctions. Cela permet de créer des fonctions qui peuvent être utilisées dans des contextes différents, et donc de réduire la duplication de code.</p>
-<p>Et bien qu’il ai fallu 12 ans pour que Python 3 devienne la version officielle de Python, il a continué d’évoluer, et continue encore aujourd’hui. En effet, Python en est à sa version 3.12, et bien que les changements ne soient pas aussi fondamentaux, les nouvelles capacités dont se dotent le language reste puissantes. On peut ainsi citer l’évolution continue de <strong>L’Asynchronisme en Python :</strong> - <strong>Emergence de l’Asynchronisme</strong>: Python a intégré des concepts d’asynchronisme pour répondre aux besoins modernes en programmation, notamment pour la gestion efficace des opérations I/O et pour le développement d’applications web. - <strong>asyncio en Python 3.5</strong>: Le module <code>asyncio</code> a été introduit dans Python 3.5, marquant un changement significatif dans la gestion de la concurrence et des opérations asynchrones. Il permet d’écrire du code asynchrone en utilisant la syntaxe <code>async</code>/<code>await</code>, facilitant la création de programmes non bloquants. - <strong>Améliorations continues</strong>: Depuis Python 3.5, il y a eu des améliorations continues dans les fonctionnalités asynchrones, rendant Python plus adapté pour des applications nécessitant de hautes performances en matière de concurrence et d’asynchronisme.</p>
+<p>Et bien qu’il ai fallu 12 ans pour que Python 3 devienne la version officielle de Python, il a continué d’évoluer, et continue encore aujourd’hui. En effet, Python en est à sa version 3.12, et bien que les changements ne soient pas aussi fondamentaux, les nouvelles capacités dont se dotent le language reste puissantes. On peut ainsi citer l’évolution continue de <strong>L’Asynchronisme en Python :</strong>
+- <strong>Emergence de l’Asynchronisme</strong>: Python a intégré des concepts d’asynchronisme pour répondre aux besoins modernes en programmation, notamment pour la gestion efficace des opérations I/O et pour le développement d’applications web.
+- <strong>asyncio en Python 3.5</strong>: Le module <code>asyncio</code> a été introduit dans Python 3.5, marquant un changement significatif dans la gestion de la concurrence et des opérations asynchrones. Il permet d’écrire du code asynchrone en utilisant la syntaxe <code>async</code>/<code>await</code>, facilitant la création de programmes non bloquants.
+- <strong>Améliorations continues</strong>: Depuis Python 3.5, il y a eu des améliorations continues dans les fonctionnalités asynchrones, rendant Python plus adapté pour des applications nécessitant de hautes performances en matière de concurrence et d’asynchronisme.</p>
 </section>
 <section id="c---popularité-et-critiques" class="level3">
 <h3 class="anchored" data-anchor-id="c---popularité-et-critiques">c - Popularité et Critiques</h3>
-<p><strong>Pourquoi Python est largement adopté :</strong> 1. <strong>Facilité d’apprentissage et de lecture</strong>: La syntaxe de Python est conçue pour être intuitive et lisible, ce qui rend l’apprentissage du langage plus accessible aux débutants. 2. <strong>Polyvalence</strong>: Python est utilisé dans divers domaines, tels que le développement web, l’analyse de données, l’intelligence artificielle, et la science des données. 3. <strong>Bibliothèques et Frameworks</strong>: Python bénéficie d’un écosystème riche, avec des bibliothèques comme NumPy, Pandas, TensorFlow, et Flask, qui étendent ses capacités. 4. <strong>Communauté active</strong>: Une vaste communauté de développeurs contribue à l’amélioration continue de Python et offre un soutien important via des forums et des ressources en ligne. 5. <strong>Interopérabilité</strong>: Python peut être intégré avec d’autres langages de programmation, ce qui lui permet de s’adapter à divers environnements et exigences de projet.</p>
-<p><strong>Critiques courantes de Python :</strong> 1. <strong>Vitesse d’exécution</strong>: Étant un langage interprété, Python peut être plus lent que les langages compilés comme C ou Java, particulièrement dans les applications nécessitant de lourds calculs. 2. <strong>Gestion de la mémoire</strong>: Python utilise une gestion de mémoire automatique qui peut entraîner une consommation de mémoire plus élevée. 3. <strong>Dépendance aux bibliothèques</strong>: La richesse des bibliothèques Python est à double tranchant. Certains développeurs critiquent la dépendance excessive à des bibliothèques externes pour des fonctionnalités de base. 4. <strong>Limitations en matière de programmation mobile et de jeux</strong>: Python n’est pas le choix principal pour le développement d’applications mobiles et de jeux en raison de sa vitesse et de sa consommation de ressources. 5. <strong>Versionnage</strong>: La transition de Python 2 à Python 3 a créé des problèmes de compatibilité, bien que cela se soit amélioré avec le temps.</p>
+<p><strong>Pourquoi Python est largement adopté :</strong>
+1. <strong>Facilité d’apprentissage et de lecture</strong>: La syntaxe de Python est conçue pour être intuitive et lisible, ce qui rend l’apprentissage du langage plus accessible aux débutants.
+2. <strong>Polyvalence</strong>: Python est utilisé dans divers domaines, tels que le développement web, l’analyse de données, l’intelligence artificielle, et la science des données.
+3. <strong>Bibliothèques et Frameworks</strong>: Python bénéficie d’un écosystème riche, avec des bibliothèques comme NumPy, Pandas, TensorFlow, et Flask, qui étendent ses capacités.
+4. <strong>Communauté active</strong>: Une vaste communauté de développeurs contribue à l’amélioration continue de Python et offre un soutien important via des forums et des ressources en ligne.
+5. <strong>Interopérabilité</strong>: Python peut être intégré avec d’autres langages de programmation, ce qui lui permet de s’adapter à divers environnements et exigences de projet.</p>
+<p><strong>Critiques courantes de Python :</strong>
+1. <strong>Vitesse d’exécution</strong>: Étant un langage interprété, Python peut être plus lent que les langages compilés comme C ou Java, particulièrement dans les applications nécessitant de lourds calculs.
+2. <strong>Gestion de la mémoire</strong>: Python utilise une gestion de mémoire automatique qui peut entraîner une consommation de mémoire plus élevée.
+3. <strong>Dépendance aux bibliothèques</strong>: La richesse des bibliothèques Python est à double tranchant. Certains développeurs critiquent la dépendance excessive à des bibliothèques externes pour des fonctionnalités de base.
+4. <strong>Limitations en matière de programmation mobile et de jeux</strong>: Python n’est pas le choix principal pour le développement d’applications mobiles et de jeux en raison de sa vitesse et de sa consommation de ressources.
+5. <strong>Versionnage</strong>: La transition de Python 2 à Python 3 a créé des problèmes de compatibilité, bien que cela se soit amélioré avec le temps.</p>
 </section>
 <section id="d---comprendre-ces-limites" class="level3">
 <h3 class="anchored" data-anchor-id="d---comprendre-ces-limites">d - Comprendre ces limites</h3>
@@ -375,7 +465,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="e---les-peps" class="level3">
 <h3 class="anchored" data-anchor-id="e---les-peps">e - Les Peps</h3>
 <p>Les PEPs (Python Enhancement Proposals) sont des propositions d’amélioration du langage Python. Ils sont utilisés pour discuter des nouvelles fonctionnalités et des changements de comportement du langage. Ils sont également utilisés pour décrire les normes de codage, les processus de développement et les décisions de conception. Les PEPs sont des documents vivants et peuvent être modifiés à mesure que de nouvelles informations sont disponibles.</p>
-<p>Les PEPs sont numérotés et organisés dans une hiérarchie. Les PEPs sont numérotés de 0 à 9999, et sont organisés en trois catégories : - <strong>Informational PEPs (PEP 0-99)</strong>: Les PEPs informatifs fournissent des informations sur le langage Python ou sur les processus de développement. Ils ne décrivent pas de nouvelles fonctionnalités ou de changements de comportement. - <strong>Process PEPs (PEP 100-199)</strong>: Les PEPs de processus décrivent les processus de développement, les normes de codage et les décisions de conception. - <strong>Standards Track PEPs (PEP 200-9999)</strong>: Les PEPs de la norme de suivi décrivent les nouvelles fonctionnalités et les changements de comportement du langage Python.</p>
+<p>Les PEPs sont numérotés et organisés dans une hiérarchie. Les PEPs sont numérotés de 0 à 9999, et sont organisés en trois catégories :
+- <strong>Informational PEPs (PEP 0-99)</strong>: Les PEPs informatifs fournissent des informations sur le langage Python ou sur les processus de développement. Ils ne décrivent pas de nouvelles fonctionnalités ou de changements de comportement.
+- <strong>Process PEPs (PEP 100-199)</strong>: Les PEPs de processus décrivent les processus de développement, les normes de codage et les décisions de conception.
+- <strong>Standards Track PEPs (PEP 200-9999)</strong>: Les PEPs de la norme de suivi décrivent les nouvelles fonctionnalités et les changements de comportement du langage Python.</p>
 <p>Les PEPs sont écrits en utilisant le format reStructuredText, et sont publiés sur le site web officiel de Python. Les PEPs sont discutés et révisés par la communauté Python, et sont acceptés ou rejetés par le BDFL (Benevolent Dictator For Life), Guido van Rossum.</p>
 <p>Dans les derniers PEPs, l’un pourrait changer radicalement Python, le <a href="https://peps.python.org/pep-0703/">PEP 703 – Making the Global Interpreter Lock Optional in CPython</a> qui propose de supprimer le GIL, et donc de permettre à Python d’être utilisé pour de la programmation parallèle. Cela permettrait à Python de tirer parti des architectures modernes.</p>
 <p><a href="../../content/Cours_1/2-Python_Execution.html"><strong>Cela en tête nous pouvons donc commencer à apprendre Python, et à comprendre comment il fonctionne.</strong></a></p>
@@ -629,11 +722,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Introduction à Python, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></div>   
+    <div class="nav-footer-left">Introduction à Python, Rémi Genet.<br>
+Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br>
+Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></div>
+    <div class="nav-footer-right">Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br>
+Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br>
+<a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></div>
   </div>
 </footer>
 

@@ -6,6 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Rémi Genet">
+<meta name="dcterms.date" content="2024-01-03">
 <meta name="description" content="Explorer les mécanismes sous-jacents à l’exécution d’un programme Python pour une compréhension approfondie des processus de compilation et d’interprétation.">
 
 <title>Introduction à Python - Exécution d’un Programme Python</title>
@@ -33,6 +35,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../../">
 <link href="../../content/Cours_1/3-ManyPythons.html" rel="next">
 <link href="../../content/Cours_1/1-Histoire.html" rel="prev">
+<link href="../..//content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -64,12 +67,25 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background: #e9f3fa;
+      }
+</style>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<meta name="citation_title" content="Exécution d&amp;amp;#039;un Programme Python">
+<meta name="citation_author" content="Rémi Genet">
+<meta name="citation_publication_date" content="2024-01-03">
+<meta name="citation_cover_date" content="2024-01-03">
+<meta name="citation_year" content="2024">
+<meta name="citation_online_date" content="2024-01-03">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Introduction-Python//content/Cours_1/2-Python_Execution.html">
+<meta name="citation_language" content="en">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -123,6 +139,22 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../content/Cours_1/7-Notebooks.html" rel="" target="">
  <span class="dropdown-text">Les Notebooks</span></a>
   </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Quelques IDEs en Python</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/VsCode.html" rel="" target="">
+ <span class="dropdown-text">VsCode - L’IDE Flexible et Polyvalent</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Spyder.html" rel="" target="">
+ <span class="dropdown-text">Spyder - Un IDE Orienté Science des Données</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Pycharm.html" rel="" target="">
+ <span class="dropdown-text">PyCharm - L’IDE orienté Python</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
         <li>
     <a class="dropdown-item" href="../../content/Cours_1/TP-ConstruireSonPython.html" rel="" target="">
  <span class="dropdown-text">TP - Construire son python depuis la source</span></a>
@@ -192,7 +224,44 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Exécution d’un Programme Python</h1>
+                  <div>
+        <div class="description">
+          Explorer les mécanismes sous-jacents à l’exécution d’un programme Python pour une compréhension approfondie des processus de compilation et d’interprétation.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Cours</div>
+                <div class="quarto-category">Introduction</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Rémi Genet </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2024-01-03</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
@@ -239,62 +308,68 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Les Notebooks</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Quelques IDEs en Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/IDEs/VsCode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VsCode - L’IDE Flexible et Polyvalent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/IDEs/Spyder.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spyder - Un IDE Orienté Science des Données</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/IDEs/Pycharm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PyCharm - L’IDE orienté Python</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Travaux Pratiques</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_1/TP-ConstruireSonPython.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TP - Construire son python depuis la source</span></a>
   </div>
 </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#a---un-programme---comment-ca-marche" id="toc-a---un-programme---comment-ca-marche" class="nav-link active" data-scroll-target="#a---un-programme---comment-ca-marche">a - Un programme - Comment ca marche ?</a></li>
-  <li><a href="#b---la-compilation" id="toc-b---la-compilation" class="nav-link" data-scroll-target="#b---la-compilation">b - La compilation ?</a></li>
-  <li><a href="#c---linterprétation" id="toc-c---linterprétation" class="nav-link" data-scroll-target="#c---linterprétation">c - L’interprétation !</a></li>
-  <li><a href="#d---binaire-compilé-et-interprétation-du-code-python" id="toc-d---binaire-compilé-et-interprétation-du-code-python" class="nav-link" data-scroll-target="#d---binaire-compilé-et-interprétation-du-code-python">d - Binaire Compilé et Interprétation du Code Python</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Exécution d’un Programme Python</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">Cours</div>
-    <div class="quarto-category">Introduction</div>
-  </div>
-  </div>
-
-<div>
-  <div class="description">
-    Explorer les mécanismes sous-jacents à l’exécution d’un programme Python pour une compréhension approfondie des processus de compilation et d’interprétation.
-  </div>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-</header>
 
 <section id="a---un-programme---comment-ca-marche" class="level3">
 <h3 class="anchored" data-anchor-id="a---un-programme---comment-ca-marche">a - Un programme - Comment ca marche ?</h3>
-<p>Bien que Python est un language qui nous permettrait de sauter directement les étapes d’apprentissage de la programmation, il est important de comprendre comment un programme fonctionne. Cela nous permettra de mieux comprendre comment le language fonctionne et ainsi gagner par la suite beaucoup de temps à ne pas essuyer les plâtres des lacunes de notre compréhension. Cela par exemple nous permettra de mieux comprendre comment gérer nos packages (les bibliothèques de fonctions) et comment les installer, les versions de ceux-ci ou de python, comment travailler à plusieurs et bien plus encore.</p>
-<p>Pour rester simple, un programme est une suite d’instructions que l’on donne à un ordinateur pour qu’il puisse effectuer une tâche. Ces instructions sont écrites dans un language que l’ordinateur peut comprendre. Ce language est appelé le language machine. Il est composé de 0 et de 1. C’est ce que l’on appelle le binaire. C’est le seul language que l’ordinateur peut comprendre. C’est pourquoi nous avons besoin d’un traducteur pour pouvoir communiquer avec lui. Ce traducteur est appelé un compilateur. Il va traduire le language que nous utilisons en language machine. C’est ce que l’on appelle la compilation. C’est un processus qui se fait en deux étapes. La première étape est la compilation. La deuxième étape est l’exécution. C’est à dire que l’ordinateur va exécuter les instructions que nous lui avons données.</p>
+<p>L’apprentissage de la programmation en Python ne nécessite pas de connaissances préalables en informatique, mais comprendre comment un programme est exécuté est essentiel. Cette compréhension aide à gérer les packages, à résoudre les problèmes de version et à collaborer efficacement.</p>
+<p>Un programme est une série d’instructions écrites dans un langage compréhensible par un ordinateur, connu sous le nom de langage machine, composé de séquences binaires (0 et 1). Pour traduire un langage de haut niveau en langage machine, un processus de compilation est nécessaire.</p>
 </section>
 <section id="b---la-compilation" class="level3">
 <h3 class="anchored" data-anchor-id="b---la-compilation">b - La compilation ?</h3>
@@ -306,8 +381,8 @@ ul.task-list li input[type="checkbox"] {
 <section id="c---linterprétation" class="level3">
 <h3 class="anchored" data-anchor-id="c---linterprétation">c - L’interprétation !</h3>
 <p>Python, comme tout les programmes qui s’execute sur l’ordinateur, provient bien d’un code qui a été compilé à un moment. La différence vient du fait que c’est l’interpreteur qui a été compilé, et qui est un programme va être capable de lire le code python et de le transformé au fur et à mesure en code machine. C’est ce que l’on appelle l’interprétation. C’est un processus qui se fait en deux étapes.</p>
-<p>La première étape est l’analyse lexicale. C’est à dire que l’interpreteur va lire le code source et le découper en morceaux. C’est ce que l’on appelle les tokens. Il va ensuite les analyser pour vérifier que le code source est correcte. C’est à dire qu’il va vérifier que le code source est bien écrit dans le language que l’on a choisi. C’est ce que l’on appelle la syntaxe. Il va aussi vérifier que le code source est logique. C’est à dire qu’il va vérifier que le code source est bien écrit dans le bon ordre. C’est ce que l’on appelle la sémantique. Si le code source n’est pas correcte, l’interpreteur va nous renvoyer une erreur. C’est ce que l’on appelle une erreur d’analyse lexicale. C’est une erreur qui se produit avant l’exécution du programme.</p>
-<p>En Python, l’interpreteur va alors produire un Bytecode. C’est un code intermédiaire qui est plus proche du language machine que le code source, mais qui n’est pas encore du language machine. C’est ce que l’on appelle parfois la compilation, mais cette étape est presque instantanée. Toutefois l’interpreteur stocke quand même ce bytecode pour ne pas le recalculer à chaque fois, vous le verrez dans le dossier <strong>pycache</strong> de vos projets python, qui sera crée automatiquement dès que vous lancerez un code.</p>
+<p>La première étape est <strong>l’analyse lexicale</strong>. C’est à dire que l’interpreteur va lire le code source et le découper en morceaux. C’est ce que l’on appelle les tokens. Il va ensuite les analyser pour vérifier que le code source est correcte. C’est à dire qu’il va vérifier que le code source est bien écrit dans le language que l’on a choisi. C’est ce que l’on appelle la syntaxe. Il va aussi vérifier que le code source est logique. C’est à dire qu’il va vérifier que le code source est bien écrit dans le bon ordre. C’est ce que l’on appelle la sémantique. Si le code source n’est pas correcte, l’interpreteur va nous renvoyer une erreur. C’est ce que l’on appelle une erreur d’analyse lexicale. C’est une erreur qui se produit avant l’exécution du programme.</p>
+<p>En Python, l’interpreteur va alors produire un <strong>Bytecode</strong>. C’est un code intermédiaire qui est plus proche du language machine que le code source, mais qui n’est pas encore du language machine. C’est ce que l’on appelle parfois la compilation, mais cette étape est presque instantanée. Toutefois l’interpreteur stocke quand même ce bytecode pour ne pas le recalculer à chaque fois, vous le verrez dans le dossier <strong>pycache</strong> de vos projets python, qui sera crée automatiquement dès que vous lancerez un code.</p>
 <p>L’interpréteur exécute ce bytecode, ce qui entraîne l’exécution des instructions écrites dans le fichier source. Ce processus diffère de celui des langages compilés comme C ou Java, où le code source est d’abord entièrement transformé en code machine avant l’exécution. En Python, la compilation en bytecode et l’exécution sont des étapes dynamiques, ce qui confère au langage sa flexibilité et sa facilité de débogage, mais aussi impacte sa vitesse d’exécution.</p>
 </section>
 <section id="d---binaire-compilé-et-interprétation-du-code-python" class="level3">
@@ -572,11 +647,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Introduction à Python, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></div>   
+    <div class="nav-footer-left">Introduction à Python, Rémi Genet.<br>
+Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br>
+Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></div>
+    <div class="nav-footer-right">Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br>
+Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br>
+<a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></div>
   </div>
 </footer>
 

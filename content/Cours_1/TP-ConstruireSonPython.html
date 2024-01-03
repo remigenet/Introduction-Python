@@ -6,6 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Rémi Genet">
+<meta name="dcterms.date" content="2024-01-03">
 
 <title>Introduction à Python - TP - Construire son python depuis la source</title>
 <style>
@@ -30,7 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Cours_1/7-Notebooks.html" rel="prev">
+<link href="../../content/Cours_1/IDEs/Pycharm.html" rel="prev">
+<link href="../..//content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -62,12 +65,25 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background: #e9f3fa;
+      }
+</style>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<meta name="citation_title" content="TP - Construire son python depuis la source">
+<meta name="citation_author" content="Rémi Genet">
+<meta name="citation_publication_date" content="2024-01-03">
+<meta name="citation_cover_date" content="2024-01-03">
+<meta name="citation_year" content="2024">
+<meta name="citation_online_date" content="2024-01-03">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Introduction-Python//content/Cours_1/TP-ConstruireSonPython.html">
+<meta name="citation_language" content="en">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -121,6 +137,22 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../content/Cours_1/7-Notebooks.html" rel="" target="">
  <span class="dropdown-text">Les Notebooks</span></a>
   </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Quelques IDEs en Python</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/VsCode.html" rel="" target="">
+ <span class="dropdown-text">VsCode - L’IDE Flexible et Polyvalent</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Spyder.html" rel="" target="">
+ <span class="dropdown-text">Spyder - Un IDE Orienté Science des Données</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Pycharm.html" rel="" target="">
+ <span class="dropdown-text">PyCharm - L’IDE orienté Python</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
         <li>
     <a class="dropdown-item" href="../../content/Cours_1/TP-ConstruireSonPython.html" rel="" target="">
  <span class="dropdown-text">TP - Construire son python depuis la source</span></a>
@@ -183,14 +215,46 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_1/TP-ConstruireSonPython.html">TP - Construire son python depuis la source</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_1/TP-ConstruireSonPython.html">Travaux Pratiques</a></li><li class="breadcrumb-item"><a href="../../content/Cours_1/TP-ConstruireSonPython.html">TP - Construire son python depuis la source</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">TP - Construire son python depuis la source</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">TP</div>
+                <div class="quarto-category">Introduction</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Rémi Genet </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2024-01-03</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
@@ -237,52 +301,67 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Les Notebooks</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Quelques IDEs en Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/IDEs/VsCode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VsCode - L’IDE Flexible et Polyvalent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/IDEs/Spyder.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spyder - Un IDE Orienté Science des Données</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/IDEs/Pycharm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PyCharm - L’IDE orienté Python</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Travaux Pratiques</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_1/TP-ConstruireSonPython.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">TP - Construire son python depuis la source</span></a>
   </div>
 </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#tp---construire-python-depuis-la-source" id="toc-tp---construire-python-depuis-la-source" class="nav-link active" data-scroll-target="#tp---construire-python-depuis-la-source">TP - Construire Python depuis la Source</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">TP - Construire son python depuis la source</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">Cours</div>
-    <div class="quarto-category">Introduction</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
 
 <section id="tp---construire-python-depuis-la-source" class="level3">
 <h3 class="anchored" data-anchor-id="tp---construire-python-depuis-la-source">TP - Construire Python depuis la Source</h3>
+<p>Afin de vous aider pour réaliser ce TP, vous trouverez une fiche sur l’utilisation de git <a href="../../content/Annexes/git_basics.html">ici</a>, ainsi qu’une fiche sur les commandes de base du terminal Linux pour ceux qui n’en ont pas l’habitude <a href="../../content/Annexes/LinuxTerminal.html">ici</a>.</p>
 <section id="partie-1-préparation-et-clonage-du-répertoire-git-de-cpython" class="level4">
 <h4 class="anchored" data-anchor-id="partie-1-préparation-et-clonage-du-répertoire-git-de-cpython">Partie 1 : Préparation et Clonage du Répertoire Git de CPython</h4>
 <p>Le but de cette première partie est de préparer votre environnement pour la compilation de Python et de cloner le répertoire Git de CPython.</p>
@@ -321,7 +400,9 @@ ul.task-list li input[type="checkbox"] {
 <section id="partie-3-compilation-de-python" class="level4">
 <h4 class="anchored" data-anchor-id="partie-3-compilation-de-python">Partie 3 : Compilation de Python</h4>
 <p>La compilation est le processus de transformation du code source en un exécutable.</p>
-<p><strong>Lancement de la Compilation</strong> : - Dans le même dossier, exécutez la commande <code>make</code>. - Cette commande compile le code source de Python. Selon la puissance de votre machine, cela peut prendre un certain temps.</p>
+<p><strong>Lancement de la Compilation</strong> :
+- Dans le même dossier, exécutez la commande <code>make</code>.
+- Cette commande compile le code source de Python. Selon la puissance de votre machine, cela peut prendre un certain temps.</p>
 </section>
 <section id="partie-4-installation-de-python" class="level4">
 <h4 class="anchored" data-anchor-id="partie-4-installation-de-python">Partie 4 : Installation de Python</h4>
@@ -382,7 +463,8 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Ressources et Documentation</strong> :
 <ul>
 <li>La documentation officielle de Python est une ressource précieuse pour comprendre les différents aspects de la compilation de Python.</li>
-<li>Des forums et des communautés en ligne, comme Stack Overflow et les groupes Python, peuvent être des lieux d’échange d’informations et de conseils. #### Conclusion</li>
+<li>Des forums et des communautés en ligne, comme Stack Overflow et les groupes Python, peuvent être des lieux d’échange d’informations et de conseils.
+#### Conclusion</li>
 </ul></li>
 </ol>
 <p>Compiler Python depuis la source offre non seulement une compréhension approfondie du fonctionnement interne de Python, mais permet également une personnalisation avancée du build. Cela peut être particulièrement utile pour les développeurs souhaitant contribuer au code source de Python ou nécessitant des versions spécifiques pour leurs projets.</p>
@@ -627,8 +709,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../content/Cours_1/7-Notebooks.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Les Notebooks</span>
+      <a href="../../content/Cours_1/IDEs/Pycharm.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">PyCharm - L’IDE orienté Python</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -637,11 +719,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Introduction à Python, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></div>   
+    <div class="nav-footer-left">Introduction à Python, Rémi Genet.<br>
+Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br>
+Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></div>
+    <div class="nav-footer-right">Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br>
+Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br>
+<a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></div>
   </div>
 </footer>
 
