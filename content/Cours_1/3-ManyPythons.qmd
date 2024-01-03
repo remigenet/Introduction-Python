@@ -27,9 +27,9 @@ Python, en tant que langage, existe sous différentes implémentations, chacune 
    - **Caractéristiques**: Il offre un bon équilibre entre performance et facilité d'utilisation et possède le plus grand nombre de bibliothèques tierces disponibles. Mais, comme vu dans la partie 1, c'est aussi une version qui repose actuellement sur le GIL.
 
 2. **Jython**:
-   - **Description**: Jython est une implémentation de Python écrite pour fonctionner sur la machine virtuelle Java (JVM).
+   - **Description**: Jython est conçu pour la machine virtuelle Java (JVM), permettant l'intégration avec des environnements Java. Contrairement à CPython, Jython n'est pas restreint par le GIL, ce qui le rend plus adapté pour des applications nécessitant du multithreading.
    - **Utilisation**: Elle permet aux développeurs d'utiliser des bibliothèques Java dans leurs programmes Python et vice-versa.
-   - **Caractéristiques**: Jython est particulièrement utile pour les applications nécessitant l'intégration de Python avec des environnements Java existants. Cette version elle ne dépend pas du GIL, Java étant d'ailleurs bien plus adapté que Python pour l'utilisation de multithreading. 
+   - **Caractéristiques**: Jython est particulièrement utile pour les applications nécessitant l'intégration de Python avec des environnements Java existants. 
 
 3. **IronPython**:
    - **Description**: IronPython est conçu pour être compatible avec le Common Language Runtime (CLR) de Microsoft .NET.
@@ -41,7 +41,7 @@ Python, en tant que langage, existe sous différentes implémentations, chacune 
    - **Utilisation**: Utilisée principalement lorsque la vitesse d'exécution est critique.
    - **Caractéristiques**: PyPy utilise la compilation JIT (Just-In-Time) pour accélérer l'exécution des programmes Python. Cela peut entraîner des performances nettement meilleures, en particulier pour les programmes lourds en calcul. Attention toutefois à ne pas confondre vitesse et précipitations, cette versions repose toutefois toujours sur le GIL.
 
-Chacune de ces implémentations présente des avantages uniques et peut être choisie en fonction des besoins spécifiques d'un projet. CPython reste l'implémentation la plus populaire, mais les autres offrent des options précieuses pour l'intégration avec d'autres langages et plateformes, ainsi que pour des améliorations de performance.
+Chaque implémentation a ses avantages et peut être choisie selon les exigences spécifiques d'un projet. CPython reste l'implémentation dominante, mais les autres offrent des alternatives précieuses pour divers cas d'utilisation.
 
 ### b - Pourquoi PyPy ne remplace pas complètement CPython: Différences et Limitations
 
@@ -74,7 +74,7 @@ Bien que ces versions n'offrent pas toujours les même possibilités, le languag
 
 ### c - Compiler un Code Python: Cloner et Construire CPython
 Nous avons vu la théorie, mais dans la pratique, très peu de développeur ont recompiler leur binaire de python. Mais, où trouver le code ? Le compilateur ? Y-a-t-il un interet à compiler Python soit même, dans la vie de tout les jours du développeur NON, l'intérêt reste marginale, mais pour autant:
-   - Il y a un interet **pédagique** - cela permet de comprendre comment compiler depuis la source (le code brut), installer un binaire etc... Ainsi cela peut vous permettre d'ajouter par exemple sans droit administrateur des versions de python de votre choix, par exemple à l'université ! 
+   - Il y a un interet **pédagogique** - cela permet de comprendre comment compiler depuis la source (le code brut), installer un binaire etc... Ainsi cela peut vous permettre d'ajouter par exemple sans droit administrateur des versions de python de votre choix, par exemple à l'université ! 
    - Cela peut permettre d'améliorer la performance de votre intepreteur, celui-ci étant alors compilé spécficiquement pour votre PC, les compilateurs proposant par exemple l'utilisation de la PGO (Profile Guided Optimization), où l'interet est d'améliorer le premier binaire créer après l'avoir fait tourner sur la machine sur une charge de travail représentative pour le rendre plus performant. 
    - Profiter des améliorations de Python qui n'ont pas encore été intégré - possiblements des mois avant qu'ils ne soient disponibles 
 

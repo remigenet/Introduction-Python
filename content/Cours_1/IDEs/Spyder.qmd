@@ -1,5 +1,5 @@
 ---
-title: "Spyder - un IDE simple pour débuter"
+title: "Spyder - Un IDE Orienté Science des Données"
 weight: 10
 tags:
   - Basics
@@ -8,14 +8,12 @@ tags:
   - Versions
   - Introduction
 categories:
-  - Cours
-  - Introduction
+  - Utils
+  - IDEs
 type: book
 description: Avant de se lancer
 image: ../.img/spyder.png
 ---
-### Spyder - Un IDE Orienté Science des Données pour Python
-
 #### Présentation de Spyder
 
 Spyder est un Environnement de Développement Intégré (IDE) créé spécifiquement pour répondre aux besoins des scientifiques, des ingénieurs et des analystes de données qui utilisent Python. Il se distingue par son orientation vers la science des données, offrant des outils et fonctionnalités adaptés à ce domaine.

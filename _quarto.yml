@@ -3,6 +3,7 @@ project:
 
 website:
   title: "Introduction à Python"
+  favicon: /content/.img/favicon.png
   page-navigation: true
   back-to-top-navigation: true
   reader-mode: true
@@ -27,7 +28,25 @@ website:
       href: index.qmd
     - id: introduction
       title: "Comprendre Et Installer Python"
-      contents: content/Cours_1/*.qmd
+      contents: 
+      - content/Cours_1/1-Histoire.qmd
+      - content/Cours_1/2-Python_Execution.qmd
+      - content/Cours_1/3-ManyPythons.qmd
+      - content/Cours_1/4-Path.qmd
+      - content/Cours_1/5-PathandVirtualEnv.qmd
+      - content/Cours_1/6-IDEs.qmd
+      - content/Cours_1/7-Notebooks.qmd
+      - section: Quelques IDEs en Python
+        expanded: false
+        contents:
+        - content/Cours_1/IDEs/VsCode.qmd
+        - content/Cours_1/IDEs/Spyder.qmd
+        - content/Cours_1/IDEs/Pycharm.qmd
+      - section: Travaux Pratiques
+        expanded: false
+        contents:
+        - content/Cours_1/TP-ConstruireSonPython.qmd
+      icon: book
     - id: discover 
       title: "Premiers pas"
       contents: content/Cours_2/*.qmd
@@ -49,23 +68,43 @@ website:
 
 
 
+crossref:
+  chapters: true
+
+format-links: false
+author: Rémi Genet
+date: today
+date-format: iso
+page-layout: article
+title-block-banner: "#e9f3fa"
+
+validate-yaml: false
+jupyter: python3
+
+wrap: preserve
+keep-ipynb: true
+#cache: true
 
 
-format:
-  html:
-    theme: cosmo
-    css: styles.css
-    toc: true
-    code-overflow: wrap
-    # embed-resources: true
+google-scholar: true
+
+commentable: true
+
+# format:
+#   html:
+#     theme: cosmo
+#     css: styles.css
+#     toc: true
+#     code-overflow: wrap
+#     embed-resources: true
   
 
 
-date-format: iso
-page-layout: article
+# date-format: iso
+# page-layout: article
 
 # validate-yaml: false
-# jupyter: python3
+# # jupyter: python3
 
 # wrap: preserve
 # keep-ipynb: true

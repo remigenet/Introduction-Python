@@ -11,7 +11,7 @@ categories:
   - Git
 type: book
 description: Git a su s'imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d'option avancé.
-image: .img/history.png
+image: .img/gitadvanced.png
 ---
 
 

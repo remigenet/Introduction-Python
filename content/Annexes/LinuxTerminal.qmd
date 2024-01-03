@@ -11,7 +11,7 @@ categories:
   - Git
 type: book
 description: "Utiliser le terminal Linux - les bases de bash"
-image: .img/history.png
+image: .img/linuxbash.png
 ---
 
 

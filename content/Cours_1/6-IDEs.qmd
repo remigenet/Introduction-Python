@@ -69,3 +69,6 @@ Le choix d'un IDE dépend de plusieurs facteurs :
 
 Les IDEs jouent un rôle essentiel dans le développement moderne en fournissant un environnement riche et intégré pour le codage, le test, le débogage et le déploiement de logiciels. Pour les développeurs Python, le choix d'un IDE adapté peut grandement affecter l'efficacité et la qualité du processus de développement.
 
+[Pycharm](IDEs/Pycharm.qmd)
+[Spyder](IDEs/Spyder.qmd)
+[VsCode](IDEs/VsCode.qmd)

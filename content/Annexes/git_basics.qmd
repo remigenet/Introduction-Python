@@ -11,7 +11,7 @@ categories:
   - Git
 type: book
 description: Git c'est imposé comme un incontournable pour le développement, et ne concerne désormais plus que les developeurs mais également l'ensemble des datascientist. En maitriser les bases est ainsi presque indispensable, même si les premières utilisations ne sont rarement de bon souvenirs.
-image: .img/history.png
+image: .img/gitbasics.png
 ---
 
 ### Document de Cours : Guide Détaillé sur Git pour les Débutants
