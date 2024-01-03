@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Python est un langage de programmation qui a su gagner sa crédibilité grâce à sa simplicité et sa flexibilité. Bien qu’il ne soit pas l’un des plus anciens langages encore utilisés, il est largement adopté dans de nombreux domaines. Comprendre l’histoire de Python permet de comprendre ses choix de conception, son fonctionnement et sa direction future. Dans ce chapitre, nous allons explorer l’histoire de Python, sa popularité et ses critiques, et son évolution de Python 2 à Python 3 et au-delà.">
+
+<title>Introduction à Python - Histoire du Langage</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../content/Cours_1/2-Python_Execution.html" rel="next">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Introduction à Python</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Introduction</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/1-Histoire.html" rel="" target="">
+ <span class="dropdown-text">Histoire du Langage</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/2-Python_Execution.html" rel="" target="">
+ <span class="dropdown-text">Exécution d’un Programme Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/3-ManyPythons.html" rel="" target="">
+ <span class="dropdown-text">Versions et Compilation de Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/4-Path.html" rel="" target="">
+ <span class="dropdown-text">Le PATH</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/5-PathandVirtualEnv.html" rel="" target="">
+ <span class="dropdown-text">Path.. et environnements virtuels!</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/6-IDEs.html" rel="" target="">
+ <span class="dropdown-text">Les IDEs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/7-Notebooks.html" rel="" target="">
+ <span class="dropdown-text">Les Notebooks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-decouvrir" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Decouvrir</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-decouvrir">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/sometest.html" rel="" target="">
+ <span class="dropdown-text">This is a test</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/remigenet/Introduction-Python">
+            Code source
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_1/1-Histoire.html">Histoire du Langage</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/1-Histoire.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Histoire du Langage</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/2-Python_Execution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exécution d’un Programme Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/3-ManyPythons.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Versions et Compilation de Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/4-Path.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Le PATH</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/5-PathandVirtualEnv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Path.. et environnements virtuels!</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/6-IDEs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les IDEs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/7-Notebooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les Notebooks</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#a---origines" id="toc-a---origines" class="nav-link active" data-scroll-target="#a---origines">a - Origines</a></li>
+  <li><a href="#b---et-évolution" id="toc-b---et-évolution" class="nav-link" data-scroll-target="#b---et-évolution">b - et évolution</a></li>
+  <li><a href="#c---popularité-et-critiques" id="toc-c---popularité-et-critiques" class="nav-link" data-scroll-target="#c---popularité-et-critiques">c - Popularité et Critiques</a></li>
+  <li><a href="#d---comprendre-ces-limites" id="toc-d---comprendre-ces-limites" class="nav-link" data-scroll-target="#d---comprendre-ces-limites">d - Comprendre ces limites</a></li>
+  <li><a href="#e---les-peps" id="toc-e---les-peps" class="nav-link" data-scroll-target="#e---les-peps">e - Les Peps</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Histoire du Langage</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Cours</div>
+    <div class="quarto-category">Introduction</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p><code>Python</code> est un langage de programmation qui a su gagner sa crédibilité grâce à sa simplicité et sa flexibilité. Bien qu’il ne soit pas l’un des plus anciens langages encore utilisés, il est largement adopté dans de nombreux domaines. Comprendre l’histoire de Python permet de comprendre ses choix de conception, son fonctionnement et sa direction future. Dans ce chapitre, nous allons explorer l’histoire de Python, sa popularité et ses critiques, et son évolution de Python 2 à Python 3 et au-delà.</p>
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="a---origines" class="level3">
+<h3 class="anchored" data-anchor-id="a---origines">a - Origines</h3>
+<p>Python, un langage de programmation haut niveau, a été créé par Guido van Rossum et sa première version a été publiée en 1991. L’objectif principal de Python était de combiner une syntaxe claire avec une puissance remarquable. Il est nommé d’après la série télévisée britannique “Monty Python’s Flying Circus”, reflétant l’approche amusée de Van Rossum envers la programmation.</p>
+<p>Python a évolué au fil des années, en gardant son principe directeur : une syntaxe qui favorise la lisibilité et la simplicité. Cette approche a conduit à un langage qui est à la fois facile à apprendre pour les débutants et puissant pour les développeurs expérimentés. Python est interprété, ce qui signifie que les scripts sont exécutés ligne par ligne, permettant une débogage et une interaction faciles.</p>
+<p>La philosophie de Python est encapsulée dans le <strong>“Zen de Python” (PEP 20)</strong>, un ensemble de 19 aphorismes pour écrire de bons programmes en Python. Parmi les plus célèbres, on trouve “Beautiful is better than ugly”, “Explicit is better than implicit” et “Simple is better than complex”. Cette philosophie a été un facteur clé dans le succès de Python, en particulier pour les débutants qui peuvent facilement apprendre le langage et écrire des programmes simples et lisibles et est à garder en tête lors de l’écriture de code Python.</p>
+<p>Pour autant, bien que simple à prendre en main, Python est un langage puissant qui pour être réellement maîtrisé et compris dans sa globalité nécessite de la pratique et de l’expérience. De par son fonctionnement interne, le language permet ainsi à des développeurs expérimentés de trouver des solutions élégantes et efficaces à des problèmes complexes, qui serviront ensuite de base à des bibliothèques et frameworks utilisés par des développeurs bien moins expérimentés qui ne se douteront pas une seconde de ce qui se cache en dessous.</p>
+<p>En résumé, le succès de Python repose sur plusieurs facteurs : sa simplicité, sa polyvalence (il est utilisé dans le développement web, l’analyse de données, l’intelligence artificielle, la science des données, et bien d’autres domaines), et une communauté active qui contribue à un écosystème riche en bibliothèques et frameworks.</p>
+</section>
+<section id="b---et-évolution" class="level3">
+<h3 class="anchored" data-anchor-id="b---et-évolution">b - et évolution</h3>
+<p>Mais le language existe depuis 1991, et a donc évolué au fil des années. En effet, les besoins comme les machines ont changé, et comme la langue humaine, le language de programmation a évolué pour s’adapter à ces changements.</p>
+<p>Ce qui est connu de presque tous, c’est que Python a deux grandes versions : Python 2 et Python 3. Python 2 a été largement utilisé et apprécié, mais en 2020, il a été officiellement abandonné au profit de Python 3, qui a été publié en 2008. Et oui, il a fallu 12 ans pour que Python 3 devienne la version officielle de Python, car les différences entre les versions 2 et 3 étaient importantes, et il a fallu du temps pour que les développeurs s’adaptent.</p>
+<p>Cela va de la syntaxe à la gestion de la mémoire, en passant par la gestion des chaînes de caractères et des bibliothèques, et l’un des exemples les plus connus est le passage de <code>print</code> à une fonction, qui a été introduit dans Python 3: - Python 2 : <code>print "Hello World"</code> - Python 3 : <code>print("Hello World")</code></p>
+<p>D’exterieur, cela peut sembler être un changement mineur, mais au niveau de ce que cela signifie en terme de fonctionnement interne, c’est un changement majeur. En effet, dans Python 2, <code>print</code> est un mot clé, alors que dans Python 3, c’est une fonction. Cela signifie que dans Python 2, <code>print</code> est un mot clé qui est interprété par l’interpréteur Python, alors que dans Python 3, <code>print</code> est une fonction qui est appelée par l’interpréteur Python.</p>
+<p>Cela cache en fait une forme d’uniformisation du code, car Python a la particularité d’être un language objet, et donc tout est un objet, y compris les fonctions. Cela signifie que les fonctions peuvent être passées en paramètre, et donc que les fonctions peuvent être appelées par d’autres fonctions. Cela permet de créer des fonctions qui peuvent être utilisées dans des contextes différents, et donc de réduire la duplication de code.</p>
+<p>Et bien qu’il ai fallu 12 ans pour que Python 3 devienne la version officielle de Python, il a continué d’évoluer, et continue encore aujourd’hui. En effet, Python en est à sa version 3.12, et bien que les changements ne soient pas aussi fondamentaux, les nouvelles capacités dont se dotent le language reste puissantes. On peut ainsi citer l’évolution continue de <strong>L’Asynchronisme en Python :</strong> - <strong>Emergence de l’Asynchronisme</strong>: Python a intégré des concepts d’asynchronisme pour répondre aux besoins modernes en programmation, notamment pour la gestion efficace des opérations I/O et pour le développement d’applications web. - <strong>asyncio en Python 3.5</strong>: Le module <code>asyncio</code> a été introduit dans Python 3.5, marquant un changement significatif dans la gestion de la concurrence et des opérations asynchrones. Il permet d’écrire du code asynchrone en utilisant la syntaxe <code>async</code>/<code>await</code>, facilitant la création de programmes non bloquants. - <strong>Améliorations continues</strong>: Depuis Python 3.5, il y a eu des améliorations continues dans les fonctionnalités asynchrones, rendant Python plus adapté pour des applications nécessitant de hautes performances en matière de concurrence et d’asynchronisme.</p>
+</section>
+<section id="c---popularité-et-critiques" class="level3">
+<h3 class="anchored" data-anchor-id="c---popularité-et-critiques">c - Popularité et Critiques</h3>
+<p><strong>Pourquoi Python est largement adopté :</strong> 1. <strong>Facilité d’apprentissage et de lecture</strong>: La syntaxe de Python est conçue pour être intuitive et lisible, ce qui rend l’apprentissage du langage plus accessible aux débutants. 2. <strong>Polyvalence</strong>: Python est utilisé dans divers domaines, tels que le développement web, l’analyse de données, l’intelligence artificielle, et la science des données. 3. <strong>Bibliothèques et Frameworks</strong>: Python bénéficie d’un écosystème riche, avec des bibliothèques comme NumPy, Pandas, TensorFlow, et Flask, qui étendent ses capacités. 4. <strong>Communauté active</strong>: Une vaste communauté de développeurs contribue à l’amélioration continue de Python et offre un soutien important via des forums et des ressources en ligne. 5. <strong>Interopérabilité</strong>: Python peut être intégré avec d’autres langages de programmation, ce qui lui permet de s’adapter à divers environnements et exigences de projet.</p>
+<p><strong>Critiques courantes de Python :</strong> 1. <strong>Vitesse d’exécution</strong>: Étant un langage interprété, Python peut être plus lent que les langages compilés comme C ou Java, particulièrement dans les applications nécessitant de lourds calculs. 2. <strong>Gestion de la mémoire</strong>: Python utilise une gestion de mémoire automatique qui peut entraîner une consommation de mémoire plus élevée. 3. <strong>Dépendance aux bibliothèques</strong>: La richesse des bibliothèques Python est à double tranchant. Certains développeurs critiquent la dépendance excessive à des bibliothèques externes pour des fonctionnalités de base. 4. <strong>Limitations en matière de programmation mobile et de jeux</strong>: Python n’est pas le choix principal pour le développement d’applications mobiles et de jeux en raison de sa vitesse et de sa consommation de ressources. 5. <strong>Versionnage</strong>: La transition de Python 2 à Python 3 a créé des problèmes de compatibilité, bien que cela se soit amélioré avec le temps.</p>
+</section>
+<section id="d---comprendre-ces-limites" class="level3">
+<h3 class="anchored" data-anchor-id="d---comprendre-ces-limites">d - Comprendre ces limites</h3>
+<p>Ces limites viennent de l’histoire du language, et de ses choix de conception. D’une part, Python est un language interprété, et donc il est plus lent que les languages compilés. Cela vient du fait que l’interpréteur Python doit lire le code, le comprendre, et l’exécuter, alors qu’un compilateur va transformer le code en langage machine, et donc le code est directement exécutable.</p>
+<p>Cela vient du typage dynamique de Python, qui permet de ne pas avoir à déclarer le type des variables, et donc de ne pas avoir à réserver de la mémoire pour ces variables. Cela permet de ne pas avoir à se soucier de la mémoire, mais cela a un coût, car l’interpréteur Python doit déterminer le type des variables à l’exécution, et donc cela prend du temps.</p>
+<p>Et cela vient du fait que la language a été développé à une époque où les ordinateurs n’avaient qu’un seul CPU, et donc ne pouvaient exécuter qu’une seule instruction à la fois. Cela a conduit à un language qui n’est pas adapté à la programmation parallèle, et donc qui ne peut pas tirer parti des architectures modernes qui ont plusieurs CPU, et donc peuvent exécuter plusieurs instructions en même temps, du moins pas de la même façon que le peut un language comme C. Ce problème est très connu et se nomme le GIL (Global Interpreter Lock), il est un problème qui est connu depuis longtemps, mais qui n’a pas encore été résolu. Un peu de lecture, pour les plus curieux : <a href="https://realpython.com/python-gil/">Python GIL</a>, <a href="https://wiki.python.org/moin/GlobalInterpreterLock">Python GIL</a>, <a href="https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/gil/gil.md">Python GIL</a></p>
+</section>
+<section id="e---les-peps" class="level3">
+<h3 class="anchored" data-anchor-id="e---les-peps">e - Les Peps</h3>
+<p>Les PEPs (Python Enhancement Proposals) sont des propositions d’amélioration du langage Python. Ils sont utilisés pour discuter des nouvelles fonctionnalités et des changements de comportement du langage. Ils sont également utilisés pour décrire les normes de codage, les processus de développement et les décisions de conception. Les PEPs sont des documents vivants et peuvent être modifiés à mesure que de nouvelles informations sont disponibles.</p>
+<p>Les PEPs sont numérotés et organisés dans une hiérarchie. Les PEPs sont numérotés de 0 à 9999, et sont organisés en trois catégories : - <strong>Informational PEPs (PEP 0-99)</strong>: Les PEPs informatifs fournissent des informations sur le langage Python ou sur les processus de développement. Ils ne décrivent pas de nouvelles fonctionnalités ou de changements de comportement. - <strong>Process PEPs (PEP 100-199)</strong>: Les PEPs de processus décrivent les processus de développement, les normes de codage et les décisions de conception. - <strong>Standards Track PEPs (PEP 200-9999)</strong>: Les PEPs de la norme de suivi décrivent les nouvelles fonctionnalités et les changements de comportement du langage Python.</p>
+<p>Les PEPs sont écrits en utilisant le format reStructuredText, et sont publiés sur le site web officiel de Python. Les PEPs sont discutés et révisés par la communauté Python, et sont acceptés ou rejetés par le BDFL (Benevolent Dictator For Life), Guido van Rossum.</p>
+<p>Dans les derniers PEPs, l’un pourrait changer radicalement Python, le <a href="https://peps.python.org/pep-0703/">PEP 703 – Making the Global Interpreter Lock Optional in CPython</a> qui propose de supprimer le GIL, et donc de permettre à Python d’être utilisé pour de la programmation parallèle. Cela permettrait à Python de tirer parti des architectures modernes.</p>
+<p><a href="../../content/Cours_1/2-Python_Execution.html"><strong>Cela en tête nous pouvons donc commencer à apprendre Python, et à comprendre comment il fonctionne.</strong></a></p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/Cours_1/2-Python_Execution.html" class="pagination-link">
+        <span class="nav-page-text">Exécution d’un Programme Python</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Introduction à Python, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

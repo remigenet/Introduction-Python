@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Avant de se lancer">
+
+<title>Introduction à Python - Versions et Compilation de Python</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../content/Cours_1/4-Path.html" rel="next">
+<link href="../../content/Cours_1/2-Python_Execution.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Introduction à Python</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Introduction</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/1-Histoire.html" rel="" target="">
+ <span class="dropdown-text">Histoire du Langage</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/2-Python_Execution.html" rel="" target="">
+ <span class="dropdown-text">Exécution d’un Programme Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/3-ManyPythons.html" rel="" target="">
+ <span class="dropdown-text">Versions et Compilation de Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/4-Path.html" rel="" target="">
+ <span class="dropdown-text">Le PATH</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/5-PathandVirtualEnv.html" rel="" target="">
+ <span class="dropdown-text">Path.. et environnements virtuels!</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/6-IDEs.html" rel="" target="">
+ <span class="dropdown-text">Les IDEs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/7-Notebooks.html" rel="" target="">
+ <span class="dropdown-text">Les Notebooks</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-decouvrir" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Decouvrir</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-decouvrir">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/sometest.html" rel="" target="">
+ <span class="dropdown-text">This is a test</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/remigenet/Introduction-Python">
+            Code source
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_1/3-ManyPythons.html">Versions et Compilation de Python</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/1-Histoire.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Histoire du Langage</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/2-Python_Execution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exécution d’un Programme Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/3-ManyPythons.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Versions et Compilation de Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/4-Path.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Le PATH</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/5-PathandVirtualEnv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Path.. et environnements virtuels!</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/6-IDEs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les IDEs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/7-Notebooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les Notebooks</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#versions-et-compilation-de-python" id="toc-versions-et-compilation-de-python" class="nav-link active" data-scroll-target="#versions-et-compilation-de-python">3. Versions et Compilation de Python</a>
+  <ul class="collapse">
+  <li><a href="#a---les-différentes-saveurs-de-python-cpython-jython-ironpython-pypy" id="toc-a---les-différentes-saveurs-de-python-cpython-jython-ironpython-pypy" class="nav-link" data-scroll-target="#a---les-différentes-saveurs-de-python-cpython-jython-ironpython-pypy">a - Les Différentes “Saveurs” de Python: CPython, Jython, IronPython, PyPy</a></li>
+  <li><a href="#b---pourquoi-pypy-ne-remplace-pas-complètement-cpython-différences-et-limitations" id="toc-b---pourquoi-pypy-ne-remplace-pas-complètement-cpython-différences-et-limitations" class="nav-link" data-scroll-target="#b---pourquoi-pypy-ne-remplace-pas-complètement-cpython-différences-et-limitations">b - Pourquoi PyPy ne remplace pas complètement CPython: Différences et Limitations</a></li>
+  </ul></li>
+  <li><a href="#c---compiler-un-code-python-cloner-et-construire-cpython" id="toc-c---compiler-un-code-python-cloner-et-construire-cpython" class="nav-link" data-scroll-target="#c---compiler-un-code-python-cloner-et-construire-cpython">c - Compiler un Code Python: Cloner et Construire CPython</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Versions et Compilation de Python</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Cours</div>
+    <div class="quarto-category">Introduction</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Avant de se lancer
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="versions-et-compilation-de-python" class="level2">
+<h2 class="anchored" data-anchor-id="versions-et-compilation-de-python">3. Versions et Compilation de Python</h2>
+<section id="a---les-différentes-saveurs-de-python-cpython-jython-ironpython-pypy" class="level3">
+<h3 class="anchored" data-anchor-id="a---les-différentes-saveurs-de-python-cpython-jython-ironpython-pypy">a - Les Différentes “Saveurs” de Python: CPython, Jython, IronPython, PyPy</h3>
+<p>Python, en tant que langage, existe sous différentes implémentations, chacune ayant des caractéristiques uniques adaptées à des besoins spécifiques. Voici quelques-unes des plus connues :</p>
+<ol type="1">
+<li><strong>CPython</strong>:
+<ul>
+<li><strong>Description</strong>: CPython est l’implémentation standard et la plus couramment utilisée de Python. Elle est écrite en C et est l’implémentation de référence du langage.</li>
+<li><strong>Utilisation</strong>: Idéal pour des applications générales, CPython est souvent utilisé pour le développement de logiciels et l’écriture de scripts.</li>
+<li><strong>Caractéristiques</strong>: Il offre un bon équilibre entre performance et facilité d’utilisation et possède le plus grand nombre de bibliothèques tierces disponibles.</li>
+</ul></li>
+<li><strong>Jython</strong>:
+<ul>
+<li><strong>Description</strong>: Jython est une implémentation de Python écrite pour fonctionner sur la machine virtuelle Java (JVM).</li>
+<li><strong>Utilisation</strong>: Elle permet aux développeurs d’utiliser des bibliothèques Java dans leurs programmes Python et vice-versa.</li>
+<li><strong>Caractéristiques</strong>: Jython est particulièrement utile pour les applications nécessitant l’intégration de Python avec des environnements Java existants.</li>
+</ul></li>
+<li><strong>IronPython</strong>:
+<ul>
+<li><strong>Description</strong>: IronPython est conçu pour être compatible avec le Common Language Runtime (CLR) de Microsoft .NET.</li>
+<li><strong>Utilisation</strong>: Cette implémentation permet d’utiliser des bibliothèques .NET dans des programmes Python et d’intégrer Python dans des applications .NET.</li>
+<li><strong>Caractéristiques</strong>: IronPython est idéal pour les développeurs travaillant dans l’écosystème .NET et souhaitant utiliser Python.</li>
+</ul></li>
+<li><strong>PyPy</strong>:
+<ul>
+<li><strong>Description</strong>: PyPy est une implémentation de Python axée sur la performance et l’efficacité.</li>
+<li><strong>Utilisation</strong>: Utilisée principalement lorsque la vitesse d’exécution est critique.</li>
+<li><strong>Caractéristiques</strong>: PyPy utilise la compilation JIT (Just-In-Time) pour accélérer l’exécution des programmes Python. Cela peut entraîner des performances nettement meilleures, en particulier pour les programmes lourds en calcul.</li>
+</ul></li>
+</ol>
+<p>Chacune de ces implémentations présente des avantages uniques et peut être choisie en fonction des besoins spécifiques d’un projet. CPython reste l’implémentation la plus populaire, mais les autres offrent des options précieuses pour l’intégration avec d’autres langages et plateformes, ainsi que pour des améliorations de performance.</p>
+</section>
+<section id="b---pourquoi-pypy-ne-remplace-pas-complètement-cpython-différences-et-limitations" class="level3">
+<h3 class="anchored" data-anchor-id="b---pourquoi-pypy-ne-remplace-pas-complètement-cpython-différences-et-limitations">b - Pourquoi PyPy ne remplace pas complètement CPython: Différences et Limitations</h3>
+<p>Bien que PyPy offre des améliorations significatives en termes de performance grâce à son approche JIT (Just-In-Time), il y a plusieurs raisons pour lesquelles il ne remplace pas complètement CPython :</p>
+<ol type="1">
+<li><strong>Compatibilité avec les Extensions C</strong>:
+<ul>
+<li><strong>CPython</strong>: Étant l’implémentation de référence, CPython jouit d’une excellente compatibilité avec les extensions écrites en C. Ces extensions sont largement utilisées dans l’écosystème Python pour améliorer les performances et pour l’interaction avec des systèmes de bas niveau.</li>
+<li><strong>PyPy</strong>: PyPy a des difficultés à intégrer certaines extensions C, notamment celles qui sont étroitement liées aux détails internes de CPython. Cette limitation peut poser des problèmes de compatibilité avec des bibliothèques importantes.</li>
+</ul></li>
+<li><strong>Performance dans Certaines Situations</strong>:
+<ul>
+<li><strong>CPython</strong>: Fournit des performances stables et prévisibles sur une large gamme d’applications. Pour des tâches spécifiques, en particulier celles qui impliquent beaucoup d’appels à des bibliothèques C, CPython peut être plus rapide.</li>
+<li><strong>PyPy</strong>: Excellente performance pour les programmes Python purs, mais peut être moins performant dans des scénarios mixtes (Python et C) ou pour des scripts courts où l’overhead de JIT n’est pas amorti.</li>
+</ul></li>
+<li><strong>Consommation de Mémoire</strong>:
+<ul>
+<li><strong>PyPy</strong>: En raison de sa nature JIT, PyPy peut consommer plus de mémoire que CPython, en particulier pour des programmes de longue durée où le compilateur JIT génère et stocke de nombreuses versions optimisées de morceaux de code.</li>
+</ul></li>
+<li><strong>Adoption et Support de la Communauté</strong>:
+<ul>
+<li><strong>CPython</strong>: Bénéficie d’une adoption massive et d’un support étendu de la part de la communauté Python. La plupart des développements, des tutoriels, et des supports se concentrent sur CPython.</li>
+<li><strong>PyPy</strong>: Bien que gagnant en popularité, PyPy ne jouit pas du même niveau de support communautaire, et certains développeurs peuvent être moins familiers avec ses particularités.</li>
+</ul></li>
+<li><strong>Cas d’Utilisation Spécifique</strong>:
+<ul>
+<li><strong>PyPy</strong>: Idéal pour des applications à longue durée d’exécution et intensives en calcul, où les avantages de JIT peuvent être pleinement exploités.</li>
+<li><strong>CPython</strong>: Mieux adapté pour des applications générales, des scripts de courte durée, et des cas où la compatibilité avec l’écosystème existant est cruciale.</li>
+</ul></li>
+</ol>
+<p>En résumé, bien que PyPy soit une alternative puissante à CPython, surtout en termes de vitesse d’exécution pour certains types de programmes, il ne peut pas remplacer complètement CPython en raison de problèmes de compatibilité, de différences de performance dans certains scénarios, et de la prévalence de CPython dans la communauté Python.</p>
+</section>
+</section>
+<section id="c---compiler-un-code-python-cloner-et-construire-cpython" class="level2">
+<h2 class="anchored" data-anchor-id="c---compiler-un-code-python-cloner-et-construire-cpython">c - Compiler un Code Python: Cloner et Construire CPython</h2>
+<p>Compiler Python à partir du code source permet de comprendre le processus sous-jacent et d’adapter l’installation aux besoins spécifiques. Voici les étapes pour compiler CPython, en prenant l’exemple de cloner et construire la version CPython à partir de son dépôt GitHub :</p>
+<ol type="1">
+<li><strong>Cloner le Répertoire Git de CPython</strong>:
+<ul>
+<li>Utilisez une commande comme <code>git clone https://github.com/python/cpython.git</code> pour télécharger le code source de Python.</li>
+<li>Cela permet d’accéder à la dernière version de développement ainsi qu’à d’autres branches.</li>
+</ul></li>
+<li><strong>Configurer le Build</strong>:
+<ul>
+<li>Une fois le code source téléchargé, naviguez dans le dossier et exécutez la commande <code>./configure</code>.</li>
+<li>Cette étape vérifie votre environnement et prépare le code source pour la compilation. Elle permet de déterminer les outils et bibliothèques disponibles sur votre système et configure le build en conséquence.</li>
+</ul></li>
+<li><strong>Compiler le Code Source</strong>:
+<ul>
+<li>Utilisez la commande <code>make</code> pour lancer la compilation.</li>
+<li>Cette commande compile le code source de Python en un exécutable. Elle peut prendre un certain temps en fonction de la puissance de votre machine.</li>
+</ul></li>
+<li><strong>Installation</strong>:
+<ul>
+<li>Après la compilation, exécutez <code>make install</code> pour installer Python.</li>
+<li>Cette commande copie les fichiers exécutables et les bibliothèques dans les répertoires appropriés de votre système.</li>
+</ul></li>
+<li><strong>Vérification</strong>:
+<ul>
+<li>Une fois l’installation terminée, vérifiez que tout fonctionne correctement en exécutant <code>python --version</code> ou <code>python3 --version</code> dans votre terminal.</li>
+</ul></li>
+<li><strong>Personnalisation</strong>:
+<ul>
+<li>Lors de la configuration (<code>./configure</code>), vous pouvez spécifier diverses options pour personnaliser votre build. Par exemple, vous pouvez activer ou désactiver certaines optimisations ou fonctionnalités.</li>
+</ul></li>
+</ol>
+<p>Ce processus de compilation manuelle offre une compréhension approfondie du fonctionnement interne de Python et permet une personnalisation avancée. Cela peut être particulièrement utile pour les développeurs qui souhaitent contribuer au code source de Python ou qui ont besoin de versions spécifiques de Python pour leurs projets.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/Cours_1/2-Python_Execution.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Exécution d’un Programme Python</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/Cours_1/4-Path.html" class="pagination-link">
+        <span class="nav-page-text">Le PATH</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Introduction à Python, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></div>
+  </div>
+</footer>
+
+
+
+</body></html>
