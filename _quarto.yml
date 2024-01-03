@@ -14,6 +14,7 @@ website:
         text: Home 
       - sidebar:introduction
       - sidebar:discover
+      - sidebar:annexes
 
     tools:
       - icon: github
@@ -25,11 +26,14 @@ website:
       title: "Homepage"
       href: index.qmd
     - id: introduction
-      title: "Introduction"
+      title: "Comprendre Et Installer Python"
       contents: content/Cours_1/*.qmd
     - id: discover 
-      title: "Decouvrir"
+      title: "Premiers pas"
       contents: content/Cours_2/*.qmd
+    - id: annexes 
+      title: "Annexes"
+      contents: content/Annexes/*.qmd
         
   repo-url: https://github.com/remigenet/Introduction-Python
   repo-branch: main

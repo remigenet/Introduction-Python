@@ -1,0 +1,94 @@
+---
+title: "Git - Pour aller plus loin"
+weight: 10
+tags:
+  - Basics
+  - Annexes
+  - Utils
+  - Git
+categories:
+  - Annexes
+  - Git
+type: book
+description: Git a su s'imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d'option avancé.
+image: .img/history.png
+---
+
+
+#### Partie 1 : Gestion Avancée des Branches et Fusion
+
+La maîtrise des branches et des techniques de fusion est essentielle pour une gestion efficace des projets complexes. Dans cette partie, nous allons explorer des stratégies de branching avancées et des méthodes de fusion.
+
+1. **Stratégies de Branching** :
+   - **Git Flow** : Une approche populaire qui utilise des branches dédiées pour le développement, les fonctionnalités, les releases, et la maintenance.
+   - **GitHub Flow** : Une stratégie simplifiée, plus adaptée aux déploiements continus et aux projets qui évoluent rapidement.
+
+2. **Fusions Avancées** :
+   - **Rebase** : Utilisez `git rebase` pour appliquer les changements d'une branche sur une autre. Cela peut aider à maintenir un historique de projet propre.
+   - **Cherry-Pick** : Permet de sélectionner et d'appliquer des commits spécifiques d'une branche à une autre.
+
+3. **Gestion des Conflits Avancée** :
+   - Utilisez des outils de merge comme Meld ou KDiff3 pour résoudre visuellement les conflits.
+   - Comprenez comment les conflits sont générés et apprenez à les prévenir en planifiant soigneusement les merges et les rebases.
+
+#### Partie 2 : Utilisation Avancée de Git - Sous modules, hooks, stash
+
+Cette partie se concentre sur les techniques avancées de Git pour optimiser la gestion du code et le workflow.
+
+1. **Sous-modules et Sous-arbres** :
+   - **Sous-modules** : Utilisez `git submodule` pour intégrer et gérer des dépendances de projets externes.
+   - **Sous-arbres** : Une alternative aux sous-modules, les sous-arbres permettent d'intégrer des dépôts externes tout en conservant la capacité de contribuer en retour.
+
+2. **Hooks Git** :
+   - Les hooks Git sont des scripts qui s'exécutent avant ou après des événements dans un dépôt Git, comme les commits ou les merges.
+   - Utilisez les hooks pour automatiser des tâches comme les tests, la vérification du style de code ou les builds.
+
+3. **Stash Avancé** :
+   - Utilisez `git stash` pour sauvegarder temporairement des modifications sans les committer.
+   - Explorez des options avancées comme le stash multiple et l'application sélective de stashs.
+
+#### Partie 3 : Optimisation du Workflow avec Git
+
+Améliorez votre efficacité et votre gestion de projet avec des pratiques avancées de Git.
+
+1. **Alias Git** :
+   - Créez des alias pour les commandes Git fréquemment utilisées. Par exemple, configurez un alias pour une sortie de log détaillée ou pour des opérations complexes de rebase.
+
+2. **Bisect pour la Détection de Bugs** :
+   - Utilisez `git bisect` pour trouver rapidement le commit qui a introduit un bug. Cette commande utilise un algorithme de recherche binaire pour parcourir l'historique des commits.
+
+3. **Reflog pour la Récupération de Données** :
+   - `git reflog` est un outil puissant pour récupérer des données perdues, telles que des branches supprimées ou des commits égarés.
+
+### Document Avancé sur Git pour Utilisateurs Expérimentés (Suite)
+
+#### Partie 4 : Intégration Continue et Workflows Personnalisés avec Git
+
+L'intégration de Git avec des systèmes d'intégration continue (CI) et l'adaptation de Git à des workflows personnalisés peuvent considérablement améliorer l'efficacité et la qualité du développement logiciel.
+
+1. **Intégration Continue (CI) avec Git** :
+   - **CI/CD Pipelines** : Utilisez Git en conjonction avec des outils comme Jenkins, Travis CI, ou GitLab CI pour automatiser les tests et le déploiement de votre code.
+   - **Automatisation des Tests** : Configurez des pipelines pour exécuter des suites de tests à chaque push ou pull request, assurant ainsi que le code intégré est toujours testé.
+
+2. **Workflows Personnalisés** :
+   - **Scripts et Automatisations** : Créez des scripts personnalisés qui s'exécutent avec des commandes Git pour adapter le système à vos besoins spécifiques.
+   - **Workflows de Collaboration** : Développez des pratiques de collaboration qui s'alignent avec la culture et les processus de votre équipe, comme les revues de code et les stratégies de branching.
+
+#### Partie 5 : Gestion de Grandes Bases de Code avec Git
+
+Gérer de grandes bases de code nécessite une approche stratégique pour maintenir l'efficacité et la maintenabilité.
+
+1. **Git LFS (Large File Storage)** :
+   - Utilisez Git LFS pour gérer efficacement de gros fichiers binaires sans alourdir le dépôt principal.
+   - Git LFS stocke les références aux gros fichiers dans le dépôt Git, tandis que les fichiers eux-mêmes sont stockés sur un serveur distant.
+
+2. **Techniques de Partitionnement** :
+   - Envisagez de partitionner votre base de code en plusieurs dépôts plus petits si cela est logique pour votre projet. Cela peut rendre la gestion plus facile et plus agile.
+
+3. **Optimisations de Performance** :
+   - Utilisez des techniques comme le clonage superficiel (`git clone --depth`) pour réduire le temps et l'espace nécessaires pour cloner de grands dépôts.
+   - Apprenez à gérer efficacement les branches et les tags pour éviter la surcharge du dépôt.
+
+#### Conclusion et Ressources Additionnelles
+
+Maîtriser Git à un niveau avancé nécessite de la pratique, de l'expérience et une volonté d'expérimenter. N'hésitez pas à explorer les nombreuses ressources disponibles en ligne, telles que la documentation officielle de Git, les tutoriels avancés, et les forums de discussion.

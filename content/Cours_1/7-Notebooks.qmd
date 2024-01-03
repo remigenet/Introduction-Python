@@ -11,7 +11,7 @@ categories:
   - Cours
   - Introduction
 type: book
-description: Avant de se lancer
+description: LeS Notebooks représentent l'un des support de choix pour la recherche et la datascience, et sont un outil formidable pour une utilisation interractive de Python
 image: .img/notebooks.png
 ---
 

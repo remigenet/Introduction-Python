@@ -1,0 +1,78 @@
+---
+title: "Utiliser le terminal Linux - les bases de bash"
+weight: 10
+tags:
+  - Basics
+  - Annexes
+  - Utils
+  - Git
+categories:
+  - Annexes
+  - Git
+type: book
+description: "Utiliser le terminal Linux - les bases de bash"
+image: .img/history.png
+---
+
+
+### Document de Cours : Commandes de Base Linux pour le Terminal
+
+#### Introduction
+
+Ce document vise à fournir une compréhension de base des commandes Linux utilisées couramment dans le terminal. Connaître ces commandes est essentiel pour naviguer efficacement dans les systèmes basés sur Unix/Linux, et pour la réalisation de diverses tâches de développement, notamment en Python.
+
+#### 1. Navigation dans le Système de Fichiers
+
+- `pwd` (Print Working Directory) : Affiche le chemin complet du répertoire courant.
+- `ls` : Liste les fichiers et dossiers dans le répertoire courant. Utilisez `ls -l` pour un affichage détaillé ou `ls -a` pour inclure les fichiers cachés.
+- `cd [chemin]` : Change le répertoire courant. Utilisez `cd ..` pour remonter d'un niveau, ou `cd` pour retourner au répertoire personnel.
+
+#### 2. Gestion des Fichiers et Dossiers
+
+- `mkdir [nom_dossier]` : Crée un nouveau dossier.
+- `rmdir [nom_dossier]` : Supprime un dossier vide. Pour supprimer des dossiers contenant des fichiers, utilisez `rm -r [nom_dossier]`.
+- `touch [nom_fichier]` : Crée un nouveau fichier vide, ou met à jour la date de modification d'un fichier existant.
+- `cp [source] [destination]` : Copie des fichiers ou dossiers. Utilisez `cp -r` pour copier des dossiers.
+- `mv [source] [destination]` : Déplace ou renomme des fichiers ou dossiers.
+- `rm [nom_fichier]` : Supprime un fichier. Utilisez `rm -r [nom_dossier]` pour supprimer un dossier et son contenu.
+
+#### 3. Visualisation et Modification de Fichiers
+
+- `cat [nom_fichier]` : Affiche le contenu d'un fichier dans le terminal.
+- `less [nom_fichier]` : Permet de parcourir le contenu d'un fichier.
+- `nano [nom_fichier]`, `vi [nom_fichier]`, ou `vim [nom_fichier]` : Ouvre un éditeur de texte dans le terminal pour modifier des fichiers.
+
+#### 4. Gestion des Processus
+
+- `ps` : Affiche les processus en cours d'exécution. Utilisez `ps aux` pour une liste détaillée.
+- `top` : Affiche les processus en temps réel et l'utilisation des ressources.
+- `kill [PID]` : Termine un processus spécifique. Le PID (Process ID) peut être trouvé via `ps`.
+
+#### 5. Informations Système
+
+- `df` : Affiche l'utilisation des disques.
+- `free` : Montre la quantité de mémoire libre et utilisée sur le système.
+- `uname -a` : Donne des informations sur le système, comme la version du noyau.
+
+#### 6. Réseau
+
+- `ping [adresse]` : Vérifie la connectivité réseau avec une adresse (par exemple, un site web).
+- `ifconfig` ou `ip addr` : Affiche les détails de configuration réseau des interfaces.
+
+#### 7. Gestion des Permissions
+
+- `chmod [permissions] [fichier]` : Modifie les permissions d'un fichier ou dossier.
+- `chown [utilisateur]:[groupe] [fichier]` : Change le propriétaire et/ou le groupe d'un fichier ou dossier.
+
+#### 8. Aide et Documentation
+
+- `man [commande]` : Affiche le manuel d'une commande.
+- `commande --help` ou `commande -h` : Affiche l'aide et les options disponibles pour la commande spécifiée.
+
+#### Conclusion
+
+La maîtrise de ces commandes de base est fondamentale pour travailler efficacement dans un environnement Linux. Ces commandes constituent la base pour une grande variété de tâches dans le développement de logiciels et la gestion des systèmes.
+
+---
+
+Ce document sert de guide de référence rapide pour les étudiants débutant avec Linux et le terminal. Avec la pratique, ces commandes deviendront des outils essentiels dans votre arsenal de développement.

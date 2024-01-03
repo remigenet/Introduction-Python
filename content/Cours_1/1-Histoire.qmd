@@ -10,19 +10,40 @@ categories:
   - Cours
   - Introduction
 type: book
-description: |
-  `Python` est un langage de programmation qui a su gagner sa crédibilité grâce à sa simplicité et sa flexibilité. Bien qu'il ne soit pas l'un des plus anciens langages encore utilisés, il est largement adopté dans de nombreux domaines. Comprendre l'histoire de Python permet de comprendre ses choix de conception, son fonctionnement et sa direction future. Dans ce chapitre, nous allons explorer l'histoire de Python, sa popularité et ses critiques, et son évolution de Python 2 à Python 3 et au-delà. 
+description: Explorer l'histoire de Python, c'est comprendre ses choix de conception, son évolution et sa place actuelle dans le monde de la programmation. Ce chapitre se concentre sur les origines de Python, son développement au fil des ans, les raisons de sa popularité, ses critiques, et les défis futurs. Il offre un aperçu complet de Python, de sa première version à la version actuelle, en mettant en lumière les évolutions majeures et les choix qui ont façonné ce langage.
 image: .img/history.png
 ---
 
 
 ### a - Origines 
-Python, un langage de programmation haut niveau, a été créé par Guido van Rossum et sa première version a été publiée en 1991. L'objectif principal de Python était de combiner une syntaxe claire avec une puissance remarquable. Il est nommé d'après la série télévisée britannique "Monty Python's Flying Circus", reflétant l'approche amusée de Van Rossum envers la programmation.
+Python, un langage de programmation de haut niveau, a été inventé par Guido van Rossum, dont la première version a été publiée en 1991. Ce langage, nommé d'après la série télévisée britannique "Monty Python's Flying Circus", a été conçu pour allier clarté syntaxique et puissance fonctionnelle.
 
 Python a évolué au fil des années, en gardant son principe directeur : une syntaxe qui favorise la lisibilité et la simplicité. Cette approche a conduit à un langage qui est à la fois facile à apprendre pour les débutants et puissant pour les développeurs expérimentés. Python est interprété, ce qui signifie que les scripts sont exécutés ligne par ligne, permettant une débogage et une interaction faciles.
 
-La philosophie de Python est encapsulée dans le **"Zen de Python" (PEP 20)**, un ensemble de 19 aphorismes pour écrire de bons programmes en Python. Parmi les plus célèbres, on trouve "Beautiful is better than ugly", "Explicit is better than implicit" et "Simple is better than complex".
+Sa philosophie, encapsulée dans le [**"Zen de Python" (PEP 20)**](https://peps.python.org/pep-0020/), guide la rédaction de programmes efficaces et lisibles. Il s'agit un ensemble de 19 aphorismes pour écrire de bons programmes en Python. Parmi les plus célèbres, on trouve "Beautiful is better than ugly", "Explicit is better than implicit" et "Simple is better than complex".
 Cette philosophie a été un facteur clé dans le succès de Python, en particulier pour les débutants qui peuvent facilement apprendre le langage et écrire des programmes simples et lisibles et est à garder en tête lors de l'écriture de code Python. 
+
+```latex
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+```
 
 Pour autant, bien que simple à prendre en main, Python est un langage puissant qui pour être réellement maîtrisé et compris dans sa globalité nécessite de la pratique et de l'expérience. De par son fonctionnement interne, le language permet ainsi à des développeurs expérimentés de trouver des solutions élégantes et efficaces à des problèmes complexes, qui serviront ensuite de base à des bibliothèques et frameworks utilisés par des développeurs bien moins expérimentés qui ne se douteront pas une seconde de ce qui se cache en dessous.
 
@@ -65,6 +86,7 @@ Et bien qu'il ai fallu 12 ans pour que Python 3 devienne la version officielle d
 
 
 ### d - Comprendre ces limites
+
 
 Ces limites viennent de l'histoire du language, et de ses choix de conception. D'une part, Python est un language interprété, et donc il est plus lent que les languages compilés. Cela vient du fait que l'interpréteur Python doit lire le code, le comprendre, et l'exécuter, alors qu'un compilateur va transformer le code en langage machine, et donc le code est directement exécutable. 
 

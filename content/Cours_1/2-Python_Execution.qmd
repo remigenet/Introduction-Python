@@ -10,7 +10,7 @@ categories:
   - Cours
   - Introduction
 type: book
-description: Avant de se lancer
+description: Explorer les mécanismes sous-jacents à l'exécution d'un programme Python pour une compréhension approfondie des processus de compilation et d'interprétation.
 image: .img/compiled_vs_interpreted.png
 ---
 
@@ -28,7 +28,7 @@ Mais la compilation va également permettre d'optimiser le code source. C'est à
 
 C'est optimisation prennent cependant du temps, et ne sont pas toutes sans risques et les erreurs de compilations peuvent être nombreuses sur des programmes complexes, et la compilations peut demander un temps considérable à chaque fois que l'on apporte une modification.
 
-Mais en Python, il n'y a pas de compilation ! Magie ?
+**Mais en Python, il n'y a pas de compilation ! Magie ?**
 
 ### c - L'interprétation !
 
@@ -49,3 +49,5 @@ L'exécution d'un programme Python implique l'utilisation d'un binaire compilé 
 2. **Avantages du Binaire Compilé**: Le fait d'avoir un binaire compilé spécifique à chaque plateforme permet à Python d'être portable et facile à déployer. Les développeurs peuvent écrire un script Python et s'attendre à ce qu'il fonctionne de la même manière sur différentes machines, à condition que l'interpréteur Python approprié soit installé.
 
 Ce mécanisme d'interprétation via un binaire compilé est une caractéristique clé de Python, contribuant à sa polyvalence et sa facilité d'utilisation dans divers environnements de développement.
+
+[**Mais donc, qui produit se binaire ? Y'en a-t-il une seule implémentation ? Puis-je le compiler moi même ? **](3-ManyPythons.qmd)

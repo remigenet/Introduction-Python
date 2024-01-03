@@ -1,0 +1,108 @@
+---
+title: "TP - Construire son python depuis la source"
+weight: 10
+tags:
+  - Basics
+  - Compilation
+  - Cpython
+  - Versions
+  - Introduction
+categories:
+  - Cours
+  - Introduction
+type: book
+# description: 
+image: .img/python_versions.png
+---
+### TP - Construire Python depuis la Source
+
+#### Partie 1 : Préparation et Clonage du Répertoire Git de CPython
+
+Le but de cette première partie est de préparer votre environnement pour la compilation de Python et de cloner le répertoire Git de CPython.
+
+1. **Préparation de l'Environnement** :
+   - Avant de cloner le répertoire, assurez-vous que Git est installé sur votre système. Sous Linux et MacOS, Git est souvent préinstallé. Sous Windows, vous devrez peut-être l'installer manuellement.
+   - Vérifiez également que vous disposez des outils de compilation nécessaires. Sous Linux, il s'agit généralement du package `build-essential`. Sous MacOS, vous aurez besoin de Xcode ou des outils de ligne de commande pour Xcode.
+
+2. **Clonage du Répertoire Git de CPython** :
+   - Ouvrez un terminal ou une invite de commande.
+   - Exécutez la commande suivante pour cloner le répertoire Git de CPython : 
+     ```
+     git clone https://github.com/python/cpython.git
+     ```
+   - Cette commande télécharge le code source de Python dans un dossier `cpython` sur votre machine.
+   - Vous pouvez choisir une branche spécifique si vous le souhaitez, mais la branche par défaut vous donnera accès à la dernière version de développement.
+
+#### Partie 2 : Configuration du Build
+
+Cette partie implique de configurer le code source pour la compilation.
+
+1. **Navigation dans le Dossier** :
+   - Accédez au dossier cloné en utilisant la commande `cd cpython`.
+
+2. **Configuration du Build** :
+   - Dans le dossier `cpython`, exécutez la commande `./configure`.
+   - Cette étape vérifie les outils et bibliothèques disponibles sur votre système. Elle configure le processus de build pour qu'il soit adapté à votre environnement spécifique.
+   - La commande `./configure` peut être personnalisée avec diverses options, telles que l'activation ou la désactivation de certaines fonctionnalités de Python.
+
+#### Partie 3 : Compilation de Python
+
+La compilation est le processus de transformation du code source en un exécutable.
+
+**Lancement de la Compilation** :
+   - Dans le même dossier, exécutez la commande `make`.
+   - Cette commande compile le code source de Python. Selon la puissance de votre machine, cela peut prendre un certain temps.
+
+
+#### Partie 4 : Installation de Python
+
+Après avoir compilé le code source, l'étape suivante est d'installer Python sur votre système.
+
+1. **Installation** :
+   - Exécutez `make install` dans le terminal. Cette commande copiera les fichiers exécutables et les bibliothèques dans les répertoires appropriés sur votre système.
+   - Si vous ne souhaitez pas écraser la version Python existante, vous pouvez utiliser `make altinstall` à la place.
+
+2. **Vérification de l'Installation** :
+   - Une fois l'installation terminée, vérifiez que Python est correctement installé en exécutant `python --version` ou `python3 --version` dans votre terminal. Vous devriez voir la version que vous venez de compiler.
+
+#### Partie 5 : Personnalisation et Observations pendant la Compilation
+
+Lors de la compilation de Python, plusieurs aspects peuvent être personnalisés pour répondre à des besoins spécifiques ou optimiser le build.
+
+1. **Variables d'Environnement et Options de Compilation** :
+   - **CC** : Vous pouvez définir la variable d'environnement `CC` pour spécifier le compilateur à utiliser. Par exemple, `export CC=gcc` utilise GCC.
+   - **Flags d'Optimisation** : Les flags comme `-O2` ou `-O3` peuvent être ajoutés pour optimiser le build. Ces flags peuvent être définis en modifiant la variable `CFLAGS`.
+   - Exemple : `export CFLAGS="-O3"` pour une optimisation de niveau 3.
+
+2. **Modification du Makefile** :
+   - Le `Makefile` généré par `./configure` peut être modifié pour un contrôle plus fin sur le processus de build.
+   - Vous pouvez ouvrir le `Makefile` dans un éditeur de texte et examiner les différents targets de build, les variables et les options configurées.
+
+3. **Observer le Processus de Compilation** :
+   - Pendant la compilation avec `make`, observez les sorties dans le terminal. Elles fournissent des informations sur les fichiers en cours de compilation, les avertissements, et les erreurs éventuelles.
+   - Les messages d'erreur, en particulier, peuvent vous aider à identifier des problèmes spécifiques liés aux dépendances ou à la configuration de votre système.
+
+#### Conseils Supplémentaires et Ressources pour la Compilation de Python
+
+Après avoir compilé et installé votre version personnalisée de Python, voici quelques conseils et ressources supplémentaires pour approfondir vos connaissances et compétences en matière de compilation.
+
+1. **Exploration Approfondie du Makefile** :
+   - Prenez le temps d'étudier le `Makefile` généré par `./configure`. Il contient des informations précieuses sur les processus de build et les targets.
+   - Explorer le `Makefile` vous aidera à comprendre comment les différentes parties de Python sont compilées et liées ensemble.
+
+2. **Personnalisation Avancée** :
+   - En plus des flags d'optimisation et du choix du compilateur, envisagez d'explorer d'autres options de configuration. Par exemple, vous pouvez activer ou désactiver des modules spécifiques de Python lors de la compilation.
+   - Les options de configuration peuvent être explorées en exécutant `./configure --help`.
+
+3. **Gestion des Dépendances** :
+   - Assurez-vous que toutes les dépendances nécessaires sont installées sur votre système. Certaines fonctionnalités de Python peuvent nécessiter des bibliothèques externes.
+   - Les erreurs lors de la compilation sont souvent dues à l'absence de certaines bibliothèques de développement.
+
+4. **Ressources et Documentation** :
+   - La documentation officielle de Python est une ressource précieuse pour comprendre les différents aspects de la compilation de Python.
+   - Des forums et des communautés en ligne, comme Stack Overflow et les groupes Python, peuvent être des lieux d'échange d'informations et de conseils.
+#### Conclusion
+
+Compiler Python depuis la source offre non seulement une compréhension approfondie du fonctionnement interne de Python, mais permet également une personnalisation avancée du build. Cela peut être particulièrement utile pour les développeurs souhaitant contribuer au code source de Python ou nécessitant des versions spécifiques pour leurs projets.
+
+
