@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Avant de se lancer">
+<meta name="description" content="Explorer la notion de PATH, un élément essentiel dans la configuration des environnements de développement.">
 
 <title>Introduction à Python - Le PATH</title>
 <style>
@@ -91,10 +91,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Introduction</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-comprendre-et-installer-python" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Comprendre Et Installer Python</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-comprendre-et-installer-python">    
         <li>
     <a class="dropdown-item" href="../../content/Cours_1/1-Histoire.html" rel="" target="">
  <span class="dropdown-text">Histoire du Langage</span></a>
@@ -123,16 +123,39 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../content/Cours_1/7-Notebooks.html" rel="" target="">
  <span class="dropdown-text">Les Notebooks</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/TP-ConstruireSonPython.html" rel="" target="">
+ <span class="dropdown-text">TP - Construire son python depuis la source</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-decouvrir" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Decouvrir</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-premiers-pas" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Premiers pas</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-decouvrir">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-premiers-pas">    
         <li>
     <a class="dropdown-item" href="../../content/Cours_2/sometest.html" rel="" target="">
- <span class="dropdown-text">This is a test</span></a>
+ <span class="dropdown-text">1- Discover</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-annexes" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Annexes</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-annexes">    
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/git_advanced.html" rel="" target="">
+ <span class="dropdown-text">Git - Pour aller plus loin</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/git_basics.html" rel="" target="">
+ <span class="dropdown-text">Git Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/LinuxTerminal.html" rel="" target="">
+ <span class="dropdown-text">Utiliser le terminal Linux - les bases de bash</span></a>
   </li>  
     </ul>
   </li>
@@ -216,6 +239,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Les Notebooks</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/TP-ConstruireSonPython.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP - Construire son python depuis la source</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -226,7 +255,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#la-notion-de-path" id="toc-la-notion-de-path" class="nav-link active" data-scroll-target="#la-notion-de-path">4. La Notion de PATH</a></li>
+  <li><a href="#définition-et-fonctionnement-général-de-path" id="toc-définition-et-fonctionnement-général-de-path" class="nav-link active" data-scroll-target="#définition-et-fonctionnement-général-de-path">1. Définition et Fonctionnement Général de PATH</a></li>
+  <li><a href="#modification-de-path" id="toc-modification-de-path" class="nav-link" data-scroll-target="#modification-de-path">2. Modification de PATH</a></li>
+  <li><a href="#importance-et-utilisation-de-path" id="toc-importance-et-utilisation-de-path" class="nav-link" data-scroll-target="#importance-et-utilisation-de-path">3. Importance et Utilisation de PATH</a></li>
+  <li><a href="#sécurité-et-path" id="toc-sécurité-et-path" class="nav-link" data-scroll-target="#sécurité-et-path">4. Sécurité et PATH</a></li>
+  <li><a href="#configuration-de-path-pour-windows-linux-et-macos" id="toc-configuration-de-path-pour-windows-linux-et-macos" class="nav-link" data-scroll-target="#configuration-de-path-pour-windows-linux-et-macos">5. Configuration de PATH pour Windows, Linux, et MacOS</a></li>
+  <li><a href="#configuration-de-path-pour-une-version-python-compilée-manuellement" id="toc-configuration-de-path-pour-une-version-python-compilée-manuellement" class="nav-link" data-scroll-target="#configuration-de-path-pour-une-version-python-compilée-manuellement">Configuration de PATH pour une Version Python Compilée Manuellement</a></li>
+  <li><a href="#points-importants-à-noter" id="toc-points-importants-à-noter" class="nav-link" data-scroll-target="#points-importants-à-noter">Points Importants à Noter</a></li>
   </ul>
 </nav>
     </div>
@@ -244,7 +279,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Avant de se lancer
+    Explorer la notion de PATH, un élément essentiel dans la configuration des environnements de développement.
   </div>
 </div>
 
@@ -259,75 +294,171 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="la-notion-de-path" class="level3">
-<h3 class="anchored" data-anchor-id="la-notion-de-path">4. La Notion de PATH</h3>
-<section id="comprendre-la-notion-de-path-dans-les-systèmes-dexploitation" class="level4">
-<h4 class="anchored" data-anchor-id="comprendre-la-notion-de-path-dans-les-systèmes-dexploitation">Comprendre la Notion de PATH dans les Systèmes d’Exploitation</h4>
-<p>La variable d’environnement <code>PATH</code> est un concept clé dans les systèmes d’exploitation Windows, Linux et MacOS. Elle joue un rôle crucial dans la localisation des fichiers exécutables par le système. Voici une explication détaillée de cette notion :</p>
+<section id="définition-et-fonctionnement-général-de-path" class="level3">
+<h3 class="anchored" data-anchor-id="définition-et-fonctionnement-général-de-path">1. Définition et Fonctionnement Général de PATH</h3>
+<section id="a.-définition-de-path" class="level4">
+<h4 class="anchored" data-anchor-id="a.-définition-de-path">a. Définition de PATH</h4>
+<ul>
+<li><code>PATH</code> est une variable d’environnement utilisée par le système d’exploitation pour localiser les fichiers exécutables requis pour lancer des programmes ou des commandes.</li>
+<li>Elle contient une liste de répertoires séparés par un délimiteur spécifique au système d’exploitation : point-virgule (<code>;</code>) pour Windows et deux-points (<code>:</code>) pour Unix/Linux.</li>
+</ul>
+</section>
+<section id="b.-fonctionnement-de-path" class="level4">
+<h4 class="anchored" data-anchor-id="b.-fonctionnement-de-path">b. Fonctionnement de PATH</h4>
+<ul>
+<li>Lorsqu’une commande est saisie dans le terminal ou l’invite de commande, le système parcourt les répertoires listés dans <code>PATH</code> à la recherche d’un fichier exécutable correspondant au nom de la commande.</li>
+<li>Si le fichier est trouvé, il est exécuté. Sinon, un message d’erreur indique que la commande est introuvable.</li>
+</ul>
+</section>
+</section>
+<section id="modification-de-path" class="level3">
+<h3 class="anchored" data-anchor-id="modification-de-path">2. Modification de PATH</h3>
+<section id="a.-pourquoi-modifier-path" class="level4">
+<h4 class="anchored" data-anchor-id="a.-pourquoi-modifier-path">a. Pourquoi Modifier PATH?</h4>
+<ul>
+<li>Ajouter de nouveaux chemins à <code>PATH</code> est souvent nécessaire après l’installation de nouveaux logiciels ou scripts pour permettre leur exécution depuis n’importe quel répertoire.</li>
+<li>La modification de <code>PATH</code> facilite l’accès à ces programmes sans avoir besoin de naviguer vers leur répertoire d’installation ou de spécifier leur chemin complet.</li>
+</ul>
+</section>
+<section id="b.-comment-modifier-path" class="level4">
+<h4 class="anchored" data-anchor-id="b.-comment-modifier-path">b. Comment Modifier PATH?</h4>
+<ul>
+<li>Sous Windows, <code>PATH</code> peut être modifié via les Propriétés Système ou l’Éditeur de Registre.</li>
+<li>Sous Unix/Linux et MacOS, <code>PATH</code> est généralement modifié en éditant les fichiers de configuration de l’interpréteur de commandes, tels que <code>.bashrc</code>, <code>.bash_profile</code>, ou <code>.zshrc</code>.</li>
+</ul>
+</section>
+</section>
+<section id="importance-et-utilisation-de-path" class="level3">
+<h3 class="anchored" data-anchor-id="importance-et-utilisation-de-path">3. Importance et Utilisation de PATH</h3>
+<section id="a.-simplification-daccès" class="level4">
+<h4 class="anchored" data-anchor-id="a.-simplification-daccès">a. Simplification d’Accès</h4>
+<ul>
+<li><code>PATH</code> permet de lancer des applications et des scripts facilement depuis n’importe quel répertoire dans le terminal, en supprimant le besoin de saisir des chemins complets.</li>
+</ul>
+</section>
+<section id="b.-organisation-des-exécutables" class="level4">
+<h4 class="anchored" data-anchor-id="b.-organisation-des-exécutables">b. Organisation des Exécutables</h4>
+<ul>
+<li>Une gestion efficace de <code>PATH</code> aide à maintenir une organisation claire des programmes et scripts fréquemment utilisés, en centralisant leur accès.</li>
+</ul>
+</section>
+</section>
+<section id="sécurité-et-path" class="level3">
+<h3 class="anchored" data-anchor-id="sécurité-et-path">4. Sécurité et PATH</h3>
+<section id="a.-risques-de-sécurité" class="level4">
+<h4 class="anchored" data-anchor-id="a.-risques-de-sécurité">a. Risques de Sécurité</h4>
+<ul>
+<li>Ajouter des répertoires non sécurisés ou de sources inconnues à <code>PATH</code> peut exposer le système à des risques de sécurité. Des exécutables malveillants dans ces répertoires pourraient être lancés involontairement.</li>
+</ul>
+</section>
+<section id="b.-bonnes-pratiques" class="level4">
+<h4 class="anchored" data-anchor-id="b.-bonnes-pratiques">b. Bonnes Pratiques</h4>
+<ul>
+<li>Il est recommandé de n’ajouter que des répertoires de confiance à <code>PATH</code> et de vérifier régulièrement son contenu pour éviter des risques de sécurité.</li>
+</ul>
+</section>
+</section>
+<section id="configuration-de-path-pour-windows-linux-et-macos" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-de-path-pour-windows-linux-et-macos">5. Configuration de PATH pour Windows, Linux, et MacOS</h3>
+<section id="a.-windows" class="level4">
+<h4 class="anchored" data-anchor-id="a.-windows">a. Windows</h4>
+<ul>
+<li><strong>Accès à PATH</strong> : Accessible via Panneau de configuration &gt; Système &gt; Paramètres système avancés &gt; Variables d’environnement.</li>
+<li><strong>Modification</strong> : Ajouter ou modifier les valeurs dans la variable <code>Path</code> sous Variables d’environnement.</li>
+<li><strong>Application des Changements</strong> : Les modifications prennent effet après redémarrage de l’invite de commande ou redémarrage du système.</li>
+</ul>
+</section>
+<section id="b.-linux" class="level4">
+<h4 class="anchored" data-anchor-id="b.-linux">b. Linux</h4>
+<ul>
+<li><strong>Fichiers de Configuration</strong> : <code>.bashrc</code>, <code>.bash_profile</code>, ou <code>.profile</code> dans le répertoire personnel de l’utilisateur.</li>
+<li><strong>Modification</strong> : Ajouter <code>export PATH="/nouveau/chemin:$PATH"</code> au fichier correspondant.</li>
+<li><strong>Application des Changements</strong> : Exécuter <code>source ~/.bashrc</code> ou ouvrir un nouveau terminal.</li>
+</ul>
+</section>
+<section id="c.-macos" class="level4">
+<h4 class="anchored" data-anchor-id="c.-macos">c.&nbsp;MacOS</h4>
+<ul>
+<li>Similaire à Linux, MacOS utilise <code>.bash_profile</code> ou <code>.zshrc</code> pour les utilisateurs de zsh.</li>
+<li>La modification et l’application des changements sont identiques à celles de Linux.</li>
+</ul>
+</section>
+</section>
+<section id="configuration-de-path-pour-une-version-python-compilée-manuellement" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-de-path-pour-une-version-python-compilée-manuellement">Configuration de PATH pour une Version Python Compilée Manuellement</h3>
+<p>La configuration de la variable <code>PATH</code> pour une version de Python compilée manuellement est un processus essentiel pour s’assurer que le système utilise la bonne version de Python. Voici des instructions spécifiques pour Windows, Linux et MacOS.</p>
+<section id="windows" class="level4">
+<h4 class="anchored" data-anchor-id="windows">Windows</h4>
 <ol type="1">
-<li><strong>Définition de PATH</strong>:
+<li><strong>Localisation de l’Exécutable Python</strong>:
 <ul>
-<li><strong>PATH</strong> est une variable d’environnement qui stocke une liste de répertoires séparés par des délimiteurs (point-virgule sous Windows, deux-points sous Unix/Linux).</li>
-<li>Lorsqu’une commande est saisie dans l’interpréteur de commandes (shell), le système utilise la variable PATH pour chercher l’exécutable correspondant à cette commande.</li>
-</ul></li>
-<li><strong>Fonctionnement de PATH</strong>:
-<ul>
-<li>Le système parcourt les répertoires listés dans PATH dans l’ordre où ils apparaissent. Si un fichier exécutable avec le nom de la commande est trouvé dans l’un de ces répertoires, il est exécuté.</li>
-<li>Si le fichier n’est pas trouvé dans les répertoires listés, le système retourne généralement un message d’erreur, indiquant que la commande est introuvable.</li>
+<li>Trouvez le chemin où Python a été compilé et installé, par exemple, <code>C:\Users\VotreNom\mon_python</code>.</li>
 </ul></li>
 <li><strong>Modification de PATH</strong>:
 <ul>
-<li>Les utilisateurs peuvent modifier la variable PATH pour inclure le chemin vers d’autres exécutables ou scripts.</li>
-<li>Cela est souvent nécessaire lors de l’installation de nouveaux logiciels dont les exécutables doivent être accessibles globalement depuis l’interpréteur de commandes.</li>
+<li>Ouvrez les Propriétés Système &gt; Variables d’environnement.</li>
+<li>Sous “Variables système”, trouvez et sélectionnez la variable <code>Path</code>, puis cliquez sur Modifier.</li>
+<li>Ajoutez le chemin vers le dossier contenant l’exécutable Python, par exemple, <code>C:\Users\VotreNom\mon_python</code>.</li>
+<li>Cliquez sur OK pour fermer les fenêtres.</li>
 </ul></li>
-<li><strong>Importance de PATH</strong>:
+<li><strong>Application des Changements</strong>:
 <ul>
-<li>La variable PATH est essentielle pour une utilisation efficace et flexible du système d’exploitation. Elle permet d’exécuter des programmes sans avoir à saisir leur chemin complet.</li>
-<li>Elle aide à organiser et à accéder facilement aux outils et applications fréquemment utilisés.</li>
-</ul></li>
-<li><strong>PATH et Sécurité</strong>:
-<ul>
-<li>Il est important de gérer la variable PATH avec précaution. Ajouter des répertoires non sécurisés ou inconnus peut présenter des risques de sécurité, car cela permet l’exécution de programmes potentiellement malveillants.</li>
+<li>Ouvrez une nouvelle invite de commande pour que les changements prennent effet.</li>
+<li>Tapez <code>python --version</code> pour vérifier que la bonne version de Python est utilisée.</li>
 </ul></li>
 </ol>
-<p>La compréhension et la gestion appropriée de la variable PATH sont fondamentales pour tout utilisateur ou développeur travaillant avec des systèmes d’exploitation modernes. Cela devient particulièrement pertinent lors de la configuration d’environnements de développement, comme lors de l’installation de Python ou d’autres langages de programmation.</p>
 </section>
-<section id="configuration-de-path-pour-une-version-python-compilée-manuellement" class="level4">
-<h4 class="anchored" data-anchor-id="configuration-de-path-pour-une-version-python-compilée-manuellement">Configuration de PATH pour une Version Python Compilée Manuellement</h4>
-<p>Lorsqu’un utilisateur compile Python à partir du code source dans un répertoire personnalisé, surtout dans un cas où il n’a pas les droits nécessaires pour installer Python dans le répertoire standard <code>/usr</code>, la configuration du <code>PATH</code> devient essentielle. Voici comment cela fonctionne sous Linux :</p>
+<section id="linux" class="level4">
+<h4 class="anchored" data-anchor-id="linux">Linux</h4>
 <ol type="1">
-<li><strong>Installation Locale de Python</strong>:
+<li><strong>Localisation de l’Exécutable Python</strong>:
 <ul>
-<li>Supposons que l’utilisateur compile Python et l’installe dans son répertoire personnel, par exemple dans <code>~/mon_python/</code>.</li>
-<li>Après l’installation, l’exécutable Python se trouvera dans ce répertoire (par exemple, <code>~/mon_python/bin/python</code>).</li>
+<li>Supposons que Python soit installé dans <code>~/mon_python/</code>.</li>
 </ul></li>
-<li><strong>Modification de la Variable PATH</strong>:
+<li><strong>Modification de PATH</strong>:
 <ul>
-<li>Pour utiliser cette version personnalisée de Python par défaut, l’utilisateur doit ajouter <code>~/mon_python/bin</code> à sa variable d’environnement PATH.</li>
-<li>Cela peut être fait en modifiant le fichier de configuration de l’interpréteur de commandes, tel que <code>.bashrc</code> ou <code>.bash_profile</code>, en y ajoutant la ligne <code>export PATH="~/mon_python/bin:$PATH"</code>.</li>
+<li>Ouvrez le fichier <code>.bashrc</code> ou <code>.bash_profile</code> dans votre répertoire personnel avec un éditeur de texte.</li>
+<li>Ajoutez la ligne <code>export PATH="~/mon_python/bin:$PATH"</code> à la fin du fichier.</li>
+<li>Enregistrez et fermez le fichier.</li>
 </ul></li>
-<li><strong>Priorité dans PATH</strong>:
+<li><strong>Application des Changements</strong>:
 <ul>
-<li>L’ordre des répertoires dans PATH est important. En ajoutant le nouveau chemin au début (<code>$PATH</code> à la fin), l’utilisateur s’assure que la version personnalisée de Python est prioritaire par rapport aux autres versions potentiellement installées sur le système.</li>
-</ul></li>
-<li><strong>Application des Modifications</strong>:
-<ul>
-<li>Après avoir modifié le fichier <code>.bashrc</code> ou <code>.bash_profile</code>, l’utilisateur doit soit redémarrer son terminal, soit exécuter <code>source ~/.bashrc</code> (ou équivalent) pour que les modifications prennent effet.</li>
-</ul></li>
-<li><strong>Vérification</strong>:
-<ul>
-<li>Une fois le PATH mis à jour, taper <code>python --version</code> ou <code>python3 --version</code> dans le terminal devrait afficher la version du Python qui a été installée dans le répertoire personnalisé.</li>
-</ul></li>
-<li><strong>Avantages</strong>:
-<ul>
-<li>Cette méthode permet à l’utilisateur d’avoir plusieurs versions de Python sur le même système sans conflit.</li>
-<li>Elle est particulièrement utile pour les développeurs qui ont besoin de tester leur code sur différentes versions de Python ou dans des environnements isolés.</li>
+<li>Exécutez <code>source ~/.bashrc</code> ou redémarrez le terminal.</li>
+<li>Vérifiez avec <code>python --version</code> que la version correcte de Python est utilisée.</li>
 </ul></li>
 </ol>
-<p>En résumé, la configuration correcte de la variable PATH est essentielle pour s’assurer que la bonne version de Python est utilisée, surtout lorsque plusieurs versions sont installées ou quand les utilisateurs n’ont pas les droits d’administration pour installer Python dans des répertoires standards comme <code>/usr</code>.</p>
-
-
 </section>
+<section id="macos" class="level4">
+<h4 class="anchored" data-anchor-id="macos">MacOS</h4>
+<ol type="1">
+<li><strong>Localisation de l’Exécutable Python</strong>:
+<ul>
+<li>Comme pour Linux, identifiez où Python a été installé, par exemple, <code>~/mon_python/</code>.</li>
+</ul></li>
+<li><strong>Modification de PATH</strong>:
+<ul>
+<li>Si vous utilisez Bash, modifiez <code>.bash_profile</code> ; si vous utilisez Zsh, modifiez <code>.zshrc</code>.</li>
+<li>Ajoutez <code>export PATH="~/mon_python/bin:$PATH"</code> à la fin du fichier correspondant.</li>
+<li>Sauvegardez et fermez l’éditeur de texte.</li>
+</ul></li>
+<li><strong>Application des Changements</strong>:
+<ul>
+<li>Exécutez <code>source ~/.bash_profile</code> ou <code>source ~/.zshrc</code>, selon l’interpréteur de commandes que vous utilisez.</li>
+<li>Utilisez <code>python --version</code> pour confirmer que le système utilise la version Python compilée manuellement.</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="points-importants-à-noter" class="level3">
+<h3 class="anchored" data-anchor-id="points-importants-à-noter">Points Importants à Noter</h3>
+<ul>
+<li><strong>Ordre dans PATH</strong> : L’ordre des chemins dans <code>PATH</code> est crucial. Le système recherche les exécutables dans l’ordre où les chemins apparaissent. Si vous voulez que votre version compilée de Python soit prioritaire, assurez-vous qu’elle apparaisse en premier dans la liste.</li>
+<li><strong>Sécurité</strong> : Soyez prudent lors de la modification de <code>PATH</code>, surtout sous Unix/Linux et MacOS, car une mauvaise configuration peut affecter le fonctionnement du système.</li>
+<li><strong>Version par Défaut</strong> : Si plusieurs versions de Python sont installées, la version exécutée par défaut sera celle trouvée en premier dans <code>PATH</code>.</li>
+</ul>
+<p>En suivant ces étapes, vous pouvez configurer votre système pour utiliser une version spécifique de Python, vous offrant ainsi une plus grande flexibilité et contrôle sur votre environnement de développement.</p>
+
+
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

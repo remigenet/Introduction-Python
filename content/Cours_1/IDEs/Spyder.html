@@ -89,10 +89,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Introduction</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-comprendre-et-installer-python" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Comprendre Et Installer Python</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-comprendre-et-installer-python">    
         <li>
     <a class="dropdown-item" href="../../../content/Cours_1/1-Histoire.html" rel="" target="">
  <span class="dropdown-text">Histoire du Langage</span></a>
@@ -121,16 +121,39 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../../content/Cours_1/7-Notebooks.html" rel="" target="">
  <span class="dropdown-text">Les Notebooks</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/Cours_1/TP-ConstruireSonPython.html" rel="" target="">
+ <span class="dropdown-text">TP - Construire son python depuis la source</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-decouvrir" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Decouvrir</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-premiers-pas" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Premiers pas</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-decouvrir">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-premiers-pas">    
         <li>
     <a class="dropdown-item" href="../../../content/Cours_2/sometest.html" rel="" target="">
- <span class="dropdown-text">This is a test</span></a>
+ <span class="dropdown-text">1- Discover</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-annexes" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Annexes</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-annexes">    
+        <li>
+    <a class="dropdown-item" href="../../../content/Annexes/git_advanced.html" rel="" target="">
+ <span class="dropdown-text">Git - Pour aller plus loin</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/Annexes/git_basics.html" rel="" target="">
+ <span class="dropdown-text">Git Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/Annexes/LinuxTerminal.html" rel="" target="">
+ <span class="dropdown-text">Utiliser le terminal Linux - les bases de bash</span></a>
   </li>  
     </ul>
   </li>
@@ -161,7 +184,13 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#spyder---un-ide-orienté-science-des-données-pour-python" id="toc-spyder---un-ide-orienté-science-des-données-pour-python" class="nav-link active" data-scroll-target="#spyder---un-ide-orienté-science-des-données-pour-python">Spyder - Un IDE Orienté Science des Données pour Python</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -192,38 +221,64 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="spyder---un-ide-orienté-science-des-données-pour-python" class="level3">
+<h3 class="anchored" data-anchor-id="spyder---un-ide-orienté-science-des-données-pour-python">Spyder - Un IDE Orienté Science des Données pour Python</h3>
 <section id="présentation-de-spyder" class="level4">
 <h4 class="anchored" data-anchor-id="présentation-de-spyder">Présentation de Spyder</h4>
-<p>Spyder est un IDE spécifiquement conçu pour les scientifiques, les ingénieurs et les analystes de données travaillant avec le langage de programmation Python. Il est particulièrement apprécié dans la communauté de la science des données. Voici quelques-unes de ses caractéristiques principales :</p>
-<ol type="1">
-<li><strong>Fonctionnalités de Spyder</strong>:
+<p>Spyder est un Environnement de Développement Intégré (IDE) créé spécifiquement pour répondre aux besoins des scientifiques, des ingénieurs et des analystes de données qui utilisent Python. Il se distingue par son orientation vers la science des données, offrant des outils et fonctionnalités adaptés à ce domaine.</p>
+</section>
+<section id="fonctionnalités-clés-de-spyder" class="level4">
+<h4 class="anchored" data-anchor-id="fonctionnalités-clés-de-spyder">1. Fonctionnalités Clés de Spyder</h4>
 <ul>
-<li><strong>Interface Intuitive</strong> : Spyder offre une interface utilisateur propre et bien organisée, avec un éditeur de code, une console Python, une vue des variables, et un affichage de la documentation.</li>
-<li><strong>Intégration IPython</strong> : La console IPython intégrée permet un développement interactif et une exploration de données avec support pour le tracé en ligne et le débogage.</li>
-<li><strong>Outils de Débogage et d’Exploration</strong> : Spyder comprend un débogueur intégré et des outils d’exploration de données comme un explorateur de variables et un visualisateur de matrices.</li>
-</ul></li>
-<li><strong>Support pour la Data Science</strong>:
+<li><strong>Interface Utilisateur Intuitive</strong> :
 <ul>
-<li>Spyder est particulièrement adapté pour la data science et l’analyse de données, avec un soutien intégré pour des bibliothèques comme NumPy, Pandas, Matplotlib, et SciPy.</li>
-<li>Il offre des fonctionnalités comme la visualisation de données et l’analyse interactive qui sont cruciales dans le domaine de la science des données.</li>
+<li>Spyder propose une interface épurée, divisée en plusieurs panneaux pour l’édition de code, la console Python, la gestion des variables, et la consultation de la documentation.</li>
+<li>Cette organisation facilite la navigation et la gestion simultanée de multiples aspects d’un projet.</li>
 </ul></li>
-<li><strong>Gestion des Environnements Virtuels</strong>:
+<li><strong>Intégration de l’IPython</strong> :
 <ul>
-<li>Spyder permet de gérer facilement les environnements virtuels Python, ce qui est essentiel pour gérer les dépendances spécifiques aux projets.</li>
+<li>La console IPython intégrée à Spyder permet un développement interactif, idéal pour tester des fragments de code, visualiser des données, et effectuer des analyses exploratoires.</li>
+<li>Elle supporte également le tracé en ligne et des fonctionnalités de débogage avancées.</li>
 </ul></li>
-<li><strong>Personnalisation et Extensions</strong>:
+<li><strong>Outils de Débogage et d’Exploration des Données</strong> :
 <ul>
-<li>L’interface et les fonctionnalités de Spyder peuvent être personnalisées pour s’adapter aux préférences de l’utilisateur.</li>
-<li>Bien que moins centré sur les extensions que des IDE comme VS Code, Spyder offre une expérience optimisée pour l’analyse de données et le développement scientifique.</li>
+<li>Spyder inclut un débogueur puissant et des outils d’exploration de données, tels qu’un explorateur de variables et un visualisateur de matrices.</li>
+<li>Ces outils sont particulièrement utiles pour comprendre et analyser des ensembles de données complexes.</li>
 </ul></li>
-<li><strong>Communauté et Ressources</strong>:
+</ul>
+</section>
+<section id="support-pour-la-data-science" class="level4">
+<h4 class="anchored" data-anchor-id="support-pour-la-data-science">2. Support pour la Data Science</h4>
 <ul>
-<li>Spyder a une communauté active de développeurs et d’utilisateurs, fournissant un bon support et des ressources d’apprentissage.</li>
-</ul></li>
-</ol>
-<p>Spyder est un excellent choix pour ceux qui sont dans les domaines de la science des données, de l’ingénierie ou de la recherche scientifique. Sa conception axée sur l’analyse de données et les fonctionnalités scientifiques en font un outil précieux pour les tâches d’analyse et d’exploration de données complexes.</p>
+<li>Spyder est optimisé pour la data science, offrant une intégration native avec des bibliothèques telles que NumPy, Pandas, Matplotlib et SciPy.</li>
+<li>Il fournit des fonctionnalités spécifiques pour la visualisation de données et l’analyse interactive, facilitant la manipulation et l’interprétation des données.</li>
+</ul>
+</section>
+<section id="gestion-des-environnements-virtuels" class="level4">
+<h4 class="anchored" data-anchor-id="gestion-des-environnements-virtuels">3. Gestion des Environnements Virtuels</h4>
+<ul>
+<li>Spyder permet de gérer facilement les environnements virtuels Python, ce qui est crucial pour maintenir les dépendances spécifiques à chaque projet isolées et gérables.</li>
+</ul>
+</section>
+<section id="personnalisation-et-extensions" class="level4">
+<h4 class="anchored" data-anchor-id="personnalisation-et-extensions">4. Personnalisation et Extensions</h4>
+<ul>
+<li>Bien que Spyder offre moins d’options d’extensions que des IDE comme VS Code, il permet une personnalisation significative de l’interface utilisateur et de l’expérience de développement.</li>
+<li>Sa configuration par défaut est déjà bien adaptée aux besoins de la science des données, réduisant le besoin de personnalisation extensive.</li>
+</ul>
+</section>
+<section id="communauté-et-ressources" class="level4">
+<h4 class="anchored" data-anchor-id="communauté-et-ressources">5. Communauté et Ressources</h4>
+<ul>
+<li>Spyder bénéficie d’une communauté active de développeurs et d’utilisateurs qui fournissent un soutien solide et une variété de ressources d’apprentissage, ce qui le rend accessible aux nouveaux utilisateurs.</li>
+</ul>
+</section>
+<section id="conclusion" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion">Conclusion</h4>
+<p>Spyder est un choix idéal pour les professionnels et les étudiants dans les domaines de la science des données, de l’ingénierie ou de la recherche scientifique. Son orientation vers l’analyse et l’exploration de données, combinée à une interface intuitive, le rend particulièrement adapté pour les tâches d’analyse de données complexes et le développement scientifique.</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

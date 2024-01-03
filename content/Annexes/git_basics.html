@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="LeS Notebooks représentent l’un des support de choix pour la recherche et la datascience, et sont un outil formidable pour une utilisation interractive de Python">
+<meta name="description" content="Git c’est imposé comme un incontournable pour le développement, et ne concerne désormais plus que les developeurs mais également l’ensemble des datascientist. En maitriser les bases est ainsi presque indispensable, même si les premières utilisations ne sont rarement de bon souvenirs.">
 
-<title>Introduction à Python - Les Notebooks</title>
+<title>Introduction à Python - Git Basics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Cours_1/TP-ConstruireSonPython.html" rel="next">
-<link href="../../content/Cours_1/6-IDEs.html" rel="prev">
+<link href="../../content/Annexes/LinuxTerminal.html" rel="next">
+<link href="../../content/Annexes/git_advanced.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -185,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_1/7-Notebooks.html">Les Notebooks</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Annexes/git_basics.html">Git Basics</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -199,50 +199,20 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/1-Histoire.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Histoire du Langage</span></a>
+  <a href="../../content/Annexes/git_advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git - Pour aller plus loin</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/2-Python_Execution.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exécution d’un Programme Python</span></a>
+  <a href="../../content/Annexes/git_basics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Git Basics</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/3-ManyPythons.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Versions et Compilation de Python</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/4-Path.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Le PATH</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/5-PathandVirtualEnv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Path.. et environnements virtuels!</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/6-IDEs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Les IDEs</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/7-Notebooks.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Les Notebooks</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/TP-ConstruireSonPython.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TP - Construire son python depuis la source</span></a>
+  <a href="../../content/Annexes/LinuxTerminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Utiliser le terminal Linux - les bases de bash</span></a>
   </div>
 </li>
     </ul>
@@ -255,7 +225,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#les-notebooks-jupyter" id="toc-les-notebooks-jupyter" class="nav-link active" data-scroll-target="#les-notebooks-jupyter">7. Les Notebooks Jupyter</a></li>
+  <li><a href="#document-de-cours-guide-détaillé-sur-git-pour-les-débutants" id="toc-document-de-cours-guide-détaillé-sur-git-pour-les-débutants" class="nav-link active" data-scroll-target="#document-de-cours-guide-détaillé-sur-git-pour-les-débutants">Document de Cours : Guide Détaillé sur Git pour les Débutants</a></li>
   </ul>
 </nav>
     </div>
@@ -264,16 +234,16 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Les Notebooks</h1>
+<h1 class="title">Git Basics</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Cours</div>
-    <div class="quarto-category">Introduction</div>
+    <div class="quarto-category">Annexes</div>
+    <div class="quarto-category">Git</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    LeS Notebooks représentent l’un des support de choix pour la recherche et la datascience, et sont un outil formidable pour une utilisation interractive de Python
+    Git c’est imposé comme un incontournable pour le développement, et ne concerne désormais plus que les developeurs mais également l’ensemble des datascientist. En maitriser les bases est ainsi presque indispensable, même si les premières utilisations ne sont rarement de bon souvenirs.
   </div>
 </div>
 
@@ -288,83 +258,133 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="les-notebooks-jupyter" class="level3">
-<h3 class="anchored" data-anchor-id="les-notebooks-jupyter">7. Les Notebooks Jupyter</h3>
-<section id="différence-entre-les-fichiers-.py-et-.ipynb-et-la-notion-de-notebook" class="level4">
-<h4 class="anchored" data-anchor-id="différence-entre-les-fichiers-.py-et-.ipynb-et-la-notion-de-notebook">Différence entre les Fichiers .py et .ipynb et la Notion de Notebook</h4>
-<p>La distinction entre les fichiers <code>.py</code> et <code>.ipynb</code> est fondamentale dans l’écosystème Python, en particulier pour les tâches de développement et d’analyse de données.</p>
-<ol type="1">
-<li><strong>Fichiers .py</strong>:
-<ul>
-<li><strong>Nature</strong>: Les fichiers <code>.py</code> sont des scripts Python traditionnels. Ils contiennent du code Python pur pouvant être exécuté par l’interpréteur Python.</li>
-<li><strong>Utilisation</strong>: Ces fichiers sont généralement utilisés pour le développement d’applications, de scripts, ou de modules Python.</li>
-<li><strong>IDEs et Éditeurs</strong>: Ils peuvent être ouverts et exécutés dans n’importe quel éditeur de texte ou IDE comme PyCharm, Visual Studio Code, ou Spyder.</li>
-</ul></li>
-<li><strong>Fichiers .ipynb et Notebooks</strong>:
-<ul>
-<li><strong>Nature</strong>: Les fichiers avec l’extension <code>.ipynb</code> sont des notebooks Jupyter. Ils permettent de combiner du code exécutable, du texte enrichi (Markdown), des équations (LaTeX), des visualisations et des médias interactifs.</li>
-<li><strong>Utilisation</strong>: Ces notebooks sont largement utilisés dans la data science et l’enseignement pour leur capacité à présenter le code, les résultats, et les explications de manière interactive et attrayante.</li>
-<li><strong>Environnement</strong>: Ils nécessitent un environnement Jupyter pour être exécutés, comme Jupyter Notebook ou JupyterLab.</li>
-</ul></li>
-<li><strong>La Notion de Notebook</strong>:
-<ul>
-<li>Un “notebook” est un document numérique qui permet de créer et de partager des documents contenant du code, du texte explicatif, des formules mathématiques et des visualisations.</li>
-<li>Les notebooks sont interactifs : vous pouvez exécuter le code dans des cellules individuelles et voir les résultats immédiatement sous ces cellules, ce qui facilite grandement l’exploration de données et les analyses ad hoc.</li>
-</ul></li>
-</ol>
-<p>En résumé, la différence principale entre <code>.py</code> et <code>.ipynb</code> réside dans leur approche du développement et de la présentation du code. Les fichiers <code>.py</code> sont mieux adaptés pour le développement de logiciels structurés, tandis que les fichiers <code>.ipynb</code> sont idéaux pour l’exploration de données, l’analyse interactive et la documentation de processus.</p>
+<section id="document-de-cours-guide-détaillé-sur-git-pour-les-débutants" class="level3">
+<h3 class="anchored" data-anchor-id="document-de-cours-guide-détaillé-sur-git-pour-les-débutants">Document de Cours : Guide Détaillé sur Git pour les Débutants</h3>
+<section id="introduction-à-git" class="level4">
+<h4 class="anchored" data-anchor-id="introduction-à-git">Introduction à Git</h4>
+<p>Git est un système de contrôle de version distribué très populaire dans le monde du développement logiciel. Il permet aux développeurs de suivre et de gérer les modifications apportées aux codes sources au fil du temps. Ce guide vise à fournir une compréhension détaillée de Git pour les débutants.</p>
 </section>
-<section id="présentation-de-jupyter" class="level4">
-<h4 class="anchored" data-anchor-id="présentation-de-jupyter">Présentation de Jupyter</h4>
-<p>Jupyter est un projet open source qui permet de créer et de partager des documents contenant du code en direct, des équations, des visualisations et du texte narratif. Il est particulièrement populaire dans la data science, l’enseignement des sciences informatiques, et la recherche scientifique. Voici les aspects clés de Jupyter :</p>
-<ol type="1">
-<li><strong>Jupyter Notebook</strong>:
+<section id="principes-de-base-de-git" class="level4">
+<h4 class="anchored" data-anchor-id="principes-de-base-de-git">1. Principes de Base de Git</h4>
 <ul>
-<li><strong>Nature et Fonctionnalités</strong> : Jupyter Notebook est une application web qui permet de créer et de partager des documents contenant du code interactif (notamment Python), des équations, des visualisations, et du texte explicatif.</li>
-<li><strong>Utilisation</strong> : Idéal pour la data science et l’analyse exploratoire, il facilite la visualisation des données et la communication des résultats.</li>
-<li><strong>Interactivité</strong> : Les utilisateurs peuvent exécuter le code dans des cellules individuelles, voir les résultats immédiatement, et apporter des modifications en temps réel.</li>
-</ul></li>
-<li><strong>JupyterLab</strong>:
+<li><strong>Répertoires de travail et dépôts</strong> :
 <ul>
-<li><strong>Évolution de Jupyter Notebook</strong> : JupyterLab est une interface utilisateur de nouvelle génération pour le projet Jupyter. Il offre toutes les fonctionnalités de Jupyter Notebook, avec une interface plus flexible et extensible.</li>
-<li><strong>Interface Améliorée</strong> : Il propose une interface utilisateur modulaire, où les notebooks, les éditeurs de texte, les terminaux, les visualisations de données et d’autres composants peuvent être disposés dans un espace de travail unique.</li>
-<li><strong>Extensions et Personnalisations</strong> : JupyterLab permet d’ajouter des extensions, ce qui augmente sa fonctionnalité et sa flexibilité.</li>
+<li>Un <strong>répertoire de travail</strong> est un dossier sur votre ordinateur où vous travaillez sur votre projet.</li>
+<li>Un <strong>dépôt (repository) Git</strong> est une structure de données qui stocke les informations sur les modifications et l’historique de votre projet.</li>
 </ul></li>
-<li><strong>Support Multilingue</strong>:
+<li><strong>Commit</strong> :
 <ul>
-<li>Bien que Python soit le langage le plus couramment utilisé, Jupyter supporte de nombreux autres langages de programmation grâce au concept de “kernels”. Un kernel est un moteur de calcul qui exécute le code contenu dans le notebook.</li>
+<li>Un <strong>commit</strong> est une capture instantanée de l’état de votre projet à un moment donné. Chaque commit a un identifiant unique appelé un hash SHA-1.</li>
 </ul></li>
-<li><strong>Partage et Collaboration</strong>:
+<li><strong>Branches</strong> :
 <ul>
-<li>Les notebooks Jupyter peuvent être partagés via email, Dropbox, GitHub et Jupyter Notebook Viewer.</li>
-<li>Ils facilitent la collaboration et sont souvent utilisés dans l’enseignement et la recherche scientifique pour partager des expériences, des analyses et des rapports.</li>
+<li>Les <strong>branches</strong> permettent de développer des fonctionnalités, de corriger des bugs, ou d’expérimenter dans des contextes isolés. La branche principale par défaut est généralement appelée <code>master</code> ou <code>main</code>.</li>
 </ul></li>
-</ol>
-<p>Jupyter est devenu un outil incontournable dans les domaines de la data science et de l’éducation en raison de sa capacité à combiner code, données, et narration dans un format interactif et facilement partageable. Son approche modulaire et extensible avec JupyterLab le rend encore plus puissant pour des projets de développement et de recherche complexes.</p>
+</ul>
 </section>
-<section id="autres-options-pour-le-développement-interactif-google-colab-et-alternatives" class="level4">
-<h4 class="anchored" data-anchor-id="autres-options-pour-le-développement-interactif-google-colab-et-alternatives">Autres Options pour le Développement Interactif: Google Colab et Alternatives</h4>
-<p>Outre Jupyter, il existe d’autres plateformes populaires pour le développement interactif, particulièrement dans le domaine de la data science et du machine learning. Google Colab est l’une des plus remarquables.</p>
-<ol type="1">
-<li><strong>Google Colab</strong>:
+<section id="installation-et-configuration-de-git" class="level4">
+<h4 class="anchored" data-anchor-id="installation-et-configuration-de-git">2. Installation et Configuration de Git</h4>
 <ul>
-<li><strong>Nature et Fonctionnalités</strong>: Google Colab est un service gratuit hébergé par Google qui permet aux utilisateurs de créer et de partager des documents similaires à Jupyter Notebooks. Il est basé sur Jupyter et offre un environnement Python complet.</li>
-<li><strong>Intégration avec Google Drive</strong>: Colab est intégré avec Google Drive, facilitant le partage, l’accès et la collaboration sur des notebooks.</li>
-<li><strong>Ressources de Calcul Gratuites</strong>: Il offre l’accès à des ressources de calcul gratuites, y compris des GPU et des TPU, ce qui le rend populaire pour les projets de machine learning et de deep learning.</li>
-<li><strong>Environnement Préconfiguré</strong>: Colab vient préchargé avec de nombreuses bibliothèques populaires, ce qui facilite la mise en place et la réalisation de projets de data science.</li>
-</ul></li>
-<li><strong>Autres Alternatives</strong>:
+<li><strong>Installation</strong> :
 <ul>
-<li><strong>Databricks Community Edition</strong>: Plateforme basée sur le cloud qui offre un environnement similaire à Jupyter pour l’exécution de notebooks Spark. Elle est utile pour les analyses de données à grande échelle.</li>
-<li><strong>Kaggle Kernels</strong>: Offre un environnement similaire à Jupyter Notebook avec l’accès gratuit à des GPU et TPU. Il est intégré à la plateforme Kaggle, permettant aux utilisateurs de travailler sur des datasets complexes et de participer à des compétitions de data science.</li>
-<li><strong>Azure Notebooks</strong>: Service proposé par Microsoft, similaire à Jupyter Notebooks, mais intégré dans l’écosystème Azure. Il permet de créer, de partager et de gérer des notebooks dans le cloud.</li>
+<li>Git peut être installé à partir de https://git-scm.com/. Suivez les instructions pour votre système d’exploitation.</li>
 </ul></li>
-<li><strong>Choix de la Plateforme</strong>:
+<li><strong>Configuration Initiale</strong> :
 <ul>
-<li>Le choix entre ces différentes plateformes dépend de plusieurs facteurs tels que les ressources de calcul nécessaires, la facilité de partage et de collaboration, l’intégration avec d’autres services et outils, et les préférences personnelles ou organisationnelles.</li>
+<li><p>Configurez votre nom et votre adresse email, qui seront utilisés dans vos commits :</p>
+<pre><code>git config --global user.name "Votre Nom"
+git config --global user.email "votre.email@example.com"</code></pre></li>
 </ul></li>
-</ol>
-<p>Ces plateformes offrent une flexibilité et des fonctionnalités puissantes pour le développement interactif, l’exploration de données, et le machine learning, rendant l’analyse de données et la recherche scientifique plus accessibles et collaboratives.</p>
+</ul>
+</section>
+<section id="création-et-clonage-dun-dépôt-git" class="level4">
+<h4 class="anchored" data-anchor-id="création-et-clonage-dun-dépôt-git">3. Création et Clonage d’un Dépôt Git</h4>
+<ul>
+<li><strong>Initialisation d’un Nouveau Dépôt</strong> :
+<ul>
+<li><p>Pour initialiser un nouveau dépôt dans un répertoire existant :</p>
+<pre><code>cd /chemin/vers/votre/projet
+git init</code></pre></li>
+</ul></li>
+<li><strong>Clonage d’un Dépôt Existant</strong> :
+<ul>
+<li><p>Pour cloner (copier) un dépôt existant :</p>
+<pre><code>git clone https://adresse/du/depot.git</code></pre></li>
+</ul></li>
+</ul>
+</section>
+<section id="travail-avec-git-add-commit-push" class="level4">
+<h4 class="anchored" data-anchor-id="travail-avec-git-add-commit-push">4. Travail avec Git : Add, Commit, Push</h4>
+<ul>
+<li><strong>Add</strong> :
+<ul>
+<li><p>Ajoute les modifications de fichiers dans l’index (zone de staging) :</p>
+<pre><code>git add &lt;fichier&gt;
+git add .  # Ajoute tous les fichiers modifiés</code></pre></li>
+</ul></li>
+<li><strong>Commit</strong> :
+<ul>
+<li><p>Enregistre les modifications dans l’historique du dépôt :</p>
+<pre><code>git commit -m "Message décrivant le commit"</code></pre></li>
+</ul></li>
+<li><strong>Push</strong> :
+<ul>
+<li><p>Envoie les commits locaux vers un dépôt distant :</p>
+<pre><code>git push origin &lt;nom_de_la_branche&gt;</code></pre></li>
+</ul></li>
+</ul>
+</section>
+<section id="branches-et-fusion-merge" class="level4">
+<h4 class="anchored" data-anchor-id="branches-et-fusion-merge">5. Branches et Fusion (Merge)</h4>
+<ul>
+<li><strong>Création de Branches</strong> :
+<ul>
+<li><p>Pour créer une nouvelle branche :</p>
+<pre><code>git branch &lt;nom_de_la_branche&gt;</code></pre></li>
+</ul></li>
+<li><strong>Changement de Branches</strong> :
+<ul>
+<li><p>Pour changer de branche :</p>
+<pre><code>git checkout &lt;nom_de_la_branche&gt;</code></pre></li>
+</ul></li>
+<li><strong>Fusion</strong> :
+<ul>
+<li><p>Fusionne les changements d’une branche dans une autre :</p>
+<pre><code>git merge &lt;nom_de_la_branche&gt;</code></pre></li>
+</ul></li>
+</ul>
+</section>
+<section id="gestion-des-conflits" class="level4">
+<h4 class="anchored" data-anchor-id="gestion-des-conflits">6. Gestion des Conflits</h4>
+<ul>
+<li>Les conflits surviennent lorsque des modifications concurrentes sont apportées à la même partie d’un fichier. Git marque ces conflits dans les fichiers concernés, et il vous appartient de les résoudre manuellement.</li>
+</ul>
+</section>
+<section id="autres-commandes-utiles" class="level4">
+<h4 class="anchored" data-anchor-id="autres-commandes-utiles">7. Autres Commandes Utiles</h4>
+<ul>
+<li><strong>Status</strong> :
+<ul>
+<li><p>Affiche l’état des fichiers (modifiés, indexés, non suivis) :</p>
+<pre><code>git status</code></pre></li>
+</ul></li>
+<li><strong>Log</strong> :
+<ul>
+<li><p>Affiche l’historique des commits :</p>
+<pre><code>git log</code></pre></li>
+</ul></li>
+<li><strong>Fetch et Pull</strong> :
+<ul>
+<li><code>git fetch</code> télécharge les changements depuis le dépôt distant sans les fusionner.</li>
+<li><code>git pull</code> télécharge et fusionne automatiquement les changements.</li>
+</ul></li>
+</ul>
+</section>
+<section id="conclusion" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion">Conclusion</h4>
+<p>Git est un outil puissant pour la gestion des versions. La maîtrise des commandes de base et des concepts de Git est cruciale pour tout développeur. Commencez par expérimenter avec des projets simples, et au fur et à mesure, vous vous familiariserez avec des fonctionnalités plus avancées de Git.</p>
+<hr>
+<p>Ce guide vous a introduit aux fondamentaux de Git. Pour devenir compétent, la pratique régulière et l’exploration des fonctionnalités avancées sont essentielles. N’hésitez pas à consulter la documentation officielle de Git pour approfondir vos connaissances.</p>
 
 
 </section>
@@ -606,13 +626,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../content/Cours_1/6-IDEs.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Les IDEs</span>
+      <a href="../../content/Annexes/git_advanced.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Git - Pour aller plus loin</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../content/Cours_1/TP-ConstruireSonPython.html" class="pagination-link">
-        <span class="nav-page-text">TP - Construire son python depuis la source</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../content/Annexes/LinuxTerminal.html" class="pagination-link">
+        <span class="nav-page-text">Utiliser le terminal Linux - les bases de bash</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

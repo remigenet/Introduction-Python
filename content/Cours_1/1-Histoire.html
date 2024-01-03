@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Python est un langage de programmation qui a su gagner sa crédibilité grâce à sa simplicité et sa flexibilité. Bien qu’il ne soit pas l’un des plus anciens langages encore utilisés, il est largement adopté dans de nombreux domaines. Comprendre l’histoire de Python permet de comprendre ses choix de conception, son fonctionnement et sa direction future. Dans ce chapitre, nous allons explorer l’histoire de Python, sa popularité et ses critiques, et son évolution de Python 2 à Python 3 et au-delà.">
+<meta name="description" content="Explorer l’histoire de Python, c’est comprendre ses choix de conception, son évolution et sa place actuelle dans le monde de la programmation. Ce chapitre se concentre sur les origines de Python, son développement au fil des ans, les raisons de sa popularité, ses critiques, et les défis futurs. Il offre un aperçu complet de Python, de sa première version à la version actuelle, en mettant en lumière les évolutions majeures et les choix qui ont façonné ce langage.">
 
 <title>Introduction à Python - Histoire du Langage</title>
 <style>
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -90,10 +124,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Introduction</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-comprendre-et-installer-python" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Comprendre Et Installer Python</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-comprendre-et-installer-python">    
         <li>
     <a class="dropdown-item" href="../../content/Cours_1/1-Histoire.html" rel="" target="">
  <span class="dropdown-text">Histoire du Langage</span></a>
@@ -122,16 +156,39 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../content/Cours_1/7-Notebooks.html" rel="" target="">
  <span class="dropdown-text">Les Notebooks</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/TP-ConstruireSonPython.html" rel="" target="">
+ <span class="dropdown-text">TP - Construire son python depuis la source</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-decouvrir" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Decouvrir</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-premiers-pas" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Premiers pas</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-decouvrir">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-premiers-pas">    
         <li>
     <a class="dropdown-item" href="../../content/Cours_2/sometest.html" rel="" target="">
- <span class="dropdown-text">This is a test</span></a>
+ <span class="dropdown-text">1- Discover</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-annexes" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Annexes</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-annexes">    
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/git_advanced.html" rel="" target="">
+ <span class="dropdown-text">Git - Pour aller plus loin</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/git_basics.html" rel="" target="">
+ <span class="dropdown-text">Git Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/LinuxTerminal.html" rel="" target="">
+ <span class="dropdown-text">Utiliser le terminal Linux - les bases de bash</span></a>
   </li>  
     </ul>
   </li>
@@ -215,6 +272,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Les Notebooks</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/TP-ConstruireSonPython.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP - Construire son python depuis la source</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -247,7 +310,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    <p><code>Python</code> est un langage de programmation qui a su gagner sa crédibilité grâce à sa simplicité et sa flexibilité. Bien qu’il ne soit pas l’un des plus anciens langages encore utilisés, il est largement adopté dans de nombreux domaines. Comprendre l’histoire de Python permet de comprendre ses choix de conception, son fonctionnement et sa direction future. Dans ce chapitre, nous allons explorer l’histoire de Python, sa popularité et ses critiques, et son évolution de Python 2 à Python 3 et au-delà.</p>
+    Explorer l’histoire de Python, c’est comprendre ses choix de conception, son évolution et sa place actuelle dans le monde de la programmation. Ce chapitre se concentre sur les origines de Python, son développement au fil des ans, les raisons de sa popularité, ses critiques, et les défis futurs. Il offre un aperçu complet de Python, de sa première version à la version actuelle, en mettant en lumière les évolutions majeures et les choix qui ont façonné ce langage.
   </div>
 </div>
 
@@ -264,9 +327,28 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="a---origines" class="level3">
 <h3 class="anchored" data-anchor-id="a---origines">a - Origines</h3>
-<p>Python, un langage de programmation haut niveau, a été créé par Guido van Rossum et sa première version a été publiée en 1991. L’objectif principal de Python était de combiner une syntaxe claire avec une puissance remarquable. Il est nommé d’après la série télévisée britannique “Monty Python’s Flying Circus”, reflétant l’approche amusée de Van Rossum envers la programmation.</p>
+<p>Python, un langage de programmation de haut niveau, a été inventé par Guido van Rossum, dont la première version a été publiée en 1991. Ce langage, nommé d’après la série télévisée britannique “Monty Python’s Flying Circus”, a été conçu pour allier clarté syntaxique et puissance fonctionnelle.</p>
 <p>Python a évolué au fil des années, en gardant son principe directeur : une syntaxe qui favorise la lisibilité et la simplicité. Cette approche a conduit à un langage qui est à la fois facile à apprendre pour les débutants et puissant pour les développeurs expérimentés. Python est interprété, ce qui signifie que les scripts sont exécutés ligne par ligne, permettant une débogage et une interaction faciles.</p>
-<p>La philosophie de Python est encapsulée dans le <strong>“Zen de Python” (PEP 20)</strong>, un ensemble de 19 aphorismes pour écrire de bons programmes en Python. Parmi les plus célèbres, on trouve “Beautiful is better than ugly”, “Explicit is better than implicit” et “Simple is better than complex”. Cette philosophie a été un facteur clé dans le succès de Python, en particulier pour les débutants qui peuvent facilement apprendre le langage et écrire des programmes simples et lisibles et est à garder en tête lors de l’écriture de code Python.</p>
+<p>Sa philosophie, encapsulée dans le <a href="https://peps.python.org/pep-0020/"><strong>“Zen de Python” (PEP 20)</strong></a>, guide la rédaction de programmes efficaces et lisibles. Il s’agit un ensemble de 19 aphorismes pour écrire de bons programmes en Python. Parmi les plus célèbres, on trouve “Beautiful is better than ugly”, “Explicit is better than implicit” et “Simple is better than complex”. Cette philosophie a été un facteur clé dans le succès de Python, en particulier pour les débutants qui peuvent facilement apprendre le langage et écrire des programmes simples et lisibles et est à garder en tête lors de l’écriture de code Python.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Beautiful is better than ugly.</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Explicit is better than implicit.</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Simple is better than complex.</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Complex is better than complicated.</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Flat is better than nested.</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>Sparse is better than dense.</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Readability counts.</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>Special cases aren't special enough to break the rules.</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Although practicality beats purity.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>Errors should never pass silently.</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>Unless explicitly silenced.</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>In the face of ambiguity, refuse the temptation to guess.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>There should be one-- and preferably only one --obvious way to do it.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Although that way may not be obvious at first unless you're Dutch.</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>Now is better than never.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Although never is often better than *right* now.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>If the implementation is hard to explain, it's a bad idea.</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>If the implementation is easy to explain, it may be a good idea.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>Namespaces are one honking great idea -- let's do more of those!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Pour autant, bien que simple à prendre en main, Python est un langage puissant qui pour être réellement maîtrisé et compris dans sa globalité nécessite de la pratique et de l’expérience. De par son fonctionnement interne, le language permet ainsi à des développeurs expérimentés de trouver des solutions élégantes et efficaces à des problèmes complexes, qui serviront ensuite de base à des bibliothèques et frameworks utilisés par des développeurs bien moins expérimentés qui ne se douteront pas une seconde de ce qui se cache en dessous.</p>
 <p>En résumé, le succès de Python repose sur plusieurs facteurs : sa simplicité, sa polyvalence (il est utilisé dans le développement web, l’analyse de données, l’intelligence artificielle, la science des données, et bien d’autres domaines), et une communauté active qui contribue à un écosystème riche en bibliothèques et frameworks.</p>
 </section>

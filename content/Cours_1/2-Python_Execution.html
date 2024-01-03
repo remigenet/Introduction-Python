@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Avant de se lancer">
+<meta name="description" content="Explorer les mécanismes sous-jacents à l’exécution d’un programme Python pour une compréhension approfondie des processus de compilation et d’interprétation.">
 
 <title>Introduction à Python - Exécution d’un Programme Python</title>
 <style>
@@ -91,10 +91,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Introduction</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-comprendre-et-installer-python" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Comprendre Et Installer Python</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-comprendre-et-installer-python">    
         <li>
     <a class="dropdown-item" href="../../content/Cours_1/1-Histoire.html" rel="" target="">
  <span class="dropdown-text">Histoire du Langage</span></a>
@@ -123,16 +123,39 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../content/Cours_1/7-Notebooks.html" rel="" target="">
  <span class="dropdown-text">Les Notebooks</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/TP-ConstruireSonPython.html" rel="" target="">
+ <span class="dropdown-text">TP - Construire son python depuis la source</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-decouvrir" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Decouvrir</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-premiers-pas" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Premiers pas</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-decouvrir">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-premiers-pas">    
         <li>
     <a class="dropdown-item" href="../../content/Cours_2/sometest.html" rel="" target="">
- <span class="dropdown-text">This is a test</span></a>
+ <span class="dropdown-text">1- Discover</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-annexes" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Annexes</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-annexes">    
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/git_advanced.html" rel="" target="">
+ <span class="dropdown-text">Git - Pour aller plus loin</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/git_basics.html" rel="" target="">
+ <span class="dropdown-text">Git Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/LinuxTerminal.html" rel="" target="">
+ <span class="dropdown-text">Utiliser le terminal Linux - les bases de bash</span></a>
   </li>  
     </ul>
   </li>
@@ -216,6 +239,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Les Notebooks</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/TP-ConstruireSonPython.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP - Construire son python depuis la source</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -247,7 +276,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Avant de se lancer
+    Explorer les mécanismes sous-jacents à l’exécution d’un programme Python pour une compréhension approfondie des processus de compilation et d’interprétation.
   </div>
 </div>
 
@@ -272,7 +301,7 @@ ul.task-list li input[type="checkbox"] {
 <p>La compilation est le processus qui consiste à traduire le code source en code machine, mais cela ne fait pas “que” cela, il va aussi vérifier que le code source est correcte. C’est à dire qu’il va vérifier que le code source est bien écrit dans le language que l’on a choisi. C’est ce que l’on appelle la syntaxe. Il va aussi vérifier que le code source est logique. C’est à dire qu’il va vérifier que le code source est bien écrit dans le bon ordre. C’est ce que l’on appelle la sémantique. Si le code source n’est pas correcte, le compilateur va nous renvoyer une erreur. C’est ce que l’on appelle une erreur de compilation. C’est une erreur qui se produit avant l’exécution du programme.</p>
 <p>Mais la compilation va également permettre d’optimiser le code source. C’est à dire qu’il va le rendre plus rapide à l’exécution. Durant cette phase le compilateur va, en fonction des options choisi par le développeur, optimiser le code source, en supprimant par exemple les lignes de code qui ne sont pas utilisées, en supprimant des boucles ou recursion, en réduisant le nombre de variables, en réduisant le nombre d’instructions, en réduisant le nombre de sauts, en réduisant le nombre d’opérations, en réduisant le nombre de tests, en réduisant le nombre de fonctions, en réduisant le nombre de paramètres, en réduisant le nombre de variables locales, …</p>
 <p>C’est optimisation prennent cependant du temps, et ne sont pas toutes sans risques et les erreurs de compilations peuvent être nombreuses sur des programmes complexes, et la compilations peut demander un temps considérable à chaque fois que l’on apporte une modification.</p>
-<p>Mais en Python, il n’y a pas de compilation ! Magie ?</p>
+<p><strong>Mais en Python, il n’y a pas de compilation ! Magie ?</strong></p>
 </section>
 <section id="c---linterprétation" class="level3">
 <h3 class="anchored" data-anchor-id="c---linterprétation">c - L’interprétation !</h3>
@@ -289,6 +318,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Avantages du Binaire Compilé</strong>: Le fait d’avoir un binaire compilé spécifique à chaque plateforme permet à Python d’être portable et facile à déployer. Les développeurs peuvent écrire un script Python et s’attendre à ce qu’il fonctionne de la même manière sur différentes machines, à condition que l’interpréteur Python approprié soit installé.</p></li>
 </ol>
 <p>Ce mécanisme d’interprétation via un binaire compilé est une caractéristique clé de Python, contribuant à sa polyvalence et sa facilité d’utilisation dans divers environnements de développement.</p>
+<p><a href="../../content/Cours_1/3-ManyPythons.html"><strong>Mais donc, qui produit se binaire ? Y’en a-t-il une seule implémentation ? Puis-je le compiler moi même ? </strong></a></p>
 
 
 </section>

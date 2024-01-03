@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="LeS Notebooks représentent l’un des support de choix pour la recherche et la datascience, et sont un outil formidable pour une utilisation interractive de Python">
 
-<title>Introduction à Python - Les Notebooks</title>
+<title>Introduction à Python - TP - Construire son python depuis la source</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Cours_1/TP-ConstruireSonPython.html" rel="next">
-<link href="../../content/Cours_1/6-IDEs.html" rel="prev">
+<link href="../../content/Cours_1/7-Notebooks.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -185,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_1/7-Notebooks.html">Les Notebooks</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_1/TP-ConstruireSonPython.html">TP - Construire son python depuis la source</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -235,13 +233,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/7-Notebooks.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../content/Cours_1/7-Notebooks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Les Notebooks</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/TP-ConstruireSonPython.html" class="sidebar-item-text sidebar-link">
+  <a href="../../content/Cours_1/TP-ConstruireSonPython.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">TP - Construire son python depuis la source</span></a>
   </div>
 </li>
@@ -255,7 +253,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#les-notebooks-jupyter" id="toc-les-notebooks-jupyter" class="nav-link active" data-scroll-target="#les-notebooks-jupyter">7. Les Notebooks Jupyter</a></li>
+  <li><a href="#tp---construire-python-depuis-la-source" id="toc-tp---construire-python-depuis-la-source" class="nav-link active" data-scroll-target="#tp---construire-python-depuis-la-source">TP - Construire Python depuis la Source</a></li>
   </ul>
 </nav>
     </div>
@@ -264,18 +262,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Les Notebooks</h1>
+<h1 class="title">TP - Construire son python depuis la source</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Cours</div>
     <div class="quarto-category">Introduction</div>
   </div>
   </div>
 
-<div>
-  <div class="description">
-    LeS Notebooks représentent l’un des support de choix pour la recherche et la datascience, et sont un outil formidable pour une utilisation interractive de Python
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -288,83 +281,111 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="les-notebooks-jupyter" class="level3">
-<h3 class="anchored" data-anchor-id="les-notebooks-jupyter">7. Les Notebooks Jupyter</h3>
-<section id="différence-entre-les-fichiers-.py-et-.ipynb-et-la-notion-de-notebook" class="level4">
-<h4 class="anchored" data-anchor-id="différence-entre-les-fichiers-.py-et-.ipynb-et-la-notion-de-notebook">Différence entre les Fichiers .py et .ipynb et la Notion de Notebook</h4>
-<p>La distinction entre les fichiers <code>.py</code> et <code>.ipynb</code> est fondamentale dans l’écosystème Python, en particulier pour les tâches de développement et d’analyse de données.</p>
+<section id="tp---construire-python-depuis-la-source" class="level3">
+<h3 class="anchored" data-anchor-id="tp---construire-python-depuis-la-source">TP - Construire Python depuis la Source</h3>
+<section id="partie-1-préparation-et-clonage-du-répertoire-git-de-cpython" class="level4">
+<h4 class="anchored" data-anchor-id="partie-1-préparation-et-clonage-du-répertoire-git-de-cpython">Partie 1 : Préparation et Clonage du Répertoire Git de CPython</h4>
+<p>Le but de cette première partie est de préparer votre environnement pour la compilation de Python et de cloner le répertoire Git de CPython.</p>
 <ol type="1">
-<li><strong>Fichiers .py</strong>:
+<li><strong>Préparation de l’Environnement</strong> :
 <ul>
-<li><strong>Nature</strong>: Les fichiers <code>.py</code> sont des scripts Python traditionnels. Ils contiennent du code Python pur pouvant être exécuté par l’interpréteur Python.</li>
-<li><strong>Utilisation</strong>: Ces fichiers sont généralement utilisés pour le développement d’applications, de scripts, ou de modules Python.</li>
-<li><strong>IDEs et Éditeurs</strong>: Ils peuvent être ouverts et exécutés dans n’importe quel éditeur de texte ou IDE comme PyCharm, Visual Studio Code, ou Spyder.</li>
+<li>Avant de cloner le répertoire, assurez-vous que Git est installé sur votre système. Sous Linux et MacOS, Git est souvent préinstallé. Sous Windows, vous devrez peut-être l’installer manuellement.</li>
+<li>Vérifiez également que vous disposez des outils de compilation nécessaires. Sous Linux, il s’agit généralement du package <code>build-essential</code>. Sous MacOS, vous aurez besoin de Xcode ou des outils de ligne de commande pour Xcode.</li>
 </ul></li>
-<li><strong>Fichiers .ipynb et Notebooks</strong>:
+<li><strong>Clonage du Répertoire Git de CPython</strong> :
 <ul>
-<li><strong>Nature</strong>: Les fichiers avec l’extension <code>.ipynb</code> sont des notebooks Jupyter. Ils permettent de combiner du code exécutable, du texte enrichi (Markdown), des équations (LaTeX), des visualisations et des médias interactifs.</li>
-<li><strong>Utilisation</strong>: Ces notebooks sont largement utilisés dans la data science et l’enseignement pour leur capacité à présenter le code, les résultats, et les explications de manière interactive et attrayante.</li>
-<li><strong>Environnement</strong>: Ils nécessitent un environnement Jupyter pour être exécutés, comme Jupyter Notebook ou JupyterLab.</li>
-</ul></li>
-<li><strong>La Notion de Notebook</strong>:
-<ul>
-<li>Un “notebook” est un document numérique qui permet de créer et de partager des documents contenant du code, du texte explicatif, des formules mathématiques et des visualisations.</li>
-<li>Les notebooks sont interactifs : vous pouvez exécuter le code dans des cellules individuelles et voir les résultats immédiatement sous ces cellules, ce qui facilite grandement l’exploration de données et les analyses ad hoc.</li>
+<li><p>Ouvrez un terminal ou une invite de commande.</p></li>
+<li><p>Exécutez la commande suivante pour cloner le répertoire Git de CPython :</p>
+<pre><code>git clone https://github.com/python/cpython.git</code></pre></li>
+<li><p>Cette commande télécharge le code source de Python dans un dossier <code>cpython</code> sur votre machine.</p></li>
+<li><p>Vous pouvez choisir une branche spécifique si vous le souhaitez, mais la branche par défaut vous donnera accès à la dernière version de développement.</p></li>
 </ul></li>
 </ol>
-<p>En résumé, la différence principale entre <code>.py</code> et <code>.ipynb</code> réside dans leur approche du développement et de la présentation du code. Les fichiers <code>.py</code> sont mieux adaptés pour le développement de logiciels structurés, tandis que les fichiers <code>.ipynb</code> sont idéaux pour l’exploration de données, l’analyse interactive et la documentation de processus.</p>
 </section>
-<section id="présentation-de-jupyter" class="level4">
-<h4 class="anchored" data-anchor-id="présentation-de-jupyter">Présentation de Jupyter</h4>
-<p>Jupyter est un projet open source qui permet de créer et de partager des documents contenant du code en direct, des équations, des visualisations et du texte narratif. Il est particulièrement populaire dans la data science, l’enseignement des sciences informatiques, et la recherche scientifique. Voici les aspects clés de Jupyter :</p>
+<section id="partie-2-configuration-du-build" class="level4">
+<h4 class="anchored" data-anchor-id="partie-2-configuration-du-build">Partie 2 : Configuration du Build</h4>
+<p>Cette partie implique de configurer le code source pour la compilation.</p>
 <ol type="1">
-<li><strong>Jupyter Notebook</strong>:
+<li><strong>Navigation dans le Dossier</strong> :
 <ul>
-<li><strong>Nature et Fonctionnalités</strong> : Jupyter Notebook est une application web qui permet de créer et de partager des documents contenant du code interactif (notamment Python), des équations, des visualisations, et du texte explicatif.</li>
-<li><strong>Utilisation</strong> : Idéal pour la data science et l’analyse exploratoire, il facilite la visualisation des données et la communication des résultats.</li>
-<li><strong>Interactivité</strong> : Les utilisateurs peuvent exécuter le code dans des cellules individuelles, voir les résultats immédiatement, et apporter des modifications en temps réel.</li>
+<li>Accédez au dossier cloné en utilisant la commande <code>cd cpython</code>.</li>
 </ul></li>
-<li><strong>JupyterLab</strong>:
+<li><strong>Configuration du Build</strong> :
 <ul>
-<li><strong>Évolution de Jupyter Notebook</strong> : JupyterLab est une interface utilisateur de nouvelle génération pour le projet Jupyter. Il offre toutes les fonctionnalités de Jupyter Notebook, avec une interface plus flexible et extensible.</li>
-<li><strong>Interface Améliorée</strong> : Il propose une interface utilisateur modulaire, où les notebooks, les éditeurs de texte, les terminaux, les visualisations de données et d’autres composants peuvent être disposés dans un espace de travail unique.</li>
-<li><strong>Extensions et Personnalisations</strong> : JupyterLab permet d’ajouter des extensions, ce qui augmente sa fonctionnalité et sa flexibilité.</li>
-</ul></li>
-<li><strong>Support Multilingue</strong>:
-<ul>
-<li>Bien que Python soit le langage le plus couramment utilisé, Jupyter supporte de nombreux autres langages de programmation grâce au concept de “kernels”. Un kernel est un moteur de calcul qui exécute le code contenu dans le notebook.</li>
-</ul></li>
-<li><strong>Partage et Collaboration</strong>:
-<ul>
-<li>Les notebooks Jupyter peuvent être partagés via email, Dropbox, GitHub et Jupyter Notebook Viewer.</li>
-<li>Ils facilitent la collaboration et sont souvent utilisés dans l’enseignement et la recherche scientifique pour partager des expériences, des analyses et des rapports.</li>
+<li>Dans le dossier <code>cpython</code>, exécutez la commande <code>./configure</code>.</li>
+<li>Cette étape vérifie les outils et bibliothèques disponibles sur votre système. Elle configure le processus de build pour qu’il soit adapté à votre environnement spécifique.</li>
+<li>La commande <code>./configure</code> peut être personnalisée avec diverses options, telles que l’activation ou la désactivation de certaines fonctionnalités de Python.</li>
 </ul></li>
 </ol>
-<p>Jupyter est devenu un outil incontournable dans les domaines de la data science et de l’éducation en raison de sa capacité à combiner code, données, et narration dans un format interactif et facilement partageable. Son approche modulaire et extensible avec JupyterLab le rend encore plus puissant pour des projets de développement et de recherche complexes.</p>
 </section>
-<section id="autres-options-pour-le-développement-interactif-google-colab-et-alternatives" class="level4">
-<h4 class="anchored" data-anchor-id="autres-options-pour-le-développement-interactif-google-colab-et-alternatives">Autres Options pour le Développement Interactif: Google Colab et Alternatives</h4>
-<p>Outre Jupyter, il existe d’autres plateformes populaires pour le développement interactif, particulièrement dans le domaine de la data science et du machine learning. Google Colab est l’une des plus remarquables.</p>
+<section id="partie-3-compilation-de-python" class="level4">
+<h4 class="anchored" data-anchor-id="partie-3-compilation-de-python">Partie 3 : Compilation de Python</h4>
+<p>La compilation est le processus de transformation du code source en un exécutable.</p>
+<p><strong>Lancement de la Compilation</strong> : - Dans le même dossier, exécutez la commande <code>make</code>. - Cette commande compile le code source de Python. Selon la puissance de votre machine, cela peut prendre un certain temps.</p>
+</section>
+<section id="partie-4-installation-de-python" class="level4">
+<h4 class="anchored" data-anchor-id="partie-4-installation-de-python">Partie 4 : Installation de Python</h4>
+<p>Après avoir compilé le code source, l’étape suivante est d’installer Python sur votre système.</p>
 <ol type="1">
-<li><strong>Google Colab</strong>:
+<li><strong>Installation</strong> :
 <ul>
-<li><strong>Nature et Fonctionnalités</strong>: Google Colab est un service gratuit hébergé par Google qui permet aux utilisateurs de créer et de partager des documents similaires à Jupyter Notebooks. Il est basé sur Jupyter et offre un environnement Python complet.</li>
-<li><strong>Intégration avec Google Drive</strong>: Colab est intégré avec Google Drive, facilitant le partage, l’accès et la collaboration sur des notebooks.</li>
-<li><strong>Ressources de Calcul Gratuites</strong>: Il offre l’accès à des ressources de calcul gratuites, y compris des GPU et des TPU, ce qui le rend populaire pour les projets de machine learning et de deep learning.</li>
-<li><strong>Environnement Préconfiguré</strong>: Colab vient préchargé avec de nombreuses bibliothèques populaires, ce qui facilite la mise en place et la réalisation de projets de data science.</li>
+<li>Exécutez <code>make install</code> dans le terminal. Cette commande copiera les fichiers exécutables et les bibliothèques dans les répertoires appropriés sur votre système.</li>
+<li>Si vous ne souhaitez pas écraser la version Python existante, vous pouvez utiliser <code>make altinstall</code> à la place.</li>
 </ul></li>
-<li><strong>Autres Alternatives</strong>:
+<li><strong>Vérification de l’Installation</strong> :
 <ul>
-<li><strong>Databricks Community Edition</strong>: Plateforme basée sur le cloud qui offre un environnement similaire à Jupyter pour l’exécution de notebooks Spark. Elle est utile pour les analyses de données à grande échelle.</li>
-<li><strong>Kaggle Kernels</strong>: Offre un environnement similaire à Jupyter Notebook avec l’accès gratuit à des GPU et TPU. Il est intégré à la plateforme Kaggle, permettant aux utilisateurs de travailler sur des datasets complexes et de participer à des compétitions de data science.</li>
-<li><strong>Azure Notebooks</strong>: Service proposé par Microsoft, similaire à Jupyter Notebooks, mais intégré dans l’écosystème Azure. Il permet de créer, de partager et de gérer des notebooks dans le cloud.</li>
-</ul></li>
-<li><strong>Choix de la Plateforme</strong>:
-<ul>
-<li>Le choix entre ces différentes plateformes dépend de plusieurs facteurs tels que les ressources de calcul nécessaires, la facilité de partage et de collaboration, l’intégration avec d’autres services et outils, et les préférences personnelles ou organisationnelles.</li>
+<li>Une fois l’installation terminée, vérifiez que Python est correctement installé en exécutant <code>python --version</code> ou <code>python3 --version</code> dans votre terminal. Vous devriez voir la version que vous venez de compiler.</li>
 </ul></li>
 </ol>
-<p>Ces plateformes offrent une flexibilité et des fonctionnalités puissantes pour le développement interactif, l’exploration de données, et le machine learning, rendant l’analyse de données et la recherche scientifique plus accessibles et collaboratives.</p>
+</section>
+<section id="partie-5-personnalisation-et-observations-pendant-la-compilation" class="level4">
+<h4 class="anchored" data-anchor-id="partie-5-personnalisation-et-observations-pendant-la-compilation">Partie 5 : Personnalisation et Observations pendant la Compilation</h4>
+<p>Lors de la compilation de Python, plusieurs aspects peuvent être personnalisés pour répondre à des besoins spécifiques ou optimiser le build.</p>
+<ol type="1">
+<li><strong>Variables d’Environnement et Options de Compilation</strong> :
+<ul>
+<li><strong>CC</strong> : Vous pouvez définir la variable d’environnement <code>CC</code> pour spécifier le compilateur à utiliser. Par exemple, <code>export CC=gcc</code> utilise GCC.</li>
+<li><strong>Flags d’Optimisation</strong> : Les flags comme <code>-O2</code> ou <code>-O3</code> peuvent être ajoutés pour optimiser le build. Ces flags peuvent être définis en modifiant la variable <code>CFLAGS</code>.</li>
+<li>Exemple : <code>export CFLAGS="-O3"</code> pour une optimisation de niveau 3.</li>
+</ul></li>
+<li><strong>Modification du Makefile</strong> :
+<ul>
+<li>Le <code>Makefile</code> généré par <code>./configure</code> peut être modifié pour un contrôle plus fin sur le processus de build.</li>
+<li>Vous pouvez ouvrir le <code>Makefile</code> dans un éditeur de texte et examiner les différents targets de build, les variables et les options configurées.</li>
+</ul></li>
+<li><strong>Observer le Processus de Compilation</strong> :
+<ul>
+<li>Pendant la compilation avec <code>make</code>, observez les sorties dans le terminal. Elles fournissent des informations sur les fichiers en cours de compilation, les avertissements, et les erreurs éventuelles.</li>
+<li>Les messages d’erreur, en particulier, peuvent vous aider à identifier des problèmes spécifiques liés aux dépendances ou à la configuration de votre système.</li>
+</ul></li>
+</ol>
+</section>
+<section id="conseils-supplémentaires-et-ressources-pour-la-compilation-de-python" class="level4">
+<h4 class="anchored" data-anchor-id="conseils-supplémentaires-et-ressources-pour-la-compilation-de-python">Conseils Supplémentaires et Ressources pour la Compilation de Python</h4>
+<p>Après avoir compilé et installé votre version personnalisée de Python, voici quelques conseils et ressources supplémentaires pour approfondir vos connaissances et compétences en matière de compilation.</p>
+<ol type="1">
+<li><strong>Exploration Approfondie du Makefile</strong> :
+<ul>
+<li>Prenez le temps d’étudier le <code>Makefile</code> généré par <code>./configure</code>. Il contient des informations précieuses sur les processus de build et les targets.</li>
+<li>Explorer le <code>Makefile</code> vous aidera à comprendre comment les différentes parties de Python sont compilées et liées ensemble.</li>
+</ul></li>
+<li><strong>Personnalisation Avancée</strong> :
+<ul>
+<li>En plus des flags d’optimisation et du choix du compilateur, envisagez d’explorer d’autres options de configuration. Par exemple, vous pouvez activer ou désactiver des modules spécifiques de Python lors de la compilation.</li>
+<li>Les options de configuration peuvent être explorées en exécutant <code>./configure --help</code>.</li>
+</ul></li>
+<li><strong>Gestion des Dépendances</strong> :
+<ul>
+<li>Assurez-vous que toutes les dépendances nécessaires sont installées sur votre système. Certaines fonctionnalités de Python peuvent nécessiter des bibliothèques externes.</li>
+<li>Les erreurs lors de la compilation sont souvent dues à l’absence de certaines bibliothèques de développement.</li>
+</ul></li>
+<li><strong>Ressources et Documentation</strong> :
+<ul>
+<li>La documentation officielle de Python est une ressource précieuse pour comprendre les différents aspects de la compilation de Python.</li>
+<li>Des forums et des communautés en ligne, comme Stack Overflow et les groupes Python, peuvent être des lieux d’échange d’informations et de conseils. #### Conclusion</li>
+</ul></li>
+</ol>
+<p>Compiler Python depuis la source offre non seulement une compréhension approfondie du fonctionnement interne de Python, mais permet également une personnalisation avancée du build. Cela peut être particulièrement utile pour les développeurs souhaitant contribuer au code source de Python ou nécessitant des versions spécifiques pour leurs projets.</p>
 
 
 </section>
@@ -606,14 +627,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../content/Cours_1/6-IDEs.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Les IDEs</span>
+      <a href="../../content/Cours_1/7-Notebooks.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Les Notebooks</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../content/Cours_1/TP-ConstruireSonPython.html" class="pagination-link">
-        <span class="nav-page-text">TP - Construire son python depuis la source</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

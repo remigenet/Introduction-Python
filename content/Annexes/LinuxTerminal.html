@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="LeS Notebooks représentent l’un des support de choix pour la recherche et la datascience, et sont un outil formidable pour une utilisation interractive de Python">
+<meta name="description" content="Utiliser le terminal Linux - les bases de bash">
 
-<title>Introduction à Python - Les Notebooks</title>
+<title>Introduction à Python - Utiliser le terminal Linux - les bases de bash</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Cours_1/TP-ConstruireSonPython.html" rel="next">
-<link href="../../content/Cours_1/6-IDEs.html" rel="prev">
+<link href="../../content/Annexes/git_basics.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -185,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_1/7-Notebooks.html">Les Notebooks</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Annexes/LinuxTerminal.html">Utiliser le terminal Linux - les bases de bash</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -199,50 +198,20 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/1-Histoire.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Histoire du Langage</span></a>
+  <a href="../../content/Annexes/git_advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git - Pour aller plus loin</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/2-Python_Execution.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exécution d’un Programme Python</span></a>
+  <a href="../../content/Annexes/git_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git Basics</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/3-ManyPythons.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Versions et Compilation de Python</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/4-Path.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Le PATH</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/5-PathandVirtualEnv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Path.. et environnements virtuels!</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/6-IDEs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Les IDEs</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/7-Notebooks.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Les Notebooks</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/TP-ConstruireSonPython.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TP - Construire son python depuis la source</span></a>
+  <a href="../../content/Annexes/LinuxTerminal.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Utiliser le terminal Linux - les bases de bash</span></a>
   </div>
 </li>
     </ul>
@@ -255,7 +224,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#les-notebooks-jupyter" id="toc-les-notebooks-jupyter" class="nav-link active" data-scroll-target="#les-notebooks-jupyter">7. Les Notebooks Jupyter</a></li>
+  <li><a href="#document-de-cours-commandes-de-base-linux-pour-le-terminal" id="toc-document-de-cours-commandes-de-base-linux-pour-le-terminal" class="nav-link active" data-scroll-target="#document-de-cours-commandes-de-base-linux-pour-le-terminal">Document de Cours : Commandes de Base Linux pour le Terminal</a></li>
   </ul>
 </nav>
     </div>
@@ -264,16 +233,16 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Les Notebooks</h1>
+<h1 class="title">Utiliser le terminal Linux - les bases de bash</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Cours</div>
-    <div class="quarto-category">Introduction</div>
+    <div class="quarto-category">Annexes</div>
+    <div class="quarto-category">Git</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    LeS Notebooks représentent l’un des support de choix pour la recherche et la datascience, et sont un outil formidable pour une utilisation interractive de Python
+    Utiliser le terminal Linux - les bases de bash
   </div>
 </div>
 
@@ -288,83 +257,81 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="les-notebooks-jupyter" class="level3">
-<h3 class="anchored" data-anchor-id="les-notebooks-jupyter">7. Les Notebooks Jupyter</h3>
-<section id="différence-entre-les-fichiers-.py-et-.ipynb-et-la-notion-de-notebook" class="level4">
-<h4 class="anchored" data-anchor-id="différence-entre-les-fichiers-.py-et-.ipynb-et-la-notion-de-notebook">Différence entre les Fichiers .py et .ipynb et la Notion de Notebook</h4>
-<p>La distinction entre les fichiers <code>.py</code> et <code>.ipynb</code> est fondamentale dans l’écosystème Python, en particulier pour les tâches de développement et d’analyse de données.</p>
-<ol type="1">
-<li><strong>Fichiers .py</strong>:
-<ul>
-<li><strong>Nature</strong>: Les fichiers <code>.py</code> sont des scripts Python traditionnels. Ils contiennent du code Python pur pouvant être exécuté par l’interpréteur Python.</li>
-<li><strong>Utilisation</strong>: Ces fichiers sont généralement utilisés pour le développement d’applications, de scripts, ou de modules Python.</li>
-<li><strong>IDEs et Éditeurs</strong>: Ils peuvent être ouverts et exécutés dans n’importe quel éditeur de texte ou IDE comme PyCharm, Visual Studio Code, ou Spyder.</li>
-</ul></li>
-<li><strong>Fichiers .ipynb et Notebooks</strong>:
-<ul>
-<li><strong>Nature</strong>: Les fichiers avec l’extension <code>.ipynb</code> sont des notebooks Jupyter. Ils permettent de combiner du code exécutable, du texte enrichi (Markdown), des équations (LaTeX), des visualisations et des médias interactifs.</li>
-<li><strong>Utilisation</strong>: Ces notebooks sont largement utilisés dans la data science et l’enseignement pour leur capacité à présenter le code, les résultats, et les explications de manière interactive et attrayante.</li>
-<li><strong>Environnement</strong>: Ils nécessitent un environnement Jupyter pour être exécutés, comme Jupyter Notebook ou JupyterLab.</li>
-</ul></li>
-<li><strong>La Notion de Notebook</strong>:
-<ul>
-<li>Un “notebook” est un document numérique qui permet de créer et de partager des documents contenant du code, du texte explicatif, des formules mathématiques et des visualisations.</li>
-<li>Les notebooks sont interactifs : vous pouvez exécuter le code dans des cellules individuelles et voir les résultats immédiatement sous ces cellules, ce qui facilite grandement l’exploration de données et les analyses ad hoc.</li>
-</ul></li>
-</ol>
-<p>En résumé, la différence principale entre <code>.py</code> et <code>.ipynb</code> réside dans leur approche du développement et de la présentation du code. Les fichiers <code>.py</code> sont mieux adaptés pour le développement de logiciels structurés, tandis que les fichiers <code>.ipynb</code> sont idéaux pour l’exploration de données, l’analyse interactive et la documentation de processus.</p>
+<section id="document-de-cours-commandes-de-base-linux-pour-le-terminal" class="level3">
+<h3 class="anchored" data-anchor-id="document-de-cours-commandes-de-base-linux-pour-le-terminal">Document de Cours : Commandes de Base Linux pour le Terminal</h3>
+<section id="introduction" class="level4">
+<h4 class="anchored" data-anchor-id="introduction">Introduction</h4>
+<p>Ce document vise à fournir une compréhension de base des commandes Linux utilisées couramment dans le terminal. Connaître ces commandes est essentiel pour naviguer efficacement dans les systèmes basés sur Unix/Linux, et pour la réalisation de diverses tâches de développement, notamment en Python.</p>
 </section>
-<section id="présentation-de-jupyter" class="level4">
-<h4 class="anchored" data-anchor-id="présentation-de-jupyter">Présentation de Jupyter</h4>
-<p>Jupyter est un projet open source qui permet de créer et de partager des documents contenant du code en direct, des équations, des visualisations et du texte narratif. Il est particulièrement populaire dans la data science, l’enseignement des sciences informatiques, et la recherche scientifique. Voici les aspects clés de Jupyter :</p>
-<ol type="1">
-<li><strong>Jupyter Notebook</strong>:
+<section id="navigation-dans-le-système-de-fichiers" class="level4">
+<h4 class="anchored" data-anchor-id="navigation-dans-le-système-de-fichiers">1. Navigation dans le Système de Fichiers</h4>
 <ul>
-<li><strong>Nature et Fonctionnalités</strong> : Jupyter Notebook est une application web qui permet de créer et de partager des documents contenant du code interactif (notamment Python), des équations, des visualisations, et du texte explicatif.</li>
-<li><strong>Utilisation</strong> : Idéal pour la data science et l’analyse exploratoire, il facilite la visualisation des données et la communication des résultats.</li>
-<li><strong>Interactivité</strong> : Les utilisateurs peuvent exécuter le code dans des cellules individuelles, voir les résultats immédiatement, et apporter des modifications en temps réel.</li>
-</ul></li>
-<li><strong>JupyterLab</strong>:
-<ul>
-<li><strong>Évolution de Jupyter Notebook</strong> : JupyterLab est une interface utilisateur de nouvelle génération pour le projet Jupyter. Il offre toutes les fonctionnalités de Jupyter Notebook, avec une interface plus flexible et extensible.</li>
-<li><strong>Interface Améliorée</strong> : Il propose une interface utilisateur modulaire, où les notebooks, les éditeurs de texte, les terminaux, les visualisations de données et d’autres composants peuvent être disposés dans un espace de travail unique.</li>
-<li><strong>Extensions et Personnalisations</strong> : JupyterLab permet d’ajouter des extensions, ce qui augmente sa fonctionnalité et sa flexibilité.</li>
-</ul></li>
-<li><strong>Support Multilingue</strong>:
-<ul>
-<li>Bien que Python soit le langage le plus couramment utilisé, Jupyter supporte de nombreux autres langages de programmation grâce au concept de “kernels”. Un kernel est un moteur de calcul qui exécute le code contenu dans le notebook.</li>
-</ul></li>
-<li><strong>Partage et Collaboration</strong>:
-<ul>
-<li>Les notebooks Jupyter peuvent être partagés via email, Dropbox, GitHub et Jupyter Notebook Viewer.</li>
-<li>Ils facilitent la collaboration et sont souvent utilisés dans l’enseignement et la recherche scientifique pour partager des expériences, des analyses et des rapports.</li>
-</ul></li>
-</ol>
-<p>Jupyter est devenu un outil incontournable dans les domaines de la data science et de l’éducation en raison de sa capacité à combiner code, données, et narration dans un format interactif et facilement partageable. Son approche modulaire et extensible avec JupyterLab le rend encore plus puissant pour des projets de développement et de recherche complexes.</p>
+<li><code>pwd</code> (Print Working Directory) : Affiche le chemin complet du répertoire courant.</li>
+<li><code>ls</code> : Liste les fichiers et dossiers dans le répertoire courant. Utilisez <code>ls -l</code> pour un affichage détaillé ou <code>ls -a</code> pour inclure les fichiers cachés.</li>
+<li><code>cd [chemin]</code> : Change le répertoire courant. Utilisez <code>cd ..</code> pour remonter d’un niveau, ou <code>cd</code> pour retourner au répertoire personnel.</li>
+</ul>
 </section>
-<section id="autres-options-pour-le-développement-interactif-google-colab-et-alternatives" class="level4">
-<h4 class="anchored" data-anchor-id="autres-options-pour-le-développement-interactif-google-colab-et-alternatives">Autres Options pour le Développement Interactif: Google Colab et Alternatives</h4>
-<p>Outre Jupyter, il existe d’autres plateformes populaires pour le développement interactif, particulièrement dans le domaine de la data science et du machine learning. Google Colab est l’une des plus remarquables.</p>
-<ol type="1">
-<li><strong>Google Colab</strong>:
+<section id="gestion-des-fichiers-et-dossiers" class="level4">
+<h4 class="anchored" data-anchor-id="gestion-des-fichiers-et-dossiers">2. Gestion des Fichiers et Dossiers</h4>
 <ul>
-<li><strong>Nature et Fonctionnalités</strong>: Google Colab est un service gratuit hébergé par Google qui permet aux utilisateurs de créer et de partager des documents similaires à Jupyter Notebooks. Il est basé sur Jupyter et offre un environnement Python complet.</li>
-<li><strong>Intégration avec Google Drive</strong>: Colab est intégré avec Google Drive, facilitant le partage, l’accès et la collaboration sur des notebooks.</li>
-<li><strong>Ressources de Calcul Gratuites</strong>: Il offre l’accès à des ressources de calcul gratuites, y compris des GPU et des TPU, ce qui le rend populaire pour les projets de machine learning et de deep learning.</li>
-<li><strong>Environnement Préconfiguré</strong>: Colab vient préchargé avec de nombreuses bibliothèques populaires, ce qui facilite la mise en place et la réalisation de projets de data science.</li>
-</ul></li>
-<li><strong>Autres Alternatives</strong>:
+<li><code>mkdir [nom_dossier]</code> : Crée un nouveau dossier.</li>
+<li><code>rmdir [nom_dossier]</code> : Supprime un dossier vide. Pour supprimer des dossiers contenant des fichiers, utilisez <code>rm -r [nom_dossier]</code>.</li>
+<li><code>touch [nom_fichier]</code> : Crée un nouveau fichier vide, ou met à jour la date de modification d’un fichier existant.</li>
+<li><code>cp [source] [destination]</code> : Copie des fichiers ou dossiers. Utilisez <code>cp -r</code> pour copier des dossiers.</li>
+<li><code>mv [source] [destination]</code> : Déplace ou renomme des fichiers ou dossiers.</li>
+<li><code>rm [nom_fichier]</code> : Supprime un fichier. Utilisez <code>rm -r [nom_dossier]</code> pour supprimer un dossier et son contenu.</li>
+</ul>
+</section>
+<section id="visualisation-et-modification-de-fichiers" class="level4">
+<h4 class="anchored" data-anchor-id="visualisation-et-modification-de-fichiers">3. Visualisation et Modification de Fichiers</h4>
 <ul>
-<li><strong>Databricks Community Edition</strong>: Plateforme basée sur le cloud qui offre un environnement similaire à Jupyter pour l’exécution de notebooks Spark. Elle est utile pour les analyses de données à grande échelle.</li>
-<li><strong>Kaggle Kernels</strong>: Offre un environnement similaire à Jupyter Notebook avec l’accès gratuit à des GPU et TPU. Il est intégré à la plateforme Kaggle, permettant aux utilisateurs de travailler sur des datasets complexes et de participer à des compétitions de data science.</li>
-<li><strong>Azure Notebooks</strong>: Service proposé par Microsoft, similaire à Jupyter Notebooks, mais intégré dans l’écosystème Azure. Il permet de créer, de partager et de gérer des notebooks dans le cloud.</li>
-</ul></li>
-<li><strong>Choix de la Plateforme</strong>:
+<li><code>cat [nom_fichier]</code> : Affiche le contenu d’un fichier dans le terminal.</li>
+<li><code>less [nom_fichier]</code> : Permet de parcourir le contenu d’un fichier.</li>
+<li><code>nano [nom_fichier]</code>, <code>vi [nom_fichier]</code>, ou <code>vim [nom_fichier]</code> : Ouvre un éditeur de texte dans le terminal pour modifier des fichiers.</li>
+</ul>
+</section>
+<section id="gestion-des-processus" class="level4">
+<h4 class="anchored" data-anchor-id="gestion-des-processus">4. Gestion des Processus</h4>
 <ul>
-<li>Le choix entre ces différentes plateformes dépend de plusieurs facteurs tels que les ressources de calcul nécessaires, la facilité de partage et de collaboration, l’intégration avec d’autres services et outils, et les préférences personnelles ou organisationnelles.</li>
-</ul></li>
-</ol>
-<p>Ces plateformes offrent une flexibilité et des fonctionnalités puissantes pour le développement interactif, l’exploration de données, et le machine learning, rendant l’analyse de données et la recherche scientifique plus accessibles et collaboratives.</p>
+<li><code>ps</code> : Affiche les processus en cours d’exécution. Utilisez <code>ps aux</code> pour une liste détaillée.</li>
+<li><code>top</code> : Affiche les processus en temps réel et l’utilisation des ressources.</li>
+<li><code>kill [PID]</code> : Termine un processus spécifique. Le PID (Process ID) peut être trouvé via <code>ps</code>.</li>
+</ul>
+</section>
+<section id="informations-système" class="level4">
+<h4 class="anchored" data-anchor-id="informations-système">5. Informations Système</h4>
+<ul>
+<li><code>df</code> : Affiche l’utilisation des disques.</li>
+<li><code>free</code> : Montre la quantité de mémoire libre et utilisée sur le système.</li>
+<li><code>uname -a</code> : Donne des informations sur le système, comme la version du noyau.</li>
+</ul>
+</section>
+<section id="réseau" class="level4">
+<h4 class="anchored" data-anchor-id="réseau">6. Réseau</h4>
+<ul>
+<li><code>ping [adresse]</code> : Vérifie la connectivité réseau avec une adresse (par exemple, un site web).</li>
+<li><code>ifconfig</code> ou <code>ip addr</code> : Affiche les détails de configuration réseau des interfaces.</li>
+</ul>
+</section>
+<section id="gestion-des-permissions" class="level4">
+<h4 class="anchored" data-anchor-id="gestion-des-permissions">7. Gestion des Permissions</h4>
+<ul>
+<li><code>chmod [permissions] [fichier]</code> : Modifie les permissions d’un fichier ou dossier.</li>
+<li><code>chown [utilisateur]:[groupe] [fichier]</code> : Change le propriétaire et/ou le groupe d’un fichier ou dossier.</li>
+</ul>
+</section>
+<section id="aide-et-documentation" class="level4">
+<h4 class="anchored" data-anchor-id="aide-et-documentation">8. Aide et Documentation</h4>
+<ul>
+<li><code>man [commande]</code> : Affiche le manuel d’une commande.</li>
+<li><code>commande --help</code> ou <code>commande -h</code> : Affiche l’aide et les options disponibles pour la commande spécifiée.</li>
+</ul>
+</section>
+<section id="conclusion" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion">Conclusion</h4>
+<p>La maîtrise de ces commandes de base est fondamentale pour travailler efficacement dans un environnement Linux. Ces commandes constituent la base pour une grande variété de tâches dans le développement de logiciels et la gestion des systèmes.</p>
+<hr>
+<p>Ce document sert de guide de référence rapide pour les étudiants débutant avec Linux et le terminal. Avec la pratique, ces commandes deviendront des outils essentiels dans votre arsenal de développement.</p>
 
 
 </section>
@@ -606,14 +573,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../content/Cours_1/6-IDEs.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Les IDEs</span>
+      <a href="../../content/Annexes/git_basics.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Git Basics</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../content/Cours_1/TP-ConstruireSonPython.html" class="pagination-link">
-        <span class="nav-page-text">TP - Construire son python depuis la source</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

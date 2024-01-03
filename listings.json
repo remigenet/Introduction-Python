@@ -2,6 +2,9 @@
   {
     "listing": "/index.html",
     "items": [
+      "/content/Annexes/LinuxTerminal.html",
+      "/content/Annexes/git_advanced.html",
+      "/content/Annexes/git_basics.html",
       "/content/Cours_1/1-Histoire.html",
       "/content/Cours_1/2-Python_Execution.html",
       "/content/Cours_1/3-ManyPythons.html",
@@ -12,6 +15,7 @@
       "/content/Cours_1/IDEs/Pycharm.html",
       "/content/Cours_1/IDEs/Spyder.html",
       "/content/Cours_1/IDEs/VsCode.html",
+      "/content/Cours_1/TP-ConstruireSonPython.html",
       "/content/Cours_2/sometest.html"
     ]
   }

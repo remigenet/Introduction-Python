@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Avant de se lancer">
+<meta name="description" content="Les outils pour gerer plusieurs versions de python facilement, et le concept d’environnements virtuels -">
 
 <title>Introduction à Python - Path.. et environnements virtuels!</title>
 <style>
@@ -91,10 +91,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Introduction</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-comprendre-et-installer-python" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Comprendre Et Installer Python</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-comprendre-et-installer-python">    
         <li>
     <a class="dropdown-item" href="../../content/Cours_1/1-Histoire.html" rel="" target="">
  <span class="dropdown-text">Histoire du Langage</span></a>
@@ -123,16 +123,39 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../content/Cours_1/7-Notebooks.html" rel="" target="">
  <span class="dropdown-text">Les Notebooks</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/TP-ConstruireSonPython.html" rel="" target="">
+ <span class="dropdown-text">TP - Construire son python depuis la source</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-decouvrir" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Decouvrir</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-premiers-pas" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Premiers pas</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-decouvrir">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-premiers-pas">    
         <li>
     <a class="dropdown-item" href="../../content/Cours_2/sometest.html" rel="" target="">
- <span class="dropdown-text">This is a test</span></a>
+ <span class="dropdown-text">1- Discover</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-annexes" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Annexes</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-annexes">    
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/git_advanced.html" rel="" target="">
+ <span class="dropdown-text">Git - Pour aller plus loin</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/git_basics.html" rel="" target="">
+ <span class="dropdown-text">Git Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/LinuxTerminal.html" rel="" target="">
+ <span class="dropdown-text">Utiliser le terminal Linux - les bases de bash</span></a>
   </li>  
     </ul>
   </li>
@@ -216,6 +239,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Les Notebooks</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/TP-ConstruireSonPython.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP - Construire son python depuis la source</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -226,7 +255,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#path-et-environnements-virtuels" id="toc-path-et-environnements-virtuels" class="nav-link active" data-scroll-target="#path-et-environnements-virtuels">5. PATH et Environnements Virtuels</a></li>
+  <li><a href="#partie-1-pyenv-et-la-gestion-de-versions-python" id="toc-partie-1-pyenv-et-la-gestion-de-versions-python" class="nav-link active" data-scroll-target="#partie-1-pyenv-et-la-gestion-de-versions-python">Partie 1 : Pyenv et la Gestion de Versions Python</a></li>
+  <li><a href="#pythonpath-et-son-rôle-dans-la-configuration-python" id="toc-pythonpath-et-son-rôle-dans-la-configuration-python" class="nav-link" data-scroll-target="#pythonpath-et-son-rôle-dans-la-configuration-python">PYTHONPATH et Son Rôle dans la Configuration Python</a></li>
+  <li><a href="#partie-4-poetry---gestion-avancée-des-dépendances-et-packaging-en-python" id="toc-partie-4-poetry---gestion-avancée-des-dépendances-et-packaging-en-python" class="nav-link" data-scroll-target="#partie-4-poetry---gestion-avancée-des-dépendances-et-packaging-en-python">Partie 4 : Poetry - Gestion Avancée des Dépendances et Packaging en Python</a></li>
+  <li><a href="#partie-5-environnements-virtuels-en-python-et-exemple-avec-docker" id="toc-partie-5-environnements-virtuels-en-python-et-exemple-avec-docker" class="nav-link" data-scroll-target="#partie-5-environnements-virtuels-en-python-et-exemple-avec-docker">Partie 5 : Environnements Virtuels en Python et Exemple avec Docker</a></li>
   </ul>
 </nav>
     </div>
@@ -244,7 +276,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Avant de se lancer
+    Les outils pour gerer plusieurs versions de python facilement, et le concept d’environnements virtuels -
   </div>
 </div>
 
@@ -259,101 +291,206 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="path-et-environnements-virtuels" class="level3">
-<h3 class="anchored" data-anchor-id="path-et-environnements-virtuels">5. PATH et Environnements Virtuels</h3>
 <section id="path-et-les-environnements-virtuels-avec-pyenv" class="level4">
 <h4 class="anchored" data-anchor-id="path-et-les-environnements-virtuels-avec-pyenv">PATH et les Environnements Virtuels avec Pyenv</h4>
-<p>L’utilisation de <code>pyenv</code>, un outil populaire de gestion de version pour Python, illustre bien l’interaction entre la variable <code>PATH</code> et les environnements virtuels. Voici comment <code>pyenv</code> utilise <code>PATH</code> pour gérer différentes versions de Python :</p>
+<p>Pyenv est un outil populaire pour la gestion des versions de Python. Il permet aux développeurs d’installer et de basculer facilement entre plusieurs versions de Python sur un même système. Cette flexibilité est particulièrement utile dans des environnements de développement où différents projets nécessitent différentes versions de Python.</p>
+</section>
+<section id="partie-1-pyenv-et-la-gestion-de-versions-python" class="level3">
+<h3 class="anchored" data-anchor-id="partie-1-pyenv-et-la-gestion-de-versions-python">Partie 1 : Pyenv et la Gestion de Versions Python</h3>
+<section id="introduction-à-pyenv" class="level4">
+<h4 class="anchored" data-anchor-id="introduction-à-pyenv">Introduction à Pyenv</h4>
+<p><code>Pyenv</code> est un outil populaire pour la gestion des versions de Python. Il permet aux développeurs d’installer et de basculer facilement entre plusieurs versions de Python sur un même système. Cette flexibilité est particulièrement utile dans des environnements de développement où différents projets nécessitent différentes versions de Python.</p>
+</section>
+<section id="fonctionnement-de-pyenv" class="level4">
+<h4 class="anchored" data-anchor-id="fonctionnement-de-pyenv">Fonctionnement de Pyenv</h4>
 <ol type="1">
-<li><strong>Principe de Fonctionnement de Pyenv</strong>:
+<li><strong>Installation et Configuration</strong> :
 <ul>
-<li><strong>Pyenv</strong> permet d’installer et de gérer plusieurs versions de Python sur un même système.</li>
-<li>Il modifie la variable <code>PATH</code> pour diriger les appels à Python vers la version sélectionnée.</li>
+<li>L’installation de <code>pyenv</code> implique l’ajout d’un script d’initialisation dans le fichier de configuration du shell (comme <code>.bashrc</code>, <code>.zshrc</code>).</li>
+<li>Ce script ajuste la variable <code>PATH</code> pour inclure un chemin vers les shims de <code>pyenv</code>.</li>
 </ul></li>
-<li><strong>Installation de Pyenv</strong>:
+<li><strong>Les Shims de Pyenv</strong> :
 <ul>
-<li>Lors de l’installation de <code>pyenv</code>, il ajoute un script d’initialisation dans le fichier de configuration du shell (comme <code>.bashrc</code> ou <code>.zshrc</code>).</li>
-<li>Ce script modifie dynamiquement <code>PATH</code> pour inclure un chemin vers les shims de <code>pyenv</code>.</li>
+<li>Les shims sont des scripts intermédiaires qui interceptent les appels à Python et redirigent vers la version appropriée.</li>
+<li>Lorsqu’un utilisateur exécute <code>python</code>, le shim de <code>pyenv</code> est appelé, qui détermine ensuite quelle version de Python doit être utilisée.</li>
 </ul></li>
-<li><strong>Utilisation des Shims</strong>:
+<li><strong>Gestion des Versions Python</strong> :
 <ul>
-<li>Les shims sont des scripts intermédiaires qui interceptent les appels à Python.</li>
-<li>Lorsque vous invoquez <code>python</code>, le shim de <code>pyenv</code> est appelé en premier. Il détermine ensuite quelle version de Python utiliser, en fonction de la configuration actuelle.</li>
+<li><code>Pyenv</code> permet de définir une version globale de Python pour l’ensemble du système ou des versions locales pour des répertoires spécifiques.</li>
+<li>Les versions de Python sont gérées en modifiant la variable <code>PATH</code> via les shims, permettant un basculement facile entre différentes versions.</li>
 </ul></li>
-<li><strong>Configuration des Versions de Python</strong>:
+<li><strong>Avantages de Pyenv</strong> :
 <ul>
-<li>Avec <code>pyenv</code>, vous pouvez choisir une version de Python globale, locale (par répertoire), ou même par shell.</li>
-<li><code>pyenv</code> ajuste <code>PATH</code> pour que le shim corresponde à la version de Python sélectionnée.</li>
-</ul></li>
-<li><strong>Utilisation avec les Environnements Virtuels</strong>:
-<ul>
-<li><code>pyenv</code> peut être utilisé avec <code>pyenv-virtualenv</code>, un plugin qui gère les environnements virtuels.</li>
-<li>Quand un environnement virtuel est activé, <code>pyenv</code> modifie <code>PATH</code> pour que les appels à Python pointent vers l’interpréteur Python de cet environnement virtuel.</li>
-</ul></li>
-<li><strong>Avantages</strong>:
-<ul>
-<li>Cette approche offre une grande flexibilité et permet de passer facilement entre différentes versions de Python pour différents projets ou besoins de développement.</li>
-<li>Elle élimine également les conflits entre les versions de Python et facilite la gestion des dépendances.</li>
+<li>Flexibilité et facilité de basculement entre différentes versions de Python.</li>
+<li>Gestion aisée des dépendances spécifiques aux versions pour des projets variés.</li>
+<li>Solution idéale pour tester et développer des applications compatibles avec différentes versions de Python.</li>
 </ul></li>
 </ol>
-<p>En résumé, <code>pyenv</code> utilise la variable <code>PATH</code> de manière sophistiquée pour permettre une gestion aisée des multiples versions de Python. Cela permet aux développeurs de travailler sur plusieurs projets avec différentes exigences de version Python sans conflit ni complication. - <strong>Gestion des Environnements</strong>: Comment gérer plusieurs versions de Python et bibliothèques.</p>
+</section>
+<section id="interaction-de-pyenv-avec-path" class="level4">
+<h4 class="anchored" data-anchor-id="interaction-de-pyenv-avec-path">Interaction de Pyenv avec PATH</h4>
+<p><code>Pyenv</code> modifie <code>PATH</code> pour prioriser ses shims, qui redirigent ensuite les appels à Python vers la version spécifique configurée. Cette manipulation de <code>PATH</code> est au cœur de la fonctionnalité de <code>pyenv</code>, permettant une gestion transparente de multiples versions de Python.</p>
+</section>
+</section>
+<section id="pythonpath-et-son-rôle-dans-la-configuration-python" class="level3">
+<h3 class="anchored" data-anchor-id="pythonpath-et-son-rôle-dans-la-configuration-python">PYTHONPATH et Son Rôle dans la Configuration Python</h3>
+<section id="introduction-à-pythonpath" class="level4">
+<h4 class="anchored" data-anchor-id="introduction-à-pythonpath">Introduction à PYTHONPATH</h4>
+<p><code>PYTHONPATH</code> est une variable d’environnement utilisée par Python pour déterminer quels répertoires le système doit inclure dans le front-end de son chemin de recherche de modules. C’est une extension de la variable <code>sys.path</code>, qui est une liste de chaînes de caractères définissant les chemins d’accès pour les modules Python.</p>
+</section>
+<section id="fonctionnement-de-pythonpath" class="level4">
+<h4 class="anchored" data-anchor-id="fonctionnement-de-pythonpath">Fonctionnement de PYTHONPATH</h4>
+<ol type="1">
+<li><strong>Principes de Base</strong> :
+<ul>
+<li>Quand Python démarre, il initialise <code>sys.path</code> avec les emplacements par défaut pour les modules standard et les répertoires de site-packages.</li>
+<li><code>PYTHONPATH</code> permet d’ajouter des répertoires supplémentaires où Python recherchera des modules à importer.</li>
+</ul></li>
+<li><strong>Utilisation de PYTHONPATH</strong> :
+<ul>
+<li>Les développeurs peuvent ajouter des chemins de répertoires personnalisés à <code>PYTHONPATH</code> pour rendre leurs modules ou packages personnalisés accessibles à travers tout le système.</li>
+<li>Cela est utile quand les modules ne sont pas installés dans les répertoires standards.</li>
+</ul></li>
+<li><strong>Modification de PYTHONPATH</strong> :
+<ul>
+<li>Sous Windows, <code>PYTHONPATH</code> peut être modifié via les variables d’environnement dans les propriétés système.</li>
+<li>Sous Linux et MacOS, on peut modifier <code>PYTHONPATH</code> en ajoutant <code>export PYTHONPATH=/chemin/de/votre/module:$PYTHONPATH</code> dans les fichiers de configuration du shell comme <code>.bashrc</code> ou <code>.bash_profile</code>.</li>
+</ul></li>
+<li><strong>Implications de PYTHONPATH</strong> :
+<ul>
+<li>Une bonne gestion de <code>PYTHONPATH</code> est essentielle pour s’assurer que les scripts Python accèdent aux bons modules et packages.</li>
+<li>Un <code>PYTHONPATH</code> mal configuré peut entraîner des conflits de modules ou des erreurs d’importation.</li>
+</ul></li>
+</ol>
+</section>
+<section id="distinction-entre-pythonpath-et-path" class="level4">
+<h4 class="anchored" data-anchor-id="distinction-entre-pythonpath-et-path">Distinction entre PYTHONPATH et PATH</h4>
+<p>Bien que <code>PATH</code> et <code>PYTHONPATH</code> soient des variables d’environnement, elles servent des buts différents : - <code>PATH</code> est utilisé par le système d’exploitation pour localiser les fichiers exécutables. - <code>PYTHONPATH</code> est spécifique à Python et indique à l’interpréteur où chercher les modules pour les importations.</p>
 </section>
 <section id="gestionnaires-de-bibliothèques-et-environnements-virtuels-pipenv-et-poetry" class="level4">
 <h4 class="anchored" data-anchor-id="gestionnaires-de-bibliothèques-et-environnements-virtuels-pipenv-et-poetry">Gestionnaires de Bibliothèques et Environnements Virtuels: Pipenv et Poetry</h4>
-<p>Au-delà de la gestion des versions de Python, la gestion des bibliothèques et des dépendances est un autre aspect crucial du développement Python. Deux outils populaires dans ce domaine sont Pipenv et Poetry. Voici comment ils fonctionnent et interagissent avec la notion de PATH :</p>
-<ol type="1">
-<li><strong>Pipenv</strong>:
-<ul>
-<li><strong>Fonctionnement</strong>: Pipenv combine la gestion des packages et des environnements virtuels. Il crée un environnement virtuel pour chaque projet et gère les dépendances spécifiques au projet.</li>
-<li><strong>Fichier Pipfile</strong>: Pipenv utilise un <code>Pipfile</code> pour déclarer les dépendances de projet, remplaçant les <code>requirements.txt</code> traditionnels. Il crée également un <code>Pipfile.lock</code> pour verrouiller les versions des dépendances.</li>
-<li><strong>Interaction avec PATH</strong>: Lors de l’activation d’un environnement virtuel avec Pipenv, il modifie le <code>PATH</code> pour que les commandes Python et pip pointent vers les versions spécifiques à l’environnement virtuel.</li>
-</ul></li>
-<li><strong>Poetry</strong>:
-<ul>
-<li><strong>Fonctionnement</strong>: Poetry est à la fois un gestionnaire de dépendances et un outil de packaging. Il vise à simplifier la déclaration, la gestion et l’installation des bibliothèques.</li>
-<li><strong>Fichier pyproject.toml</strong>: Poetry utilise le fichier <code>pyproject.toml</code> pour gérer les dépendances et les configurations de projet. Ce fichier est devenu un standard pour la configuration des projets Python.</li>
-<li><strong>Interaction avec PATH</strong>: Comme Pipenv, Poetry crée des environnements virtuels pour isoler les dépendances de projet. Lorsqu’un environnement est activé, Poetry ajuste également le <code>PATH</code> pour utiliser l’interpréteur et les outils spécifiques à cet environnement.</li>
-</ul></li>
-<li><strong>Avantages de Pipenv et Poetry</strong>:
-<ul>
-<li><strong>Gestion Simplifiée</strong>: Ces outils simplifient la gestion des dépendances et des environnements virtuels, rendant le processus plus intuitif et moins sujet aux erreurs.</li>
-<li><strong>Projet Isolé</strong>: Ils assurent que chaque projet a ses propres dépendances isolées, réduisant les conflits entre différents projets.</li>
-<li><strong>Reproductibilité</strong>: Les fichiers de verrouillage garantissent que les mêmes versions des dépendances sont installées, ce qui améliore la reproductibilité des environnements de développement et de production.</li>
-</ul></li>
-<li><strong>Choix entre Pipenv et Poetry</strong>:
-<ul>
-<li>Le choix entre Pipenv et Poetry dépend des préférences personnelles et des besoins spécifiques du projet. Pipenv est souvent loué pour sa simplicité, tandis que Poetry offre une approche plus holistique de la gestion des packages et des dépendances.</li>
-</ul></li>
-</ol>
-<p>En intégrant la gestion des dépendances avec la création et la gestion des environnements virtuels, et en ajustant le <code>PATH</code> en conséquence, Pipenv et Poetry offrent une expérience de développement Python plus cohérente et contrôlée.</p>
+<p>Au-delà de la gestion des versions de Python, la gestion des bibliothèques et des dépendances est un autre aspect crucial du développement Python. Deux outils populaires dans ce domaine sont Pipenv et Poetry. Voici comment ils fonctionnent et interagissent avec la notion de PATH : ### Partie 3 : Pipenv - Gestion des Bibliothèques et Environnements Virtuels</p>
 </section>
-<section id="quest-ce-quun-environnement-virtuel-en-python" class="level4">
-<h4 class="anchored" data-anchor-id="quest-ce-quun-environnement-virtuel-en-python">Qu’est-ce qu’un Environnement Virtuel en Python?</h4>
-<p>Après avoir discuté des outils comme <code>pyenv</code>, <code>Pipenv</code> et <code>Poetry</code>, il est essentiel de définir clairement ce qu’est un environnement virtuel en Python et pourquoi il est important :</p>
+<section id="introduction-à-pipenv" class="level4">
+<h4 class="anchored" data-anchor-id="introduction-à-pipenv">Introduction à Pipenv</h4>
+<p>Pipenv est un outil de gestion pour les projets Python qui combine la gestion des packages avec la gestion des environnements virtuels. Il est conçu pour offrir un workflow simplifié pour le développement de projets Python.</p>
+</section>
+<section id="fonctionnement-de-pipenv" class="level4">
+<h4 class="anchored" data-anchor-id="fonctionnement-de-pipenv">Fonctionnement de Pipenv</h4>
 <ol type="1">
-<li><strong>Définition d’un Environnement Virtuel</strong>:
+<li><strong>Gestion des Dépendances</strong> :
 <ul>
-<li>Un <strong>environnement virtuel</strong> est un espace isolé dans le système où vous pouvez installer des bibliothèques et des packages Python spécifiques à un projet, sans affecter les autres projets ou le système global.</li>
-<li>Chaque environnement virtuel a son propre interpréteur Python et emplacement pour les bibliothèques.</li>
+<li>Pipenv utilise le fichier <code>Pipfile</code> pour déclarer les dépendances de projet, remplaçant les traditionnels <code>requirements.txt</code>.</li>
+<li><code>Pipfile.lock</code> est généré pour verrouiller les versions exactes des dépendances, assurant ainsi la reproductibilité des environnements.</li>
 </ul></li>
-<li><strong>Pourquoi Utiliser des Environnements Virtuels ?</strong>:
+<li><strong>Création d’Environnements Virtuels</strong> :
 <ul>
-<li><strong>Isolation des Dépendances</strong>: Permet à chaque projet d’avoir ses propres dépendances, évitant ainsi les conflits entre différents projets.</li>
-<li><strong>Contrôle des Versions</strong>: Vous pouvez travailler avec différentes versions de Python et de bibliothèques pour différents projets.</li>
-<li><strong>Reproductibilité</strong>: Facilite la reproductibilité des environnements de développement et de test, car vous pouvez préciser exactement quelles versions des dépendances sont utilisées.</li>
+<li>Lorsqu’un projet est initié avec Pipenv (par <code>pipenv install</code>), il crée automatiquement un environnement virtuel dédié à ce projet.</li>
+<li>Cela isole les dépendances du projet des autres projets et du système global.</li>
 </ul></li>
-<li><strong>Comment Fonctionnent les Environnements Virtuels ?</strong>:
+<li><strong>Activation des Environnements Virtuels</strong> :
 <ul>
-<li>Lorsque vous activez un environnement virtuel, le <code>PATH</code> est modifié pour que les commandes <code>python</code> et <code>pip</code> pointent vers l’interpréteur et le gestionnaire de packages de cet environnement spécifique.</li>
-<li>Cette modification du <code>PATH</code> assure que toutes les opérations Python sont confinées à l’environnement virtuel actif.</li>
+<li>Pour activer l’environnement virtuel de Pipenv, utilisez la commande <code>pipenv shell</code>.</li>
+<li>Cette action ajuste temporairement la variable <code>PATH</code> pour que les commandes <code>python</code> et <code>pip</code> fassent référence à l’environnement virtuel spécifique du projet.</li>
 </ul></li>
-<li><strong>Création et Activation d’un Environnement Virtuel</strong>:
+<li><strong>Avantages de Pipenv</strong> :
 <ul>
-<li>Environnements virtuels classiques peuvent être créés avec des outils intégrés comme <code>venv</code> (Python 3.3 et plus) ou <code>virtualenv</code> pour les versions antérieures.</li>
-<li>Après la création, vous activez l’environnement virtuel, ce qui modifie le <code>PATH</code> pour utiliser l’interpréteur et les packages de cet environnement.</li>
+<li>Simplification de la gestion des dépendances et des environnements virtuels.</li>
+<li>Amélioration de la reproductibilité et de la cohérence entre les environnements de développement et de production.</li>
+<li>Facilité d’utilisation et intégration avec des outils de développement modernes.</li>
 </ul></li>
 </ol>
-<p>En résumé, les environnements virtuels sont un élément essentiel du développement Python moderne. Ils offrent une gestion isolée et contrôlée des dépendances pour chaque projet, contribuant ainsi à une meilleure organisation et à une plus grande stabilité des projets Python. Les outils comme <code>pyenv</code>, <code>Pipenv</code> et <code>Poetry</code> simplifient et enrichissent la gestion de ces environnements.</p>
+</section>
+<section id="interaction-de-pipenv-avec-path" class="level4">
+<h4 class="anchored" data-anchor-id="interaction-de-pipenv-avec-path">Interaction de Pipenv avec PATH</h4>
+<p>Lorsqu’un environnement virtuel est activé avec Pipenv, <code>PATH</code> est modifié pour que toutes les commandes Python soient redirigées vers l’interpréteur et les bibliothèques de l’environnement virtuel spécifique du projet. Cela garantit que les bonnes versions des packages sont utilisées et que les dépendances de projet sont isolées des autres projets ou de l’environnement global.</p>
+</section>
+</section>
+<section id="partie-4-poetry---gestion-avancée-des-dépendances-et-packaging-en-python" class="level3">
+<h3 class="anchored" data-anchor-id="partie-4-poetry---gestion-avancée-des-dépendances-et-packaging-en-python">Partie 4 : Poetry - Gestion Avancée des Dépendances et Packaging en Python</h3>
+<section id="introduction-à-poetry" class="level4">
+<h4 class="anchored" data-anchor-id="introduction-à-poetry">Introduction à Poetry</h4>
+<p>Poetry est un outil de gestion des dépendances et de packaging pour les projets Python. Il fournit un système de gestion tout-en-un pour les bibliothèques et les applications, en mettant l’accent sur la facilité d’utilisation, la reproductibilité et la gestion cohérente des dépendances.</p>
+</section>
+<section id="fonctionnalités-clés-de-poetry" class="level4">
+<h4 class="anchored" data-anchor-id="fonctionnalités-clés-de-poetry">Fonctionnalités Clés de Poetry</h4>
+<ol type="1">
+<li><strong>Gestion des Dépendances</strong> :
+<ul>
+<li>Poetry utilise le fichier <code>pyproject.toml</code> pour déclarer les dépendances et les métadonnées de projet, adhérant ainsi au standard PEP 518.</li>
+<li>Il gère les dépendances de manière plus intuitive et reproductible, en résolvant automatiquement les conflits de dépendances et en verrouillant les versions avec un fichier <code>poetry.lock</code>.</li>
+</ul></li>
+<li><strong>Packaging et Publication</strong> :
+<ul>
+<li>Poetry facilite le packaging et la publication de bibliothèques sur des dépôts comme PyPI, en intégrant les outils nécessaires dans un seul workflow.</li>
+<li>Il permet de construire, empaqueter et publier des projets avec des commandes simples et cohérentes.</li>
+</ul></li>
+<li><strong>Création et Gestion des Environnements Virtuels</strong> :
+<ul>
+<li>À l’instar de Pipenv, Poetry crée automatiquement des environnements virtuels pour isoler les dépendances de chaque projet.</li>
+<li>Lorsqu’un projet est activé, Poetry ajuste le <code>PATH</code> pour utiliser l’interpréteur et les outils de cet environnement.</li>
+</ul></li>
+</ol>
+</section>
+<section id="interaction-de-poetry-avec-path" class="level4">
+<h4 class="anchored" data-anchor-id="interaction-de-poetry-avec-path">Interaction de Poetry avec PATH</h4>
+<p>Lorsqu’un environnement virtuel est activé avec Poetry, la variable <code>PATH</code> est modifiée pour diriger les commandes Python vers l’interpréteur spécifique de l’environnement virtuel du projet. Cela permet d’assurer que les dépendances et versions correctes sont utilisées pour chaque projet.</p>
+</section>
+<section id="avantages-de-poetry" class="level4">
+<h4 class="anchored" data-anchor-id="avantages-de-poetry">Avantages de Poetry</h4>
+<ul>
+<li><strong>Simplicité et Cohérence</strong> : Poetry fournit un workflow clair et cohérent pour la gestion des dépendances et du packaging, simplifiant le processus de développement.</li>
+<li><strong>Reproductibilité</strong> : Les fichiers <code>pyproject.toml</code> et <code>poetry.lock</code> garantissent que les mêmes versions des dépendances sont installées dans tous les environnements.</li>
+<li><strong>Intégration Facile</strong> : Poetry s’intègre facilement dans les systèmes de CI/CD et les flux de travail de développement existants.</li>
+</ul>
+</section>
+</section>
+<section id="partie-5-environnements-virtuels-en-python-et-exemple-avec-docker" class="level3">
+<h3 class="anchored" data-anchor-id="partie-5-environnements-virtuels-en-python-et-exemple-avec-docker">Partie 5 : Environnements Virtuels en Python et Exemple avec Docker</h3>
+<section id="a.-quest-ce-quun-environnement-virtuel-en-python" class="level4">
+<h4 class="anchored" data-anchor-id="a.-quest-ce-quun-environnement-virtuel-en-python">A. Qu’est-ce qu’un Environnement Virtuel en Python ?</h4>
+<ol type="1">
+<li><strong>Définition</strong> :
+<ul>
+<li>Un environnement virtuel en Python est un espace isolé au sein du système qui permet d’exécuter des applications Python dans un contexte séparé, avec ses propres dépendances et interpréteur.</li>
+</ul></li>
+<li><strong>Objectif</strong> :
+<ul>
+<li>L’objectif principal est de séparer les dépendances requises pour différents projets, évitant ainsi les conflits entre différentes versions des bibliothèques.</li>
+</ul></li>
+<li><strong>Comment ils Fonctionnent</strong> :
+<ul>
+<li>Les environnements virtuels modifient la variable <code>PATH</code> (et d’autres variables d’environnement) pour s’assurer que les commandes Python et pip pointent vers les versions spécifiques à cet environnement.</li>
+</ul></li>
+<li><strong>Outils pour la Création d’Environnements Virtuels</strong> :
+<ul>
+<li><code>venv</code> (intégré dans Python 3.3 et versions ultérieures) et <code>virtualenv</code> sont des outils populaires pour créer des environnements virtuels.</li>
+</ul></li>
+</ol>
+</section>
+<section id="b.-exemple-avec-docker" class="level4">
+<h4 class="anchored" data-anchor-id="b.-exemple-avec-docker">B. Exemple avec Docker</h4>
+<p>Pour comprendre les environnements virtuels dans un cadre plus large, considérons Docker, une plateforme de conteneurisation qui permet de créer des environnements isolés, appelés conteneurs.</p>
+<ol type="1">
+<li><strong>Docker et Isolation</strong> :
+<ul>
+<li>Docker crée des conteneurs qui sont isolés du système hôte et entre eux. Chaque conteneur peut avoir sa propre configuration, ses propres dépendances et son propre système d’exploitation léger.</li>
+</ul></li>
+<li><strong>Comparaison avec les Environnements Virtuels Python</strong> :
+<ul>
+<li>Tandis que les environnements virtuels Python isolent uniquement les dépendances Python, Docker isole l’ensemble du système, y compris le système d’exploitation, les bibliothèques système, etc.</li>
+<li>Docker offre un degré plus élevé d’isolation et de reproductibilité, ce qui est crucial dans les déploiements de production et les systèmes de CI/CD.</li>
+</ul></li>
+<li><strong>Utilisation de Docker avec Python</strong> :
+<ul>
+<li>Vous pouvez créer un conteneur Docker pour un projet Python, où vous installez toutes les dépendances requises, y compris l’interpréteur Python.</li>
+<li>Cela garantit que le projet s’exécute dans un environnement contrôlé et cohérent, indépendamment des configurations système de l’hôte.</li>
+</ul></li>
+</ol>
+</section>
+<section id="conclusion-sur-les-environnements-virtuels" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion-sur-les-environnements-virtuels">Conclusion sur les Environnements Virtuels</h4>
+<p>Les environnements virtuels, qu’ils soient spécifiques à Python ou sous forme de conteneurs Docker, sont essentiels pour maintenir la cohérence des projets, éviter les conflits de dépendances et assurer la reproductibilité des environnements de développement et de production. Ils représentent une pratique standard dans le développement moderne, garantissant que les applications s’exécutent de manière fiable et prévisible dans différents environnements.</p>
 
 
 </section>
