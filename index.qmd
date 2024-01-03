@@ -1,0 +1,20 @@
+---
+toc: false
+sidebar: false
+title-block-style: none
+listing:
+    id: sample-listings
+    contents: content/**/*.qmd
+    type: grid
+    sort: "number"
+    categories: true
+---
+
+# Introduction à Python 
+
+## Rémi Genet
+
+```{=html}
+<a class="github-button" href="https://github.com/remigenet/Introduction-Python" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this website on Github">Star this website on Github</a><script async defer src="https://buttons.github.io/buttons.js"></script>
+```
+

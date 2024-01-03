@@ -1,0 +1,51 @@
+---
+title: "Exécution d'un Programme Python"
+weight: 10
+tags:
+  - Basics
+  - Compilation
+  - Inteprete
+  - Introduction
+categories:
+  - Cours
+  - Introduction
+type: book
+description: Avant de se lancer
+image: .img/compiled_vs_interpreted.png
+---
+
+### a - Un programme - Comment ca marche ?
+
+Bien que Python est un language qui nous permettrait de sauter directement les étapes d'apprentissage de la programmation, il est important de comprendre comment un programme fonctionne. Cela nous permettra de mieux comprendre comment le language fonctionne et ainsi gagner par la suite beaucoup de temps à ne pas essuyer les plâtres des lacunes de notre compréhension. Cela par exemple nous permettra de mieux comprendre comment gérer nos packages (les bibliothèques de fonctions) et comment les installer, les versions de ceux-ci ou de python, comment travailler à plusieurs et bien plus encore.
+
+Pour rester simple, un programme est une suite d'instructions que l'on donne à un ordinateur pour qu'il puisse effectuer une tâche. Ces instructions sont écrites dans un language que l'ordinateur peut comprendre. Ce language est appelé le language machine. Il est composé de 0 et de 1. C'est ce que l'on appelle le binaire. C'est le seul language que l'ordinateur peut comprendre. C'est pourquoi nous avons besoin d'un traducteur pour pouvoir communiquer avec lui. Ce traducteur est appelé un compilateur. Il va traduire le language que nous utilisons en language machine. C'est ce que l'on appelle la compilation. C'est un processus qui se fait en deux étapes. La première étape est la compilation. La deuxième étape est l'exécution. C'est à dire que l'ordinateur va exécuter les instructions que nous lui avons données.
+
+### b - La compilation ?
+
+La compilation est le processus qui consiste à traduire le code source en code machine, mais cela ne fait pas "que" cela, il va aussi vérifier que le code source est correcte. C'est à dire qu'il va vérifier que le code source est bien écrit dans le language que l'on a choisi. C'est ce que l'on appelle la syntaxe. Il va aussi vérifier que le code source est logique. C'est à dire qu'il va vérifier que le code source est bien écrit dans le bon ordre. C'est ce que l'on appelle la sémantique. Si le code source n'est pas correcte, le compilateur va nous renvoyer une erreur. C'est ce que l'on appelle une erreur de compilation. C'est une erreur qui se produit avant l'exécution du programme. 
+
+Mais la compilation va également permettre d'optimiser le code source. C'est à dire qu'il va le rendre plus rapide à l'exécution. Durant cette phase le compilateur va, en fonction des options choisi par le développeur, optimiser le code source, en supprimant par exemple les lignes de code qui ne sont pas utilisées, en supprimant des boucles ou recursion, en réduisant le nombre de variables, en réduisant le nombre d'instructions, en réduisant le nombre de sauts, en réduisant le nombre d'opérations, en réduisant le nombre de tests, en réduisant le nombre de fonctions, en réduisant le nombre de paramètres, en réduisant le nombre de variables locales, ...
+
+C'est optimisation prennent cependant du temps, et ne sont pas toutes sans risques et les erreurs de compilations peuvent être nombreuses sur des programmes complexes, et la compilations peut demander un temps considérable à chaque fois que l'on apporte une modification.
+
+Mais en Python, il n'y a pas de compilation ! Magie ?
+
+### c - L'interprétation !
+
+Python, comme tout les programmes qui s'execute sur l'ordinateur, provient bien d'un code qui a été compilé à un moment. La différence vient du fait que c'est l'interpreteur qui a été compilé, et qui est un programme va être capable de lire le code python et de le transformé au fur et à mesure en code machine. C'est ce que l'on appelle l'interprétation. C'est un processus qui se fait en deux étapes. 
+
+La première étape est l'analyse lexicale. C'est à dire que l'interpreteur va lire le code source et le découper en morceaux. C'est ce que l'on appelle les tokens. Il va ensuite les analyser pour vérifier que le code source est correcte. C'est à dire qu'il va vérifier que le code source est bien écrit dans le language que l'on a choisi. C'est ce que l'on appelle la syntaxe. Il va aussi vérifier que le code source est logique. C'est à dire qu'il va vérifier que le code source est bien écrit dans le bon ordre. C'est ce que l'on appelle la sémantique. Si le code source n'est pas correcte, l'interpreteur va nous renvoyer une erreur. C'est ce que l'on appelle une erreur d'analyse lexicale. C'est une erreur qui se produit avant l'exécution du programme.
+
+En Python, l'interpreteur va alors produire un Bytecode. C'est un code intermédiaire qui est plus proche du language machine que le code source, mais qui n'est pas encore du language machine. C'est ce que l'on appelle parfois la compilation, mais cette étape est presque instantanée. Toutefois l'interpreteur stocke quand même ce bytecode pour ne pas le recalculer à chaque fois, vous le verrez dans le dossier __pycache__ de vos projets python, qui sera crée automatiquement dès que vous lancerez un code.
+
+L'interpréteur exécute ce bytecode, ce qui entraîne l'exécution des instructions écrites dans le fichier source. Ce processus diffère de celui des langages compilés comme C ou Java, où le code source est d'abord entièrement transformé en code machine avant l'exécution. En Python, la compilation en bytecode et l'exécution sont des étapes dynamiques, ce qui confère au langage sa flexibilité et sa facilité de débogage, mais aussi impacte sa vitesse d'exécution. 
+
+
+### d - Binaire Compilé et Interprétation du Code Python
+L'exécution d'un programme Python implique l'utilisation d'un binaire compilé de l'interpréteur Python. Ce processus est fondamental pour comprendre comment Python fonctionne sous le capot.
+
+1. **Le Binaire Compilé**: Lorsqu'on installe Python, on télécharge en fait un binaire compilé de l'interpréteur Python, ou selon les cas l'ensemble des morceaux necessaire pour que notre machine le construise. Ce binaire est spécifique à chaque système d'exploitation et architecture matérielle. Par exemple, les binaires pour Windows diffèrent de ceux pour Linux ou MacOS, comme les binaires des Mac M1 sont très différents de ceux des Mac avec les anciens processeurs Intel.
+
+2. **Avantages du Binaire Compilé**: Le fait d'avoir un binaire compilé spécifique à chaque plateforme permet à Python d'être portable et facile à déployer. Les développeurs peuvent écrire un script Python et s'attendre à ce qu'il fonctionne de la même manière sur différentes machines, à condition que l'interpréteur Python approprié soit installé.
+
+Ce mécanisme d'interprétation via un binaire compilé est une caractéristique clé de Python, contribuant à sa polyvalence et sa facilité d'utilisation dans divers environnements de développement.

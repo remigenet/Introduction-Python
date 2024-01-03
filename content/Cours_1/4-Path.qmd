@@ -1,0 +1,69 @@
+---
+title: "Le PATH"
+weight: 10
+tags:
+  - Basics
+  - Compilation
+  - Cpython
+  - Versions
+  - Introduction
+categories:
+  - Cours
+  - Introduction
+type: book
+description: Avant de se lancer
+image: .img/path.png
+---
+
+### 4. La Notion de PATH
+
+#### Comprendre la Notion de PATH dans les Systèmes d'Exploitation
+La variable d'environnement `PATH` est un concept clé dans les systèmes d'exploitation Windows, Linux et MacOS. Elle joue un rôle crucial dans la localisation des fichiers exécutables par le système. Voici une explication détaillée de cette notion :
+
+1. **Définition de PATH**:
+   - **PATH** est une variable d'environnement qui stocke une liste de répertoires séparés par des délimiteurs (point-virgule sous Windows, deux-points sous Unix/Linux).
+   - Lorsqu'une commande est saisie dans l'interpréteur de commandes (shell), le système utilise la variable PATH pour chercher l'exécutable correspondant à cette commande.
+
+2. **Fonctionnement de PATH**:
+   - Le système parcourt les répertoires listés dans PATH dans l'ordre où ils apparaissent. Si un fichier exécutable avec le nom de la commande est trouvé dans l'un de ces répertoires, il est exécuté.
+   - Si le fichier n'est pas trouvé dans les répertoires listés, le système retourne généralement un message d'erreur, indiquant que la commande est introuvable.
+
+3. **Modification de PATH**:
+   - Les utilisateurs peuvent modifier la variable PATH pour inclure le chemin vers d'autres exécutables ou scripts.
+   - Cela est souvent nécessaire lors de l'installation de nouveaux logiciels dont les exécutables doivent être accessibles globalement depuis l'interpréteur de commandes.
+
+4. **Importance de PATH**:
+   - La variable PATH est essentielle pour une utilisation efficace et flexible du système d'exploitation. Elle permet d'exécuter des programmes sans avoir à saisir leur chemin complet.
+   - Elle aide à organiser et à accéder facilement aux outils et applications fréquemment utilisés.
+
+5. **PATH et Sécurité**:
+   - Il est important de gérer la variable PATH avec précaution. Ajouter des répertoires non sécurisés ou inconnus peut présenter des risques de sécurité, car cela permet l'exécution de programmes potentiellement malveillants.
+
+La compréhension et la gestion appropriée de la variable PATH sont fondamentales pour tout utilisateur ou développeur travaillant avec des systèmes d'exploitation modernes. Cela devient particulièrement pertinent lors de la configuration d'environnements de développement, comme lors de l'installation de Python ou d'autres langages de programmation.
+
+#### Configuration de PATH pour une Version Python Compilée Manuellement
+
+Lorsqu'un utilisateur compile Python à partir du code source dans un répertoire personnalisé, surtout dans un cas où il n'a pas les droits nécessaires pour installer Python dans le répertoire standard `/usr`, la configuration du `PATH` devient essentielle. Voici comment cela fonctionne sous Linux :
+
+1. **Installation Locale de Python**:
+   - Supposons que l'utilisateur compile Python et l'installe dans son répertoire personnel, par exemple dans `~/mon_python/`.
+   - Après l'installation, l'exécutable Python se trouvera dans ce répertoire (par exemple, `~/mon_python/bin/python`).
+
+2. **Modification de la Variable PATH**:
+   - Pour utiliser cette version personnalisée de Python par défaut, l'utilisateur doit ajouter `~/mon_python/bin` à sa variable d'environnement PATH.
+   - Cela peut être fait en modifiant le fichier de configuration de l'interpréteur de commandes, tel que `.bashrc` ou `.bash_profile`, en y ajoutant la ligne `export PATH="~/mon_python/bin:$PATH"`.
+
+3. **Priorité dans PATH**:
+   - L'ordre des répertoires dans PATH est important. En ajoutant le nouveau chemin au début (`$PATH` à la fin), l'utilisateur s'assure que la version personnalisée de Python est prioritaire par rapport aux autres versions potentiellement installées sur le système.
+
+4. **Application des Modifications**:
+   - Après avoir modifié le fichier `.bashrc` ou `.bash_profile`, l'utilisateur doit soit redémarrer son terminal, soit exécuter `source ~/.bashrc` (ou équivalent) pour que les modifications prennent effet.
+
+5. **Vérification**:
+   - Une fois le PATH mis à jour, taper `python --version` ou `python3 --version` dans le terminal devrait afficher la version du Python qui a été installée dans le répertoire personnalisé.
+
+6. **Avantages**:
+   - Cette méthode permet à l'utilisateur d'avoir plusieurs versions de Python sur le même système sans conflit.
+   - Elle est particulièrement utile pour les développeurs qui ont besoin de tester leur code sur différentes versions de Python ou dans des environnements isolés.
+
+En résumé, la configuration correcte de la variable PATH est essentielle pour s'assurer que la bonne version de Python est utilisée, surtout lorsque plusieurs versions sont installées ou quand les utilisateurs n'ont pas les droits d'administration pour installer Python dans des répertoires standards comme `/usr`.

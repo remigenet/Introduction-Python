@@ -1,9 +1,3 @@
-# Introduction à Python
-
-Cours d'introduction à Python pour les L3 Economie et Ingenierie Financière de l'université Paris Dauphine
-
-## Objectif de ce cours et prérequis:
-
 
 Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
 

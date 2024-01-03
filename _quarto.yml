@@ -1,3 +1,67 @@
 project:
   type: website
-  output-dir: docs
+
+website:
+  title: "Introduction à Python"
+  page-navigation: true
+  back-to-top-navigation: true
+  reader-mode: true
+  navbar:
+    background: "white"
+    search: true
+    left:
+      - file: index.qmd
+        text: Home 
+      - sidebar:introduction
+      - sidebar:discover
+
+    tools:
+      - icon: github
+        menu:
+          - text: Code source
+            url:  https://github.com/remigenet/Introduction-Python
+  sidebar: 
+    - id: home
+      title: "Homepage"
+      href: index.qmd
+    - id: introduction
+      title: "Introduction"
+      contents: content/Cours_1/*.qmd
+    - id: discover 
+      title: "Decouvrir"
+      contents: content/Cours_2/*.qmd
+        
+  repo-url: https://github.com/remigenet/Introduction-Python
+  repo-branch: main
+  page-footer:
+    left: |
+      Introduction à Python, Rémi Genet.<br>
+      Licence {{< fa brands creative-commons >}}<br>
+      Code source disponible sur [`Github`](https://github.com/remigenet/Introduction-Python)
+    right: |
+      Site construit avec {{< fa brands python >}} et [`Quarto`](https://quarto.org/)<br>
+      Inspiration pour la mise en forme du site [ici](https://github.com/linogaliana/python-datascientist)<br>
+      [Code source disponible sur {{< fa brands github >}} `GitHub`](https://github.com/remigenet/Introduction-Python)
+
+
+
+
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    code-overflow: wrap
+    # embed-resources: true
+  
+
+
+date-format: iso
+page-layout: article
+
+# validate-yaml: false
+# jupyter: python3
+
+# wrap: preserve
+# keep-ipynb: true

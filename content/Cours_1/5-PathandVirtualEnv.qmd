@@ -1,0 +1,96 @@
+---
+title: "Path.. et environnements virtuels!"
+weight: 10
+tags:
+  - Basics
+  - Compilation
+  - Cpython
+  - Versions
+  - Introduction
+categories:
+  - Cours
+  - Introduction
+type: book
+description: Avant de se lancer
+image: .img/virtualenv.png
+---
+
+### 5. PATH et Environnements Virtuels
+
+#### PATH et les Environnements Virtuels avec Pyenv
+
+L'utilisation de `pyenv`, un outil populaire de gestion de version pour Python, illustre bien l'interaction entre la variable `PATH` et les environnements virtuels. Voici comment `pyenv` utilise `PATH` pour gérer différentes versions de Python :
+
+1. **Principe de Fonctionnement de Pyenv**:
+   - **Pyenv** permet d'installer et de gérer plusieurs versions de Python sur un même système.
+   - Il modifie la variable `PATH` pour diriger les appels à Python vers la version sélectionnée.
+
+2. **Installation de Pyenv**:
+   - Lors de l'installation de `pyenv`, il ajoute un script d'initialisation dans le fichier de configuration du shell (comme `.bashrc` ou `.zshrc`).
+   - Ce script modifie dynamiquement `PATH` pour inclure un chemin vers les shims de `pyenv`.
+
+3. **Utilisation des Shims**:
+   - Les shims sont des scripts intermédiaires qui interceptent les appels à Python.
+   - Lorsque vous invoquez `python`, le shim de `pyenv` est appelé en premier. Il détermine ensuite quelle version de Python utiliser, en fonction de la configuration actuelle.
+
+4. **Configuration des Versions de Python**:
+   - Avec `pyenv`, vous pouvez choisir une version de Python globale, locale (par répertoire), ou même par shell.
+   - `pyenv` ajuste `PATH` pour que le shim corresponde à la version de Python sélectionnée.
+
+5. **Utilisation avec les Environnements Virtuels**:
+   - `pyenv` peut être utilisé avec `pyenv-virtualenv`, un plugin qui gère les environnements virtuels.
+   - Quand un environnement virtuel est activé, `pyenv` modifie `PATH` pour que les appels à Python pointent vers l'interpréteur Python de cet environnement virtuel.
+
+6. **Avantages**:
+   - Cette approche offre une grande flexibilité et permet de passer facilement entre différentes versions de Python pour différents projets ou besoins de développement.
+   - Elle élimine également les conflits entre les versions de Python et facilite la gestion des dépendances.
+
+En résumé, `pyenv` utilise la variable `PATH` de manière sophistiquée pour permettre une gestion aisée des multiples versions de Python. Cela permet aux développeurs de travailler sur plusieurs projets avec différentes exigences de version Python sans conflit ni complication.
+   - **Gestion des Environnements**: Comment gérer plusieurs versions de Python et bibliothèques.
+
+#### Gestionnaires de Bibliothèques et Environnements Virtuels: Pipenv et Poetry
+
+Au-delà de la gestion des versions de Python, la gestion des bibliothèques et des dépendances est un autre aspect crucial du développement Python. Deux outils populaires dans ce domaine sont Pipenv et Poetry. Voici comment ils fonctionnent et interagissent avec la notion de PATH :
+
+1. **Pipenv**:
+   - **Fonctionnement**: Pipenv combine la gestion des packages et des environnements virtuels. Il crée un environnement virtuel pour chaque projet et gère les dépendances spécifiques au projet.
+   - **Fichier Pipfile**: Pipenv utilise un `Pipfile` pour déclarer les dépendances de projet, remplaçant les `requirements.txt` traditionnels. Il crée également un `Pipfile.lock` pour verrouiller les versions des dépendances.
+   - **Interaction avec PATH**: Lors de l'activation d'un environnement virtuel avec Pipenv, il modifie le `PATH` pour que les commandes Python et pip pointent vers les versions spécifiques à l'environnement virtuel.
+
+2. **Poetry**:
+   - **Fonctionnement**: Poetry est à la fois un gestionnaire de dépendances et un outil de packaging. Il vise à simplifier la déclaration, la gestion et l'installation des bibliothèques.
+   - **Fichier pyproject.toml**: Poetry utilise le fichier `pyproject.toml` pour gérer les dépendances et les configurations de projet. Ce fichier est devenu un standard pour la configuration des projets Python.
+   - **Interaction avec PATH**: Comme Pipenv, Poetry crée des environnements virtuels pour isoler les dépendances de projet. Lorsqu'un environnement est activé, Poetry ajuste également le `PATH` pour utiliser l'interpréteur et les outils spécifiques à cet environnement.
+
+3. **Avantages de Pipenv et Poetry**:
+   - **Gestion Simplifiée**: Ces outils simplifient la gestion des dépendances et des environnements virtuels, rendant le processus plus intuitif et moins sujet aux erreurs.
+   - **Projet Isolé**: Ils assurent que chaque projet a ses propres dépendances isolées, réduisant les conflits entre différents projets.
+   - **Reproductibilité**: Les fichiers de verrouillage garantissent que les mêmes versions des dépendances sont installées, ce qui améliore la reproductibilité des environnements de développement et de production.
+
+4. **Choix entre Pipenv et Poetry**:
+   - Le choix entre Pipenv et Poetry dépend des préférences personnelles et des besoins spécifiques du projet. Pipenv est souvent loué pour sa simplicité, tandis que Poetry offre une approche plus holistique de la gestion des packages et des dépendances.
+
+En intégrant la gestion des dépendances avec la création et la gestion des environnements virtuels, et en ajustant le `PATH` en conséquence, Pipenv et Poetry offrent une expérience de développement Python plus cohérente et contrôlée.
+
+#### Qu'est-ce qu'un Environnement Virtuel en Python?
+
+Après avoir discuté des outils comme `pyenv`, `Pipenv` et `Poetry`, il est essentiel de définir clairement ce qu'est un environnement virtuel en Python et pourquoi il est important :
+
+1. **Définition d'un Environnement Virtuel**:
+   - Un **environnement virtuel** est un espace isolé dans le système où vous pouvez installer des bibliothèques et des packages Python spécifiques à un projet, sans affecter les autres projets ou le système global.
+   - Chaque environnement virtuel a son propre interpréteur Python et emplacement pour les bibliothèques.
+
+2. **Pourquoi Utiliser des Environnements Virtuels ?**:
+   - **Isolation des Dépendances**: Permet à chaque projet d'avoir ses propres dépendances, évitant ainsi les conflits entre différents projets.
+   - **Contrôle des Versions**: Vous pouvez travailler avec différentes versions de Python et de bibliothèques pour différents projets.
+   - **Reproductibilité**: Facilite la reproductibilité des environnements de développement et de test, car vous pouvez préciser exactement quelles versions des dépendances sont utilisées.
+
+3. **Comment Fonctionnent les Environnements Virtuels ?**:
+   - Lorsque vous activez un environnement virtuel, le `PATH` est modifié pour que les commandes `python` et `pip` pointent vers l'interpréteur et le gestionnaire de packages de cet environnement spécifique.
+   - Cette modification du `PATH` assure que toutes les opérations Python sont confinées à l'environnement virtuel actif.
+
+4. **Création et Activation d'un Environnement Virtuel**:
+   - Environnements virtuels classiques peuvent être créés avec des outils intégrés comme `venv` (Python 3.3 et plus) ou `virtualenv` pour les versions antérieures.
+   - Après la création, vous activez l'environnement virtuel, ce qui modifie le `PATH` pour utiliser l'interpréteur et les packages de cet environnement.
+
+En résumé, les environnements virtuels sont un élément essentiel du développement Python moderne. Ils offrent une gestion isolée et contrôlée des dépendances pour chaque projet, contribuant ainsi à une meilleure organisation et à une plus grande stabilité des projets Python. Les outils comme `pyenv`, `Pipenv` et `Poetry` simplifient et enrichissent la gestion de ces environnements.
