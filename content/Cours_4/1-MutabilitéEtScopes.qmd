@@ -18,3 +18,149 @@ code-links: binder
 # Mutabilité et Scope - Une base de Python
 
 ---
+
+### Cours sur la Mutabilité et le Scope en Python
+
+#### Première Partie: Comprendre la Mutabilité
+
+##### Qu'est-ce que la Mutabilité ?
+La mutabilité en Python fait référence à la capacité d'un objet à être modifié après sa création. Dans Python, certains types de données sont mutables, tandis que d'autres sont immutables.
+
+##### Types Mutables vs. Immutables
+- **Immutables** : Ces types ne peuvent pas être modifiés une fois créés. Les principaux types immutables en Python incluent les entiers (`int`), les nombres à virgule flottante (`float`), les chaînes de caractères (`str`), et les tuples (`tuple`).
+- **Mutables** : Ces types peuvent être modifiés. Les listes (`list`), les dictionnaires (`dict`), et les ensembles (`set`) sont des exemples de types mutables.
+
+##### Implications de la Mutabilité
+- **Sécurité** : Les objets immutables sont plus sûrs à partager et à utiliser car ils ne peuvent pas être modifiés de manière inattendue.
+- **Performance** : La mutabilité peut affecter la performance. Par exemple, l'ajout d'éléments à une liste (mutable) est généralement plus rapide que la concaténation de tuples (immutables).
+
+
+Types Immutables
+
+```{python}
+# Un entier est immuable
+x = 10
+print(id(x))  # Identifiant de l'objet 'x'
+x += 1
+print(id(x))  # L'identifiant a changé car un nouvel objet a été créé
+
+# Un tuple est immuable
+t = (1, 2, 3)
+try:
+    t[0] = 10  # Essaie de modifier le tuple
+except TypeError as e:
+    print(e)  # Affiche une erreur
+```
+
+Types Mutables
+
+```{python}
+# Une liste est mutable
+my_list = [1, 2, 3]
+print(id(my_list))  # Identifiant de 'my_list'
+my_list.append(4)  # Modification de la liste
+print(id(my_list))  # L'identifiant reste le même
+```
+
+---
+
+#### Deuxième Partie: Scope en Python
+
+##### Qu'est-ce que le Scope ?
+Le scope en Python fait référence à la portée dans laquelle les variables sont visibles et accessibles. Il détermine la visibilité d'une variable au sein du code.
+
+##### Types de Scope
+- **Local Scope** : Les variables définies à l'intérieur d'une fonction. Elles ne sont accessibles que dans cette fonction.
+- **Enclosing Scope** : Apparaît dans les fonctions imbriquées (fonctions dans une fonction). Une variable dans une fonction englobante est accessible dans la fonction imbriquée.
+- **Global Scope** : Les variables définies au niveau du module ou du script. Accessibles partout dans le script ou le module.
+- **Built-in Scope** : Contient des noms préassignés par Python, comme `print`, `len`.
+
+##### Manipulation de Scope
+- **`global` Keyword** : Permet de modifier une variable globale à l'intérieur d'une fonction.
+- **`nonlocal` Keyword** : Utilisé dans les fonctions imbriquées pour modifier une variable dans le scope englobant.
+
+
+Exemple 2: Scope en Python
+
+```{python}
+
+def outer_function():
+    x = "local to outer_function"
+
+    def inner_function():
+        nonlocal x  # Référence à 'x' dans le scope englobant
+        x = "modified by inner_function"
+        print("Inner function:", x)
+
+    inner_function()
+    print("Outer function:", x)
+
+outer_function()
+```
+---
+
+#### Troisième Partie: Mutabilité et Classes en Python
+
+##### Classes et Objets Mutables
+- En Python, les classes peuvent être utilisées pour créer des types mutables. L'état d'une instance de classe (c'est-à-dire ses attributs) peut être modifié après sa création.
+- Exemple : Une classe `Car` avec un attribut `color` peut voir sa couleur modifiée après la création de l'objet.
+
+##### Précautions avec les Objets Mutables
+- Les modifications apportées à un objet mutable peuvent avoir des effets inattendus, en particulier lors de la copie d'objets ou du passage d'objets comme arguments à des fonctions.
+
+
+Exemple 3: Classes et Mutabilité
+
+``` {python}
+class Car:
+    def __init__(self, color):
+        self.color = color
+
+my_car = Car("red")
+print(my_car.color)  # Affiche 'red'
+
+my_car.color = "blue"  # Modification de l'attribut 'color'
+print(my_car.color)  # Affiche 'blue'
+```
+
+---
+
+#### Quatrième Partie: Implications Pratiques et Bonnes Pratiques
+
+``` {python}
+def add_to_list(element, target_list=[]):  # Liste mutable comme argument par défaut
+    target_list.append(element)
+    return target_list
+
+print(add_to_list(1))  # Affiche [1]
+print(add_to_list(2))  # Affiche [1, 2] - L'effet de bord se produit ici
+```
+
+##### Implications de la Mutabilité
+- **Effets de Bord** : La modification d'objets mutables peut entraîner des effets de bord indésirables, en particulier lorsqu'ils sont partagés entre différentes parties d'un programme.
+- **Copie Profonde vs. Copie Superficielle** : La compréhension de la différence entre copie profonde (`deepcopy`) et copie superficielle (`copy`) est essentielle lors de la manipulation d'objets mutables.
+
+##### Bonnes Pratiques
+- **Immutabilité par Défaut** : Préférer l'utilisation de types immutables sauf si la mutabilité est nécessaire. Cela réduit les risques d'erreurs et les effets de bord.
+- **Prudence avec les Objets Globaux** : Être prudent lors de la modification de variables globales, surtout si elles sont mutables.
+- **Documentation et Commentaires** : Documenter clairement l'utilisation et les modifications des objets mutables, surtout dans les grandes bases de code et les projets de groupe.
+
+``` {python}
+import copy
+
+original_list = [[1, 2, 3], [4, 5, 6]]
+
+# Copie superficielle
+shallow_copied_list = copy.copy(original_list)
+shallow_copied_list[0][0] = "X"
+print(original_list)  # Affecte la liste originale
+
+# Copie profonde
+deep_copied_list = copy.deepcopy(original_list)
+deep_copied_list[0][0] = "Y"
+print(original_list)  # Ne change pas la liste originale
+``` 
+
+
+#### Conclusion
+La compréhension de la mutabilité et du scope en Python est fondamentale pour écrire un code clair, efficace et sans erreurs. Bien que la mutabilité offre de la flexibilité, elle doit être utilisée judicieusement pour éviter des complications inutiles. La maîtrise du scope aide à structurer le code de manière logique et à éviter les conflits de noms et les erreurs inattendues.

@@ -1,0 +1,65 @@
+
+---
+
+### Étape 1: Récupération des Données avec yfinance
+
+```python
+import yfinance as yf
+
+# Liste des symboles des actifs
+assets = ["AAPL", "MSFT", "GOOG", "AMZN", "FB", "TSLA", "BRK-A", "V", "JNJ", "WMT"]
+
+# Récupération des données de prix
+data = {asset: yf.download(asset, start="2020-01-01", end="2021-01-01") for asset in assets}
+```
+
+### Étape 2: Prévision de Volume avec Modèles Simples
+
+#### a) Régression Linéaire
+
+```python
+from sklearn.linear_model import LinearRegression
+import numpy as np
+
+# Exemple pour un actif
+df = data['AAPL']
+df['Lag_1'] = df['Volume'].shift(1)
+df = df.dropna()
+
+X = df[['Lag_1']]  # Feature: Volume du jour précédent
+y = df['Volume']    # Target: Volume actuel
+
+model = LinearRegression()
+model.fit(X, y)
+y_pred = model.predict(X)
+```
+
+#### b) Modèle ARIMA
+
+```python
+from statsmodels.tsa.arima_model import ARIMA
+
+# Exemple pour un actif
+df = data['AAPL']['Volume']
+
+model = ARIMA(df, order=(5,1,0))  # ARIMA model
+model_fit = model.fit(disp=0)
+forecast = model_fit.forecast(steps=1)[0]  # Prévision 1-step ahead
+```
+
+### Étape 3: Visualisation des Volumes par Rapport à la Volatilité
+
+```python
+import matplotlib.pyplot as plt
+
+df = data['AAPL']
+df['Volatility'] = df['Close'].pct_change().abs()  # Calcul de la volatilité
+
+plt.scatter(df['Volatility'], df['Volume'])
+plt.title('Volume vs. Volatility for AAPL')
+plt.xlabel('Volatility (Absolute Return)')
+plt.ylabel('Volume')
+plt.show()
+```
+
+---

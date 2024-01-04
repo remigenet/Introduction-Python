@@ -1,0 +1,393 @@
+---
+title: "Poetry for Python Project Management"
+weight: 10
+tags:
+  - virtual environment
+  - Annexes
+  - Utils
+  - Git
+  - Poetry
+  - versionning
+categories:
+  - Annexes
+  - Poetry
+type: book
+description: Poetry is a tool for dependency management and packaging in Python. It allows you to declare the libraries your project depends on and it will manage (install/update) them for you. Poetry uses pyproject.toml file to manage all of your project’s dependencies, settings, and package configurations in a single place.
+image: .img/poetry-5.jpg
+---
+
+
+# Poetry : 
+
+### Step 1: Introduction to Poetry
+
+---
+
+## Course Title: Mastering Poetry for Python Project Management
+
+### Module 1: Introduction to Poetry
+
+#### 1.1 What is Poetry?
+s
+Poetry is a tool for dependency management and packaging in Python. It allows you to declare the libraries your project depends on and it will manage (install/update) them for you. Poetry uses `pyproject.toml` file to manage all of your project’s dependencies, settings, and package configurations in a single place.
+
+#### 1.2 Key Features of Poetry
+
+- **Dependency Management**: Easily manage project dependencies and development dependencies.
+  
+- **Version Management**: Automatically manage versions of your packages and dependencies.
+
+- **Package Publishing**: Seamlessly publish packages to PyPI with integrated API token support.
+
+- **Reproducible Builds**: Ensure that builds are reproducible and dependencies are declared accurately.
+
+- **Integrated with pip**: Use Poetry-built packages with `pip` without any additional configuration.
+
+#### 1.3 Advantages of Using Poetry
+
+- **Consistency**: Manage dependencies, project configuration, and package publishing using a single tool and file (`pyproject.toml`).
+
+- **Dependency Resolution**: Advanced dependency resolution that avoids dependency hell and ensures consistency.
+
+- **Semantic Versioning**: Automatic semantic versioning and dependency version management.
+
+- **Isolation**: Dependency management is isolated from the system Python and other projects.
+
+#### 1.4 Inconveniences of Using Poetry
+
+- **Learning Curve**: Developers familiar with `pip` and `setuptools` might need some time to learn Poetry.
+
+- **Migration**: Moving from other dependency management tools to Poetry might require effort and adaptation.
+
+- **Compatibility**: Some older projects or systems might face compatibility issues with Poetry’s dependency resolution.
+
+#### 1.5 Installing Poetry
+
+Poetry can be installed with `pip` or through an installer script for better isolation from system Python.
+
+```shell
+# Using pip
+pip install --user poetry
+
+# Using installer script  ===> I personnaly choosed this one 
+curl -sSL https://install.python-poetry.org | python -
+```
+
+---
+
+### Step 2: Initializing a Project and Managing Dependencies with Poetry
+
+---
+
+## Module 2: Getting Started with Poetry
+
+### 2.1 Initializing a New Project
+
+Poetry makes it straightforward to initialize a new Python project and create all the necessary files.
+
+```shell
+# Create a new project
+poetry new my_project
+
+# Navigate to the project directory
+cd my_project
+```
+
+This will create a new directory called `my_project` with the following structure:
+
+```plaintext
+my_project/
+├── my_project/
+│   └── __init__.py
+├── tests/
+│   ├── __init__.py
+│   └── test_my_project.py
+├── pyproject.toml
+└── README.rst
+```
+
+### 2.2 Understanding `pyproject.toml`
+
+`pyproject.toml` is the configuration file where you define your dependencies, package information, and build settings.
+
+Example `pyproject.toml`:
+
+```toml
+[tool.poetry]
+name = "my_project"
+version = "0.1.0"
+description = "My awesome Python project"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.25"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2"
+```
+
+- **[tool.poetry]**: Metadata about your package (name, version, description, authors, etc.)
+  
+- **[tool.poetry.dependencies]**: Project dependencies and their version constraints.
+
+- **[tool.poetry.dev-dependencies]**: Development dependencies used for testing, building, and linting.
+
+### 2.3 Managing Dependencies
+
+With Poetry, managing dependencies is simplified and can be done directly through the command line.
+
+```shell
+# Add a new dependency
+poetry add requests
+
+# Add a new development dependency
+poetry add --dev pytest
+
+# Remove a dependency
+poetry remove requests
+```
+
+Poetry will automatically update `pyproject.toml` and lock the exact versions of the dependencies in `poetry.lock`.
+
+### 2.4 Installing Dependencies
+
+Poetry installs dependencies in an isolated environment, ensuring no conflicts with system packages.
+
+```shell
+# Install dependencies
+poetry install
+```
+
+### 2.5 Updating Dependencies
+
+Updating dependencies and resolving conflicts are also simplified with Poetry.
+
+```shell
+# Update all dependencies
+poetry update
+
+# Update a specific dependency
+poetry update requests
+```
+
+### Step 3: Building, Publishing, and Scripting with Poetry
+
+---
+
+## Module 3: Advanced Usage of Poetry
+
+### 3.1 Building Packages
+
+Poetry simplifies the process of building your project into a package that can be distributed and installed.
+
+```shell
+# Build the project package
+poetry build
+```
+
+This command generates distribution packages (`.whl` and `.tar.gz` files) in the `dist` directory, which can be shared or published to a package repository like PyPI.
+
+### 3.2 Publishing Packages
+
+Poetry can publish packages directly to a repository (like PyPI) with ease, ensuring that your package is shared with the Python community.
+
+```shell
+# Publish the package to PyPI
+poetry publish --build
+```
+
+You might need to configure authentication for the repository, which can be done using `poetry config`.
+
+```shell
+# Configure PyPI authentication
+poetry config pypi-token.pypi <your-token>
+```
+
+### 3.3 Managing Environments
+
+Poetry creates a virtual environment for your project to manage dependencies separately from your system Python.
+
+```shell
+# Show information about the current environment
+poetry env info
+
+# Use a specific Python version
+poetry env use 3.8
+```
+
+### 3.4 Scripting with Poetry
+
+Poetry allows you to define custom scripts in `pyproject.toml`, which can be run with `poetry run`.
+
+Example `pyproject.toml`:
+
+```toml
+[tool.poetry.scripts]
+migrate = "my_project.migrate:run"
+```
+
+You can then run the script using Poetry:
+
+```shell
+# Run the custom script
+poetry run migrate
+```
+
+### 3.5 Dependency Locking
+
+Poetry locks the versions of your dependencies in `poetry.lock`, ensuring that installations are deterministic and reproducible.
+
+```shell
+# Update the lock file without installing dependencies
+poetry lock
+```
+
+### 3.6 Handling Private Dependencies
+
+Poetry can handle dependencies from private repositories or alternative repositories.
+
+```toml
+[[tool.poetry.source]]
+name = "private-repo"
+url = "https://private-repo/simple/"
+
+[tool.poetry.dependencies]
+private-package = { version = "1.2.3", source = "private-repo" }
+```
+
+### Step 4: Troubleshooting, Resources, and Best Practices with Poetry
+
+---
+
+## Module 4: Navigating Challenges and Community Resources in Poetry
+
+### 4.1 Troubleshooting Common Issues
+
+#### Issue: Dependency Resolution Failure
+- **Solution**: Try updating the dependencies individually or relaxing version constraints in `pyproject.toml`.
+
+#### Issue: Virtual Environment Issues
+- **Solution**: You may try using `poetry env use <python-version>` to specify a Python version or `poetry shell` to spawn a shell within the virtual environment.
+
+#### Issue: Build or Publish Failure
+- **Solution**: Ensure all configurations in `pyproject.toml` are correct and that you have the necessary credentials for publishing to the repository.
+
+### 4.2 Community and Resources
+
+- **[Poetry Documentation](https://python-poetry.org/docs/)**: Comprehensive guide and documentation on using Poetry.
+
+- **[Poetry GitHub Repository](https://github.com/python-poetry/poetry)**: Source code, issues, and release notes of Poetry.
+
+- **[Poetry Community](https://python-poetry.org/community/)**: Join forums, chats, and mailing lists to engage with the Poetry community.
+
+- **[Stack Overflow](https://stackoverflow.com/questions/tagged/poetry)**: Search or ask questions related to Poetry.
+
+### 4.3 Best Practices with Poetry
+
+#### 1. **Specify Versions Clearly**:
+   - Use semantic versioning and be explicit about the versions of the dependencies to avoid conflicts.
+
+#### 2. **Use a `pyproject.toml` Linter**:
+   - Utilize a linter to ensure that `pyproject.toml` is correctly formatted and follows best practices.
+
+#### 3. **Keep Dependencies Minimal**:
+   - Only add necessary dependencies to keep the project lightweight and reduce potential conflicts.
+
+#### 4. **Regularly Update Dependencies**:
+   - Periodically run `poetry update` to keep dependencies up to date and utilize the latest features and security patches.
+
+#### 5. **Test Before Publishing**:
+   - Ensure that the project is thoroughly tested before publishing to avoid releasing broken packages.
+
+#### 6. **Use Private Repositories for Private Packages**:
+   - If using private packages, host them on a private repository and ensure Poetry is configured to use it.
+
+#### 7. **Document Usage and Development Setup**:
+   - Clearly document how to set up the development environment and use the package, facilitating contributions and usage.
+
+### Step 5: Integrating Poetry with CI/CD and Utilizing Pre-commit Hooks
+
+---
+
+## Module 5: Advanced Integrations and Workflow Enhancements with Poetry
+
+### 5.1 Integrating Poetry with CI/CD Pipelines
+
+Continuous Integration (CI) and Continuous Deployment (CD) pipelines ensure that your code is always in a deployable state. Integrating Poetry into your CI/CD pipelines ensures dependency management is streamlined and reproducible.
+
+#### **Example CI Steps**:
+
+1. **Install Poetry**:
+   ```shell
+   curl -sSL https://install.python-poetry.org | python -
+   ```
+   
+2. **Install Dependencies**:
+   ```shell
+   poetry install
+   ```
+   
+3. **Run Tests**:
+   ```shell
+   poetry run pytest
+   ```
+   
+4. **Build and Publish** (CD step):
+   ```shell
+   poetry publish --build
+   ```
+   
+### 5.2 Utilizing Pre-commit Hooks with Poetry
+
+Pre-commit hooks help in automating checks before commits are made, ensuring code quality and consistency.
+
+#### **Setting Up Pre-commit**:
+
+1. **Install pre-commit**:
+   ```shell
+   pip install pre-commit
+   ```
+   
+2. **Add a `.pre-commit-config.yaml`**:
+   ```yaml
+   repos:
+   -   repo: https://github.com/pre-commit/pre-commit-hooks
+       rev: v3.4.0
+       hooks:
+       -   id: trailing-whitespace
+       -   id: check-yaml
+   ```
+   
+3. **Install Git Hooks**:
+   ```shell
+   pre-commit install
+   ```
+   
+#### **Integrating with Poetry**:
+
+Ensure that developers install `pre-commit` and initialize it. You might add a script in `pyproject.toml` to automate this.
+
+```toml
+[tool.poetry.scripts]
+initialize-hooks = "python scripts/initialize_hooks.py"
+```
+
+Where `initialize_hooks.py` installs and sets up pre-commit hooks.
+
+### 5.3 Managing Multiple Python Projects with Poetry
+
+Poetry allows you to manage and switch between different Python projects efficiently by isolating dependencies and environments.
+
+- **Isolated Environments**: Each project gets its own virtual environment, ensuring no dependency conflicts.
+  
+- **Consistent Dependency Resolution**: `poetry.lock` ensures that all developers and deployments use the same dependency versions.
+
+### 5.4 Handling Native Dependencies
+
+When your project depends on native modules, ensure that developers and your CI/CD pipelines have access to necessary build tools and libraries.
+
+- Document any system-level dependencies in your README or documentation.
+  
+- In CI/CD pipelines, ensure that necessary build tools are installed before running `poetry install`.
+

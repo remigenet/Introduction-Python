@@ -1,0 +1,31 @@
+---
+title: "TP-3 Libraries"
+weight: 10
+tags:
+  - Pandas
+  - YahooFinance
+  - Libraries
+  - TP
+  - Exercices
+categories:
+  - TP
+  - Exercices
+type: book
+description: "Mise  en pratique simple des éléments vu aurparavant."
+image: .img/api.png
+code-links: binder
+---
+
+
+### TP : Analyse et Prévision des Volumes d'Actifs Financiers
+
+Ce TP se concentre sur la récupération des données de prix d'actifs, la prévision de volumes et la visualisation de la volatilité. Nous allons suivre les étapes suivantes :
+
+#### 1. Récupération des Données avec yfinance
+Nous utiliserons le package `yfinance` pour récupérer les données de prix journaliers de 10 actifs différents.
+
+#### 2. Prévision de Volume avec Modèles Simples
+Nous mettrons en œuvre des modèles de prévision simples comme la régression linéaire et ARIMA pour prédire le volume des transactions pour le jour suivant (1-step ahead forecast).
+
+#### 3. Visualisation des Volumes par Rapport à la Volatilité
+Nous visualiserons les volumes des actifs en relation avec leur volatilité, en utilisant la valeur absolue des rendements comme proxy de la volatilité.

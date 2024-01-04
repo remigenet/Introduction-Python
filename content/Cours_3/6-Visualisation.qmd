@@ -18,3 +18,220 @@ code-links: binder
 # Visualisation de données avec Python
 
 ---
+
+### Chapitre sur la Visualisation de Données en Python
+
+#### Introduction à la Visualisation de Données
+La visualisation est un aspect crucial de l'analyse de données, aidant à comprendre les tendances, les modèles et les anomalies dans les données. Python offre une variété de bibliothèques de visualisation, chacune avec ses propres forces et cas d'utilisation.
+
+#### Matplotlib: Le Fondement de la Visualisation en Python
+- **Matplotlib** est la bibliothèque de visualisation la plus connue et la plus utilisée en Python. Elle offre une grande flexibilité pour créer une large gamme de graphiques statiques, animés et interactifs.
+- Exemple d'utilisation :
+  ```python
+  import matplotlib.pyplot as plt
+
+  plt.plot([1, 2, 3, 4])
+  plt.ylabel('some numbers')
+  plt.show()
+  ```
+
+#### Seaborn: Visualisation Statistique Facilitée
+- **Seaborn** est basé sur Matplotlib et fournit une interface de haut niveau pour dessiner des graphiques statistiques attractifs et informatifs.
+- Exemple de visualisation des relations entre variables :
+  ```python
+  import seaborn as sns
+  iris = sns.load_dataset('iris')
+  sns.pairplot(iris, hue='species')
+  ```
+
+#### Altair: Déclaration Declarative pour la Visualisation
+- **Altair** offre une API déclarative puissante pour construire des visualisations complexes de manière concise et intuitive.
+- Exemple simple d'un graphique à barres :
+  ```python
+  import altair as alt
+  from vega_datasets import data
+
+  source = data.cars()
+  chart = alt.Chart(source).mark_bar().encode(
+      x='mean(Miles_per_Gallon)',
+      y='Origin',
+      color='Origin'
+  )
+  chart.show()
+  ```
+
+#### Plotly: Visualisation Interactive et Avancée
+- **Plotly** est remarquable pour ses graphiques interactifs et ses capacités de visualisation avancées, permettant des visualisations complexes et multi-dimensionnelles.
+- Exemple d'intégration avec Pandas pour une visualisation interactive :
+  ```python
+  import plotly
+  import pandas as pd
+
+  plotly.offline.init_notebook_mode() 
+  plotly.io.renderers.default = 'jupyterlab+notebook+pdf'
+
+  # Supposons que 'gdf' est un DataFrame Pandas
+  gdf.plot(kind='scatter', x='timestamp', y='p', color='side', 
+           color_discrete_map={'B': 'blue', 'S': 'red'}, size='dot_size', 
+           template='plotly', symbol='side', symbol_map=symbol_map, 
+           hover_data=['name'], backend='plotly').show()
+  ```
+
+#### Exercice Pratique
+1. **Objectif**: Créer un graphique interactif avec Plotly et l'intégrer à un DataFrame Pandas.
+2. **Énoncé**: Utilisez Plotly pour créer un graphique à bulles interactif qui montre les relations entre différentes variables dans un DataFrame Pandas.
+3. **Solution**: Utilisez le code d'exemple Plotly fourni ci-dessus comme point de départ et ajustez-le en fonction de vos données spécifiques et des relations que vous souhaitez visualiser.
+
+#### Conclusion
+La visualisation de données est un élément essentiel de l'analyse de données, et Python offre une gamme impressionnante de bibliothèques pour créer des visualisations statiques, animées et interactives. Que vous cherchiez à produire des graphiques simples ou à explorer des visualisations interactives avancées, il existe une bibliothèque Python qui répond à vos besoins.
+
+
+### Techniques Avancées de Visualisation de Données en Python
+
+#### Création de Tableaux de Bord Interactifs
+La capacité de créer des tableaux de bord interactifs permet une exploration en profondeur et dynamique des données.
+
+1. **Dash**: Un framework Python pour créer des applications web analytiques.
+   - Permet de construire des tableaux de bord interactifs en utilisant uniquement Python.
+   - Exemple :
+     ```python
+     import dash
+     import dash_core_components as dcc
+     import dash_html_components as html
+     from pandas_datareader import data as web
+
+     app = dash.Dash(__name__)
+     app.layout = html.Div([
+         dcc.Graph(
+             id='example-graph',
+             figure={
+                 'data': [
+                     {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
+                     {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': 'Montréal'},
+                 ],
+                 'layout': {
+                     'title': 'Dash Data Visualization'
+                 }
+             }
+         )
+     ])
+
+     if __name__ == '__main__':
+         app.run_server(debug=True)
+     ```
+
+#### Animation de Graphiques
+Les animations peuvent aider à comprendre les tendances et les modèles au fil du temps.
+
+1. **Matplotlib pour les Animations**:
+   - Matplotlib peut être utilisé pour créer des animations de base.
+   - Exemple d'animation d'un graphique linéaire :
+     ```python
+     import matplotlib.pyplot as plt
+     import matplotlib.animation as animation
+
+     fig, ax = plt.subplots()
+     line, = ax.plot([], [], lw=2)
+
+     def init():
+         line.set_data([], [])
+         return line,
+
+     def animate(i):
+         x = np.linspace(0, 2, 1000)
+         y = np.sin(2 * np.pi * (x - 0.01 * i))
+         line.set_data(x, y)
+         return line,
+
+     ani = animation.FuncAnimation(fig, animate, init_func=init, frames=200, interval=20, blit=True)
+     plt.show()
+     ```
+
+#### Intégration de Visualisations dans des Applications Web
+L'intégration de graphiques dans des applications web rend les analyses de données plus accessibles et interactives.
+
+1. **Plotly avec Flask ou Django**:
+   - Les graphiques Plotly peuvent être intégrés dans des applications web Python utilisant Flask ou Django.
+   - Exemple d'intégration Plotly avec Flask :
+     ```python
+     from flask import Flask, render_template
+     import plotly.graph_objs as go
+     import plotly.offline as pyo
+
+     app = Flask(__name__)
+
+     @app.route('/')
+     def index():
+         bar = go.Bar(x=[1, 2, 3], y=[3, 1, 6])
+         graphJSON = pyo.plot([bar], auto_open=False, output_type='div')
+         return render_template('index.html', graphJSON=graphJSON)
+
+     if __name__ == '__main__':
+         app.run(debug=True)
+     ```
+   - `index.html` contiendra le div pour afficher le graphique Plotly.
+
+#### Conclusion
+Les techniques avancées de visualisation de données en Python, telles que la création de tableaux de bord interactifs avec Dash, l'animation de graphiques avec Matplotlib et l'intégration de visualisations dans des applications web, offrent des moyens puissants pour présenter et explorer des données complexes. Ces outils permettent aux utilisateurs de voir et d'interagir avec les données de manières innovantes, améliorant ainsi la compréhension et la prise de décisions basées sur les données.
+
+### Visualisation de Données Géospatiales
+
+#### Introduction à la Visualisation Géospatiale
+La visualisation de données géospatiales implique la représentation de données ayant une composante géographique. Ces visualisations peuvent révéler des tendances et des modèles liés à l'emplacement.
+
+#### Bibliothèques Clés pour la Visualisation Géospatiale
+
+1. **Geopandas**:
+   - Extension de Pandas pour faciliter le travail avec des données spatiales.
+   - Permet de lire, écrire et manipuler des données dans des formats géospatiaux variés.
+   - Exemple d'utilisation de Geopandas :
+     ```python
+     import geopandas as gpd
+     world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+     world.plot()
+     ```
+
+2. **Folium**:
+   - Bibliothèque qui crée des cartes interactives à l'aide de la plateforme Leaflet.js.
+   - Idéal pour les visualisations géospatiales interactives dans les notebooks Jupyter.
+   - Exemple simple avec Folium :
+     ```python
+     import folium
+
+     m = folium.Map(location=[45.5236, -122.6750])
+     folium.CircleMarker(location=[45.5215, -122.6261], radius=50, popup='Laurelhurst Park').add_to(m)
+     m
+     ```
+
+#### Visualisation 3D avec Python
+
+#### Outils pour la Visualisation 3D
+
+1. **Matplotlib**:
+   - Matplotlib propose également des fonctionnalités de base pour la visualisation 3D.
+   - Exemple de graphique en 3D :
+     ```python
+     from mpl_toolkits.mplot3d import Axes3D
+     import matplotlib.pyplot as plt
+
+     fig = plt.figure()
+     ax = fig.add_subplot(111, projection='3d')
+     ax.scatter(xs=[1,2,3], ys=[4,5,6], zs=[7,8,9])
+     plt.show()
+     ```
+
+2. **Plotly**:
+   - Plotly excelle également dans la création de visualisations 3D interactives.
+   - Exemple de surface 3D avec Plotly :
+     ```python
+     import plotly.graph_objects as go
+     import numpy as np
+
+     x = np.outer(np.linspace(-2, 2, 30), np.ones(30))
+     y = x.copy().T
+     z = np.cos(x ** 2 + y ** 2)
+
+     fig = go.Figure(data=[go.Surface(z=z, x=x, y=y)])
+     fig.show()
+     ```
+

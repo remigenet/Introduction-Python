@@ -18,3 +18,124 @@ code-links: binder
 # Typage en Python - Utile ou pas ?
 
 ---
+
+### Typage en Python
+
+## Types et Typage Dynamique
+
+##### Typage Dynamique en Python
+Python est un langage à typage dynamique, ce qui signifie que le type d'une variable est déterminé à l'exécution et peut changer au cours du temps.
+
+```{python}
+x = 5       # x est un entier
+x = "Hello" # x est maintenant une chaîne de caractères
+```
+
+##### Avantages et Inconvénients
+- **Avantages** : Flexibilité et facilité d'écriture du code.
+- **Inconvénients** : Moins de prévisibilité et risque accru d'erreurs à l'exécution.
+
+---
+
+## Type Hinting en Python
+Introduction au Type Hinting
+
+Le Type Hinting en Python permet de spécifier les types attendus des variables. Bien qu'il ne soit pas strictement appliqué à l'exécution, il facilite la compréhension et la vérification du code.
+Utiliser le Type Hinting
+
+```{python}
+def add_numbers(a: int, b: int) -> int:
+    return a + b
+```
+
+Avantages du Type Hinting
+
+    Amélioration de la Lisibilité : Rend le code plus facile à comprendre.
+    Débogage : Facilite la détection des erreurs de type.
+    Compatibilité avec les Outils : Les IDE et les outils d'analyse statique peuvent utiliser le Type Hinting pour détecter des erreurs.
+
+Conventions et Documentation
+
+Les annotations de type peuvent être complétées par des Docstrings pour fournir des explications plus détaillées sur le comportement d'une fonction.
+
+```{python}
+def add_numbers(a: int, b: int) -> int:
+    """
+    Add two integers and return the result.
+
+    :param a: The first integer
+    :param b: The second integer
+    :return: The sum of a and b
+    """
+    return a + b
+```
+### Typage en Python: Approfondissement
+
+#### Typage Dynamique en Python
+
+##### Comprendre le Typage Dynamique
+Python est un langage à typage dynamique, ce qui signifie que le type d'une variable est déterminé au moment de l'exécution et non à la compilation. Cette caractéristique offre une grande flexibilité.
+
+##### Exemple de Typage Dynamique
+```python
+x = 5       # Ici, x est un entier
+x = "Hello" # Maintenant, x est une chaîne de caractères
+```
+
+##### Implications du Typage Dynamique
+- **Flexibilité** : Permet de réaffecter des variables à différents types.
+- **Risques Potentiels** : Peut conduire à des erreurs subtiles, difficiles à détecter avant l'exécution.
+
+---
+
+
+#### Classes Abstraites
+
+##### Utilisation des Classes Abstraites
+Les classes abstraites en Python, utilisées via le module `abc`, servent à définir une interface pour d'autres classes à suivre, imposant ainsi une certaine structure dans le code.
+
+##### Exemple de Classe Abstraite
+```{python}
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    
+    @abstractmethod
+    def area(self):
+        pass
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius ** 2
+```
+
+##### Importance des Classes Abstraites
+- **Définition d'Interfaces** : Force les classes dérivées à implémenter certaines méthodes.
+- **Structuration du Code** : Aide à maintenir une architecture de code claire et organisée.
+
+---
+
+#### Compilation avec Cython
+
+##### Amélioration des Performances avec Cython
+Cython permet d'écrire des extensions Python en C pour une exécution plus rapide, ce qui est particulièrement utile pour les calculs intensifs.
+
+##### Exemple de Code Cython
+
+```{cython}
+# Définition d'une fonction en Cython
+cdef int multiply(int a, int b):
+    return a * b
+
+# Cette fonction peut maintenant être utilisée comme une fonction Python normale, mais elle est compilée en C et s'exécute plus rapidement.
+```
+
+##### Avantages de l'Utilisation de Cython
+- **Performance** : Le code Cython est généralement beaucoup plus rapide.
+- **Interopérabilité** : Permet d'intégrer facilement des bibliothèques C/C++ dans des applications Python.
+
+#### Conclusion
+Le typage en Python, avec ses différentes facettes - typage dynamique, type hinting, classes abstraites et Cython - offre une gamme variée d'outils pour augmenter la clarté, la performance et la structure du code. La compréhension de ces aspects est essentielle pour les développeurs Python afin de produire des codes efficaces, maintenables et performants.

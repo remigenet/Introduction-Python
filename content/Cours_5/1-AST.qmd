@@ -18,3 +18,145 @@ code-links: binder
 # L'arbre Syntaxique Abstrait - Comment revoir ses bases en Python
 
 ---
+
+### Cours sur la Bibliothèque Standard Python et l'Abstract Syntax Tree (AST)
+
+#### Partie 1: La Valeur de la Bibliothèque Standard Python
+
+##### Introduction à la Bibliothèque Standard
+La bibliothèque standard Python est une collection riche et variée de modules et de fonctions intégrées qui sont automatiquement disponibles dans tout environnement Python. Elle couvre une large gamme de fonctionnalités, des opérations mathématiques aux interactions réseau.
+
+##### Pourquoi Utiliser la Bibliothèque Standard
+1. **Fiabilité** : Les modules de la bibliothèque standard sont bien testés et maintenus.
+2. **Portabilité** : Le code qui utilise la bibliothèque standard est généralement portable sur toutes les plateformes où Python est disponible.
+3. **Performance** : Certains modules sont implémentés en C, offrant des performances optimales.
+4. **Productivité** : Permet de se concentrer sur les aspects uniques du projet, plutôt que de réinventer la roue.
+
+##### Exemples de Modules Utiles
+- `os` et `sys` pour les interactions système.
+- `re` pour les expressions régulières.
+- `datetime` pour la manipulation de dates et d'heures.
+- `json`, `csv` pour la manipulation de fichiers et de données.
+
+En plus des modules de base, la bibliothèque standard Python offre des outils avancés pour des tâches spécifiques.
+
+    asyncio :
+        Gère la programmation asynchrone, permettant d'écrire du code concurrent en utilisant la syntaxe async/await.
+        Utilisation pour des applications I/O-bound et pour améliorer les performances dans les applications réseau.
+
+    threading et multiprocessing :
+        threading est utilisé pour la programmation multithread, utile pour l'exécution concurrente de plusieurs tâches.
+        multiprocessing permet l'exécution parallèle de code en utilisant plusieurs processus, évitant ainsi le Global Interpreter Lock (GIL) de Python.
+
+    functools :
+        Fournit des outils pour manipuler les fonctions. La fonction cache (dans Python 3.9+, lru_cache dans les versions antérieures) est particulièrement utile pour mémoriser les résultats des appels de fonctions coûteux.
+
+Exemple d'Utilisation de functools.cache
+
+```{python}
+from functools import cache
+import time
+
+def fibonacci(n):
+    return n if n < 2 else fibonacci(n-1) + fibonacci(n-2)
+
+t1=time.time()
+print('result is:', fibonacci(40))
+print('computation took:', time.time()-t1)
+
+
+@cache
+def fibonacci(n):
+    return n if n < 2 else fibonacci(n-1) + fibonacci(n-2)
+
+t1=time.time()
+print('result is:', fibonacci(40))
+print('computation took:', time.time()-t1)
+
+```
+
+
+### Le résultat de fibonacci étant mis en cache le nombre d'appel réel à la fonction est réduit de façon drastique, et le temps d'execution est réduit de facon supra-linéaire.
+
+---
+
+#### Partie 2: Abstract Syntax Tree (AST) en Python
+
+##### Qu'est-ce que l'AST ?
+L'Abstract Syntax Tree (AST) est une représentation en arbre de la structure syntaxique du code source dans un langage de programmation. En Python, le module `ast` permet d'interagir et de manipuler ces arbres syntaxiques.
+
+##### Utilisations de l'AST
+1. **Analyse de Code** : Permet d'examiner et de comprendre la structure du code.
+2. **Modification de Code** : On peut transformer le code source avant son exécution.
+3. **Création d'Outils d'Analyse Statique** : Construire des outils personnalisés pour analyser le style ou la qualité du code.
+
+##### Exemple Simple avec AST
+```python
+import ast
+
+code = """
+def add(a, b):
+    return a + b
+"""
+
+# Parse le code source en AST
+parsed_code = ast.parse(code)
+
+# Parcourir et afficher les nœuds de l'AST
+for node in ast.walk(parsed_code):
+    print(type(node))
+```
+
+
+##### Pourquoi Utiliser l'AST ?
+1. **Compréhension Approfondie du Langage** : Travailler avec l'AST nécessite une compréhension des éléments syntaxiques de Python, ce qui enrichit la connaissance du langage.
+2. **Développement de Compétences en Analyse de Code** : L'AST est au cœur des outils d'analyse statique, et sa manipulation peut développer des compétences avancées en analyse de code.
+
+##### Projet avec AST
+- **Projet Suggéré** : Créer un outil d'analyse statique simple ou un reformateur de code en utilisant l'AST.
+- **Avantages** : Ce type de projet offre une compréhension pratique de la structure du code Python et peut être un excellent ajout à un portfolio de développeur.
+
+##### Exemple de Manipulation de l'AST
+```python
+import ast
+import astor
+
+class PrintReplacer(ast.NodeTransformer):
+    def visit_Print(self, node):
+        return ast.Expr(value=ast.Call(func=ast.Name(id='print', ctx=ast.Load()), 
+                                       args=node.values, keywords=[]))
+
+source_code = """
+print "Hello, World!"
+"""
+
+tree = ast.parse(source_code)
+tree = PrintReplacer().visit(tree)
+print(astor.to_source(tree))  # Convertit l'AST modifié en code source
+```
+
+---
+
+#### Partie 3: AST pour la Transformation et l'Optimisation du Code
+
+##### Modification du Code avec AST
+- **Refactoring** : L'AST permet de refactoriser le code de manière programmatique, ce qui est utile pour les grandes bases de code.
+- **Optimisation** : Peut être utilisé pour identifier et appliquer des optimisations de code.
+
+##### Exemple d'Optimisation avec AST
+```python
+import astor
+
+class MyTransformer(ast.NodeTransformer):
+    def visit_BinOp(self, node):
+        if isinstance(node.op, ast.Add):
+            return ast.BinOp(left=node.left, op=ast.Sub(), right=node.right)
+        return node
+
+tree = ast.parse("x + y")
+transformed = MyTransformer().visit(tree)
+print(astor.to_source(transformed))  # Affiche "x - y"
+```
+
+#### Conclusion
+La bibliothèque standard Python est un trésor de fonctionnalités, offrant des outils pour presque toutes les tâches imaginables en programmation. Comprendre et utiliser efficacement ces outils est essentiel pour tout développeur Python. De plus, explorer l'AST et ses applications peut non seulement renforcer la compréhension du langage Python, mais aussi ouvrir la voie à des projets intéressants et éducatifs, tout en développant des compétences en analyse de code.

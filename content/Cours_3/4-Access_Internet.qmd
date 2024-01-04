@@ -18,3 +18,67 @@ code-links: binder
 # Recupérer des données du net
 
 ---
+
+### Chapitre sur l'Accès à Internet en Python
+
+#### Introduction à l'Accès Internet en Python
+Python fournit plusieurs bibliothèques pour interagir avec le Web, permettant des opérations telles que le scraping de données, les requêtes Web, et l'interaction avec les API.
+
+#### Bibliothèques Clés pour l'Accès à Internet
+
+1. **Requests**: Une bibliothèque Python simplifiée pour envoyer des requêtes HTTP. Elle est idéale pour interagir avec des API RESTful.
+   - Exemple d'utilisation :
+     ```python
+     import requests
+     response = requests.get('https://api.exemple.com/data')
+     data = response.json()
+     ```
+
+2. **Beautiful Soup**: Utilisée pour le web scraping, Beautiful Soup permet d'analyser le contenu HTML et d'extraire les données nécessaires.
+   - Exemple de scraping :
+     ```python
+     from bs4 import BeautifulSoup
+     soup = BeautifulSoup(html_content, 'html.parser')
+     titles = soup.find_all('h1')
+     ```
+
+3. **Scrapy**: Un framework puissant pour créer des crawlers Web. Il est utilisé pour des scrapings plus complexes et des bots d'indexation.
+   - Utilisation typique :
+     ```python
+     import scrapy
+
+     class MySpider(scrapy.Spider):
+         name = 'exemple_spider'
+         start_urls = ['http://exemple.com']
+
+         def parse(self, response):
+             # Extraction de données
+             pass
+     ```
+
+#### Exercice Pratique
+1. **Objectif**: Se familiariser avec les requêtes Web et le scraping en Python.
+2. **Énoncé**: Écrivez un script qui récupère les titres des dernières nouvelles d'un site d'actualités et les affiche.
+3. **Solution**:
+   ```python
+   import requests
+   from bs4 import BeautifulSoup
+
+   response = requests.get('https://news.exemple.com')
+   soup = BeautifulSoup(response.content, 'html.parser')
+
+   for title in soup.find_all('h2'):
+       print(title.text.strip())
+   ```
+
+#### Sécurité et Bonnes Pratiques
+- **Respecter les règles du robots.txt**: S'assurer de respecter les directives du fichier robots.txt des sites Web lors du scraping.
+- **Gestion des erreurs et des exceptions**: Traiter correctement les réponses HTTP, comme les erreurs 404 ou 503.
+- **Utiliser des headers de requête appropriés**: Inclure des informations d'en-tête comme `User-Agent` pour éviter d'être bloqué par les sites Web.
+
+#### Conclusion
+L'accès à Internet en Python, grâce à des bibliothèques comme Requests, Beautiful Soup et Scrapy, offre un potentiel immense pour collecter et traiter des données du Web. Que ce soit pour des tâches simples comme récupérer des données d'une API ou pour des projets de scraping Web plus complexes, Python fournit les outils nécessaires pour interagir efficacement avec le Web.
+
+---
+
+Dans le prochain chapitre, nous explorerons comment Python peut être utilisé pour "alimenter" le Web, en se concentrant sur les frameworks Web et le développement backend en Python.

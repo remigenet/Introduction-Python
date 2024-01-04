@@ -1,3 +1,6 @@
+fastapi
+torch
+torchvision
 pandas
 numpy
 matplotlib
@@ -5,3 +8,4 @@ scikit-learn
 scipy
 jupyter
 jupyter-cache
+scipy

@@ -19,77 +19,174 @@ code-links: binder
 
 ---
 
-#### Introduction aux Dataframes
+## Introduction aux Dataframes
 
-**Définition et Rôle des Dataframes :**
-Un dataframe est une structure de données bidimensionnelle, souvent comparée à une feuille de calcul Excel ou une table de base de données SQL. Il est utilisé pour stocker et manipuler des ensembles de données organisées en lignes et colonnes. Chaque colonne représente une variable, et chaque ligne représente une observation.
+Un **dataframe** est une structure de données bidimensionnelle, similaire à une feuille de calcul ou une table de base de données. Ils sont extrêmement utiles pour la manipulation et l'analyse de données structurées. En Python, la bibliothèque la plus courante pour travailler avec des dataframes est **Pandas**.
 
-Les dataframes sont cruciaux en analyse de données, statistiques, science des données et machine learning pour le traitement et l'analyse de grands ensembles de données. Ils facilitent la manipulation des données, notamment le tri, le filtrage, la transformation et l'agrégation.
+## Pourquoi Utiliser Pandas pour les Dataframes?
+- **Manipulation de données**: Pandas offre des fonctionnalités puissantes pour nettoyer, transformer et analyser les données.
+- **Facilité d'utilisation**: Avec une API intuitive, Pandas permet une prise en main rapide pour les nouveaux utilisateurs.
+- **Intégration avec d'autres bibliothèques**: Pandas se combine bien avec des bibliothèques pour la visualisation (comme Matplotlib) et le calcul scientifique (comme NumPy).
 
-**Librairies Python pour Dataframes :**
-Les deux principales librairies en Python pour travailler avec des dataframes sont Pandas et NumPy.
-
-1. **Pandas :** C'est la librairie la plus populaire pour la manipulation de données en Python. Pandas offre une API riche et intuitive pour la création, la manipulation et l'analyse de dataframes.
-2. **NumPy :** Bien que principalement utilisé pour les calculs sur des tableaux multidimensionnels, NumPy est souvent employé en tandem avec Pandas, surtout pour les opérations numériques.
-
-#### Utilisation de Pandas pour les Dataframes
-
-**Création d'un Dataframe :**
-Pour créer un dataframe avec Pandas, on peut utiliser diverses méthodes, notamment à partir d'un dictionnaire, d'un fichier CSV, ou d'un tableau NumPy.
-
-**Exemple de Code - Création d'un Dataframe :**
-```python
+## Utilisation de Base de Pandas
+1. **Installation**: 
+```bash
+pip install pandas
+```
+2. **Importation et Création d'un Dataframe**:
+```{python}
 import pandas as pd
-
-# Création d'un dataframe à partir d'un dictionnaire
-data = {'Nom': ['Alice', 'Bob', 'Charlie'], 'Age': [25, 30, 35], 'Ville': ['New York', 'Paris', 'Berlin']}
+data = {'Nom': ['Anna', 'Bob', 'Charles'], 'Age': [28, 34, 29]}
 df = pd.DataFrame(data)
-
-print(df)
+df
 ```
+3. **Opérations de Base**:
+   - **Afficher les données**: `print(df)` ou `Display(df)` (dans un notebook - affiche un tableau de façon plus lisible. Il faut importer `from IPython.display import display`)
+   - **Accéder aux colonnes**: `df['Nom']`
+   - **Filtrage**: `df[df['Age'] > 30]`
 
-**Manipulation de Dataframes :**
-Les opérations courantes sur les dataframes incluent le filtrage, le tri, la manipulation de colonnes, et l'agrégation de données.
-
-**Exemple de Code - Manipulation de Dataframe :**
+## Exercice Pratique
+1. **Objectif**: Créer un dataframe, ajouter des données, puis les filtrer.
+2. **Énoncé**: Vous avez une liste de noms et d'âges. Créez un dataframe, ajoutez une colonne 'Profession', puis filtrez pour afficher seulement les personnes de plus de 30 ans.
+3. **Solution**:
 ```python
-# Sélection de colonnes
-df_age_ville = df[['Age', 'Ville']]
-
-# Filtrage des données
-df_filtré = df[df['Age'] > 30]
-
-# Tri des données
-df_trié = df.sort_values(by='Age')
-
-print(df_filtré)
-print(df_trié)
-```
-
-#### Exercice Pratique
-
-**Objectif :** Créer et manipuler un dataframe avec Pandas.
-
-1. **Créer un DataFrame :** Utilisez un dictionnaire pour créer un dataframe contenant trois colonnes : 'Produit', 'Quantité' et 'Prix'.
-2. **Filtrer les Données :** Sélectionnez les produits dont la quantité est supérieure à 10.
-3. **Trier les Données :** Triez le dataframe en fonction du prix, par ordre décroissant.
-
-**Solution :**
-```python
-import pandas as pd
-
 # Création du dataframe
-data = {'Produit': ['Pommes', 'Bananes', 'Oranges'], 'Quantité': [12, 5, 20], 'Prix': [1.5, 0.5, 0.75]}
-df = pd.DataFrame(data)
+df['Profession'] = ['Ingénieur', 'Artiste', 'Médecin']
 
 # Filtrage
-df_filtré = df[df['Quantité'] > 10]
-
-# Tri
-df_trié = df.sort_values(by='Prix', ascending=False)
-
-print(df_filtré)
-print(df_trié)
+print(df[df['Age'] > 30])
 ```
 
-Dans le prochain message, nous approfondirons l'analyse des données avec les dataframes, en explorant des fonctions avancées telles que les opérations de groupement et de fusion.
+## Conclusion
+Les dataframes, via la bibliothèque Pandas, sont des outils essentiels en Python pour la manipulation de données. Leur simplicité et leur puissance en font un choix privilégié pour les data scientists et les analystes de données.
+
+# Aspects Avancés des Dataframes avec Pandas
+
+## Manipulation de Grandes Données
+Quand on travaille avec de grands ensembles de données, il est crucial de savoir comment gérer efficacement la mémoire et le temps de traitement.
+
+- **Lecture par morceaux**: Pandas permet de lire de grandes données par morceaux, ce qui réduit la consommation de mémoire.
+```python
+chunk_size = 1000
+for chunk in pd.read_csv('large_file.csv', chunksize=chunk_size):
+    # Traitement de chaque morceau
+```
+
+- **Optimisation des types de données**: Parfois, changer le type de données d'une colonne peut réduire significativement l'utilisation de la mémoire.
+```python
+df['Colonne'] = df['Colonne'].astype('category')
+```
+
+## Opérations sur les Colonnes et les Lignes
+- **Ajout et suppression de colonnes**:
+  - Ajout: `df['Nouvelle_Colonne'] = df['Colonne1'] + df['Colonne2']`
+  - Suppression: `df.drop('Colonne', axis=1, inplace=True)`
+- **Application de fonctions**:
+  - `df['Colonne'].apply(lambda x: x * 2)`
+
+## Exercice Pratique Avancé
+1. **Objectif**: Manipuler un grand fichier CSV et effectuer des opérations sur les colonnes.
+2. **Énoncé**: Lisez un grand fichier CSV par morceaux. Pour chaque morceau, ajoutez une colonne 'AgeDoubled' qui est le double de la colonne 'Age', puis enregistrez chaque morceau modifié dans un nouveau fichier.
+3. **Solution**:
+   ```python
+   chunk_size = 1000
+   for i, chunk in enumerate(pd.read_csv('large_file.csv', chunksize=chunk_size)):
+       chunk['AgeDoubled'] = chunk['Age'] * 2
+       chunk.to_csv(f'chunk_{i}.csv')
+   ```
+
+## Conclusion
+La maîtrise des opérations avancées sur les dataframes est essentielle pour traiter efficacement des ensembles de données complexes. Les possibilités offertes par Pandas en font un outil incontournable pour la manipulation et l'analyse de données en Python.
+
+### Exemples Concrets d'Utilisation des Dataframes et Optimisation des Performances
+
+## Utilisation dans des Scénarios Réels
+
+1. **Analyse de Données**: Les dataframes sont fréquemment utilisés pour l'analyse de données dans divers domaines, comme la finance, la recherche scientifique, et le marketing.
+   - **Exemple**: Analyse des tendances de vente en e-commerce. On peut charger les données des transactions, calculer les métriques clés comme le chiffre d'affaires, et identifier les produits les plus vendus.
+
+2. **Traitement de Données pour le Machine Learning**: Avant de construire des modèles de machine learning, il est souvent nécessaire de nettoyer et de transformer les données.
+   - **Exemple**: Préparation de données pour la prédiction de prix immobiliers. On peut utiliser les dataframes pour gérer des données manquantes, encoder des variables catégorielles, et normaliser les valeurs.
+
+3. **Rapports et Visualisation**: Les dataframes se couplent bien avec des outils de visualisation pour créer des rapports et des graphiques.
+   - **Exemple**: Création d'un rapport sur la performance des employés. On peut combiner des données issues de différentes sources, calculer des KPIs, et générer des graphiques pour la présentation.
+
+## Optimisation des Performances
+
+1. **Utilisation de Dask pour le Traitement Parallèle**: Pour des ensembles de données très volumineux, Dask offre une solution de traitement parallèle compatible avec l'API de Pandas.
+   - `import dask.dataframe as dd`
+   - `dask_df = dd.from_pandas(pandas_df, npartitions=10)`
+
+2. **Optimisation du Code**:
+   - Utiliser `iterrows()` et `itertuples()` pour itérer sur les dataframes de manière plus performante.
+   - Préférer les opérations vectorisées aux boucles lorsque c'est possible.
+
+## Exercice Pratique de Synthèse
+1. **Objectif**: Combiner plusieurs fichiers de données, effectuer une analyse simple, et visualiser les résultats.
+2. **Énoncé**: Vous avez plusieurs fichiers CSV représentant les ventes mensuelles d'une entreprise. Fusionnez-les, calculez le total des ventes par mois, puis créez un graphique linéaire des ventes.
+3. **Solution**:
+```python
+import matplotlib.pyplot as plt
+
+# Fusion des fichiers CSV
+df_total = pd.concat([pd.read_csv(f) for f in fichiers_csv])
+
+# Calcul du total des ventes par mois
+ventes_par_mois = df_total.groupby('Mois')['Ventes'].sum()
+
+# Création du graphique
+ventes_par_mois.plot(kind='line')
+plt.title('Ventes Mensuelles')
+plt.show()
+```
+
+## Conclusion
+Les dataframes, grâce à leur flexibilité et leur puissance, sont un outil fondamental pour l'analyse de données, le traitement préparatoire pour le machine learning, et la création de rapports et visualisations. L'optimisation des performances et l'utilisation de bibliothèques complémentaires comme Dask peuvent augmenter considérablement l'efficacité du travail avec de grandes quantités de données.
+
+
+## Bonus : Astuces et Meilleures Pratiques avec les Dataframes
+
+Après avoir abordé les bases, les aspects avancés et des exemples concrets d'utilisation des dataframes, il est utile de conclure avec quelques astuces et meilleures pratiques qui peuvent rendre le travail avec les dataframes encore plus efficace et agréable.
+
+## Astuces pour la Manipulation de Dataframes
+
+1. **Chainage de Méthodes**: Pandas permet de chaîner les méthodes, ce qui rend le code plus lisible et concis.
+```python
+df = (pd.read_csv('data.csv')
+      .dropna()
+      .rename(columns={'old_name': 'new_name'})
+      .sort_values('column'))
+```
+On parle aussi pour décrire ce genre d'API, de fluent API. Le terme API fait ici référence à l'API utilisateur, c'est à dire l'ensemble des fonctions et méthodes que l'on peut utiliser pour interagir avec une bibliothèque. Une API est dite fluide lorsqu'elle permet d'enchaîner les appels de méthodes, comme dans l'exemple ci-dessus.
+
+2. **Utilisation de `query` pour le Filtrage**: La méthode `query` permet un filtrage plus lisible et souvent plus rapide.
+```python
+df_filtered = df.query('age > 30 & city == "Paris"')
+```
+
+3. **Assignation Conditionnelle avec `np.where`**: Pour créer de nouvelles colonnes basées sur des conditions.
+```python
+import numpy as np
+df['status'] = np.where(df['age'] > 18, 'adult', 'minor')
+```
+
+## Meilleures Pratiques
+
+1. **Éviter les Boucles Autant que Possible**: Préférer les opérations vectorisées pour une meilleure performance.
+2. **Utilisation Judicieuse de la Mémoire**: Être attentif aux types de données, en particulier avec de grands ensembles de données.
+3. **Tester avec des Sous-ensembles de Données**: Avant d'appliquer des opérations à l'ensemble du dataframe, tester avec un petit échantillon.
+4. **Documentation et Commentaires**: S'assurer que le code est bien documenté pour faciliter la compréhension et la maintenance.
+
+## Exercice de Réflexion
+1. **Objectif**: Réfléchir à l'optimisation du traitement des données.
+2. **Énoncé**: Imaginez que vous avez un dataframe très large avec plusieurs colonnes inutilisées et des types de données non optimisés. Comment aborderiez-vous sa nettoyage et son optimisation pour une analyse efficace?
+3. **Solution Suggérée**: 
+   - Supprimer les colonnes inutiles pour économiser de la mémoire.
+   - Convertir les colonnes avec des données catégorielles en type 'category'.
+   - Utiliser des fonctions vectorisées pour les transformations de données.
+
+## Conclusion
+La maîtrise des dataframes dans Pandas ne se limite pas seulement à connaître diverses fonctions et méthodes, mais implique également une compréhension des meilleures pratiques et astuces pour optimiser la performance et la lisibilité du code. Cela inclut une utilisation efficace de la mémoire, l'évitement des boucles inutiles, et une bonne documentation du code.
+
+Vous trouverez également des exemples simple d'utilisation de tout les fonctions standards dans [ce Notebook](pandas_short_example.ipynb)
+
