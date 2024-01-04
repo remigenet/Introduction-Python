@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -220,10 +254,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../content/Cours_3/6-Visualisation.html">
  <span class="dropdown-text">Visualiser et présenter ces données avec Python</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_3/TP-pandas_and_geography.html">
- <span class="dropdown-text">TP-pandas_and_geography.html</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -352,7 +382,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#larbre-syntaxique-abstrait---comment-revoir-ses-bases-en-python" id="toc-larbre-syntaxique-abstrait---comment-revoir-ses-bases-en-python" class="nav-link active" data-scroll-target="#larbre-syntaxique-abstrait---comment-revoir-ses-bases-en-python">L’arbre Syntaxique Abstrait - Comment revoir ses bases en Python</a></li>
+  <li><a href="#larbre-syntaxique-abstrait---comment-revoir-ses-bases-en-python" id="toc-larbre-syntaxique-abstrait---comment-revoir-ses-bases-en-python" class="nav-link active" data-scroll-target="#larbre-syntaxique-abstrait---comment-revoir-ses-bases-en-python">L’arbre Syntaxique Abstrait - Comment revoir ses bases en Python</a>
+  <ul class="collapse">
+  <li><a href="#cours-sur-la-bibliothèque-standard-python-et-labstract-syntax-tree-ast" id="toc-cours-sur-la-bibliothèque-standard-python-et-labstract-syntax-tree-ast" class="nav-link" data-scroll-target="#cours-sur-la-bibliothèque-standard-python-et-labstract-syntax-tree-ast">Cours sur la Bibliothèque Standard Python et l’Abstract Syntax Tree (AST)</a></li>
+  <li><a href="#le-résultat-de-fibonacci-étant-mis-en-cache-le-nombre-dappel-réel-à-la-fonction-est-réduit-de-façon-drastique-et-le-temps-dexecution-est-réduit-de-facon-supra-linéaire." id="toc-le-résultat-de-fibonacci-étant-mis-en-cache-le-nombre-dappel-réel-à-la-fonction-est-réduit-de-façon-drastique-et-le-temps-dexecution-est-réduit-de-facon-supra-linéaire." class="nav-link" data-scroll-target="#le-résultat-de-fibonacci-étant-mis-en-cache-le-nombre-dappel-réel-à-la-fonction-est-réduit-de-façon-drastique-et-le-temps-dexecution-est-réduit-de-facon-supra-linéaire.">Le résultat de fibonacci étant mis en cache le nombre d’appel réel à la fonction est réduit de façon drastique, et le temps d’execution est réduit de facon supra-linéaire.</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Introduction-Python/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
@@ -397,8 +431,170 @@ ul.task-list li input[type="checkbox"] {
 <section id="larbre-syntaxique-abstrait---comment-revoir-ses-bases-en-python" class="level1">
 <h1>L’arbre Syntaxique Abstrait - Comment revoir ses bases en Python</h1>
 <hr>
+<section id="cours-sur-la-bibliothèque-standard-python-et-labstract-syntax-tree-ast" class="level3">
+<h3 class="anchored" data-anchor-id="cours-sur-la-bibliothèque-standard-python-et-labstract-syntax-tree-ast">Cours sur la Bibliothèque Standard Python et l’Abstract Syntax Tree (AST)</h3>
+<section id="partie-1-la-valeur-de-la-bibliothèque-standard-python" class="level4">
+<h4 class="anchored" data-anchor-id="partie-1-la-valeur-de-la-bibliothèque-standard-python">Partie 1: La Valeur de la Bibliothèque Standard Python</h4>
+<section id="introduction-à-la-bibliothèque-standard" class="level5">
+<h5 class="anchored" data-anchor-id="introduction-à-la-bibliothèque-standard">Introduction à la Bibliothèque Standard</h5>
+<p>La bibliothèque standard Python est une collection riche et variée de modules et de fonctions intégrées qui sont automatiquement disponibles dans tout environnement Python. Elle couvre une large gamme de fonctionnalités, des opérations mathématiques aux interactions réseau.</p>
+</section>
+<section id="pourquoi-utiliser-la-bibliothèque-standard" class="level5">
+<h5 class="anchored" data-anchor-id="pourquoi-utiliser-la-bibliothèque-standard">Pourquoi Utiliser la Bibliothèque Standard</h5>
+<ol type="1">
+<li><strong>Fiabilité</strong> : Les modules de la bibliothèque standard sont bien testés et maintenus.</li>
+<li><strong>Portabilité</strong> : Le code qui utilise la bibliothèque standard est généralement portable sur toutes les plateformes où Python est disponible.</li>
+<li><strong>Performance</strong> : Certains modules sont implémentés en C, offrant des performances optimales.</li>
+<li><strong>Productivité</strong> : Permet de se concentrer sur les aspects uniques du projet, plutôt que de réinventer la roue.</li>
+</ol>
+</section>
+<section id="exemples-de-modules-utiles" class="level5">
+<h5 class="anchored" data-anchor-id="exemples-de-modules-utiles">Exemples de Modules Utiles</h5>
+<ul>
+<li><code>os</code> et <code>sys</code> pour les interactions système.</li>
+<li><code>re</code> pour les expressions régulières.</li>
+<li><code>datetime</code> pour la manipulation de dates et d’heures.</li>
+<li><code>json</code>, <code>csv</code> pour la manipulation de fichiers et de données.</li>
+</ul>
+<p>En plus des modules de base, la bibliothèque standard Python offre des outils avancés pour des tâches spécifiques.</p>
+<pre><code>asyncio :
+    Gère la programmation asynchrone, permettant d'écrire du code concurrent en utilisant la syntaxe async/await.
+    Utilisation pour des applications I/O-bound et pour améliorer les performances dans les applications réseau.
+
+threading et multiprocessing :
+    threading est utilisé pour la programmation multithread, utile pour l'exécution concurrente de plusieurs tâches.
+    multiprocessing permet l'exécution parallèle de code en utilisant plusieurs processus, évitant ainsi le Global Interpreter Lock (GIL) de Python.
+
+functools :
+    Fournit des outils pour manipuler les fonctions. La fonction cache (dans Python 3.9+, lru_cache dans les versions antérieures) est particulièrement utile pour mémoriser les résultats des appels de fonctions coûteux.</code></pre>
+<p>Exemple d’Utilisation de functools.cache</p>
+<div id="e0008a12" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> cache</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fibonacci(n):</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> n <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">2</span> <span class="cf">else</span> fibonacci(n<span class="op">-</span><span class="dv">1</span>) <span class="op">+</span> fibonacci(n<span class="op">-</span><span class="dv">2</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>t1<span class="op">=</span>time.time()</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'result is:'</span>, fibonacci(<span class="dv">40</span>))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'computation took:'</span>, time.time()<span class="op">-</span>t1)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="at">@cache</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fibonacci(n):</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> n <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">2</span> <span class="cf">else</span> fibonacci(n<span class="op">-</span><span class="dv">1</span>) <span class="op">+</span> fibonacci(n<span class="op">-</span><span class="dv">2</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>t1<span class="op">=</span>time.time()</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'result is:'</span>, fibonacci(<span class="dv">40</span>))</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'computation took:'</span>, time.time()<span class="op">-</span>t1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>result is: 102334155
+computation took: 10.875994682312012
+result is: 102334155
+computation took: 5.435943603515625e-05</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="le-résultat-de-fibonacci-étant-mis-en-cache-le-nombre-dappel-réel-à-la-fonction-est-réduit-de-façon-drastique-et-le-temps-dexecution-est-réduit-de-facon-supra-linéaire." class="level3">
+<h3 class="anchored" data-anchor-id="le-résultat-de-fibonacci-étant-mis-en-cache-le-nombre-dappel-réel-à-la-fonction-est-réduit-de-façon-drastique-et-le-temps-dexecution-est-réduit-de-facon-supra-linéaire.">Le résultat de fibonacci étant mis en cache le nombre d’appel réel à la fonction est réduit de façon drastique, et le temps d’execution est réduit de facon supra-linéaire.</h3>
+<hr>
+<section id="partie-2-abstract-syntax-tree-ast-en-python" class="level4">
+<h4 class="anchored" data-anchor-id="partie-2-abstract-syntax-tree-ast-en-python">Partie 2: Abstract Syntax Tree (AST) en Python</h4>
+<section id="quest-ce-que-last" class="level5">
+<h5 class="anchored" data-anchor-id="quest-ce-que-last">Qu’est-ce que l’AST ?</h5>
+<p>L’Abstract Syntax Tree (AST) est une représentation en arbre de la structure syntaxique du code source dans un langage de programmation. En Python, le module <code>ast</code> permet d’interagir et de manipuler ces arbres syntaxiques.</p>
+</section>
+<section id="utilisations-de-last" class="level5">
+<h5 class="anchored" data-anchor-id="utilisations-de-last">Utilisations de l’AST</h5>
+<ol type="1">
+<li><strong>Analyse de Code</strong> : Permet d’examiner et de comprendre la structure du code.</li>
+<li><strong>Modification de Code</strong> : On peut transformer le code source avant son exécution.</li>
+<li><strong>Création d’Outils d’Analyse Statique</strong> : Construire des outils personnalisés pour analyser le style ou la qualité du code.</li>
+</ol>
+</section>
+<section id="exemple-simple-avec-ast" class="level5">
+<h5 class="anchored" data-anchor-id="exemple-simple-avec-ast">Exemple Simple avec AST</h5>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ast</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>code <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">def add(a, b):</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="st">    return a + b</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Parse le code source en AST</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>parsed_code <span class="op">=</span> ast.parse(code)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Parcourir et afficher les nœuds de l'AST</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> node <span class="kw">in</span> ast.walk(parsed_code):</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">type</span>(node))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pourquoi-utiliser-last" class="level5">
+<h5 class="anchored" data-anchor-id="pourquoi-utiliser-last">Pourquoi Utiliser l’AST ?</h5>
+<ol type="1">
+<li><strong>Compréhension Approfondie du Langage</strong> : Travailler avec l’AST nécessite une compréhension des éléments syntaxiques de Python, ce qui enrichit la connaissance du langage.</li>
+<li><strong>Développement de Compétences en Analyse de Code</strong> : L’AST est au cœur des outils d’analyse statique, et sa manipulation peut développer des compétences avancées en analyse de code.</li>
+</ol>
+</section>
+<section id="projet-avec-ast" class="level5">
+<h5 class="anchored" data-anchor-id="projet-avec-ast">Projet avec AST</h5>
+<ul>
+<li><strong>Projet Suggéré</strong> : Créer un outil d’analyse statique simple ou un reformateur de code en utilisant l’AST.</li>
+<li><strong>Avantages</strong> : Ce type de projet offre une compréhension pratique de la structure du code Python et peut être un excellent ajout à un portfolio de développeur.</li>
+</ul>
+</section>
+<section id="exemple-de-manipulation-de-last" class="level5">
+<h5 class="anchored" data-anchor-id="exemple-de-manipulation-de-last">Exemple de Manipulation de l’AST</h5>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ast</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> astor</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> PrintReplacer(ast.NodeTransformer):</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> visit_Print(<span class="va">self</span>, node):</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> ast.Expr(value<span class="op">=</span>ast.Call(func<span class="op">=</span>ast.Name(<span class="bu">id</span><span class="op">=</span><span class="st">'print'</span>, ctx<span class="op">=</span>ast.Load()), </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                                       args<span class="op">=</span>node.values, keywords<span class="op">=</span>[]))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>source_code <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="st">print "Hello, World!"</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>tree <span class="op">=</span> ast.parse(source_code)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>tree <span class="op">=</span> PrintReplacer().visit(tree)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(astor.to_source(tree))  <span class="co"># Convertit l'AST modifié en code source</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
+<section id="partie-3-ast-pour-la-transformation-et-loptimisation-du-code" class="level4">
+<h4 class="anchored" data-anchor-id="partie-3-ast-pour-la-transformation-et-loptimisation-du-code">Partie 3: AST pour la Transformation et l’Optimisation du Code</h4>
+<section id="modification-du-code-avec-ast" class="level5">
+<h5 class="anchored" data-anchor-id="modification-du-code-avec-ast">Modification du Code avec AST</h5>
+<ul>
+<li><strong>Refactoring</strong> : L’AST permet de refactoriser le code de manière programmatique, ce qui est utile pour les grandes bases de code.</li>
+<li><strong>Optimisation</strong> : Peut être utilisé pour identifier et appliquer des optimisations de code.</li>
+</ul>
+</section>
+<section id="exemple-doptimisation-avec-ast" class="level5">
+<h5 class="anchored" data-anchor-id="exemple-doptimisation-avec-ast">Exemple d’Optimisation avec AST</h5>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> astor</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MyTransformer(ast.NodeTransformer):</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> visit_BinOp(<span class="va">self</span>, node):</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">isinstance</span>(node.op, ast.Add):</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> ast.BinOp(left<span class="op">=</span>node.left, op<span class="op">=</span>ast.Sub(), right<span class="op">=</span>node.right)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> node</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>tree <span class="op">=</span> ast.parse(<span class="st">"x + y"</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>transformed <span class="op">=</span> MyTransformer().visit(tree)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(astor.to_source(transformed))  <span class="co"># Affiche "x - y"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="conclusion" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion">Conclusion</h4>
+<p>La bibliothèque standard Python est un trésor de fonctionnalités, offrant des outils pour presque toutes les tâches imaginables en programmation. Comprendre et utiliser efficacement ces outils est essentiel pour tout développeur Python. De plus, explorer l’AST et ses applications peut non seulement renforcer la compréhension du langage Python, mais aussi ouvrir la voie à des projets intéressants et éducatifs, tout en développant des compétences en analyse de code.</p>
 
 
+</section>
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

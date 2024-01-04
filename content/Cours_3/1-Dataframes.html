@@ -60,7 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -107,6 +107,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -256,10 +259,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../content/Cours_3/6-Visualisation.html">
  <span class="dropdown-text">Visualiser et présenter ces données avec Python</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_3/TP-pandas_and_geography.html">
- <span class="dropdown-text">TP-pandas_and_geography.html</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -400,11 +399,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">content/Cours_3/bonus-pandas_short_examplet.qmd</span>
   </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/TP-pandas_and_geography.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TP-pandas_and_geography.html</span></a>
-  </div>
-</li>
+ <span class="menu-text">content/Cours_3/TP-pandas_and_geography.ipynb</span>
+  </li>
     </ul>
     </div>
 </nav>
@@ -415,7 +411,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dataframes-en-python" id="toc-dataframes-en-python" class="nav-link active" data-scroll-target="#dataframes-en-python">Dataframes en Python</a></li>
+  <li><a href="#dataframes-en-python" id="toc-dataframes-en-python" class="nav-link active" data-scroll-target="#dataframes-en-python">Dataframes en Python</a>
+  <ul class="collapse">
+  <li><a href="#introduction-aux-dataframes" id="toc-introduction-aux-dataframes" class="nav-link" data-scroll-target="#introduction-aux-dataframes">Introduction aux Dataframes</a></li>
+  <li><a href="#pourquoi-utiliser-pandas-pour-les-dataframes" id="toc-pourquoi-utiliser-pandas-pour-les-dataframes" class="nav-link" data-scroll-target="#pourquoi-utiliser-pandas-pour-les-dataframes">Pourquoi Utiliser Pandas pour les Dataframes?</a></li>
+  <li><a href="#utilisation-de-base-de-pandas" id="toc-utilisation-de-base-de-pandas" class="nav-link" data-scroll-target="#utilisation-de-base-de-pandas">Utilisation de Base de Pandas</a></li>
+  <li><a href="#exercice-pratique" id="toc-exercice-pratique" class="nav-link" data-scroll-target="#exercice-pratique">Exercice Pratique</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul></li>
+  <li><a href="#aspects-avancés-des-dataframes-avec-pandas" id="toc-aspects-avancés-des-dataframes-avec-pandas" class="nav-link" data-scroll-target="#aspects-avancés-des-dataframes-avec-pandas">Aspects Avancés des Dataframes avec Pandas</a>
+  <ul class="collapse">
+  <li><a href="#manipulation-de-grandes-données" id="toc-manipulation-de-grandes-données" class="nav-link" data-scroll-target="#manipulation-de-grandes-données">Manipulation de Grandes Données</a></li>
+  <li><a href="#opérations-sur-les-colonnes-et-les-lignes" id="toc-opérations-sur-les-colonnes-et-les-lignes" class="nav-link" data-scroll-target="#opérations-sur-les-colonnes-et-les-lignes">Opérations sur les Colonnes et les Lignes</a></li>
+  <li><a href="#exercice-pratique-avancé" id="toc-exercice-pratique-avancé" class="nav-link" data-scroll-target="#exercice-pratique-avancé">Exercice Pratique Avancé</a></li>
+  <li><a href="#conclusion-1" id="toc-conclusion-1" class="nav-link" data-scroll-target="#conclusion-1">Conclusion</a>
+  <ul class="collapse">
+  <li><a href="#exemples-concrets-dutilisation-des-dataframes-et-optimisation-des-performances" id="toc-exemples-concrets-dutilisation-des-dataframes-et-optimisation-des-performances" class="nav-link" data-scroll-target="#exemples-concrets-dutilisation-des-dataframes-et-optimisation-des-performances">Exemples Concrets d’Utilisation des Dataframes et Optimisation des Performances</a></li>
+  </ul></li>
+  <li><a href="#utilisation-dans-des-scénarios-réels" id="toc-utilisation-dans-des-scénarios-réels" class="nav-link" data-scroll-target="#utilisation-dans-des-scénarios-réels">Utilisation dans des Scénarios Réels</a></li>
+  <li><a href="#optimisation-des-performances" id="toc-optimisation-des-performances" class="nav-link" data-scroll-target="#optimisation-des-performances">Optimisation des Performances</a></li>
+  <li><a href="#exercice-pratique-de-synthèse" id="toc-exercice-pratique-de-synthèse" class="nav-link" data-scroll-target="#exercice-pratique-de-synthèse">Exercice Pratique de Synthèse</a></li>
+  <li><a href="#conclusion-2" id="toc-conclusion-2" class="nav-link" data-scroll-target="#conclusion-2">Conclusion</a></li>
+  <li><a href="#bonus-astuces-et-meilleures-pratiques-avec-les-dataframes" id="toc-bonus-astuces-et-meilleures-pratiques-avec-les-dataframes" class="nav-link" data-scroll-target="#bonus-astuces-et-meilleures-pratiques-avec-les-dataframes">Bonus : Astuces et Meilleures Pratiques avec les Dataframes</a></li>
+  <li><a href="#astuces-pour-la-manipulation-de-dataframes" id="toc-astuces-pour-la-manipulation-de-dataframes" class="nav-link" data-scroll-target="#astuces-pour-la-manipulation-de-dataframes">Astuces pour la Manipulation de Dataframes</a></li>
+  <li><a href="#meilleures-pratiques" id="toc-meilleures-pratiques" class="nav-link" data-scroll-target="#meilleures-pratiques">Meilleures Pratiques</a></li>
+  <li><a href="#exercice-de-réflexion" id="toc-exercice-de-réflexion" class="nav-link" data-scroll-target="#exercice-de-réflexion">Exercice de Réflexion</a></li>
+  <li><a href="#conclusion-3" id="toc-conclusion-3" class="nav-link" data-scroll-target="#conclusion-3">Conclusion</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Introduction-Python/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
@@ -465,65 +487,248 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="dataframes-en-python" class="level1">
 <h1>Dataframes en Python</h1>
 <hr>
-<section id="introduction-aux-dataframes" class="level4">
-<h4 class="anchored" data-anchor-id="introduction-aux-dataframes">Introduction aux Dataframes</h4>
-<p><strong>Définition et Rôle des Dataframes :</strong> Un dataframe est une structure de données bidimensionnelle, souvent comparée à une feuille de calcul Excel ou une table de base de données SQL. Il est utilisé pour stocker et manipuler des ensembles de données organisées en lignes et colonnes. Chaque colonne représente une variable, et chaque ligne représente une observation.</p>
-<p>Les dataframes sont cruciaux en analyse de données, statistiques, science des données et machine learning pour le traitement et l’analyse de grands ensembles de données. Ils facilitent la manipulation des données, notamment le tri, le filtrage, la transformation et l’agrégation.</p>
-<p><strong>Librairies Python pour Dataframes :</strong> Les deux principales librairies en Python pour travailler avec des dataframes sont Pandas et NumPy.</p>
+<section id="introduction-aux-dataframes" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-aux-dataframes">Introduction aux Dataframes</h2>
+<p>Un <strong>dataframe</strong> est une structure de données bidimensionnelle, similaire à une feuille de calcul ou une table de base de données. Ils sont extrêmement utiles pour la manipulation et l’analyse de données structurées. En Python, la bibliothèque la plus courante pour travailler avec des dataframes est <strong>Pandas</strong>.</p>
+</section>
+<section id="pourquoi-utiliser-pandas-pour-les-dataframes" class="level2">
+<h2 class="anchored" data-anchor-id="pourquoi-utiliser-pandas-pour-les-dataframes">Pourquoi Utiliser Pandas pour les Dataframes?</h2>
+<ul>
+<li><strong>Manipulation de données</strong>: Pandas offre des fonctionnalités puissantes pour nettoyer, transformer et analyser les données.</li>
+<li><strong>Facilité d’utilisation</strong>: Avec une API intuitive, Pandas permet une prise en main rapide pour les nouveaux utilisateurs.</li>
+<li><strong>Intégration avec d’autres bibliothèques</strong>: Pandas se combine bien avec des bibliothèques pour la visualisation (comme Matplotlib) et le calcul scientifique (comme NumPy).</li>
+</ul>
+</section>
+<section id="utilisation-de-base-de-pandas" class="level2">
+<h2 class="anchored" data-anchor-id="utilisation-de-base-de-pandas">Utilisation de Base de Pandas</h2>
 <ol type="1">
-<li><strong>Pandas :</strong> C’est la librairie la plus populaire pour la manipulation de données en Python. Pandas offre une API riche et intuitive pour la création, la manipulation et l’analyse de dataframes.</li>
-<li><strong>NumPy :</strong> Bien que principalement utilisé pour les calculs sur des tableaux multidimensionnels, NumPy est souvent employé en tandem avec Pandas, surtout pour les opérations numériques.</li>
+<li><strong>Installation</strong>:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pandas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li><strong>Importation et Création d’un Dataframe</strong>:</li>
+</ol>
+<div id="8250e2dd" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Nom'</span>: [<span class="st">'Anna'</span>, <span class="st">'Bob'</span>, <span class="st">'Charles'</span>], <span class="st">'Age'</span>: [<span class="dv">28</span>, <span class="dv">34</span>, <span class="dv">29</span>]}</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Nom</th>
+<th data-quarto-table-cell-role="th">Age</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Anna</td>
+<td>28</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Bob</td>
+<td>34</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Charles</td>
+<td>29</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li><strong>Opérations de Base</strong>:
+<ul>
+<li><strong>Afficher les données</strong>: <code>print(df)</code> ou <code>Display(df)</code> (dans un notebook - affiche un tableau de façon plus lisible. Il faut importer <code>from IPython.display import display</code>)</li>
+<li><strong>Accéder aux colonnes</strong>: <code>df['Nom']</code></li>
+<li><strong>Filtrage</strong>: <code>df[df['Age'] &gt; 30]</code></li>
+</ul></li>
 </ol>
 </section>
-<section id="utilisation-de-pandas-pour-les-dataframes" class="level4">
-<h4 class="anchored" data-anchor-id="utilisation-de-pandas-pour-les-dataframes">Utilisation de Pandas pour les Dataframes</h4>
-<p><strong>Création d’un Dataframe :</strong> Pour créer un dataframe avec Pandas, on peut utiliser diverses méthodes, notamment à partir d’un dictionnaire, d’un fichier CSV, ou d’un tableau NumPy.</p>
-<p><strong>Exemple de Code - Création d’un Dataframe :</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'un dataframe à partir d'un dictionnaire</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Nom'</span>: [<span class="st">'Alice'</span>, <span class="st">'Bob'</span>, <span class="st">'Charlie'</span>], <span class="st">'Age'</span>: [<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>], <span class="st">'Ville'</span>: [<span class="st">'New York'</span>, <span class="st">'Paris'</span>, <span class="st">'Berlin'</span>]}</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Manipulation de Dataframes :</strong> Les opérations courantes sur les dataframes incluent le filtrage, le tri, la manipulation de colonnes, et l’agrégation de données.</p>
-<p><strong>Exemple de Code - Manipulation de Dataframe :</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sélection de colonnes</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_age_ville <span class="op">=</span> df[[<span class="st">'Age'</span>, <span class="st">'Ville'</span>]]</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrage des données</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df_filtré <span class="op">=</span> df[df[<span class="st">'Age'</span>] <span class="op">&gt;</span> <span class="dv">30</span>]</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Tri des données</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>df_trié <span class="op">=</span> df.sort_values(by<span class="op">=</span><span class="st">'Age'</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_filtré)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_trié)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="exercice-pratique" class="level4">
-<h4 class="anchored" data-anchor-id="exercice-pratique">Exercice Pratique</h4>
-<p><strong>Objectif :</strong> Créer et manipuler un dataframe avec Pandas.</p>
+<section id="exercice-pratique" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-pratique">Exercice Pratique</h2>
 <ol type="1">
-<li><strong>Créer un DataFrame :</strong> Utilisez un dictionnaire pour créer un dataframe contenant trois colonnes : ‘Produit’, ‘Quantité’ et ‘Prix’.</li>
-<li><strong>Filtrer les Données :</strong> Sélectionnez les produits dont la quantité est supérieure à 10.</li>
-<li><strong>Trier les Données :</strong> Triez le dataframe en fonction du prix, par ordre décroissant.</li>
+<li><strong>Objectif</strong>: Créer un dataframe, ajouter des données, puis les filtrer.</li>
+<li><strong>Énoncé</strong>: Vous avez une liste de noms et d’âges. Créez un dataframe, ajoutez une colonne ‘Profession’, puis filtrez pour afficher seulement les personnes de plus de 30 ans.</li>
+<li><strong>Solution</strong>:</li>
 </ol>
-<p><strong>Solution :</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Création du dataframe</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Produit'</span>: [<span class="st">'Pommes'</span>, <span class="st">'Bananes'</span>, <span class="st">'Oranges'</span>], <span class="st">'Quantité'</span>: [<span class="dv">12</span>, <span class="dv">5</span>, <span class="dv">20</span>], <span class="st">'Prix'</span>: [<span class="fl">1.5</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>]}</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrage</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>df_filtré <span class="op">=</span> df[df[<span class="st">'Quantité'</span>] <span class="op">&gt;</span> <span class="dv">10</span>]</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Tri</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>df_trié <span class="op">=</span> df.sort_values(by<span class="op">=</span><span class="st">'Prix'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_filtré)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_trié)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dans le prochain message, nous approfondirons l’analyse des données avec les dataframes, en explorant des fonctions avancées telles que les opérations de groupement et de fusion.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Création du dataframe</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Profession'</span>] <span class="op">=</span> [<span class="st">'Ingénieur'</span>, <span class="st">'Artiste'</span>, <span class="st">'Médecin'</span>]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrage</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[df[<span class="st">'Age'</span>] <span class="op">&gt;</span> <span class="dv">30</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Les dataframes, via la bibliothèque Pandas, sont des outils essentiels en Python pour la manipulation de données. Leur simplicité et leur puissance en font un choix privilégié pour les data scientists et les analystes de données.</p>
+</section>
+</section>
+<section id="aspects-avancés-des-dataframes-avec-pandas" class="level1">
+<h1>Aspects Avancés des Dataframes avec Pandas</h1>
+<section id="manipulation-de-grandes-données" class="level2">
+<h2 class="anchored" data-anchor-id="manipulation-de-grandes-données">Manipulation de Grandes Données</h2>
+<p>Quand on travaille avec de grands ensembles de données, il est crucial de savoir comment gérer efficacement la mémoire et le temps de traitement.</p>
+<ul>
+<li><strong>Lecture par morceaux</strong>: Pandas permet de lire de grandes données par morceaux, ce qui réduit la consommation de mémoire.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>chunk_size <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> chunk <span class="kw">in</span> pd.read_csv(<span class="st">'large_file.csv'</span>, chunksize<span class="op">=</span>chunk_size):</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Traitement de chaque morceau</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong>Optimisation des types de données</strong>: Parfois, changer le type de données d’une colonne peut réduire significativement l’utilisation de la mémoire.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Colonne'</span>] <span class="op">=</span> df[<span class="st">'Colonne'</span>].astype(<span class="st">'category'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="opérations-sur-les-colonnes-et-les-lignes" class="level2">
+<h2 class="anchored" data-anchor-id="opérations-sur-les-colonnes-et-les-lignes">Opérations sur les Colonnes et les Lignes</h2>
+<ul>
+<li><strong>Ajout et suppression de colonnes</strong>:
+<ul>
+<li>Ajout: <code>df['Nouvelle_Colonne'] = df['Colonne1'] + df['Colonne2']</code></li>
+<li>Suppression: <code>df.drop('Colonne', axis=1, inplace=True)</code></li>
+</ul></li>
+<li><strong>Application de fonctions</strong>:
+<ul>
+<li><code>df['Colonne'].apply(lambda x: x * 2)</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="exercice-pratique-avancé" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-pratique-avancé">Exercice Pratique Avancé</h2>
+<ol type="1">
+<li><p><strong>Objectif</strong>: Manipuler un grand fichier CSV et effectuer des opérations sur les colonnes.</p></li>
+<li><p><strong>Énoncé</strong>: Lisez un grand fichier CSV par morceaux. Pour chaque morceau, ajoutez une colonne ‘AgeDoubled’ qui est le double de la colonne ‘Age’, puis enregistrez chaque morceau modifié dans un nouveau fichier.</p></li>
+<li><p><strong>Solution</strong>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>chunk_size <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, chunk <span class="kw">in</span> <span class="bu">enumerate</span>(pd.read_csv(<span class="st">'large_file.csv'</span>, chunksize<span class="op">=</span>chunk_size)):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    chunk[<span class="st">'AgeDoubled'</span>] <span class="op">=</span> chunk[<span class="st">'Age'</span>] <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    chunk.to_csv(<span class="ss">f'chunk_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+</section>
+<section id="conclusion-1" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-1">Conclusion</h2>
+<p>La maîtrise des opérations avancées sur les dataframes est essentielle pour traiter efficacement des ensembles de données complexes. Les possibilités offertes par Pandas en font un outil incontournable pour la manipulation et l’analyse de données en Python.</p>
+<section id="exemples-concrets-dutilisation-des-dataframes-et-optimisation-des-performances" class="level3">
+<h3 class="anchored" data-anchor-id="exemples-concrets-dutilisation-des-dataframes-et-optimisation-des-performances">Exemples Concrets d’Utilisation des Dataframes et Optimisation des Performances</h3>
+</section>
+</section>
+<section id="utilisation-dans-des-scénarios-réels" class="level2">
+<h2 class="anchored" data-anchor-id="utilisation-dans-des-scénarios-réels">Utilisation dans des Scénarios Réels</h2>
+<ol type="1">
+<li><strong>Analyse de Données</strong>: Les dataframes sont fréquemment utilisés pour l’analyse de données dans divers domaines, comme la finance, la recherche scientifique, et le marketing.
+<ul>
+<li><strong>Exemple</strong>: Analyse des tendances de vente en e-commerce. On peut charger les données des transactions, calculer les métriques clés comme le chiffre d’affaires, et identifier les produits les plus vendus.</li>
+</ul></li>
+<li><strong>Traitement de Données pour le Machine Learning</strong>: Avant de construire des modèles de machine learning, il est souvent nécessaire de nettoyer et de transformer les données.
+<ul>
+<li><strong>Exemple</strong>: Préparation de données pour la prédiction de prix immobiliers. On peut utiliser les dataframes pour gérer des données manquantes, encoder des variables catégorielles, et normaliser les valeurs.</li>
+</ul></li>
+<li><strong>Rapports et Visualisation</strong>: Les dataframes se couplent bien avec des outils de visualisation pour créer des rapports et des graphiques.
+<ul>
+<li><strong>Exemple</strong>: Création d’un rapport sur la performance des employés. On peut combiner des données issues de différentes sources, calculer des KPIs, et générer des graphiques pour la présentation.</li>
+</ul></li>
+</ol>
+</section>
+<section id="optimisation-des-performances" class="level2">
+<h2 class="anchored" data-anchor-id="optimisation-des-performances">Optimisation des Performances</h2>
+<ol type="1">
+<li><strong>Utilisation de Dask pour le Traitement Parallèle</strong>: Pour des ensembles de données très volumineux, Dask offre une solution de traitement parallèle compatible avec l’API de Pandas.
+<ul>
+<li><code>import dask.dataframe as dd</code></li>
+<li><code>dask_df = dd.from_pandas(pandas_df, npartitions=10)</code></li>
+</ul></li>
+<li><strong>Optimisation du Code</strong>:
+<ul>
+<li>Utiliser <code>iterrows()</code> et <code>itertuples()</code> pour itérer sur les dataframes de manière plus performante.</li>
+<li>Préférer les opérations vectorisées aux boucles lorsque c’est possible.</li>
+</ul></li>
+</ol>
+</section>
+<section id="exercice-pratique-de-synthèse" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-pratique-de-synthèse">Exercice Pratique de Synthèse</h2>
+<ol type="1">
+<li><strong>Objectif</strong>: Combiner plusieurs fichiers de données, effectuer une analyse simple, et visualiser les résultats.</li>
+<li><strong>Énoncé</strong>: Vous avez plusieurs fichiers CSV représentant les ventes mensuelles d’une entreprise. Fusionnez-les, calculez le total des ventes par mois, puis créez un graphique linéaire des ventes.</li>
+<li><strong>Solution</strong>:</li>
+</ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Fusion des fichiers CSV</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df_total <span class="op">=</span> pd.concat([pd.read_csv(f) <span class="cf">for</span> f <span class="kw">in</span> fichiers_csv])</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcul du total des ventes par mois</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>ventes_par_mois <span class="op">=</span> df_total.groupby(<span class="st">'Mois'</span>)[<span class="st">'Ventes'</span>].<span class="bu">sum</span>()</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Création du graphique</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>ventes_par_mois.plot(kind<span class="op">=</span><span class="st">'line'</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Ventes Mensuelles'</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="conclusion-2" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-2">Conclusion</h2>
+<p>Les dataframes, grâce à leur flexibilité et leur puissance, sont un outil fondamental pour l’analyse de données, le traitement préparatoire pour le machine learning, et la création de rapports et visualisations. L’optimisation des performances et l’utilisation de bibliothèques complémentaires comme Dask peuvent augmenter considérablement l’efficacité du travail avec de grandes quantités de données.</p>
+</section>
+<section id="bonus-astuces-et-meilleures-pratiques-avec-les-dataframes" class="level2">
+<h2 class="anchored" data-anchor-id="bonus-astuces-et-meilleures-pratiques-avec-les-dataframes">Bonus : Astuces et Meilleures Pratiques avec les Dataframes</h2>
+<p>Après avoir abordé les bases, les aspects avancés et des exemples concrets d’utilisation des dataframes, il est utile de conclure avec quelques astuces et meilleures pratiques qui peuvent rendre le travail avec les dataframes encore plus efficace et agréable.</p>
+</section>
+<section id="astuces-pour-la-manipulation-de-dataframes" class="level2">
+<h2 class="anchored" data-anchor-id="astuces-pour-la-manipulation-de-dataframes">Astuces pour la Manipulation de Dataframes</h2>
+<ol type="1">
+<li><strong>Chainage de Méthodes</strong>: Pandas permet de chaîner les méthodes, ce qui rend le code plus lisible et concis.</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> (pd.read_csv(<span class="st">'data.csv'</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>      .dropna()</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>      .rename(columns<span class="op">=</span>{<span class="st">'old_name'</span>: <span class="st">'new_name'</span>})</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>      .sort_values(<span class="st">'column'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>On parle aussi pour décrire ce genre d’API, de fluent API. Le terme API fait ici référence à l’API utilisateur, c’est à dire l’ensemble des fonctions et méthodes que l’on peut utiliser pour interagir avec une bibliothèque. Une API est dite fluide lorsqu’elle permet d’enchaîner les appels de méthodes, comme dans l’exemple ci-dessus.</p>
+<ol start="2" type="1">
+<li><strong>Utilisation de <code>query</code> pour le Filtrage</strong>: La méthode <code>query</code> permet un filtrage plus lisible et souvent plus rapide.</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="op">=</span> df.query(<span class="st">'age &gt; 30 &amp; city == "Paris"'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li><strong>Assignation Conditionnelle avec <code>np.where</code></strong>: Pour créer de nouvelles colonnes basées sur des conditions.</li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'status'</span>] <span class="op">=</span> np.where(df[<span class="st">'age'</span>] <span class="op">&gt;</span> <span class="dv">18</span>, <span class="st">'adult'</span>, <span class="st">'minor'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="meilleures-pratiques" class="level2">
+<h2 class="anchored" data-anchor-id="meilleures-pratiques">Meilleures Pratiques</h2>
+<ol type="1">
+<li><strong>Éviter les Boucles Autant que Possible</strong>: Préférer les opérations vectorisées pour une meilleure performance.</li>
+<li><strong>Utilisation Judicieuse de la Mémoire</strong>: Être attentif aux types de données, en particulier avec de grands ensembles de données.</li>
+<li><strong>Tester avec des Sous-ensembles de Données</strong>: Avant d’appliquer des opérations à l’ensemble du dataframe, tester avec un petit échantillon.</li>
+<li><strong>Documentation et Commentaires</strong>: S’assurer que le code est bien documenté pour faciliter la compréhension et la maintenance.</li>
+</ol>
+</section>
+<section id="exercice-de-réflexion" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-de-réflexion">Exercice de Réflexion</h2>
+<ol type="1">
+<li><strong>Objectif</strong>: Réfléchir à l’optimisation du traitement des données.</li>
+<li><strong>Énoncé</strong>: Imaginez que vous avez un dataframe très large avec plusieurs colonnes inutilisées et des types de données non optimisés. Comment aborderiez-vous sa nettoyage et son optimisation pour une analyse efficace?</li>
+<li><strong>Solution Suggérée</strong>:
+<ul>
+<li>Supprimer les colonnes inutiles pour économiser de la mémoire.</li>
+<li>Convertir les colonnes avec des données catégorielles en type ‘category’.</li>
+<li>Utiliser des fonctions vectorisées pour les transformations de données.</li>
+</ul></li>
+</ol>
+</section>
+<section id="conclusion-3" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-3">Conclusion</h2>
+<p>La maîtrise des dataframes dans Pandas ne se limite pas seulement à connaître diverses fonctions et méthodes, mais implique également une compréhension des meilleures pratiques et astuces pour optimiser la performance et la lisibilité du code. Cela inclut une utilisation efficace de la mémoire, l’évitement des boucles inutiles, et une bonne documentation du code.</p>
+<p>Vous trouverez également des exemples simple d’utilisation de tout les fonctions standards dans <a href="../../content/Cours_3/pandas_short_example.html">ce Notebook</a></p>
 
 
 </section>

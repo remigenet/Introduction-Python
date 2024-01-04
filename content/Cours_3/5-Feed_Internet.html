@@ -8,7 +8,7 @@
 
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2024-01-04">
-<meta name="description" content="Django, FastAPI, Flask, Bottle, Pyramid, Falcon, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy….. La liste est longue">
+<meta name="description" content="Django, FastAPI, Flask, Bottle, Pyramid, Falcon, Sanic, Tornado, AIOHTTP, Starlette,… La liste est longue">
 
 <title>Introduction à Python - Python - Aussi un language pour servir des données</title>
 <style>
@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -78,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Introduction à Python - Python - Aussi un language pour servir des données">
-<meta property="og:description" content="Django, FastAPI, Flask, Bottle, Pyramid, Falcon, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy….. La liste est longue">
+<meta property="og:description" content="Django, FastAPI, Flask, Bottle, Pyramid, Falcon, Sanic, Tornado, AIOHTTP, Starlette,… La liste est longue">
 <meta property="og:image" content="https://remigenet.github.io/Introduction-Python/content/Cours_3/.img/api.png">
 <meta property="og:site_name" content="Introduction à Python">
 <meta property="og:image:height" content="173">
@@ -225,10 +259,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../content/Cours_3/6-Visualisation.html">
  <span class="dropdown-text">Visualiser et présenter ces données avec Python</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_3/TP-pandas_and_geography.html">
- <span class="dropdown-text">TP-pandas_and_geography.html</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -369,11 +399,8 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">content/Cours_3/bonus-pandas_short_examplet.qmd</span>
   </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/TP-pandas_and_geography.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TP-pandas_and_geography.html</span></a>
-  </div>
-</li>
+ <span class="menu-text">content/Cours_3/TP-pandas_and_geography.ipynb</span>
+  </li>
     </ul>
     </div>
 </nav>
@@ -384,7 +411,27 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#python---aussi-un-language-pour-servir-des-données" id="toc-python---aussi-un-language-pour-servir-des-données" class="nav-link active" data-scroll-target="#python---aussi-un-language-pour-servir-des-données">Python - Aussi un language pour servir des données</a></li>
+  <li><a href="#python---aussi-un-language-pour-le-développement-web-backend" id="toc-python---aussi-un-language-pour-le-développement-web-backend" class="nav-link active" data-scroll-target="#python---aussi-un-language-pour-le-développement-web-backend">Python - Aussi un language pour le Développement Web Backend</a>
+  <ul class="collapse">
+  <li><a href="#introduction-au-développement-web-backend-avec-python" id="toc-introduction-au-développement-web-backend-avec-python" class="nav-link" data-scroll-target="#introduction-au-développement-web-backend-avec-python">Introduction au Développement Web Backend avec Python</a></li>
+  <li><a href="#frameworks-web-python-populaires" id="toc-frameworks-web-python-populaires" class="nav-link" data-scroll-target="#frameworks-web-python-populaires">Frameworks Web Python Populaires</a></li>
+  <li><a href="#exercice-pratique" id="toc-exercice-pratique" class="nav-link" data-scroll-target="#exercice-pratique">Exercice Pratique</a></li>
+  <li><a href="#bonnes-pratiques-de-développement-web-backend" id="toc-bonnes-pratiques-de-développement-web-backend" class="nav-link" data-scroll-target="#bonnes-pratiques-de-développement-web-backend">Bonnes Pratiques de Développement Web Backend</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a>
+  <ul class="collapse">
+  <li><a href="#approfondissement-sur-fastapi-exemples-concrets-et-utilisations" id="toc-approfondissement-sur-fastapi-exemples-concrets-et-utilisations" class="nav-link" data-scroll-target="#approfondissement-sur-fastapi-exemples-concrets-et-utilisations">Approfondissement sur FastAPI : Exemples Concrets et Utilisations</a></li>
+  </ul></li>
+  <li><a href="#introduction-à-fastapi" id="toc-introduction-à-fastapi" class="nav-link" data-scroll-target="#introduction-à-fastapi">Introduction à FastAPI</a></li>
+  <li><a href="#exemples-dutilisation-de-fastapi" id="toc-exemples-dutilisation-de-fastapi" class="nav-link" data-scroll-target="#exemples-dutilisation-de-fastapi">Exemples d’Utilisation de FastAPI</a></li>
+  <li><a href="#conclusion-1" id="toc-conclusion-1" class="nav-link" data-scroll-target="#conclusion-1">Conclusion</a>
+  <ul class="collapse">
+  <li><a href="#aspects-avancés-de-lintégration-web-en-python" id="toc-aspects-avancés-de-lintégration-web-en-python" class="nav-link" data-scroll-target="#aspects-avancés-de-lintégration-web-en-python">Aspects Avancés de l’Intégration Web en Python</a></li>
+  </ul></li>
+  <li><a href="#mise-en-cache-pour-améliorer-les-performances" id="toc-mise-en-cache-pour-améliorer-les-performances" class="nav-link" data-scroll-target="#mise-en-cache-pour-améliorer-les-performances">Mise en Cache pour Améliorer les Performances</a></li>
+  <li><a href="#traitement-asynchrone-des-données" id="toc-traitement-asynchrone-des-données" class="nav-link" data-scroll-target="#traitement-asynchrone-des-données">Traitement Asynchrone des Données</a></li>
+  <li><a href="#scalabilité-et-performance" id="toc-scalabilité-et-performance" class="nav-link" data-scroll-target="#scalabilité-et-performance">Scalabilité et Performance</a></li>
+  <li><a href="#conclusion-2" id="toc-conclusion-2" class="nav-link" data-scroll-target="#conclusion-2">Conclusion</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Introduction-Python/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
@@ -402,7 +449,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Django, FastAPI, Flask, Bottle, Pyramid, Falcon, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy….. La liste est longue
+    Django, FastAPI, Flask, Bottle, Pyramid, Falcon, Sanic, Tornado, AIOHTTP, Starlette,… La liste est longue
   </div>
 </div>
 
@@ -431,11 +478,217 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="python---aussi-un-language-pour-servir-des-données" class="level1">
-<h1>Python - Aussi un language pour servir des données</h1>
+<section id="python---aussi-un-language-pour-le-développement-web-backend" class="level1">
+<h1>Python - Aussi un language pour le Développement Web Backend</h1>
 <hr>
+<section id="introduction-au-développement-web-backend-avec-python" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-au-développement-web-backend-avec-python">Introduction au Développement Web Backend avec Python</h2>
+<p>Python est une langue de choix pour le développement web backend en raison de sa simplicité, de sa lisibilité et de la richesse de ses frameworks web. Ces frameworks facilitent la création d’applications web robustes et évolutives.</p>
+</section>
+<section id="frameworks-web-python-populaires" class="level2">
+<h2 class="anchored" data-anchor-id="frameworks-web-python-populaires">Frameworks Web Python Populaires</h2>
+<ol type="1">
+<li><strong>Django</strong>:
+<ul>
+<li>Un framework web haut niveau qui encourage un développement rapide et propre. Il est idéal pour les projets de grande envergure grâce à sa structure “batteries incluses”.</li>
+<li>Fonctionnalités clés :
+<ul>
+<li>ORM (Object-Relational Mapping) intégré</li>
+<li>Système d’administration robuste</li>
+<li>Sécurité renforcée</li>
+</ul></li>
+</ul></li>
+<li><strong>Flask</strong>:
+<ul>
+<li>Un micro-framework léger, flexible et plus adapté aux petits projets ou aux applications avec des exigences spécifiques.</li>
+<li>Points forts :
+<ul>
+<li>Simplicité et flexibilité</li>
+<li>Facilité de déploiement</li>
+<li>Extensible avec de nombreux plugins</li>
+</ul></li>
+</ul></li>
+<li><strong>FastAPI</strong>:
+<ul>
+<li>Un framework moderne, rapide (basé sur Starlette et Pydantic) pour construire des API avec Python 3.7+. Il est conçu pour être facile à utiliser tout en offrant des performances élevées.</li>
+<li>Avantages :
+<ul>
+<li>Support natif pour les requêtes asynchrones</li>
+<li>Génération automatique de documentation (Swagger UI)</li>
+<li>Validation de données et sérialisation</li>
+</ul></li>
+</ul></li>
+</ol>
+</section>
+<section id="exercice-pratique" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-pratique">Exercice Pratique</h2>
+<ol type="1">
+<li><strong>Objectif</strong>: Créer une simple API avec Flask.</li>
+<li><strong>Énoncé</strong>: Développez une API RESTful qui renvoie “Hello, World!” à chaque requête GET sur le chemin racine.</li>
+<li><strong>Solution</strong>:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello():</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"Hello, World!"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    app.run(debug<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="bonnes-pratiques-de-développement-web-backend" class="level2">
+<h2 class="anchored" data-anchor-id="bonnes-pratiques-de-développement-web-backend">Bonnes Pratiques de Développement Web Backend</h2>
+<ul>
+<li><strong>Sécurité</strong> : Protéger les applications contre les attaques courantes telles que l’injection SQL, le cross-site scripting (XSS) et le cross-site request forgery (CSRF).</li>
+<li><strong>Gestion des Dépendances</strong> : Utiliser des environnements virtuels et gérer les dépendances pour assurer la cohérence des projets.</li>
+<li><strong>Test et Débogage</strong> : Écrire des tests unitaires et utiliser des outils de débogage pour maintenir la qualité du code.</li>
+</ul>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Le développement web backend en Python, grâce à des frameworks comme Django, Flask et FastAPI, offre une grande flexibilité et une base solide pour construire des applications web. Que vous construisiez une simple application web ou une API complexe, Python a les outils et les bibliothèques nécessaires pour répondre aux besoins de votre projet.</p>
+<section id="approfondissement-sur-fastapi-exemples-concrets-et-utilisations" class="level3">
+<h3 class="anchored" data-anchor-id="approfondissement-sur-fastapi-exemples-concrets-et-utilisations">Approfondissement sur FastAPI : Exemples Concrets et Utilisations</h3>
+</section>
+</section>
+<section id="introduction-à-fastapi" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-à-fastapi">Introduction à FastAPI</h2>
+<p>FastAPI est un framework moderne et rapide pour la construction d’APIs avec Python, qui offre une performance élevée et une écriture de code rapide et efficace. Il est particulièrement apprécié pour sa facilité d’intégration avec les systèmes asynchrones et ses fonctionnalités automatiques de documentation.</p>
+</section>
+<section id="exemples-dutilisation-de-fastapi" class="level2">
+<h2 class="anchored" data-anchor-id="exemples-dutilisation-de-fastapi">Exemples d’Utilisation de FastAPI</h2>
+<ol type="1">
+<li><strong>Création d’une API CRUD (Create, Read, Update, Delete)</strong>:
+<ul>
+<li>FastAPI simplifie la création d’APIs CRUD, qui sont essentielles dans de nombreuses applications web pour gérer les données.</li>
+<li>Exemple de base : ```python from fastapi import FastAPI from pydantic import BaseModel</li>
+</ul></li>
+</ol>
+<p>app = FastAPI()</p>
+<p>class Item(BaseModel): name: str description: str = None price: float tax: float = None</p>
+<p><span class="citation" data-cites="app.post">@app.post</span>(“/items/”) async def create_item(item: Item): return item</p>
+<p><span class="citation" data-cites="app.get">@app.get</span>(“/items/{item_id}”) async def read_item(item_id: int): return {“item_id”: item_id} ```</p>
+<ol start="2" type="1">
+<li><strong>Intégration avec des Bases de Données</strong>:
+<ul>
+<li><p>FastAPI peut être facilement intégré avec des bases de données comme PostgreSQL, MySQL, ou MongoDB.</p></li>
+<li><p>Utilisation avec SQLAlchemy (pour les bases de données SQL) :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> FastAPI</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastAPI()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>engine <span class="op">=</span> create_engine(<span class="st">'postgresql://user:password@localhost/dbname'</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">@app.get</span>(<span class="st">"/items/"</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> read_items():</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> engine.<span class="ex">connect</span>() <span class="im">as</span> connection:</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> connection.execute(<span class="st">"SELECT * FROM items"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        items <span class="op">=</span> result.fetchall()</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> items</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><strong>Validation et Sérialisation des Données</strong>:
+<ul>
+<li><p>FastAPI utilise Pydantic pour la validation des données entrantes et la sérialisation des données sortantes.</p></li>
+<li><p>Exemple avec un modèle Pydantic :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydantic <span class="im">import</span> BaseModel</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> User(BaseModel):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    username: <span class="bu">str</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    full_name: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">@app.post</span>(<span class="st">"/users/"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> create_user(user: User):</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> user</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><strong>Authentification et Sécurité</strong>:
+<ul>
+<li><p>FastAPI fournit plusieurs outils pour l’authentification et la gestion de la sécurité, y compris OAuth2.</p></li>
+<li><p>Exemple d’authentification basique :</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> Depends, FastAPI, HTTPException, status</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi.security <span class="im">import</span> OAuth2PasswordBearer</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>oauth2_scheme <span class="op">=</span> OAuth2PasswordBearer(tokenUrl<span class="op">=</span><span class="st">"token"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">@app.get</span>(<span class="st">"/users/me"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> read_users_me(token: <span class="bu">str</span> <span class="op">=</span> Depends(oauth2_scheme)):</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"token"</span>: token}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+</ol>
+</section>
+<section id="conclusion-1" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-1">Conclusion</h2>
+<p>FastAPI est un outil extrêmement puissant pour la création d’APIs modernes en Python. Sa facilité d’utilisation, sa performance élevée, et ses fonctionnalités intégrées comme la documentation automatique, la validation des données, et les fonctionnalités de sécurité, en font un choix idéal pour les développeurs souhaitant créer des APIs robustes et efficaces.</p>
+<section id="aspects-avancés-de-lintégration-web-en-python" class="level3">
+<h3 class="anchored" data-anchor-id="aspects-avancés-de-lintégration-web-en-python">Aspects Avancés de l’Intégration Web en Python</h3>
+</section>
+</section>
+<section id="mise-en-cache-pour-améliorer-les-performances" class="level2">
+<h2 class="anchored" data-anchor-id="mise-en-cache-pour-améliorer-les-performances">Mise en Cache pour Améliorer les Performances</h2>
+<p>La mise en cache est une technique cruciale pour améliorer les performances des applications web en réduisant le temps de réponse des requêtes répétitives.</p>
+<ol type="1">
+<li><strong>Mise en Cache avec Redis</strong>:
+<ul>
+<li><p>Redis, en tant que magasin de données en mémoire, est souvent utilisé pour le cache dans les applications web.</p></li>
+<li><p>Utilisation avec FastAPI :</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> redis</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> FastAPI</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastAPI()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>redis_client <span class="op">=</span> redis.Redis(host<span class="op">=</span><span class="st">'localhost'</span>, port<span class="op">=</span><span class="dv">6379</span>, db<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at">@app.get</span>(<span class="st">"/items/</span><span class="sc">{item_id}</span><span class="st">"</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> read_item(item_id: <span class="bu">int</span>):</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    cached_item <span class="op">=</span> redis_client.get(item_id)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> cached_item:</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> cached_item</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sinon, récupérer l'élément de la base de données, le mettre en cache, et le retourner</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+</ol>
+</section>
+<section id="traitement-asynchrone-des-données" class="level2">
+<h2 class="anchored" data-anchor-id="traitement-asynchrone-des-données">Traitement Asynchrone des Données</h2>
+<p>Le traitement asynchrone est essentiel pour gérer les opérations I/O sans bloquer le serveur, en particulier dans les applications Web hautement scalables.</p>
+<ol type="1">
+<li><strong>Utilisation de <code>async</code> et <code>await</code> avec FastAPI</strong>:
+<ul>
+<li><p>FastAPI prend en charge la programmation asynchrone native, ce qui permet de gérer facilement les requêtes asynchrones.</p></li>
+<li><p>Exemple de requête asynchrone :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="at">@app.get</span>(<span class="st">"/items/</span><span class="sc">{item_id}</span><span class="st">"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> read_item(item_id: <span class="bu">int</span>):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Opération asynchrone, comme une requête de base de données</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    item <span class="op">=</span> <span class="cf">await</span> get_item(item_id)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> item</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+</ol>
+</section>
+<section id="scalabilité-et-performance" class="level2">
+<h2 class="anchored" data-anchor-id="scalabilité-et-performance">Scalabilité et Performance</h2>
+<p>La capacité à gérer une charge croissante de requêtes est un facteur clé pour le succès des applications web.</p>
+<ol type="1">
+<li><strong>Utilisation de Serveurs Asynchrones</strong>:
+<ul>
+<li><p>Des serveurs tels que Uvicorn ou Hypercorn offrent des performances accrues pour les applications asynchrones en Python.</p></li>
+<li><p>Exemple de déploiement avec Uvicorn :</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uvicorn</span> myapp:app <span class="at">--host</span> 0.0.0.0 <span class="at">--port</span> 8000</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><strong>Load Balancing</strong>:
+<ul>
+<li>Le load balancing, avec des outils comme Nginx ou HAProxy, est crucial pour distribuer efficacement le trafic entre plusieurs instances de votre application.</li>
+</ul></li>
+<li><strong>Optimisation des Bases de Données</strong>:
+<ul>
+<li>Utiliser des techniques comme l’indexation, les requêtes optimisées et les pools de connexions pour améliorer les performances des bases de données.</li>
+</ul></li>
+</ol>
+</section>
+<section id="conclusion-2" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-2">Conclusion</h2>
+<p>L’intégration web en Python, en utilisant des technologies telles que FastAPI, Redis, et des serveurs asynchrones, offre des moyens efficaces pour créer des applications web performantes et scalables. Les pratiques telles que la mise en cache, le traitement asynchrone, et la scalabilité sont essentielles pour répondre aux exigences des applications web modernes.</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

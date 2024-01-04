@@ -8,9 +8,9 @@
 
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2024-01-04">
-<meta name="description" content="Explorer les mécanismes sous-jacents à l’exécution d’un programme Python pour une compréhension approfondie des processus de compilation et d’interprétation.">
+<meta name="description" content="Mise en pratique simple des éléments vu aurparavant.">
 
-<title>Introduction à Python - Exécution d’un Programme Python</title>
+<title>Introduction à Python - TP-3 Libraries</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,8 +33,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Cours_1/3-ManyPythons.html" rel="next">
-<link href="../../content/Cours_1/1-Histoire.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -77,23 +75,23 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction à Python - Exécution d’un Programme Python">
-<meta property="og:description" content="Explorer les mécanismes sous-jacents à l’exécution d’un programme Python pour une compréhension approfondie des processus de compilation et d’interprétation.">
-<meta property="og:image" content="https://remigenet.github.io/Introduction-Python/content/Cours_1/.img/compiled_vs_interpreted.png">
+<meta property="og:title" content="Introduction à Python - TP-3 Libraries">
+<meta property="og:description" content="Mise en pratique simple des éléments vu aurparavant.">
+<meta property="og:image" content="https://remigenet.github.io/Introduction-Python/content/Cours_3/.img/api.png">
 <meta property="og:site_name" content="Introduction à Python">
-<meta property="og:image:height" content="1024">
-<meta property="og:image:width" content="1024">
-<meta name="citation_title" content="Exécution d&amp;amp;#039;un Programme Python">
+<meta property="og:image:height" content="173">
+<meta property="og:image:width" content="291">
+<meta name="citation_title" content="TP-3 Libraries">
 <meta name="citation_author" content="Remi Genet">
 <meta name="citation_publication_date" content="2024-01-04">
 <meta name="citation_cover_date" content="2024-01-04">
 <meta name="citation_year" content="2024">
 <meta name="citation_online_date" content="2024-01-04">
-<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Introduction-Python//content/Cours_1/2-Python_Execution.html">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Introduction-Python//content/Cours_3/TP-3.html">
 <meta name="citation_language" content="en">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -308,146 +306,35 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_1/2-Python_Execution.html">Exécution d’un Programme Python</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/1-Histoire.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Histoire du Langage</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/2-Python_Execution.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Exécution d’un Programme Python</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/3-ManyPythons.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Versions et Compilation de Python</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/4-Path.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Le PATH</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/5-PathandVirtualEnv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Path.. et environnements virtuels!</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/6-IDEs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Les IDEs</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/7-Notebooks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Les Notebooks</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Quelques IDEs en Python</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/IDEs/VsCode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">VsCode - L’IDE Flexible et Polyvalent</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/IDEs/Spyder.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spyder - Un IDE Orienté Science des Données</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/IDEs/Pycharm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PyCharm - L’IDE orienté Python</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Travaux Pratiques</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/TP-ConstruireSonPython.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TP - Construire son python depuis la source</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#chapitre-2---dabord-un-petit-cours-dinformatique" id="toc-chapitre-2---dabord-un-petit-cours-dinformatique" class="nav-link active" data-scroll-target="#chapitre-2---dabord-un-petit-cours-dinformatique">Chapitre 2 - D’abord, un petit cours d’informatique !</a>
-  <ul class="collapse">
-  <li><a href="#section-2.1---un-programme---comment-ca-marche" id="toc-section-2.1---un-programme---comment-ca-marche" class="nav-link" data-scroll-target="#section-2.1---un-programme---comment-ca-marche">Section 2.1 - Un programme - Comment ca marche ?</a></li>
-  <li><a href="#section-2.2---la-compilation" id="toc-section-2.2---la-compilation" class="nav-link" data-scroll-target="#section-2.2---la-compilation">Section 2.2 - La compilation ?</a></li>
-  <li><a href="#section-2.3---linterprétation" id="toc-section-2.3---linterprétation" class="nav-link" data-scroll-target="#section-2.3---linterprétation">Section 2.3 - L’interprétation !</a></li>
-  <li><a href="#section-2.4---binaire-compilé-et-interprétation-du-code-python" id="toc-section-2.4---binaire-compilé-et-interprétation-du-code-python" class="nav-link" data-scroll-target="#section-2.4---binaire-compilé-et-interprétation-du-code-python">Section 2.4 - Binaire Compilé et Interprétation du Code Python</a></li>
-  </ul></li>
+  <li><a href="#tp-analyse-et-prévision-des-volumes-dactifs-financiers" id="toc-tp-analyse-et-prévision-des-volumes-dactifs-financiers" class="nav-link active" data-scroll-target="#tp-analyse-et-prévision-des-volumes-dactifs-financiers">TP : Analyse et Prévision des Volumes d’Actifs Financiers</a></li>
   </ul>
-</nav>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Introduction-Python/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Exécution d’un Programme Python</h1>
+<h1 class="title">TP-3 Libraries</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Cours</div>
-    <div class="quarto-category">Introduction</div>
+    <div class="quarto-category">TP</div>
+    <div class="quarto-category">Exercices</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Explorer les mécanismes sous-jacents à l’exécution d’un programme Python pour une compréhension approfondie des processus de compilation et d’interprétation.
+    Mise en pratique simple des éléments vu aurparavant.
   </div>
 </div>
 
@@ -476,37 +363,20 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="chapitre-2---dabord-un-petit-cours-dinformatique" class="level1">
-<h1>Chapitre 2 - D’abord, un petit cours d’informatique !</h1>
-<hr>
-<section id="section-2.1---un-programme---comment-ca-marche" class="level2">
-<h2 class="anchored" data-anchor-id="section-2.1---un-programme---comment-ca-marche">Section 2.1 - Un programme - Comment ca marche ?</h2>
-<p>L’apprentissage de la programmation en Python ne nécessite pas de connaissances préalables en informatique, mais comprendre comment un programme est exécuté est essentiel. Cette compréhension aide à gérer les packages, à résoudre les problèmes de version et à collaborer efficacement.</p>
-<p>Un programme est une série d’instructions écrites dans un langage compréhensible par un ordinateur, connu sous le nom de langage machine, composé de séquences binaires (0 et 1). Pour traduire un langage de haut niveau en langage machine, un processus de compilation est nécessaire.</p>
+<section id="tp-analyse-et-prévision-des-volumes-dactifs-financiers" class="level3">
+<h3 class="anchored" data-anchor-id="tp-analyse-et-prévision-des-volumes-dactifs-financiers">TP : Analyse et Prévision des Volumes d’Actifs Financiers</h3>
+<p>Ce TP se concentre sur la récupération des données de prix d’actifs, la prévision de volumes et la visualisation de la volatilité. Nous allons suivre les étapes suivantes :</p>
+<section id="récupération-des-données-avec-yfinance" class="level4">
+<h4 class="anchored" data-anchor-id="récupération-des-données-avec-yfinance">1. Récupération des Données avec yfinance</h4>
+<p>Nous utiliserons le package <code>yfinance</code> pour récupérer les données de prix journaliers de 10 actifs différents.</p>
 </section>
-<section id="section-2.2---la-compilation" class="level2">
-<h2 class="anchored" data-anchor-id="section-2.2---la-compilation">Section 2.2 - La compilation ?</h2>
-<p>La compilation est le processus qui consiste à traduire le code source en code machine, mais cela ne fait pas “que” cela, il va aussi vérifier que le code source est correcte. C’est à dire qu’il va vérifier que le code source est bien écrit dans le language que l’on a choisi. C’est ce que l’on appelle la syntaxe. Il va aussi vérifier que le code source est logique. C’est à dire qu’il va vérifier que le code source est bien écrit dans le bon ordre. C’est ce que l’on appelle la sémantique. Si le code source n’est pas correcte, le compilateur va nous renvoyer une erreur. C’est ce que l’on appelle une erreur de compilation. C’est une erreur qui se produit avant l’exécution du programme.</p>
-<p>Mais la compilation va également permettre d’optimiser le code source. C’est à dire qu’il va le rendre plus rapide à l’exécution. Durant cette phase le compilateur va, en fonction des options choisi par le développeur, optimiser le code source, en supprimant par exemple les lignes de code qui ne sont pas utilisées, en supprimant des boucles ou recursion, en réduisant le nombre de variables, en réduisant le nombre d’instructions, en réduisant le nombre de sauts, en réduisant le nombre d’opérations, en réduisant le nombre de tests, en réduisant le nombre de fonctions, en réduisant le nombre de paramètres, en réduisant le nombre de variables locales, …</p>
-<p>C’est optimisation prennent cependant du temps, et ne sont pas toutes sans risques et les erreurs de compilations peuvent être nombreuses sur des programmes complexes, et la compilations peut demander un temps considérable à chaque fois que l’on apporte une modification.</p>
-<p><strong>Mais en Python, il n’y a pas de compilation ! Magie ?</strong></p>
+<section id="prévision-de-volume-avec-modèles-simples" class="level4">
+<h4 class="anchored" data-anchor-id="prévision-de-volume-avec-modèles-simples">2. Prévision de Volume avec Modèles Simples</h4>
+<p>Nous mettrons en œuvre des modèles de prévision simples comme la régression linéaire et ARIMA pour prédire le volume des transactions pour le jour suivant (1-step ahead forecast).</p>
 </section>
-<section id="section-2.3---linterprétation" class="level2">
-<h2 class="anchored" data-anchor-id="section-2.3---linterprétation">Section 2.3 - L’interprétation !</h2>
-<p>Python, comme tout les programmes qui s’execute sur l’ordinateur, provient bien d’un code qui a été compilé à un moment. La différence vient du fait que c’est l’interpreteur qui a été compilé, et qui est un programme va être capable de lire le code python et de le transformé au fur et à mesure en code machine. C’est ce que l’on appelle l’interprétation. C’est un processus qui se fait en deux étapes.</p>
-<p>La première étape est <strong>l’analyse lexicale</strong>. C’est à dire que l’interpreteur va lire le code source et le découper en morceaux. C’est ce que l’on appelle les tokens. Il va ensuite les analyser pour vérifier que le code source est correcte. C’est à dire qu’il va vérifier que le code source est bien écrit dans le language que l’on a choisi. C’est ce que l’on appelle la syntaxe. Il va aussi vérifier que le code source est logique. C’est à dire qu’il va vérifier que le code source est bien écrit dans le bon ordre. C’est ce que l’on appelle la sémantique. Si le code source n’est pas correcte, l’interpreteur va nous renvoyer une erreur. C’est ce que l’on appelle une erreur d’analyse lexicale. C’est une erreur qui se produit avant l’exécution du programme.</p>
-<p>En Python, l’interpreteur va alors produire un <strong>Bytecode</strong>. C’est un code intermédiaire qui est plus proche du language machine que le code source, mais qui n’est pas encore du language machine. C’est ce que l’on appelle parfois la compilation, mais cette étape est presque instantanée. Toutefois l’interpreteur stocke quand même ce bytecode pour ne pas le recalculer à chaque fois, vous le verrez dans le dossier <strong>pycache</strong> de vos projets python, qui sera crée automatiquement dès que vous lancerez un code.</p>
-<p>L’interpréteur exécute ce bytecode, ce qui entraîne l’exécution des instructions écrites dans le fichier source. Ce processus diffère de celui des langages compilés comme C ou Java, où le code source est d’abord entièrement transformé en code machine avant l’exécution. En Python, la compilation en bytecode et l’exécution sont des étapes dynamiques, ce qui confère au langage sa flexibilité et sa facilité de débogage, mais aussi impacte sa vitesse d’exécution.</p>
-</section>
-<section id="section-2.4---binaire-compilé-et-interprétation-du-code-python" class="level2">
-<h2 class="anchored" data-anchor-id="section-2.4---binaire-compilé-et-interprétation-du-code-python">Section 2.4 - Binaire Compilé et Interprétation du Code Python</h2>
-<p>L’exécution d’un programme Python implique l’utilisation d’un binaire compilé de l’interpréteur Python. Ce processus est fondamental pour comprendre comment Python fonctionne sous le capot.</p>
-<ol type="1">
-<li><p><strong>Le Binaire Compilé</strong>: Lorsqu’on installe Python, on télécharge en fait un binaire compilé de l’interpréteur Python, ou selon les cas l’ensemble des morceaux necessaire pour que notre machine le construise. Ce binaire est spécifique à chaque système d’exploitation et architecture matérielle. Par exemple, les binaires pour Windows diffèrent de ceux pour Linux ou MacOS, comme les binaires des Mac M1 sont très différents de ceux des Mac avec les anciens processeurs Intel.</p></li>
-<li><p><strong>Avantages du Binaire Compilé</strong>: Le fait d’avoir un binaire compilé spécifique à chaque plateforme permet à Python d’être portable et facile à déployer. Les développeurs peuvent écrire un script Python et s’attendre à ce qu’il fonctionne de la même manière sur différentes machines, à condition que l’interpréteur Python approprié soit installé.</p></li>
-</ol>
-<p>Ce mécanisme d’interprétation via un binaire compilé est une caractéristique clé de Python, contribuant à sa polyvalence et sa facilité d’utilisation dans divers environnements de développement.</p>
-<p><span class="animate__animated animate__pulse animate__infinite" style="display:inline-block;"><a href="../../content/Cours_1/3-ManyPythons.html"><strong>Mais donc, qui produit se binaire ? Y’en a-t-il une seule implémentation ? Puis-je le compiler moi même ? </strong></a></span></p>
+<section id="visualisation-des-volumes-par-rapport-à-la-volatilité" class="level4">
+<h4 class="anchored" data-anchor-id="visualisation-des-volumes-par-rapport-à-la-volatilité">3. Visualisation des Volumes par Rapport à la Volatilité</h4>
+<p>Nous visualiserons les volumes des actifs en relation avec leur volatilité, en utilisant la valeur absolue des rendements comme proxy de la volatilité.</p>
 
 
 </section>
@@ -895,18 +765,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../content/Cours_1/1-Histoire.html" class="pagination-link  aria-label=" histoire="" du="" langage"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Histoire du Langage</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../content/Cours_1/3-ManyPythons.html" class="pagination-link" aria-label="Versions et Compilation de Python">
-        <span class="nav-page-text">Versions et Compilation de Python</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -225,10 +259,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../content/Cours_3/6-Visualisation.html">
  <span class="dropdown-text">Visualiser et présenter ces données avec Python</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_3/TP-pandas_and_geography.html">
- <span class="dropdown-text">TP-pandas_and_geography.html</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -369,11 +399,8 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">content/Cours_3/bonus-pandas_short_examplet.qmd</span>
   </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/TP-pandas_and_geography.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TP-pandas_and_geography.html</span></a>
-  </div>
-</li>
+ <span class="menu-text">content/Cours_3/TP-pandas_and_geography.ipynb</span>
+  </li>
     </ul>
     </div>
 </nav>
@@ -384,7 +411,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#calcul-scientifique-et-optimization" id="toc-calcul-scientifique-et-optimization" class="nav-link active" data-scroll-target="#calcul-scientifique-et-optimization">Calcul Scientifique et Optimization</a></li>
+  <li><a href="#calcul-scientifique-et-optimization" id="toc-calcul-scientifique-et-optimization" class="nav-link active" data-scroll-target="#calcul-scientifique-et-optimization">Calcul Scientifique et Optimization</a>
+  <ul class="collapse">
+  <li><a href="#numpy-fondement-du-calcul-scientifique-en-python" id="toc-numpy-fondement-du-calcul-scientifique-en-python" class="nav-link" data-scroll-target="#numpy-fondement-du-calcul-scientifique-en-python">NumPy : Fondement du Calcul Scientifique en Python</a></li>
+  <li><a href="#fonctionnalités-clés-de-numpy" id="toc-fonctionnalités-clés-de-numpy" class="nav-link" data-scroll-target="#fonctionnalités-clés-de-numpy">Fonctionnalités Clés de NumPy</a></li>
+  <li><a href="#scipy-élargissement-des-capacités-de-calcul" id="toc-scipy-élargissement-des-capacités-de-calcul" class="nav-link" data-scroll-target="#scipy-élargissement-des-capacités-de-calcul">SciPy : Élargissement des Capacités de Calcul</a></li>
+  <li><a href="#exemple-dutilisation-de-scipy-pour-loptimisation" id="toc-exemple-dutilisation-de-scipy-pour-loptimisation" class="nav-link" data-scroll-target="#exemple-dutilisation-de-scipy-pour-loptimisation">Exemple d’Utilisation de SciPy pour l’Optimisation</a></li>
+  <li><a href="#exercice-pratique" id="toc-exercice-pratique" class="nav-link" data-scroll-target="#exercice-pratique">Exercice Pratique</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a>
+  <ul class="collapse">
+  <li><a href="#aspects-avancés-du-calcul-scientifique-et-de-loptimisation" id="toc-aspects-avancés-du-calcul-scientifique-et-de-loptimisation" class="nav-link" data-scroll-target="#aspects-avancés-du-calcul-scientifique-et-de-loptimisation">Aspects Avancés du Calcul Scientifique et de l’Optimisation</a></li>
+  <li><a href="#applications-pratiques-du-calcul-scientifique-et-de-loptimisation" id="toc-applications-pratiques-du-calcul-scientifique-et-de-loptimisation" class="nav-link" data-scroll-target="#applications-pratiques-du-calcul-scientifique-et-de-loptimisation">Applications Pratiques du Calcul Scientifique et de l’Optimisation</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Introduction-Python/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
@@ -434,8 +473,187 @@ ul.task-list li input[type="checkbox"] {
 <section id="calcul-scientifique-et-optimization" class="level1">
 <h1>Calcul Scientifique et Optimization</h1>
 <hr>
+<p>b Introduction au Calcul Scientifique Le calcul scientifique est une discipline essentielle dans de nombreux domaines de la recherche et de l’industrie. En Python, cela implique souvent l’utilisation de bibliothèques telles que NumPy, SciPy, et autres, qui fournissent des outils efficaces pour le calcul numérique.</p>
+<section id="numpy-fondement-du-calcul-scientifique-en-python" class="level2">
+<h2 class="anchored" data-anchor-id="numpy-fondement-du-calcul-scientifique-en-python">NumPy : Fondement du Calcul Scientifique en Python</h2>
+<ul>
+<li><strong>NumPy</strong> est une bibliothèque de base pour le calcul scientifique en Python. Elle offre des structures de données puissantes, optimisées pour les opérations mathématiques complexes et la manipulation de grands ensembles de données.</li>
+</ul>
+</section>
+<section id="fonctionnalités-clés-de-numpy" class="level2">
+<h2 class="anchored" data-anchor-id="fonctionnalités-clés-de-numpy">Fonctionnalités Clés de NumPy</h2>
+<ol type="1">
+<li><strong>Tableaux Multidimensionnels</strong>: Les ndarray de NumPy sont plus performants que les listes Python pour les opérations mathématiques.</li>
+</ol>
+<div id="76371a50" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li><strong>Opérations Mathématiques Rapides et Efficaces</strong>: NumPy permet des calculs vectorisés, ce qui est plus rapide que les boucles traditionnelles.</li>
+</ol>
+<div id="77500d8c" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> arr <span class="op">+</span> <span class="dv">1</span>  <span class="co"># Ajoute 1 à chaque élément</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li><strong>Fonctions Mathématiques Avancées</strong>: NumPy inclut des fonctions pour l’algèbre linéaire, la transformée de Fourier, et plus.</li>
+</ol>
+<div id="19375beb" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">=</span> np.random.rand(<span class="dv">3</span>, <span class="dv">3</span>)  <span class="co"># Crée une matrice 3x3 de nombres aléatoires</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>np.linalg.inv(matrix)  <span class="co"># Inversion d'une matrice</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>array([[-2.1468343 ,  1.64846465,  1.25250999],
+       [ 0.37808612,  1.47103784, -0.92146888],
+       [ 1.04092153, -1.98590823,  1.15778792]])</code></pre>
+</div>
+</div>
+</section>
+<section id="scipy-élargissement-des-capacités-de-calcul" class="level2">
+<h2 class="anchored" data-anchor-id="scipy-élargissement-des-capacités-de-calcul">SciPy : Élargissement des Capacités de Calcul</h2>
+<ul>
+<li><strong>SciPy</strong> s’appuie sur NumPy pour offrir un ensemble plus large de fonctionnalités pour le calcul scientifique, notamment dans l’optimisation, l’intégration numérique, et la statistique.</li>
+</ul>
+</section>
+<section id="exemple-dutilisation-de-scipy-pour-loptimisation" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-dutilisation-de-scipy-pour-loptimisation">Exemple d’Utilisation de SciPy pour l’Optimisation</h2>
+<ul>
+<li><strong>Optimisation</strong>: Trouver le minimum ou le maximum d’une fonction.</li>
+</ul>
+<div id="f8f2cca5" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> func(x):</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> minimize(func, <span class="dv">0</span>)  <span class="co"># Trouve le minimum de la fonction</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercice-pratique" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-pratique">Exercice Pratique</h2>
+<ol type="1">
+<li><strong>Objectif</strong>: Utiliser NumPy et SciPy pour résoudre un problème d’optimisation.</li>
+<li><strong>Énoncé</strong>: Définissez une fonction mathématique simple (par exemple, un polynôme) et utilisez SciPy pour trouver son minimum.</li>
+<li><strong>Solution</strong>:</li>
+</ol>
+<div id="cc7b3395" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> poly(x):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">4</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> minimize(poly, <span class="dv">0</span>)  <span class="co"># Trouver le minimum du polynôme</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Le calcul scientifique en Python, grâce à des bibliothèques comme NumPy et SciPy, est une composante essentielle pour les chercheurs et les ingénieurs. Ces outils offrent des capacités puissantes pour traiter des problèmes mathématiques complexes, de l’algèbre linéaire à l’optimisation numérique.</p>
+<section id="aspects-avancés-du-calcul-scientifique-et-de-loptimisation" class="level3">
+<h3 class="anchored" data-anchor-id="aspects-avancés-du-calcul-scientifique-et-de-loptimisation">Aspects Avancés du Calcul Scientifique et de l’Optimisation</h3>
+<section id="utilisation-avancée-de-numpy" class="level4">
+<h4 class="anchored" data-anchor-id="utilisation-avancée-de-numpy">Utilisation Avancée de NumPy</h4>
+<ol type="1">
+<li><p><strong>Indexation Sophistiquée</strong>: NumPy offre des méthodes d’indexation avancées qui permettent de manipuler et d’accéder aux données de manière très flexible.</p>
+<ul>
+<li><p><strong>Indexation Booléenne</strong>: Sélectionner des éléments basés sur des conditions.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>arr[arr <span class="op">&gt;</span> <span class="dv">2</span>]  <span class="co"># Sélectionne les éléments supérieurs à 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Indexation Fantaisie</strong>: Sélectionner des éléments en utilisant des listes d’indices.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>arr[[<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>]]  <span class="co"># Sélectionne les éléments aux positions 1, 3, et 4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><p><strong>Broadcasting</strong>: Une méthode puissante pour effectuer des opérations arithmétiques sur des tableaux de formes différentes.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">+</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])  <span class="co"># Ajoute [1, 2, 3] à chaque ligne de 'arr'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Manipulation de Formes</strong>: Reshaper les tableaux pour les adapter aux besoins de vos calculs.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>arr.reshape(<span class="dv">3</span>, <span class="dv">2</span>)  <span class="co"># Remodeler le tableau en 3 lignes et 2 colonnes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+</section>
+<section id="optimisation-avec-scipy" class="level4">
+<h4 class="anchored" data-anchor-id="optimisation-avec-scipy">Optimisation avec SciPy</h4>
+<ol type="1">
+<li><p><strong>Optimisation Multivariable</strong>: SciPy n’est pas limité à l’optimisation de fonctions à une seule variable. Il peut également optimiser des fonctions avec plusieurs variables.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> func(x):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x[<span class="dv">0</span>]<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> x[<span class="dv">1</span>]<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> x[<span class="dv">2</span>]<span class="op">**</span><span class="dv">2</span>  <span class="co"># Fonction à 3 variables</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> minimize(func, [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>])  <span class="co"># Point de départ : [0, 0, 0]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Contraintes et Bornes</strong>: Vous pouvez ajouter des contraintes et des bornes à votre problème d’optimisation pour le rendre plus réaliste.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cons <span class="op">=</span> ({<span class="st">'type'</span>: <span class="st">'eq'</span>, <span class="st">'fun'</span>: <span class="kw">lambda</span> x: x[<span class="dv">0</span>] <span class="op">+</span> x[<span class="dv">1</span>] <span class="op">-</span> <span class="dv">1</span>})  <span class="co"># Contrainte d'égalité</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>bnds <span class="op">=</span> ((<span class="dv">0</span>, <span class="va">None</span>), (<span class="dv">0</span>, <span class="va">None</span>))  <span class="co"># Bornes pour x[0] et x[1]</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> minimize(func, [<span class="dv">0</span>, <span class="dv">0</span>], constraints<span class="op">=</span>cons, bounds<span class="op">=</span>bnds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+</section>
+<section id="exercice-pratique-avancé" class="level4">
+<h4 class="anchored" data-anchor-id="exercice-pratique-avancé">Exercice Pratique Avancé</h4>
+<ol type="1">
+<li><strong>Objectif</strong>: Approfondir l’utilisation de NumPy et SciPy pour des calculs complexes.</li>
+<li><strong>Énoncé</strong>: Créez un tableau 2D avec NumPy et utilisez l’indexation fantaisie pour sélectionner des éléments spécifiques. Ensuite, définissez une fonction multivariable et utilisez SciPy pour la minimiser avec des contraintes.</li>
+<li><strong>Solution</strong>:</li>
+</ol>
+<div id="ab1869ab" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># NumPy: Indexation fantaisie</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>arr2d <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]])</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr2d[[<span class="dv">0</span>, <span class="dv">2</span>], [<span class="dv">1</span>, <span class="dv">2</span>]])  <span class="co"># Sélectionne les éléments (0,1) et (2,2)</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># SciPy: Optimisation multivariable avec contraintes</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> func(x):</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x[<span class="dv">0</span>]<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> x[<span class="dv">1</span>]<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>cons <span class="op">=</span> ({<span class="st">'type'</span>: <span class="st">'eq'</span>, <span class="st">'fun'</span>: <span class="kw">lambda</span> x: x[<span class="dv">0</span>] <span class="op">+</span> x[<span class="dv">1</span>] <span class="op">-</span> <span class="dv">1</span>})  <span class="co"># x[0] + x[1] doit être égal à 1</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> minimize(func, [<span class="fl">0.5</span>, <span class="fl">0.5</span>], constraints<span class="op">=</span>cons)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[2 9]
+ message: Optimization terminated successfully
+ success: True
+  status: 0
+     fun: 0.5
+       x: [ 5.000e-01  5.000e-01]
+     nit: 1
+     jac: [ 1.000e+00  1.000e+00]
+    nfev: 3
+    njev: 1</code></pre>
+</div>
+</div>
+</section>
+<section id="conclusion-1" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion-1">Conclusion</h4>
+<p>Les fonctionnalités avancées de NumPy et SciPy ouvrent des possibilités presque illimitées pour le calcul scientifique en Python. L’indexation avancée, le broadcasting, l’optimisation multivariable, et les contraintes ne sont que quelques exemples des outils puissants à la disposition des scientifiques et ingénieurs. Maîtriser ces outils peut significativement accélérer et améliorer la qualité de la recherche et du développement.</p>
+</section>
+</section>
+<section id="applications-pratiques-du-calcul-scientifique-et-de-loptimisation" class="level3">
+<h3 class="anchored" data-anchor-id="applications-pratiques-du-calcul-scientifique-et-de-loptimisation">Applications Pratiques du Calcul Scientifique et de l’Optimisation</h3>
+<section id="cas-dutilisation-dans-divers-domaines" class="level4">
+<h4 class="anchored" data-anchor-id="cas-dutilisation-dans-divers-domaines">Cas d’Utilisation dans Divers Domaines</h4>
+<ol type="1">
+<li><strong>Ingénierie</strong>: L’utilisation de NumPy et SciPy en ingénierie est cruciale pour des tâches telles que l’analyse structurelle, la simulation de systèmes dynamiques, et la conception assistée par ordinateur (CAO).
+<ul>
+<li><strong>Exemple</strong>: Dans l’ingénierie mécanique, on utilise souvent ces outils pour résoudre des équations différentielles qui modélisent le comportement dynamique des systèmes.</li>
+</ul></li>
+<li><strong>Physique et Chimie</strong>: Les calculs complexes en physique et en chimie, comme la modélisation moléculaire ou la dynamique des fluides, peuvent être réalisés avec efficacité grâce à ces bibliothèques.
+<ul>
+<li><strong>Exemple</strong>: Les chercheurs en physique quantique peuvent utiliser SciPy pour résoudre des problèmes d’optimisation dans la recherche de l’état fondamental des systèmes quantiques.</li>
+</ul></li>
+<li><strong>Finance et Économétrie</strong>: NumPy et SciPy sont largement utilisés dans le domaine de la finance pour l’analyse de risques, la modélisation de marchés, et l’optimisation de portefeuilles.
+<ul>
+<li><strong>Exemple</strong>: En finance quantitative, ces outils aident à optimiser les portefeuilles en minimisant le risque pour un rendement donné.</li>
+</ul></li>
+</ol>
+</section>
+<section id="optimisation-des-performances-dans-le-calcul-scientifique" class="level4">
+<h4 class="anchored" data-anchor-id="optimisation-des-performances-dans-le-calcul-scientifique">Optimisation des Performances dans le Calcul Scientifique</h4>
+<ol type="1">
+<li><p><strong>Utilisation de Cython ou Numba</strong>: Pour des calculs intensifs, l’utilisation de Cython ou Numba pour compiler le code Python en code machine peut apporter une amélioration significative des performances.</p></li>
+<li><p><strong>Parallélisation des Calculs</strong>: L’utilisation de la parallélisation, par exemple avec Dask ou des opérations multithreading/multiprocessing, peut accélérer les calculs lourds.</p></li>
+<li><p><strong>Gestion Efficace de la Mémoire</strong>: Utiliser des techniques comme la vectorisation et éviter les copies inutiles de données pour réduire la consommation de mémoire.</p></li>
+</ol>
+</section>
+<section id="conclusion-2" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion-2">Conclusion</h4>
+<p>Le calcul scientifique et l’optimisation en Python, grâce à des bibliothèques comme NumPy et SciPy, jouent un rôle clé dans une multitude de domaines. Que ce soit pour résoudre des problèmes complexes en ingénierie, en physique, en chimie, ou en finance, ces outils offrent les capacités nécessaires pour réaliser des analyses précises et des simulations efficaces. La maîtrise de ces outils est donc essentielle pour tout scientifique ou ingénieur souhaitant exploiter pleinement le potentiel du calcul numérique.</p>
 
 
+</section>
+</section>
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

@@ -23,10 +23,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -74,6 +108,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -225,10 +262,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../content/Cours_3/6-Visualisation.html">
  <span class="dropdown-text">Visualiser et présenter ces données avec Python</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_3/TP-pandas_and_geography.html">
- <span class="dropdown-text">TP-pandas_and_geography.html</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -369,11 +402,8 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">content/Cours_3/bonus-pandas_short_examplet.qmd</span>
   </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/TP-pandas_and_geography.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TP-pandas_and_geography.html</span></a>
-  </div>
-</li>
+ <span class="menu-text">content/Cours_3/TP-pandas_and_geography.ipynb</span>
+  </li>
     </ul>
     </div>
 </nav>
@@ -384,7 +414,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link active" data-scroll-target="#machine-learning">Machine Learning</a></li>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link active" data-scroll-target="#machine-learning">Machine Learning</a>
+  <ul class="collapse">
+  <li><a href="#introduction-au-machine-learning-avec-python" id="toc-introduction-au-machine-learning-avec-python" class="nav-link" data-scroll-target="#introduction-au-machine-learning-avec-python">Introduction au Machine Learning avec Python</a></li>
+  <li><a href="#scikit-learn-un-point-de-départ-pour-le-machine-learning" id="toc-scikit-learn-un-point-de-départ-pour-le-machine-learning" class="nav-link" data-scroll-target="#scikit-learn-un-point-de-départ-pour-le-machine-learning">Scikit-learn: Un Point de Départ pour le Machine Learning</a></li>
+  <li><a href="#exemple-dutilisation-de-scikit-learn" id="toc-exemple-dutilisation-de-scikit-learn" class="nav-link" data-scroll-target="#exemple-dutilisation-de-scikit-learn">Exemple d’Utilisation de Scikit-learn</a></li>
+  <li><a href="#tensorflow-et-pytorch-pour-des-applications-plus-avancées" id="toc-tensorflow-et-pytorch-pour-des-applications-plus-avancées" class="nav-link" data-scroll-target="#tensorflow-et-pytorch-pour-des-applications-plus-avancées">TensorFlow et PyTorch: Pour des Applications Plus Avancées</a></li>
+  <li><a href="#exercice-pratique" id="toc-exercice-pratique" class="nav-link" data-scroll-target="#exercice-pratique">Exercice Pratique</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a>
+  <ul class="collapse">
+  <li><a href="#compléments-sur-le-machine-learning-en-python-statsmodels-pytorch-et-tensorflow" id="toc-compléments-sur-le-machine-learning-en-python-statsmodels-pytorch-et-tensorflow" class="nav-link" data-scroll-target="#compléments-sur-le-machine-learning-en-python-statsmodels-pytorch-et-tensorflow">Compléments sur le Machine Learning en Python : Statsmodels, PyTorch, et TensorFlow</a></li>
+  </ul></li>
+  <li><a href="#statsmodels-analyse-statistique-en-python" id="toc-statsmodels-analyse-statistique-en-python" class="nav-link" data-scroll-target="#statsmodels-analyse-statistique-en-python">Statsmodels : Analyse Statistique en Python</a></li>
+  <li><a href="#pytorch-apprentissage-profond-et-recherche" id="toc-pytorch-apprentissage-profond-et-recherche" class="nav-link" data-scroll-target="#pytorch-apprentissage-profond-et-recherche">PyTorch : Apprentissage Profond et Recherche</a></li>
+  <li><a href="#tensorflow-machine-learning-à-grande-échelle" id="toc-tensorflow-machine-learning-à-grande-échelle" class="nav-link" data-scroll-target="#tensorflow-machine-learning-à-grande-échelle">TensorFlow : Machine Learning à Grande Échelle</a></li>
+  <li><a href="#exercice-pratique-avec-pytorch-ou-tensorflow" id="toc-exercice-pratique-avec-pytorch-ou-tensorflow" class="nav-link" data-scroll-target="#exercice-pratique-avec-pytorch-ou-tensorflow">Exercice Pratique avec PyTorch ou TensorFlow</a></li>
+  <li><a href="#conclusion-1" id="toc-conclusion-1" class="nav-link" data-scroll-target="#conclusion-1">Conclusion</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Introduction-Python/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
@@ -434,8 +480,180 @@ ul.task-list li input[type="checkbox"] {
 <section id="machine-learning" class="level1">
 <h1>Machine Learning</h1>
 <hr>
+<section id="introduction-au-machine-learning-avec-python" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-au-machine-learning-avec-python">Introduction au Machine Learning avec Python</h2>
+<p>Python est devenu la langue de prédilection pour le machine learning (ML) en raison de sa simplicité, de sa richesse en bibliothèques, et de sa communauté active. Des bibliothèques comme Scikit-learn, TensorFlow, et PyTorch facilitent la mise en œuvre de diverses techniques de ML.</p>
+</section>
+<section id="scikit-learn-un-point-de-départ-pour-le-machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="scikit-learn-un-point-de-départ-pour-le-machine-learning">Scikit-learn: Un Point de Départ pour le Machine Learning</h2>
+<ul>
+<li><strong>Scikit-learn</strong> est une bibliothèque Python polyvalente pour le machine learning. Elle offre des outils simples et efficaces pour l’analyse de données et la modélisation statistique.</li>
+<li>Fonctionnalités clés :
+<ul>
+<li><strong>Classification, Régression, et Clustering</strong>: Algorithmes pour les tâches de ML les plus courantes.</li>
+<li><strong>Prétraitement des Données</strong>: Outils pour normaliser, échelonner, et transformer les données.</li>
+<li><strong>Sélection de Modèles et Validation Croisée</strong>: Méthodes pour choisir les meilleurs modèles et paramètres.</li>
+</ul></li>
+</ul>
+</section>
+<section id="exemple-dutilisation-de-scikit-learn" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-dutilisation-de-scikit-learn">Exemple d’Utilisation de Scikit-learn</h2>
+<ul>
+<li><strong>Classification avec Scikit-learn</strong>:</li>
+</ul>
+<div id="acdb74bd" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_iris</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Chargement des données</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>iris <span class="op">=</span> load_iris()</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>X, y <span class="op">=</span> iris.data, iris.target</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Entraînement d'un modèle de forêt aléatoire</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>clf <span class="op">=</span> RandomForestClassifier()</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>clf.fit(X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<style>#sk-container-id-1 {color: black;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>RandomForestClassifier()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">RandomForestClassifier</label><div class="sk-toggleable__content"><pre>RandomForestClassifier()</pre></div></div></div></div></div>
+</div>
+</div>
+</section>
+<section id="tensorflow-et-pytorch-pour-des-applications-plus-avancées" class="level2">
+<h2 class="anchored" data-anchor-id="tensorflow-et-pytorch-pour-des-applications-plus-avancées">TensorFlow et PyTorch: Pour des Applications Plus Avancées</h2>
+<ul>
+<li><strong>TensorFlow</strong> et <strong>PyTorch</strong> sont des bibliothèques plus spécialisées, offrant des fonctionnalités avancées pour les réseaux de neurones profonds et l’apprentissage automatique à grande échelle.</li>
+<li>Elles sont particulièrement adaptées pour :
+<ul>
+<li><strong>Réseaux de Neurones Profonds</strong>: Construction et entraînement de modèles complexes.</li>
+<li><strong>Traitement de Données à Grande Échelle</strong>: Gestion efficace des ensembles de données volumineux.</li>
+<li><strong>Personnalisation et Recherche</strong>: Flexibilité pour expérimenter de nouvelles idées en ML.</li>
+</ul></li>
+</ul>
+</section>
+<section id="exercice-pratique" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-pratique">Exercice Pratique</h2>
+<ol type="1">
+<li><strong>Objectif</strong>: Se familiariser avec le processus de base du machine learning en utilisant Scikit-learn.</li>
+<li><strong>Énoncé</strong>: Utilisez Scikit-learn pour construire un classificateur simple sur un jeu de données standard, évaluez ses performances, et essayez d’améliorer ses résultats en ajustant les paramètres.</li>
+<li><strong>Solution</strong>:</li>
+</ol>
+<div id="fc56a997" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Division en ensembles d'entraînement et de test</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Entraînement du modèle</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>clf.fit(X_train, y_train)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Évaluation du modèle</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> clf.predict(X_test)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Accuracy:"</span>, accuracy_score(y_test, y_pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Accuracy: 0.9333333333333333</code></pre>
+</div>
+</div>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Le machine learning en Python offre un éventail impressionnant d’outils et de techniques pour l’analyse de données, la prédiction, et la compréhension des modèles complexes. Que vous débutiez avec Scikit-learn ou que vous plongiez dans des modèles plus avancés avec TensorFlow ou PyTorch, Python a les ressources pour répondre à vos besoins en ML.</p>
+<section id="compléments-sur-le-machine-learning-en-python-statsmodels-pytorch-et-tensorflow" class="level3">
+<h3 class="anchored" data-anchor-id="compléments-sur-le-machine-learning-en-python-statsmodels-pytorch-et-tensorflow">Compléments sur le Machine Learning en Python : Statsmodels, PyTorch, et TensorFlow</h3>
+</section>
+</section>
+<section id="statsmodels-analyse-statistique-en-python" class="level2">
+<h2 class="anchored" data-anchor-id="statsmodels-analyse-statistique-en-python">Statsmodels : Analyse Statistique en Python</h2>
+<ul>
+<li><strong>Statsmodels</strong> est une bibliothèque Python spécialisée dans les modèles statistiques et l’économétrie. Elle est particulièrement utile pour les analyses statistiques traditionnelles.</li>
+<li>Fonctionnalités clés de Statsmodels :
+<ul>
+<li><strong>Régressions Linéaires et Logistiques</strong>: Outils pour modéliser les relations entre variables.</li>
+<li><strong>Tests Statistiques</strong>: Tests pour valider les hypothèses sur les données.</li>
+<li><strong>Exploration de Séries Temporelles</strong>: Outils pour analyser les données dépendant du temps.</li>
+</ul></li>
+</ul>
+</section>
+<section id="pytorch-apprentissage-profond-et-recherche" class="level2">
+<h2 class="anchored" data-anchor-id="pytorch-apprentissage-profond-et-recherche">PyTorch : Apprentissage Profond et Recherche</h2>
+<ul>
+<li><strong>PyTorch</strong> est une bibliothèque d’apprentissage profond très appréciée dans la communauté de recherche en raison de sa flexibilité et de sa facilité d’utilisation.</li>
+<li>Aspects saillants de PyTorch :
+<ul>
+<li><strong>Autograd</strong>: Système de différenciation automatique pour le calcul des gradients.</li>
+<li><strong>Réseaux de Neurones Personnalisés</strong>: Facilité de création et d’expérimentation avec de nouveaux modèles.</li>
+<li><strong>Performances en Temps Réel</strong>: Optimisé pour les calculs sur GPU, idéal pour l’entraînement de modèles complexes.</li>
+</ul></li>
+</ul>
+</section>
+<section id="tensorflow-machine-learning-à-grande-échelle" class="level2">
+<h2 class="anchored" data-anchor-id="tensorflow-machine-learning-à-grande-échelle">TensorFlow : Machine Learning à Grande Échelle</h2>
+<ul>
+<li><strong>TensorFlow</strong> est une bibliothèque développée par Google, largement utilisée pour des applications d’apprentissage automatique complexes, en particulier celles nécessitant une grande échelle de calcul.</li>
+<li>Caractéristiques principales de TensorFlow :
+<ul>
+<li><strong>Architecture Flexible</strong>: Convient à la fois pour la recherche et la production.</li>
+<li><strong>TensorBoard</strong>: Outil pour la visualisation et le monitoring des modèles.</li>
+<li><strong>TFLite pour les Applications Mobiles et Embarquées</strong>: Permet de déployer des modèles ML sur des appareils mobiles.</li>
+</ul></li>
+</ul>
+</section>
+<section id="exercice-pratique-avec-pytorch-ou-tensorflow" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-pratique-avec-pytorch-ou-tensorflow">Exercice Pratique avec PyTorch ou TensorFlow</h2>
+<ol type="1">
+<li><strong>Objectif</strong>: Se familiariser avec l’apprentissage profond en utilisant PyTorch ou TensorFlow.</li>
+<li><strong>Énoncé</strong>: Construisez et entraînez un réseau de neurones simple pour classifier des images à partir d’un jeu de données standard comme MNIST.</li>
+<li><strong>Solution</strong> (avec PyTorch) :</li>
+</ol>
+<div id="0e34c0a2" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torchvision <span class="im">import</span> datasets, transforms</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> DataLoader</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Chargement des données</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>transform <span class="op">=</span> transforms.ToTensor()</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>train_dataset <span class="op">=</span> datasets.MNIST(root<span class="op">=</span><span class="st">'./data'</span>, train<span class="op">=</span><span class="va">True</span>, transform<span class="op">=</span>transform, download<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>train_loader <span class="op">=</span> DataLoader(train_dataset, batch_size<span class="op">=</span><span class="dv">64</span>, shuffle<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Définition du modèle</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SimpleNN(nn.Module):</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>(SimpleNN, <span class="va">self</span>).<span class="fu">__init__</span>()</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.linear <span class="op">=</span> nn.Linear(<span class="dv">784</span>, <span class="dv">10</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> x.view(x.size(<span class="dv">0</span>), <span class="op">-</span><span class="dv">1</span>)  <span class="co"># Aplatir l'image</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.linear(x)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> SimpleNN()</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>criterion <span class="op">=</span> nn.CrossEntropyLoss()</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> optim.SGD(model.parameters(), lr<span class="op">=</span><span class="fl">0.01</span>)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Entraînement du modèle</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> data, target <span class="kw">in</span> train_loader:</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>        optimizer.zero_grad()</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>        output <span class="op">=</span> model(data)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> criterion(output, target)</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>        loss.backward()</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        optimizer.step()</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Epoch </span><span class="sc">{</span>epoch<span class="sc">}</span><span class="ss">, Loss: </span><span class="sc">{</span>loss<span class="sc">.</span>item()<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Epoch 0, Loss: 0.7023621201515198
+Epoch 1, Loss: 0.24246001243591309
+Epoch 2, Loss: 0.4038937985897064
+Epoch 3, Loss: 0.3790201246738434
+Epoch 4, Loss: 0.33704066276550293</code></pre>
+</div>
+</div>
+</section>
+<section id="conclusion-1" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-1">Conclusion</h2>
+<p>L’écosystème du machine learning en Python est riche et varié, offrant des outils adaptés à une large gamme de besoins, de l’analyse statistique traditionnelle avec Statsmodels à l’apprentissage profond avec PyTorch et TensorFlow. Chaque outil a ses propres forces, et le choix dépend des objectifs spécifiques du projet, de l’expertise de l’utilisateur, et du contexte d’application.</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

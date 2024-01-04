@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -33,7 +67,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Cours_3/TP-pandas_and_geography.html" rel="next">
 <link href="../../content/Cours_3/5-Feed_Internet.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
@@ -225,10 +258,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../content/Cours_3/6-Visualisation.html">
  <span class="dropdown-text">Visualiser et présenter ces données avec Python</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_3/TP-pandas_and_geography.html">
- <span class="dropdown-text">TP-pandas_and_geography.html</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -369,11 +398,8 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">content/Cours_3/bonus-pandas_short_examplet.qmd</span>
   </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/TP-pandas_and_geography.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TP-pandas_and_geography.html</span></a>
-  </div>
-</li>
+ <span class="menu-text">content/Cours_3/TP-pandas_and_geography.ipynb</span>
+  </li>
     </ul>
     </div>
 </nav>
@@ -384,7 +410,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#visualisation-de-données-avec-python" id="toc-visualisation-de-données-avec-python" class="nav-link active" data-scroll-target="#visualisation-de-données-avec-python">Visualisation de données avec Python</a></li>
+  <li><a href="#visualisation-de-données-avec-python" id="toc-visualisation-de-données-avec-python" class="nav-link active" data-scroll-target="#visualisation-de-données-avec-python">Visualisation de données avec Python</a>
+  <ul class="collapse">
+  <li><a href="#chapitre-sur-la-visualisation-de-données-en-python" id="toc-chapitre-sur-la-visualisation-de-données-en-python" class="nav-link" data-scroll-target="#chapitre-sur-la-visualisation-de-données-en-python">Chapitre sur la Visualisation de Données en Python</a></li>
+  <li><a href="#techniques-avancées-de-visualisation-de-données-en-python" id="toc-techniques-avancées-de-visualisation-de-données-en-python" class="nav-link" data-scroll-target="#techniques-avancées-de-visualisation-de-données-en-python">Techniques Avancées de Visualisation de Données en Python</a></li>
+  <li><a href="#visualisation-de-données-géospatiales" id="toc-visualisation-de-données-géospatiales" class="nav-link" data-scroll-target="#visualisation-de-données-géospatiales">Visualisation de Données Géospatiales</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Introduction-Python/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
@@ -434,8 +465,246 @@ ul.task-list li input[type="checkbox"] {
 <section id="visualisation-de-données-avec-python" class="level1">
 <h1>Visualisation de données avec Python</h1>
 <hr>
+<section id="chapitre-sur-la-visualisation-de-données-en-python" class="level3">
+<h3 class="anchored" data-anchor-id="chapitre-sur-la-visualisation-de-données-en-python">Chapitre sur la Visualisation de Données en Python</h3>
+<section id="introduction-à-la-visualisation-de-données" class="level4">
+<h4 class="anchored" data-anchor-id="introduction-à-la-visualisation-de-données">Introduction à la Visualisation de Données</h4>
+<p>La visualisation est un aspect crucial de l’analyse de données, aidant à comprendre les tendances, les modèles et les anomalies dans les données. Python offre une variété de bibliothèques de visualisation, chacune avec ses propres forces et cas d’utilisation.</p>
+</section>
+<section id="matplotlib-le-fondement-de-la-visualisation-en-python" class="level4">
+<h4 class="anchored" data-anchor-id="matplotlib-le-fondement-de-la-visualisation-en-python">Matplotlib: Le Fondement de la Visualisation en Python</h4>
+<ul>
+<li><p><strong>Matplotlib</strong> est la bibliothèque de visualisation la plus connue et la plus utilisée en Python. Elle offre une grande flexibilité pour créer une large gamme de graphiques statiques, animés et interactifs.</p></li>
+<li><p>Exemple d’utilisation :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'some numbers'</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</section>
+<section id="seaborn-visualisation-statistique-facilitée" class="level4">
+<h4 class="anchored" data-anchor-id="seaborn-visualisation-statistique-facilitée">Seaborn: Visualisation Statistique Facilitée</h4>
+<ul>
+<li><p><strong>Seaborn</strong> est basé sur Matplotlib et fournit une interface de haut niveau pour dessiner des graphiques statistiques attractifs et informatifs.</p></li>
+<li><p>Exemple de visualisation des relations entre variables :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>iris <span class="op">=</span> sns.load_dataset(<span class="st">'iris'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>sns.pairplot(iris, hue<span class="op">=</span><span class="st">'species'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</section>
+<section id="altair-déclaration-declarative-pour-la-visualisation" class="level4">
+<h4 class="anchored" data-anchor-id="altair-déclaration-declarative-pour-la-visualisation">Altair: Déclaration Declarative pour la Visualisation</h4>
+<ul>
+<li><p><strong>Altair</strong> offre une API déclarative puissante pour construire des visualisations complexes de manière concise et intuitive.</p></li>
+<li><p>Exemple simple d’un graphique à barres :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vega_datasets <span class="im">import</span> data</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>source <span class="op">=</span> data.cars()</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> alt.Chart(source).mark_bar().encode(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'mean(Miles_per_Gallon)'</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'Origin'</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">'Origin'</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>chart.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</section>
+<section id="plotly-visualisation-interactive-et-avancée" class="level4">
+<h4 class="anchored" data-anchor-id="plotly-visualisation-interactive-et-avancée">Plotly: Visualisation Interactive et Avancée</h4>
+<ul>
+<li><p><strong>Plotly</strong> est remarquable pour ses graphiques interactifs et ses capacités de visualisation avancées, permettant des visualisations complexes et multi-dimensionnelles.</p></li>
+<li><p>Exemple d’intégration avec Pandas pour une visualisation interactive :</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>plotly.offline.init_notebook_mode() </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plotly.io.renderers.default <span class="op">=</span> <span class="st">'jupyterlab+notebook+pdf'</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Supposons que 'gdf' est un DataFrame Pandas</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>gdf.plot(kind<span class="op">=</span><span class="st">'scatter'</span>, x<span class="op">=</span><span class="st">'timestamp'</span>, y<span class="op">=</span><span class="st">'p'</span>, color<span class="op">=</span><span class="st">'side'</span>, </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>         color_discrete_map<span class="op">=</span>{<span class="st">'B'</span>: <span class="st">'blue'</span>, <span class="st">'S'</span>: <span class="st">'red'</span>}, size<span class="op">=</span><span class="st">'dot_size'</span>, </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>         template<span class="op">=</span><span class="st">'plotly'</span>, symbol<span class="op">=</span><span class="st">'side'</span>, symbol_map<span class="op">=</span>symbol_map, </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>         hover_data<span class="op">=</span>[<span class="st">'name'</span>], backend<span class="op">=</span><span class="st">'plotly'</span>).show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</section>
+<section id="exercice-pratique" class="level4">
+<h4 class="anchored" data-anchor-id="exercice-pratique">Exercice Pratique</h4>
+<ol type="1">
+<li><strong>Objectif</strong>: Créer un graphique interactif avec Plotly et l’intégrer à un DataFrame Pandas.</li>
+<li><strong>Énoncé</strong>: Utilisez Plotly pour créer un graphique à bulles interactif qui montre les relations entre différentes variables dans un DataFrame Pandas.</li>
+<li><strong>Solution</strong>: Utilisez le code d’exemple Plotly fourni ci-dessus comme point de départ et ajustez-le en fonction de vos données spécifiques et des relations que vous souhaitez visualiser.</li>
+</ol>
+</section>
+<section id="conclusion" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion">Conclusion</h4>
+<p>La visualisation de données est un élément essentiel de l’analyse de données, et Python offre une gamme impressionnante de bibliothèques pour créer des visualisations statiques, animées et interactives. Que vous cherchiez à produire des graphiques simples ou à explorer des visualisations interactives avancées, il existe une bibliothèque Python qui répond à vos besoins.</p>
+</section>
+</section>
+<section id="techniques-avancées-de-visualisation-de-données-en-python" class="level3">
+<h3 class="anchored" data-anchor-id="techniques-avancées-de-visualisation-de-données-en-python">Techniques Avancées de Visualisation de Données en Python</h3>
+<section id="création-de-tableaux-de-bord-interactifs" class="level4">
+<h4 class="anchored" data-anchor-id="création-de-tableaux-de-bord-interactifs">Création de Tableaux de Bord Interactifs</h4>
+<p>La capacité de créer des tableaux de bord interactifs permet une exploration en profondeur et dynamique des données.</p>
+<ol type="1">
+<li><strong>Dash</strong>: Un framework Python pour créer des applications web analytiques.
+<ul>
+<li><p>Permet de construire des tableaux de bord interactifs en utilisant uniquement Python.</p></li>
+<li><p>Exemple :</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dash</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dash_core_components <span class="im">as</span> dcc</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dash_html_components <span class="im">as</span> html</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas_datareader <span class="im">import</span> data <span class="im">as</span> web</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> dash.Dash(<span class="va">__name__</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>app.layout <span class="op">=</span> html.Div([</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    dcc.Graph(</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">id</span><span class="op">=</span><span class="st">'example-graph'</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        figure<span class="op">=</span>{</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">'data'</span>: [</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                {<span class="st">'x'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], <span class="st">'y'</span>: [<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>], <span class="st">'type'</span>: <span class="st">'bar'</span>, <span class="st">'name'</span>: <span class="st">'SF'</span>},</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                {<span class="st">'x'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], <span class="st">'y'</span>: [<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>], <span class="st">'type'</span>: <span class="st">'bar'</span>, <span class="st">'name'</span>: <span class="st">'Montréal'</span>},</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>            ],</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">'layout'</span>: {</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>                <span class="st">'title'</span>: <span class="st">'Dash Data Visualization'</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    app.run_server(debug<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+</ol>
+</section>
+<section id="animation-de-graphiques" class="level4">
+<h4 class="anchored" data-anchor-id="animation-de-graphiques">Animation de Graphiques</h4>
+<p>Les animations peuvent aider à comprendre les tendances et les modèles au fil du temps.</p>
+<ol type="1">
+<li><strong>Matplotlib pour les Animations</strong>:
+<ul>
+<li><p>Matplotlib peut être utilisé pour créer des animations de base.</p></li>
+<li><p>Exemple d’animation d’un graphique linéaire :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.animation <span class="im">as</span> animation</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>line, <span class="op">=</span> ax.plot([], [], lw<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> init():</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    line.set_data([], [])</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> line,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> animate(i):</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1000</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> (x <span class="op">-</span> <span class="fl">0.01</span> <span class="op">*</span> i))</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    line.set_data(x, y)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> line,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>ani <span class="op">=</span> animation.FuncAnimation(fig, animate, init_func<span class="op">=</span>init, frames<span class="op">=</span><span class="dv">200</span>, interval<span class="op">=</span><span class="dv">20</span>, blit<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+</ol>
+</section>
+<section id="intégration-de-visualisations-dans-des-applications-web" class="level4">
+<h4 class="anchored" data-anchor-id="intégration-de-visualisations-dans-des-applications-web">Intégration de Visualisations dans des Applications Web</h4>
+<p>L’intégration de graphiques dans des applications web rend les analyses de données plus accessibles et interactives.</p>
+<ol type="1">
+<li><strong>Plotly avec Flask ou Django</strong>:
+<ul>
+<li><p>Les graphiques Plotly peuvent être intégrés dans des applications web Python utilisant Flask ou Django.</p></li>
+<li><p>Exemple d’intégration Plotly avec Flask :</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, render_template</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objs <span class="im">as</span> go</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.offline <span class="im">as</span> pyo</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/'</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> index():</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    bar <span class="op">=</span> go.Bar(x<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], y<span class="op">=</span>[<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">6</span>])</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    graphJSON <span class="op">=</span> pyo.plot([bar], auto_open<span class="op">=</span><span class="va">False</span>, output_type<span class="op">=</span><span class="st">'div'</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> render_template(<span class="st">'index.html'</span>, graphJSON<span class="op">=</span>graphJSON)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    app.run(debug<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><code>index.html</code> contiendra le div pour afficher le graphique Plotly.</p></li>
+</ul></li>
+</ol>
+</section>
+<section id="conclusion-1" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion-1">Conclusion</h4>
+<p>Les techniques avancées de visualisation de données en Python, telles que la création de tableaux de bord interactifs avec Dash, l’animation de graphiques avec Matplotlib et l’intégration de visualisations dans des applications web, offrent des moyens puissants pour présenter et explorer des données complexes. Ces outils permettent aux utilisateurs de voir et d’interagir avec les données de manières innovantes, améliorant ainsi la compréhension et la prise de décisions basées sur les données.</p>
+</section>
+</section>
+<section id="visualisation-de-données-géospatiales" class="level3">
+<h3 class="anchored" data-anchor-id="visualisation-de-données-géospatiales">Visualisation de Données Géospatiales</h3>
+<section id="introduction-à-la-visualisation-géospatiale" class="level4">
+<h4 class="anchored" data-anchor-id="introduction-à-la-visualisation-géospatiale">Introduction à la Visualisation Géospatiale</h4>
+<p>La visualisation de données géospatiales implique la représentation de données ayant une composante géographique. Ces visualisations peuvent révéler des tendances et des modèles liés à l’emplacement.</p>
+</section>
+<section id="bibliothèques-clés-pour-la-visualisation-géospatiale" class="level4">
+<h4 class="anchored" data-anchor-id="bibliothèques-clés-pour-la-visualisation-géospatiale">Bibliothèques Clés pour la Visualisation Géospatiale</h4>
+<ol type="1">
+<li><strong>Geopandas</strong>:
+<ul>
+<li><p>Extension de Pandas pour faciliter le travail avec des données spatiales.</p></li>
+<li><p>Permet de lire, écrire et manipuler des données dans des formats géospatiaux variés.</p></li>
+<li><p>Exemple d’utilisation de Geopandas :</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>world <span class="op">=</span> gpd.read_file(gpd.datasets.get_path(<span class="st">'naturalearth_lowres'</span>))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>world.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><strong>Folium</strong>:
+<ul>
+<li><p>Bibliothèque qui crée des cartes interactives à l’aide de la plateforme Leaflet.js.</p></li>
+<li><p>Idéal pour les visualisations géospatiales interactives dans les notebooks Jupyter.</p></li>
+<li><p>Exemple simple avec Folium :</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> folium</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> folium.Map(location<span class="op">=</span>[<span class="fl">45.5236</span>, <span class="op">-</span><span class="fl">122.6750</span>])</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>folium.CircleMarker(location<span class="op">=</span>[<span class="fl">45.5215</span>, <span class="op">-</span><span class="fl">122.6261</span>], radius<span class="op">=</span><span class="dv">50</span>, popup<span class="op">=</span><span class="st">'Laurelhurst Park'</span>).add_to(m)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+</ol>
+</section>
+<section id="visualisation-3d-avec-python" class="level4">
+<h4 class="anchored" data-anchor-id="visualisation-3d-avec-python">Visualisation 3D avec Python</h4>
+</section>
+<section id="outils-pour-la-visualisation-3d" class="level4">
+<h4 class="anchored" data-anchor-id="outils-pour-la-visualisation-3d">Outils pour la Visualisation 3D</h4>
+<ol type="1">
+<li><strong>Matplotlib</strong>:
+<ul>
+<li><p>Matplotlib propose également des fonctionnalités de base pour la visualisation 3D.</p></li>
+<li><p>Exemple de graphique en 3D :</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mpl_toolkits.mplot3d <span class="im">import</span> Axes3D</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">111</span>, projection<span class="op">=</span><span class="st">'3d'</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>ax.scatter(xs<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], ys<span class="op">=</span>[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], zs<span class="op">=</span>[<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>])</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><strong>Plotly</strong>:
+<ul>
+<li><p>Plotly excelle également dans la création de visualisations 3D interactives.</p></li>
+<li><p>Exemple de surface 3D avec Plotly :</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.outer(np.linspace(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">30</span>), np.ones(<span class="dv">30</span>))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x.copy().T</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.cos(x <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> y <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure(data<span class="op">=</span>[go.Surface(z<span class="op">=</span>z, x<span class="op">=</span>x, y<span class="op">=</span>y)])</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+</ol>
 
 
+</section>
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -828,9 +1097,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../content/Cours_3/TP-pandas_and_geography.html" class="pagination-link" aria-label="TP-pandas_and_geography.html">
-        <span class="nav-page-text">TP-pandas_and_geography.html</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
