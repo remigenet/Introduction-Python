@@ -296,6 +296,30 @@
     ]
   },
   {
+    "objectID": "content/Cours_3/3-MachineLearning.html",
+    "href": "content/Cours_3/3-MachineLearning.html",
+    "title": "Introduction à Python",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "content/Cours_3/1-Dataframes.html",
+    "href": "content/Cours_3/1-Dataframes.html",
+    "title": "Syntaxe et objets de Base Python",
+    "section": "",
+    "text": "Back to top",
+    "crumbs": [
+      "Syntaxe et objets de Base Python"
+    ]
+  },
+  {
+    "objectID": "content/Cours_3/5-Feed_Internet.html",
+    "href": "content/Cours_3/5-Feed_Internet.html",
+    "title": "Introduction à Python",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
     "objectID": "content/Annexes/LinuxTerminal.html",
     "href": "content/Annexes/LinuxTerminal.html",
     "title": "Utiliser le terminal Linux - les bases de bash",
@@ -324,6 +348,27 @@
     "crumbs": [
       "Git Basics"
     ]
+  },
+  {
+    "objectID": "content/Cours_3/6-Visualisation.html",
+    "href": "content/Cours_3/6-Visualisation.html",
+    "title": "Introduction à Python",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "content/Cours_3/2-Calcul_Scientifique_et_Optimization.html",
+    "href": "content/Cours_3/2-Calcul_Scientifique_et_Optimization.html",
+    "title": "Introduction à Python",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "content/Cours_3/4-Access_Internet.html",
+    "href": "content/Cours_3/4-Access_Internet.html",
+    "title": "Introduction à Python",
+    "section": "",
+    "text": "Back to top"
   },
   {
     "objectID": "content/Cours_2/1-FondamentauxSyntaxique.html",
