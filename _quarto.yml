@@ -17,8 +17,11 @@ website:
         text: Home 
       - sidebar:introduction
       - sidebar:discover
+      - sidebar:libraries
+      - sidebar:advanced_mix
+      - sidebar:advanced_mix_2
+      - sidebar:projects
       - sidebar:annexes
-      - sidebar:Bibliotheques
     tools:
       - icon: github
         menu:
@@ -53,9 +56,12 @@ website:
       title: "Syntaxes et Concepts de Base"
       contents: 
        - content/Cours_2/1-FondamentauxSyntaxique.qmd
+       - content/Cours_2/1.1-Exercices.py
+       - content/Cours_2/1.2-Exercices.py
+       - content/Cours_2/1-FondamentauxSyntaxique.qmd
        - content/Cours_2/2-FonctionsEtModules.qmd
        - content/Cours_2/3-IntroducingPOOConcept.qmd
-    - id: Bibliotheques 
+    - id: libraries 
       title: "Les Librairies Python"
       contents: 
        - content/Cours_3/1-Dataframes.qmd
@@ -64,6 +70,24 @@ website:
        - content/Cours_3/4-Access_Internet.qmd
        - content/Cours_3/5-Feed_Internet.qmd
        - content/Cours_3/6-Visualisation.qmd
+       - content/Cours_3/bonus-pandas_short_examplet.qmd
+       - content/Cours_3/TP-pandas_and_geography.ipynb
+    - id: advanced_mix 
+      title: "Bonne pratiques, Dangers, et Astuces"
+      contents: 
+       - content/Cours_4/1-MutabilitéEtScopes
+       - content/Cours_4/2-TypageEnPython.qmd
+       - content/Cours_4//3-TournonsAutourduGIL.qmd
+       - content/Cours_4/TP-RequetteruneAPI.qmd
+    - id: advanced_mix_2 
+      title: "Concepts avancés"
+      contents: 
+       - content/Cours_5/1-AST.qmd
+       - content/Cours_5/2-POO_le_retour.qmd
+       - content/Cours_5/3-patterndesign.qmd
+       - content/Cours_5/TP-POO.qmd
+    - id: projects 
+      title: "Sujets de Projets possibles"
     - id: annexes 
       title: "Annexes"
       contents: 
