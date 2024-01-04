@@ -57,3 +57,5 @@ PyCharm, développé par JetBrains, est un Environnement de Développement Inté
 #### Conclusion
 
 PyCharm se distingue comme un choix privilégié pour les développeurs Python grâce à sa gamme étendue de fonctionnalités. Qu'il s'agisse de coder, de tester, de déboguer ou de gérer des projets complexes, PyCharm offre des outils puissants et une expérience de développement intégrée et fluide.
+
+Pour plus d'informations sur PyCharm, consultez la [documentation officielle](https://www.jetbrains.com/help/pycharm/quick-start-guide.html) et le [getting started guide](https://www.jetbrains.com/guide/python/tutorials/getting-started-pycharm/)
