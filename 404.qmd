@@ -4,16 +4,15 @@ toc: false
 sidebar: false
 title-block-style: none
 listing:
-    id: sample-listings
-    contents: content/**/*.qmd
-    type: grid
-    sort: "number"
-    categories: true
+   contents: content/**/*.qmd
+   type: grid
+   sort: "random"
+   categories: true
 ---
 
-# 404 - it seems you lost
+# 404 - {{< animate hinge "it seems you lost yourself !" >}}
 
-La page demandée n'existe pas ou n'existe plus 🙃. 
+La page demandée n'existe pas ou n'existe plus {{< animate bounce "🙃" >}}. 
 
 Essayez d'accéder à la page en navigant 
 sur le site grâce aux tables de matières ou

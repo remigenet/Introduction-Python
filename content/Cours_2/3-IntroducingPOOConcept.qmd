@@ -1,0 +1,221 @@
+---
+title: "Introduction à la POO en Python"
+weight: 10
+tags:
+  - Syntaxe
+  - Bases
+  - fonctions
+  - lambda
+  - decorateur
+  - variables
+  - import
+categories:
+  - Cours
+  - Fondamentaux
+type: book
+description: "Dans ce chapitre, nous explorons les principes fondamentaux de la Programmation Orientée Objet (POO) en Python. Les étudiants découvriront comment Python applique les concepts de la POO tels que l'encapsulation, l'héritage et le polymorphisme pour créer des modèles financiers complexes. Avec une emphase sur les applications pratiques en finance de marché, ce chapitre vise à doter les étudiants d'une compréhension robuste de la POO pour le développement de solutions logicielles sophistiquées et efficaces en Python."
+image: .img/poo.png
+code-links: binder
+---
+
+# Introduction à la notion de Programmation Orientée Objet (POO) en Python
+
+---
+
+## Section 3.1 : Introduction à la POO et Son Application en Python
+
+La Programmation Orientée Objet (POO) est un paradigme de programmation basé sur le concept d'« objets », qui peuvent contenir des données sous forme d'attributs, et du code sous forme de méthodes. En Python, la POO offre une approche flexible et puissante pour structurer et concevoir des applications.
+
+
+### Principes de Base de la POO
+
+- **Encapsulation**: Regroupe les données et les méthodes qui manipulent ces données au sein d'une unité appelée « classe ». Cela permet de cacher la représentation interne des données à l'extérieur de la classe, une pratique connue sous le nom de "cachette d'information".
+
+- **Héritage**: Permet à une classe de hériter des attributs et méthodes d'une autre classe. Cela facilite la réutilisation du code et la création d'une hiérarchie de classes.
+
+- **Polymorphisme**: Signifie que des fonctions ou des méthodes peuvent être utilisées avec des objets de différents types. Il s'appuie sur l'héritage pour fournir cette flexibilité.
+
+### POO en Python
+
+- Python est un langage multi-paradigme qui supporte à la fois la programmation procédurale et la POO. Ce qui le rend particulièrement puissant est sa capacité à offrir une syntaxe claire et une grande flexibilité dans la conception de classes et d'objets.
+
+- Contrairement à d'autres langages où les objets et les types de base sont distincts, en Python, tout est un objet. Cela inclut les types de base comme les nombres, les chaînes et les listes. Cette uniformité rend le langage cohérent et élégant.
+
+```{python}
+  a = 10
+  print(a.__class__)  # Affiche <class 'int'>
+```
+
+- En Python, même les fonctions sont des objets. Cela permet des concepts avancés comme les décorateurs et les fonctions de première classe.
+
+
+## Section 3.2 : L'Intérêt et les Avantages de la POO en Python
+
+La POO offre plusieurs avantages qui la rendent idéale pour un large éventail d'applications de programmation.
+
+
+### Pourquoi Utiliser la POO en Python### 
+
+- Modularité et Réutilisation du Code**: La POO en Python permet de créer des modules et des bibliothèques réutilisables. Les classes peuvent être conçues comme des composants réutilisables dans différents projets.
+
+- **Simplicité et Clarté**: La structure de classe en POO permet une organisation claire du code. Cela facilite la maintenance et la mise à jour des applications.
+
+- **Extensibilité**: La capacité à étendre les classes existantes via l'héritage rend le code adaptable et évolutif.
+
+- **Adaptabilité à de Multiples Domaines**: De la conception de jeux à l'intelligence artificielle et au développement web, la POO est utilisée dans de nombreux domaines, reflétant sa polyvalence et son adaptabilité.
+
+### Python et POO : Un Match Parfait### 
+
+- Python ajoute une touche de flexibilité et de simplicité à la POO, rendant l'apprentissage et l'utilisation de ce paradigme plus accessibles par rapport à des langages plus stricts et formels.
+
+- Les mécanismes avancés de Python, tels que le duck typing et les méthodes magiques, ouvrent des possibilités de conception et d'implémentation qui vont au-delà des approches traditionnelles de la POO.
+
+- L'écosystème riche de Python en frameworks et bibliothèques orientés objet (comme Django pour le web ou Pandas pour la manipulation de données) montre l'efficacité et la popularité de la POO dans la communauté Python.
+
+---
+
+## Section 3.3 : Définition et Utilisation des Classes en Python
+
+Les classes sont au cœur de la POO en Python. Elles servent de modèle pour créer des objets (instances).
+
+
+### Création de Classes
+
+- Une classe en Python est définie en utilisant le mot-clé `class`. Elle peut contenir des attributs (variables) et des méthodes (fonctions).
+
+```{python}
+class Voiture:
+    def __init__(self, marque, modele):
+        self.marque = marque
+        self.modele = modele
+
+    def afficher_info(self):
+        print(f"Marque: {self.marque}, Modèle: {self.modele}")
+
+# Création d'une instance de Voiture
+ma_voiture = Voiture("Toyota", "Corolla")
+ma_voiture.afficher_info()  # Affiche "Marque: Toyota, Modèle: Corolla"
+```
+
+- La méthode `__init__` est un constructeur. Elle est appelée lors de la création d'une nouvelle instance de la classe.
+
+### Utilisation des Objets
+
+- Après avoir défini une classe, vous pouvez créer des instances (objets) et accéder à leurs attributs et méthodes.
+
+```{python}
+# Création d'une autre instance de Voiture
+autre_voiture = Voiture("Honda", "Civic")
+autre_voiture.afficher_info()  # Affiche "Marque: Honda, Modèle: Civic"
+```
+
+## Section 3.4 : Héritage en Python
+
+L'héritage permet à une classe de hériter des attributs et méthodes d'une autre classe.
+
+
+### Création de Classes Dérivées
+
+- En Python, une classe peut hériter d'une autre classe, ce qui lui permet de reprendre ses attributs et méthodes.
+
+```{python}
+class VehiculeElectrique(Voiture):
+    def __init__(self, marque, modele, autonomie):
+        super().__init__(marque, modele)
+        self.autonomie = autonomie
+
+    def afficher_autonomie(self):
+        print(f"Autonomie: {self.autonomie} km")
+
+tesla = VehiculeElectrique("Tesla", "Model S", 600)
+tesla.afficher_info()        # Hérité de la classe Voiture
+tesla.afficher_autonomie()   # Spécifique à VehiculeElectrique
+```
+
+- La fonction `super()` est utilisée pour appeler le constructeur de la classe parente.
+
+## Section 3.5 : Polymorphisme en Python
+
+Le polymorphisme permet d'utiliser des objets de différentes classes de manière interchangeable.
+
+
+### Utilisation du Polymorphisme
+
+- Le polymorphisme se manifeste lorsqu'une interface commune (comme une méthode) est implémentée de différentes manières par différentes classes.
+
+```{python}
+def afficher_details_vehicule(vehicule):
+    vehicule.afficher_info()
+    if isinstance(vehicule, VehiculeElectrique):
+        vehicule.afficher_autonomie()
+
+afficher_details_vehicule(ma_voiture)      # Affiche les détails de la voiture
+afficher_details_vehicule(tesla)           # Affiche les détails du véhicule électrique
+```
+
+- La fonction `isinstance()` est utilisée pour vérifier le type d'une instance.
+
+---
+
+## Section 3.6 : Encapsulation et Abstraction dans la Modélisation Financière
+
+L'encapsulation et l'abstraction sont des principes de POO essentiels pour créer des modèles financiers robustes et flexibles.
+
+
+### Encapsulation dans les Modèles Financiers### 
+
+- L'encapsulation consiste à regrouper les données et les méthodes qui les manipulent, et à restreindre l'accès direct aux données d'une classe. Cela est crucial pour la sécurité et l'intégrité des modèles financiers.
+
+```{python}
+class Obligation:
+    def __init__(self, principal, taux_interet, maturite):
+        self.__principal = principal          # Encapsulé (attribut privé)
+        self.__taux_interet = taux_interet    # Encapsulé
+        self.__maturite = maturite            # Encapsulé
+
+    def calculer_prix(self):
+        # Méthode pour calculer le prix de l'obligation
+        # Utilise les attributs encapsulés
+        return self.__principal * (1 + self.__taux_interet) ** self.__maturite
+
+obligation = Obligation(1000, 0.05, 5)
+print(obligation.calculer_prix())  # Affiche le prix calculé
+```
+
+- Les attributs précédés de `__` sont considérés comme privés et ne sont pas accessibles directement en dehors de la classe.
+
+### Abstraction dans les Calculs Financiers
+
+- L'abstraction permet de créer des modèles simplifiés en ne retenant que les détails pertinents. Elle est utile pour modéliser des produits financiers complexes.
+
+  - Par exemple, une classe abstraite `ProduitFinancier` peut définir une interface pour le calcul du prix, tandis que les sous-classes concrétisent ces calculs pour différents produits.
+
+## Section 3.7 : Exemple Pratique en Finance de Marché
+
+Utilisons la POO pour modéliser un scénario financier concret, comme le pricing d'obligations.
+
+
+### Modélisation du Pricing d'Obligations
+
+- Imaginons que nous devons calculer le prix de différentes obligations avec des caractéristiques variées. Nous pouvons utiliser des classes pour modéliser ces obligations et effectuer les calculs nécessaires.
+
+```{python}
+class Obligation:
+    def __init__(self, nominal, coupon, maturite):
+        self.nominal = nominal
+        self.coupon = coupon
+        self.maturite = maturite
+
+    def prix(self, taux_marche):
+        cash_flows = [self.coupon * self.nominal for _ in range(self.maturite)]
+        cash_flows[-1] += self.nominal
+        return sum(cf / (1 + taux_marche)**t for t, cf in enumerate(cash_flows, 1))
+
+# Exemple d'utilisation
+obligation1 = Obligation(1000, 0.05, 3)
+obligation2 = Obligation(1000, 0.06, 5)
+print("Prix Obligation 1:", obligation1.prix(0.04))
+print("Prix Obligation 2:", obligation2.prix(0.04))
+```
+
+- Dans cet exemple, chaque instance de `Obligation` représente une obligation distincte. La méthode `prix` calcule le prix actuel de l'obligation en actualisant ses flux de trésorerie futurs au taux du marché.

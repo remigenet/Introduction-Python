@@ -1,0 +1,308 @@
+---
+title: "Fonctions et Modules"
+weight: 10
+tags:
+  - Syntaxe
+  - Bases
+  - fonctions
+  - lambda
+  - decorateur
+  - variables
+  - import
+categories:
+  - Cours
+  - Fondamentaux
+type: book
+description: "Ce chapitre se concentre sur les fonctions et les modules en Python, deux composants clés pour écrire un code propre et réutilisable. Il aborde la création de fonctions, la manipulation des arguments, l'utilisation des expressions lambda, ainsi que l'importation et l'organisation des modules. Des exemples pratiques illustrent comment ces éléments peuvent être utilisés pour structurer efficacement un projet Python et simplifier la gestion des dépendances."
+image: .img/functionsandmodules.png
+code-links: binder
+eval: fenced
+echo: true
+output: true
+---
+
+
+# Fonctions et Modules en Python
+
+---
+
+## Section 2.1 : Définition et Appel de Fonctions
+
+Les fonctions en Python sont des blocs de code réutilisables conçus pour effectuer une tâche spécifique. La création de fonctions bien définies est un élément clé de la programmation efficace et lisible.
+
+
+### Création de Fonctions
+
+- Pour définir une fonction en Python, utilisez le mot-clé `def`, suivi du nom de la fonction, des parenthèses et des paramètres.
+
+```{python}
+  def ma_fonction(param1, param2):
+      # Corps de la fonction
+      return param1 + param2
+```
+
+### Appel de Fonctions :
+  - Appelez une fonction en utilisant son nom suivi des arguments entre parenthèses.
+
+```{python}
+    resultat = ma_fonction(5, 3)  # Appel de la fonction avec 5 et 3 comme arguments
+```
+
+### Arguments et Portée des Variables
+
+### Arguments par Défaut et Nommés :
+  - Les fonctions peuvent avoir des arguments par défaut, qui prennent une valeur spécifiée si aucun argument n'est fourni.
+  - Les arguments nommés permettent de passer des arguments dans n'importe quel ordre en spécifiant leur nom.
+
+```{python}
+    def saluer(nom, message="Bonjour"):
+        return f"{message}, {nom}"
+
+    saluer("Alice")             # Utilise le message par défaut
+    saluer("Bob", "Salut")      # Utilise un message personnalisé
+    saluer(nom="Carol", message="Bienvenue")  # Arguments nommés
+```
+
+### Portée des Variables :
+  - Les variables définies dans une fonction ont une portée locale à cette fonction. Les variables définies en dehors ont une portée globale.
+
+```{python}
+    x = "global"
+
+    def exemple_scope():
+        y = "local"
+        print(x)  # Accède à la variable globale x
+        print(y)  # Accède à la variable locale y
+
+    exemple_scope()
+```
+
+## Section 2.2 : Modules et Packages
+
+Les modules et packages en Python permettent de structurer et d'organiser le code de manière logique et réutilisable.
+
+
+### Importation de Modules et Packages
+
+- Un module est un fichier Python contenant des fonctions, des classes et des variables, ainsi que du code exécutable.
+
+```{python}
+  import math
+  print(math.sqrt(16))  # Utilise la fonction s²qrt du module math
+```
+
+### Création et Utilisation de Packages
+
+- Un package est une collection de modules. Il contient un fichier spécial nommé `__init__.py`.
+
+  - Pour créer un package, créez un répertoire portant le nom du package, puis ajoutez-y des modules et un fichier `__init__.py`.
+
+  - Importez des modules spécifiques du package :
+
+```{python}
+    from monpackage import monmodule
+```
+
+## Section 2.3 : Lambda, Map, Filter, et Reduce
+
+Python propose des fonctions intégrées et des expressions lambda pour effectuer des opérations fonctionnelles courantes comme le mappage, le filtrage et la réduction des données.
+
+
+### Expressions Lambda
+
+- Les expressions lambda sont de petites fonctions anonymes.
+
+```{python}
+  doubler = lambda x: x * 2
+  print(doubler(5))  # Affiche 10
+```
+
+### Fonctions Map, Filter et Reduce
+
+- `map()` applique une fonction à chaque élément d'une séquence.
+- `filter()` crée une liste de tous les éléments pour lesquels une fonction renvoie True.
+- `reduce()` applique une fonction cumulativement aux éléments d'une séquence, de gauche à droite, pour réduire la séquence à une seule valeur.
+
+```{python}
+  # Exemple d'utilisation de map et filter
+  nombres = [1, 2, 3, 4, 5]
+  carres = list(map(lambda x: x2, nombres))
+  pairs = list(filter(lambda x: x % 2 == 0, carres))
+
+  # Utilisation de reduce
+  from functools import reduce
+  somme = reduce(lambda x, y: x + y, nombres)
+```
+
+---
+
+## Section 2.7 : Manipulation des Arguments de Fonction avec `*args` et `kwargs`
+
+En Python, `*args` et `kwargs` permettent de gérer de manière flexible un nombre variable d'arguments dans les fonctions.
+
+
+### Utilisation de `*args`
+
+- `*args` est utilisé pour passer une liste variable d'arguments non-nommés à une fonction. Les arguments sont accessibles comme une tuple.
+
+```{python}
+def fonction_avec_args(*args):
+    for arg in args:
+        print(arg)
+
+fonction_avec_args('Python', 'est', 'génial')
+```
+
+### Utilisation de `kwargs`
+
+- `kwargs` permet de passer une liste variable d'arguments nommés. Les arguments sont accessibles comme un dictionnaire.
+
+```{python}
+def fonction_avec_kwargs(kwargs):
+    for cle, valeur in kwargs.items():
+        print(f"{cle}: {valeur}")
+
+fonction_avec_kwargs(premier='Python', deuxieme='est', troisieme='génial')
+```
+
+## Section 2.8 : Expressions Lambda pour des Fonctions Anonymes
+
+Les expressions lambda en Python offrent un moyen compact de créer des fonctions anonymes pour des opérations simples.
+
+
+### Création et Utilisation d'Expressions Lambda
+
+- Les expressions lambda sont souvent utilisées pour des fonctions courtes et simples, comme des arguments pour des fonctions comme `map`, `filter`, et `sorted`.
+
+```{python}
+# Tri d'une liste de tuples basé sur le deuxième élément
+liste = [(1, 'd'), (2, 'b'), (3, 'c'), (4, 'a')]
+liste.sort(key=lambda x: x[1])
+print(liste)  # Affiche [(4, 'a'), (2, 'b'), (3, 'c'), (1, 'd')]
+```
+
+## Section 2.9 : Modules et Packages pour Structurer les Projets
+
+L'organisation des projets en modules et packages est essentielle pour maintenir une structure claire et une maintenance facile du code.
+
+
+### Création de Modules et Packages
+
+- Un module en Python est simplement un fichier `.py`. Pour utiliser un module, utilisez `import nom_du_module`.
+- Un package est un répertoire contenant un fichier spécial `__init__.py` et un ou plusieurs modules.
+
+### Importation de Modules et Packages
+
+- Utilisez `import` pour accéder aux fonctions, classes et variables d'un module ou package. Les alias peuvent être utilisés pour simplifier les noms.
+
+```{python}
+import mon_module as mm
+from mon_package import mon_module
+```
+
+### Avantages des Packages
+
+- Les packages permettent de regrouper des modules logiquement liés, facilitant ainsi la réutilisation et la distribution du code.
+- Ils aident à éviter les conflits de noms et rendent le code plus organisable et maintenable.
+
+
+## Section 2.10 : Mécanisme d'Importation en Python et Gestion des Dépendances
+
+La compréhension de la façon dont Python importe des modules et gère les chemins d'accès aux packages est essentielle pour éviter des erreurs courantes, notamment les dépendances circulaires.
+
+
+### Chemin de Recherche des Modules (PYTHONPATH)
+
+- Lorsque vous importez un module, Python recherche d'abord dans le répertoire courant, puis dans les répertoires listés dans la variable d'environnement `PYTHONPATH`, et enfin dans les emplacements par défaut.
+
+```{python}
+import sys
+print(sys.path)  # Affiche les chemins où Python recherche les modules
+```
+
+- `PYTHONPATH` est similaire à `PATH` vu précédemment. Il s'agit d'une liste de répertoires dans lesquels Python cherche des modules à importer.
+
+### Importation de Modules
+
+- Lorsque vous utilisez `from X import Y`, Python exécute tout le code à la racine du module `X`. Cela signifie que tout code au niveau du module, y compris les importations, sera exécuté lors de l'importation.
+
+```{python}
+# Dans le module X.py
+print("Module X importé")
+def fonction_Y():
+    print("Fonction Y exécutée")
+
+# Dans un autre module
+from X import fonction_Y  # Affiche "Module X importé" lors de l'exécution
+```
+
+### Dépendances Circulaires
+
+- Une dépendance circulaire se produit lorsque deux modules s'importent mutuellement. Cela peut entraîner des erreurs d'exécution car l'ordre d'importation peut affecter la disponibilité des fonctions et des classes.
+
+  - Pour éviter cela, structurez votre code pour minimiser les dépendances inter-modules.
+  - Considérez l'utilisation de l'importation à l'intérieur des fonctions ou des classes si l'importation est nécessaire uniquement dans une portée locale.
+
+### Bonnes Pratiques d'Importation
+
+- Évitez les importations génériques (`from module import *`) car elles peuvent polluer l'espace de noms.
+- Utilisez des alias pour clarifier l'origine des modules ou pour éviter des conflits de noms.
+
+```{python}
+import numpy as np  # Utilisation d'un alias pour numpy
+```
+
+
+## Section 2.11 : Coût des Importations Répétées et Abréviations Standard en Python
+
+Comprendre les subtilités des importations en Python, y compris leur coût et les conventions d'abréviation, peut améliorer la lisibilité et l'efficacité du code.
+
+
+### Coût des Importations Répétées
+
+- En Python, importer plusieurs fois le même module ne pénalise pas les performances de manière significative. Lorsqu'un module est importé pour la première fois, il est compilé en bytecode et stocké en mémoire. Les importations suivantes du même module font simplement référence à la version en mémoire.
+
+```{python}
+import math  # Le module est chargé en mémoire
+import math  # Référence le module déjà chargé, sans coût supplémentaire
+```
+
+- Cela signifie que vous pouvez importer le même module dans différents fichiers ou plusieurs fois dans le même fichier sans vous soucier d'un impact négatif sur les performances.
+
+### Abréviations Standard des Modules Courants
+
+- Il existe des conventions d'abréviations pour certains modules fréquemment utilisés en Python. Utiliser ces abréviations peut rendre votre code plus lisible et conforme aux standards de la communauté.
+
+  | Module             | Abréviation Standard |
+  |--------------------|----------------------|
+  | pandas             | pd                   |
+  | numpy              | np                   |
+  | matplotlib.pyplot  | plt                  |
+  | seaborn            | sns                  |
+  | tensorflow         | tf                   |
+  | scikit-learn       | skl                  |
+  | scipy              | sp                   |
+  | os                 | os (généralement utilisé tel quel) |
+  | sys                | sys (généralement utilisé tel quel) |
+
+- Ces abréviations sont largement reconnues et leur utilisation est recommandée pour maintenir la cohérence avec les pratiques de la communauté Python.
+
+### Bonnes Pratiques d'Importation
+
+- En plus d'utiliser des abréviations standard, il est également conseillé de regrouper les importations en haut du fichier.
+- Séparez les importations standard, tierces et locales par des lignes vides pour une meilleure lisibilité.
+
+```{python}
+  # Importations standard
+import os
+import sys
+
+# Importations tierces
+import numpy as np
+import pandas as pd
+
+# Importations locales
+from mon_module import ma_fonction
+```
+```
+

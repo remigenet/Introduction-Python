@@ -16,55 +16,57 @@ description: Explorer la notion de PATH, un élément essentiel dans la configur
 image: .img/path.png
 ---
 
-### 1. Définition et Fonctionnement Général de PATH
 
-#### a. Définition de PATH
+# Chapitre 4 - Le PATH ? C'est quoi ?
+
+---
+## Section 4.1 - Définition de PATH
 - `PATH` est une variable d'environnement utilisée par le système d'exploitation pour localiser les fichiers exécutables requis pour lancer des programmes ou des commandes.
 - Elle contient une liste de répertoires séparés par un délimiteur spécifique au système d'exploitation : point-virgule (`;`) pour Windows et deux-points (`:`) pour Unix/Linux.
 
-#### b. Fonctionnement de PATH
+## Section 4.2 - Fonctionnement de PATH
 - Lorsqu'une commande est saisie dans le terminal ou l'invite de commande, le système parcourt les répertoires listés dans `PATH` à la recherche d'un fichier exécutable correspondant au nom de la commande.
 - Si le fichier est trouvé, il est exécuté. Sinon, un message d'erreur indique que la commande est introuvable.
 
-### 2. Modification de PATH
+## Section 4.3 - Modification de PATH
 
-#### a. Pourquoi Modifier PATH?
+### Pourquoi Modifier PATH?
 - Ajouter de nouveaux chemins à `PATH` est souvent nécessaire après l'installation de nouveaux logiciels ou scripts pour permettre leur exécution depuis n'importe quel répertoire.
 - La modification de `PATH` facilite l'accès à ces programmes sans avoir besoin de naviguer vers leur répertoire d'installation ou de spécifier leur chemin complet.
 
-#### b. Comment Modifier PATH?
+### Comment Modifier PATH?
 - Sous Windows, `PATH` peut être modifié via les Propriétés Système ou l'Éditeur de Registre.
 - Sous Unix/Linux et MacOS, `PATH` est généralement modifié en éditant les fichiers de configuration de l'interpréteur de commandes, tels que `.bashrc`, `.bash_profile`, ou `.zshrc`.
 
-### 3. Importance et Utilisation de PATH
+## Section 4.4 - Importance et Utilisation de PATH
 
-#### a. Simplification d'Accès
+### Simplification d'Accès
 - `PATH` permet de lancer des applications et des scripts facilement depuis n'importe quel répertoire dans le terminal, en supprimant le besoin de saisir des chemins complets.
 
-#### b. Organisation des Exécutables
+### Organisation des Exécutables
 - Une gestion efficace de `PATH` aide à maintenir une organisation claire des programmes et scripts fréquemment utilisés, en centralisant leur accès.
 
 ### 4. Sécurité et PATH
 
-#### a. Risques de Sécurité
+**Risques de Sécurité**
 - Ajouter des répertoires non sécurisés ou de sources inconnues à `PATH` peut exposer le système à des risques de sécurité. Des exécutables malveillants dans ces répertoires pourraient être lancés involontairement.
 
-#### b. Bonnes Pratiques
+**Bonnes Pratiques**
 - Il est recommandé de n'ajouter que des répertoires de confiance à `PATH` et de vérifier régulièrement son contenu pour éviter des risques de sécurité.
 
-### 5. Configuration de PATH pour Windows, Linux, et MacOS
+## Section 4.5 - Configuration de PATH pour Windows, Linux, et MacOS
 
-#### a. Windows
+#### Windows
 - **Accès à PATH** : Accessible via Panneau de configuration > Système > Paramètres système avancés > Variables d'environnement.
 - **Modification** : Ajouter ou modifier les valeurs dans la variable `Path` sous Variables d'environnement.
 - **Application des Changements** : Les modifications prennent effet après redémarrage de l'invite de commande ou redémarrage du système.
 
-#### b. Linux
+#### Linux
 - **Fichiers de Configuration** : `.bashrc`, `.bash_profile`, ou `.profile` dans le répertoire personnel de l'utilisateur.
 - **Modification** : Ajouter `export PATH="/nouveau/chemin:$PATH"` au fichier correspondant.
 - **Application des Changements** : Exécuter `source ~/.bashrc` ou ouvrir un nouveau terminal.
 
-#### c. MacOS
+#### MacOS
 - Similaire à Linux, MacOS utilise `.bash_profile` ou `.zshrc` pour les utilisateurs de zsh.
 - La modification et l'application des changements sont identiques à celles de Linux.
 

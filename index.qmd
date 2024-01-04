@@ -10,7 +10,7 @@ listing:
     categories: true
 ---
 
-# Introduction à Python 
+# {{< animate backInDown "Introduction à Python !" >}} 
 
 ## Rémi Genet
 

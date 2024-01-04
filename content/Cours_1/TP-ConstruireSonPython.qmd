@@ -17,6 +17,8 @@ image: .img/tpcompile.png
 ### TP - Construire Python depuis la Source
 
 Afin de vous aider pour réaliser ce TP, vous trouverez une fiche sur l'utilisation de git [ici](../Annexes/git_basics.qmd), ainsi qu'une fiche sur les commandes de base du terminal Linux pour ceux qui n'en ont pas l'habitude [ici](../Annexes/LinuxTerminal.qmd).
+Pour ceux ayant déjà fait du C ce TP devrait être assez simple, pour les autres, il vous faudra un peu plus de temps pour comprendre les différentes étapes.
+
 
 #### Partie 1 : Préparation et Clonage du Répertoire Git de CPython
 

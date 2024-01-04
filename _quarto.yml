@@ -16,7 +16,6 @@ website:
       - sidebar:introduction
       - sidebar:discover
       - sidebar:annexes
-
     tools:
       - icon: github
         menu:
@@ -48,11 +47,17 @@ website:
         - content/Cours_1/TP-ConstruireSonPython.qmd
       icon: book
     - id: discover 
-      title: "Premiers pas"
-      contents: content/Cours_2/*.qmd
+      title: "Syntaxes et Concepts de Base"
+      contents: 
+       - content/Cours_2/1-FondamentauxSyntaxique.qmd
+       - content/Cours_2/2-FonctionsEtModules.qmd
+       - content/Cours_2/3-IntroducingPOOConcept.qmd
     - id: annexes 
       title: "Annexes"
-      contents: content/Annexes/*.qmd
+      contents: 
+      - content/Annexes/LinuxTerminal.qmd
+      - content/Annexes/git_basics.qmd
+      - content/Annexes/git_advanced.qmd
         
   repo-url: https://github.com/remigenet/Introduction-Python
   repo-branch: main
@@ -67,23 +72,35 @@ website:
       [Code source disponible sur {{< fa brands github >}} `GitHub`](https://github.com/remigenet/Introduction-Python)
 
 
+format:
+  html:
+    light: sandstone
+    dark: darkly
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    code-overflow: wrap
+    # embed-resources: true
 
+
+  
 crossref:
   chapters: true
 
-format-links: false
-author: Rémi Genet
+# format-links: true
+author: Remi Genet
 date: today
 date-format: iso
 page-layout: article
-title-block-banner: "#e9f3fa"
+# title-block-banner: "#e9f3fa"
 
 validate-yaml: false
-jupyter: python3
+# jupyter: python3
 
-wrap: preserve
-keep-ipynb: true
-#cache: true
+# wrap: preserve
+# cache: true
+# keep-ipynb: true
+
 
 
 google-scholar: true

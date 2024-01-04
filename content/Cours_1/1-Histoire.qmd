@@ -15,12 +15,19 @@ image: .img/history.png
 ---
 
 
-### a - Origines 
+# L'histoire de Python
+
+---
+
+## Section 1.1 - Origines
+
 Python, un langage de programmation de haut niveau, a été inventé par Guido van Rossum, dont la première version a été publiée en 1991. Ce langage, nommé d'après la série télévisée britannique "Monty Python's Flying Circus", a été conçu pour allier clarté syntaxique et puissance fonctionnelle.
 
 Python a évolué au fil des années, en gardant son principe directeur : une syntaxe qui favorise la lisibilité et la simplicité. Cette approche a conduit à un langage qui est à la fois facile à apprendre pour les débutants et puissant pour les développeurs expérimentés. Python est interprété, ce qui signifie que les scripts sont exécutés ligne par ligne, permettant une débogage et une interaction faciles.
 
-Sa philosophie, encapsulée dans le [**"Zen de Python" (PEP 20)**](https://peps.python.org/pep-0020/), guide la rédaction de programmes efficaces et lisibles. Il s'agit un ensemble de 19 aphorismes pour écrire de bons programmes en Python. Parmi les plus célèbres, on trouve "Beautiful is better than ugly", "Explicit is better than implicit" et "Simple is better than complex".
+Sa philosophie, encapsulée dans le [[**"Zen de Python" (PEP 20)**](https://peps.python.org/pep-0020/)]{.animate__animated .animate__pulse .animate__infinite style="display:inline-block;"}
+
+, guide la rédaction de programmes efficaces et lisibles. Il s'agit un ensemble de 19 aphorismes pour écrire de bons programmes en Python. Parmi les plus célèbres, on trouve "Beautiful is better than ugly", "Explicit is better than implicit" et "Simple is better than complex".
 Cette philosophie a été un facteur clé dans le succès de Python, en particulier pour les débutants qui peuvent facilement apprendre le langage et écrire des programmes simples et lisibles et est à garder en tête lors de l'écriture de code Python. 
 
 ```latex
@@ -49,7 +56,8 @@ Pour autant, bien que simple à prendre en main, Python est un langage puissant 
 
 En résumé, le succès de Python repose sur plusieurs facteurs : sa simplicité, sa polyvalence (il est utilisé dans le développement web, l'analyse de données, l'intelligence artificielle, la science des données, et bien d'autres domaines), et une communauté active qui contribue à un écosystème riche en bibliothèques et frameworks.
 
-### b - et évolution
+
+## Section 1.2 - et évolution
 
 Mais le language existe depuis 1991, et a donc évolué au fil des années. En effet, les besoins comme les machines ont changé, et comme la langue humaine, le language de programmation a évolué pour s'adapter à ces changements. 
 
@@ -68,7 +76,7 @@ Et bien qu'il ai fallu 12 ans pour que Python 3 devienne la version officielle d
 - **asyncio en Python 3.5**: Le module `asyncio` a été introduit dans Python 3.5, marquant un changement significatif dans la gestion de la concurrence et des opérations asynchrones. Il permet d'écrire du code asynchrone en utilisant la syntaxe `async`/`await`, facilitant la création de programmes non bloquants.
 - **Améliorations continues**: Depuis Python 3.5, il y a eu des améliorations continues dans les fonctionnalités asynchrones, rendant Python plus adapté pour des applications nécessitant de hautes performances en matière de concurrence et d'asynchronisme.
 
-### c - Popularité et Critiques
+## Section 1.3 -  - Popularité et Critiques
 
 **Pourquoi Python est largement adopté :**
 1. **Facilité d'apprentissage et de lecture**: La syntaxe de Python est conçue pour être intuitive et lisible, ce qui rend l'apprentissage du langage plus accessible aux débutants.
@@ -85,7 +93,8 @@ Et bien qu'il ai fallu 12 ans pour que Python 3 devienne la version officielle d
 5. **Versionnage**: La transition de Python 2 à Python 3 a créé des problèmes de compatibilité, bien que cela se soit amélioré avec le temps. 
 
 
-### d - Comprendre ces limites
+
+## Section 1.4 - Comprendre ces limites
 
 
 Ces limites viennent de l'histoire du language, et de ses choix de conception. D'une part, Python est un language interprété, et donc il est plus lent que les languages compilés. Cela vient du fait que l'interpréteur Python doit lire le code, le comprendre, et l'exécuter, alors qu'un compilateur va transformer le code en langage machine, et donc le code est directement exécutable. 
@@ -94,7 +103,8 @@ Cela vient du typage dynamique de Python, qui permet de ne pas avoir à déclare
 
 Et cela vient du fait que la language a été développé à une époque où les ordinateurs n'avaient qu'un seul CPU, et donc ne pouvaient exécuter qu'une seule instruction à la fois. Cela a conduit à un language qui n'est pas adapté à la programmation parallèle, et donc qui ne peut pas tirer parti des architectures modernes qui ont plusieurs CPU, et donc peuvent exécuter plusieurs instructions en même temps, du moins pas de la même façon que le peut un language comme C. Ce problème est très connu et se nomme le GIL (Global Interpreter Lock), il est un problème qui est connu depuis longtemps, mais qui n'a pas encore été résolu. Un peu de lecture, pour les plus curieux : [Python GIL](https://realpython.com/python-gil/), [Python GIL](https://wiki.python.org/moin/GlobalInterpreterLock), [Python GIL](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/gil/gil.md)
 
-### e - Les Peps
+
+## Section 1.5 - Les Peps
 
 Les PEPs (Python Enhancement Proposals) sont des propositions d'amélioration du langage Python. Ils sont utilisés pour discuter des nouvelles fonctionnalités et des changements de comportement du langage. Ils sont également utilisés pour décrire les normes de codage, les processus de développement et les décisions de conception. Les PEPs sont des documents vivants et peuvent être modifiés à mesure que de nouvelles informations sont disponibles.
 
@@ -105,6 +115,6 @@ Les PEPs sont numérotés et organisés dans une hiérarchie. Les PEPs sont num�
   
 Les PEPs sont écrits en utilisant le format reStructuredText, et sont publiés sur le site web officiel de Python. Les PEPs sont discutés et révisés par la communauté Python, et sont acceptés ou rejetés par le BDFL (Benevolent Dictator For Life), Guido van Rossum.
 
-Dans les derniers PEPs, l'un pourrait changer radicalement Python, le [PEP 703 – Making the Global Interpreter Lock Optional in CPython](https://peps.python.org/pep-0703/) qui propose de supprimer le GIL, et donc de permettre à Python d'être utilisé pour de la programmation parallèle. Cela permettrait à Python de tirer parti des architectures modernes.
+Dans les derniers PEPs, l'un pourrait changer radicalement Python, le [PEP 703 – Making the Global Interpreter Lock Optional in CPython](https://peps.python.org/pep-0703/)] qui propose de supprimer le GIL, et donc de permettre à Python d'être utilisé pour de la programmation parallèle. Cela permettrait à Python de tirer parti des architectures modernes.
 
-[**Cela en tête nous pouvons donc commencer à apprendre Python, et à comprendre comment il fonctionne.**](2-Python_Execution.qmd)
+[[**Cela en tête nous pouvons donc commencer à apprendre Python, et à comprendre comment il fonctionne.**](2-Python_Execution.qmd)]{.animate__animated .animate__pulse .animate__infinite style="display:inline-block;"}

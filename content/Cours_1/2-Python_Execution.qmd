@@ -14,13 +14,18 @@ description: Explorer les mécanismes sous-jacents à l'exécution d'un programm
 image: .img/compiled_vs_interpreted.png
 ---
 
-### a - Un programme - Comment ca marche ?
+
+# Chapitre 2 - D'abord, un petit cours d'informatique !
+
+---
+
+## Section 2.1 - Un programme - Comment ca marche ?
 
 L'apprentissage de la programmation en Python ne nécessite pas de connaissances préalables en informatique, mais comprendre comment un programme est exécuté est essentiel. Cette compréhension aide à gérer les packages, à résoudre les problèmes de version et à collaborer efficacement.
 
 Un programme est une série d'instructions écrites dans un langage compréhensible par un ordinateur, connu sous le nom de langage machine, composé de séquences binaires (0 et 1). Pour traduire un langage de haut niveau en langage machine, un processus de compilation est nécessaire.
 
-### b - La compilation ?
+## Section 2.2 - La compilation ?
 
 La compilation est le processus qui consiste à traduire le code source en code machine, mais cela ne fait pas "que" cela, il va aussi vérifier que le code source est correcte. C'est à dire qu'il va vérifier que le code source est bien écrit dans le language que l'on a choisi. C'est ce que l'on appelle la syntaxe. Il va aussi vérifier que le code source est logique. C'est à dire qu'il va vérifier que le code source est bien écrit dans le bon ordre. C'est ce que l'on appelle la sémantique. Si le code source n'est pas correcte, le compilateur va nous renvoyer une erreur. C'est ce que l'on appelle une erreur de compilation. C'est une erreur qui se produit avant l'exécution du programme. 
 
@@ -30,7 +35,7 @@ C'est optimisation prennent cependant du temps, et ne sont pas toutes sans risqu
 
 **Mais en Python, il n'y a pas de compilation ! Magie ?**
 
-### c - L'interprétation !
+## Section 2.3 - L'interprétation !
 
 Python, comme tout les programmes qui s'execute sur l'ordinateur, provient bien d'un code qui a été compilé à un moment. La différence vient du fait que c'est l'interpreteur qui a été compilé, et qui est un programme va être capable de lire le code python et de le transformé au fur et à mesure en code machine. C'est ce que l'on appelle l'interprétation. C'est un processus qui se fait en deux étapes. 
 
@@ -41,7 +46,7 @@ En Python, l'interpreteur va alors produire un **Bytecode**. C'est un code inter
 L'interpréteur exécute ce bytecode, ce qui entraîne l'exécution des instructions écrites dans le fichier source. Ce processus diffère de celui des langages compilés comme C ou Java, où le code source est d'abord entièrement transformé en code machine avant l'exécution. En Python, la compilation en bytecode et l'exécution sont des étapes dynamiques, ce qui confère au langage sa flexibilité et sa facilité de débogage, mais aussi impacte sa vitesse d'exécution. 
 
 
-### d - Binaire Compilé et Interprétation du Code Python
+## Section 2.4 - Binaire Compilé et Interprétation du Code Python
 L'exécution d'un programme Python implique l'utilisation d'un binaire compilé de l'interpréteur Python. Ce processus est fondamental pour comprendre comment Python fonctionne sous le capot.
 
 1. **Le Binaire Compilé**: Lorsqu'on installe Python, on télécharge en fait un binaire compilé de l'interpréteur Python, ou selon les cas l'ensemble des morceaux necessaire pour que notre machine le construise. Ce binaire est spécifique à chaque système d'exploitation et architecture matérielle. Par exemple, les binaires pour Windows diffèrent de ceux pour Linux ou MacOS, comme les binaires des Mac M1 sont très différents de ceux des Mac avec les anciens processeurs Intel.
@@ -50,4 +55,4 @@ L'exécution d'un programme Python implique l'utilisation d'un binaire compilé 
 
 Ce mécanisme d'interprétation via un binaire compilé est une caractéristique clé de Python, contribuant à sa polyvalence et sa facilité d'utilisation dans divers environnements de développement.
 
-[**Mais donc, qui produit se binaire ? Y'en a-t-il une seule implémentation ? Puis-je le compiler moi même ? **](3-ManyPythons.qmd)
+[[**Mais donc, qui produit se binaire ? Y'en a-t-il une seule implémentation ? Puis-je le compiler moi même ? **](3-ManyPythons.qmd)]{.animate__animated .animate__pulse .animate__infinite style="display:inline-block;"}

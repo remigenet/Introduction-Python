@@ -15,70 +15,71 @@ description: Explorer les diverses implémentations de Python et le processus de
 image: .img/python_versions.png
 ---
 
-## 3. Versions et Compilation de Python
 
+# Chapitre 3 - Python ? Oui mais lequels 
 
-### a - Les Différentes "Saveurs" de Python: CPython, Jython, IronPython, PyPy
+---
+## Section 3.1 - Les Différentes "Saveurs" de Python: CPython, Jython, IronPython, PyPy
 Python, en tant que langage, existe sous différentes implémentations, chacune ayant des caractéristiques uniques adaptées à des besoins spécifiques. Voici quelques-unes des plus connues :
 
-1. **CPython**:
+### CPython:
    - **Description**: C'est l'implémentation standard et la plus répandue de Python, écrite en C. CPython est souvent le choix par défaut pour le développement général en Python, bien qu'il soit limité par le Global Interpreter Lock (GIL).
    - **Utilisation**: Idéal pour des applications générales, CPython est souvent utilisé pour le développement de logiciels et l'écriture de scripts.
    - **Caractéristiques**: Il offre un bon équilibre entre performance et facilité d'utilisation et possède le plus grand nombre de bibliothèques tierces disponibles. Mais, comme vu dans la partie 1, c'est aussi une version qui repose actuellement sur le GIL.
 
-2. **Jython**:
+### Jython:
    - **Description**: Jython est conçu pour la machine virtuelle Java (JVM), permettant l'intégration avec des environnements Java. Contrairement à CPython, Jython n'est pas restreint par le GIL, ce qui le rend plus adapté pour des applications nécessitant du multithreading.
    - **Utilisation**: Elle permet aux développeurs d'utiliser des bibliothèques Java dans leurs programmes Python et vice-versa.
    - **Caractéristiques**: Jython est particulièrement utile pour les applications nécessitant l'intégration de Python avec des environnements Java existants. 
 
-3. **IronPython**:
+### IronPython:
    - **Description**: IronPython est conçu pour être compatible avec le Common Language Runtime (CLR) de Microsoft .NET.
    - **Utilisation**: Cette implémentation permet d'utiliser des bibliothèques .NET dans des programmes Python et d'intégrer Python dans des applications .NET.
    - **Caractéristiques**: IronPython est idéal pour les développeurs travaillant dans l'écosystème .NET et souhaitant utiliser Python.
 
-4. **PyPy**:
+### PyPy:
    - **Description**: PyPy est une implémentation de Python axée sur la performance et l'efficacité.
    - **Utilisation**: Utilisée principalement lorsque la vitesse d'exécution est critique.
    - **Caractéristiques**: PyPy utilise la compilation JIT (Just-In-Time) pour accélérer l'exécution des programmes Python. Cela peut entraîner des performances nettement meilleures, en particulier pour les programmes lourds en calcul. Attention toutefois à ne pas confondre vitesse et précipitations, cette versions repose toutefois toujours sur le GIL.
 
 Chaque implémentation a ses avantages et peut être choisie selon les exigences spécifiques d'un projet. CPython reste l'implémentation dominante, mais les autres offrent des alternatives précieuses pour divers cas d'utilisation.
 
-### b - Pourquoi PyPy ne remplace pas complètement CPython: Différences et Limitations
+## Section 3.2 - Pourquoi PyPy ne remplace pas complètement CPython: Différences et Limitations
 
 Une question vient évidemment, pourquoi si PyPy offre des améliorations significatives en termes de performance, alors ne remplace-t-il pas CPython ? Bien que grâce à son approche JIT (Just-In-Time), il y a plusieurs raisons pour lesquelles il ne remplace pas complètement CPython :
 
-1. **Compatibilité avec les Extensions C**:
+### Compatibilité avec les Extensions C:
    - **CPython**: Étant l'implémentation de référence, CPython jouit d'une excellente compatibilité avec les extensions écrites en C. Ces extensions sont largement utilisées dans l'écosystème Python pour améliorer les performances et pour l'interaction avec des systèmes de bas niveau.
    - **PyPy**: PyPy a des difficultés à intégrer certaines extensions C, notamment celles qui sont étroitement liées aux détails internes de CPython. Cette limitation peut poser des problèmes de compatibilité avec des bibliothèques importantes.
 
-2. **Performance dans Certaines Situations**:
+### Performance dans Certaines Situations:
    - **CPython**: Fournit des performances stables et prévisibles sur une large gamme d'applications. Pour des tâches spécifiques, en particulier celles qui impliquent beaucoup d'appels à des bibliothèques C, CPython peut être plus rapide.
    - **PyPy**: Excellente performance pour les programmes Python purs, mais peut être moins performant dans des scénarios mixtes (Python et C) ou pour des scripts courts où l'overhead de JIT n'est pas amorti.
 
-3. **Consommation de Mémoire**:
+### Consommation de Mémoire**:
    - **PyPy**: En raison de sa nature JIT, PyPy peut consommer plus de mémoire que CPython, en particulier pour des programmes de longue durée où le compilateur JIT génère et stocke de nombreuses versions optimisées de morceaux de code.
 
-4. **Adoption et Support de la Communauté**:
+### Adoption et Support de la Communauté:
    - **CPython**: Bénéficie d'une adoption massive et d'un support étendu de la part de la communauté Python. La plupart des développements, des tutoriels, et des supports se concentrent sur CPython.
    - **PyPy**: Bien que gagnant en popularité, PyPy ne jouit pas du même niveau de support communautaire, et certains développeurs peuvent être moins familiers avec ses particularités.
 
-5. **Cas d'Utilisation Spécifique**:
+### Cas d'Utilisation Spécifique**:
    - **PyPy**: Idéal pour des applications à longue durée d'exécution et intensives en calcul, où les avantages de JIT peuvent être pleinement exploités.
    - **CPython**: Mieux adapté pour des applications générales, des scripts de courte durée, et des cas où la compatibilité avec l'écosystème existant est cruciale.
 
 En résumé, bien que PyPy soit une alternative puissante à CPython, surtout en termes de vitesse d'exécution pour certains types de programmes, il ne peut pas remplacer complètement CPython en raison de problèmes de compatibilité, de différences de performance dans certains scénarios, et de la prévalence de CPython dans la communauté Python.
 
-**Et pour vous, comment utiliser cette information?**:
+## Section 3.3 - Et pour vous, comment utiliser cette information?:
 Bien que ces versions n'offrent pas toujours les même possibilités, le language reste strictement le même. Ainsi, dans certains cas où le besoin de performance est plus important, le fait de simplement changé d'interpreteur peut si il n'y a pas de conflit permettre de gagner de très nombreuses heures d'optimisation!
 
 
-### c - Compiler un Code Python: Cloner et Construire CPython
+## Section 3.4 - Compiler un Code Python: Cloner et Construire CPython
 Nous avons vu la théorie, mais dans la pratique, très peu de développeur ont recompiler leur binaire de python. Mais, où trouver le code ? Le compilateur ? Y-a-t-il un interet à compiler Python soit même, dans la vie de tout les jours du développeur NON, l'intérêt reste marginale, mais pour autant:
    - Il y a un interet **pédagogique** - cela permet de comprendre comment compiler depuis la source (le code brut), installer un binaire etc... Ainsi cela peut vous permettre d'ajouter par exemple sans droit administrateur des versions de python de votre choix, par exemple à l'université ! 
    - Cela peut permettre d'améliorer la performance de votre intepreteur, celui-ci étant alors compilé spécficiquement pour votre PC, les compilateurs proposant par exemple l'utilisation de la PGO (Profile Guided Optimization), où l'interet est d'améliorer le premier binaire créer après l'avoir fait tourner sur la machine sur une charge de travail représentative pour le rendre plus performant. 
    - Profiter des améliorations de Python qui n'ont pas encore été intégré - possiblements des mois avant qu'ils ne soient disponibles 
 
 
-### d - Les étapes
+## Section 3.5 - Les étapes
 
 Compiler Python à partir du code source permet de comprendre le processus sous-jacent et d'adapter l'installation aux besoins spécifiques. Les étapes sont détaillé dans le [TP Constuire son python](TP-ConstruireSonPython.qmd)
