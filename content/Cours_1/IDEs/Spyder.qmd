@@ -18,6 +18,8 @@ image: ../.img/spyder.png
 
 Spyder est un Environnement de Développement Intégré (IDE) créé spécifiquement pour répondre aux besoins des scientifiques, des ingénieurs et des analystes de données qui utilisent Python. Il se distingue par son orientation vers la science des données, offrant des outils et fonctionnalités adaptés à ce domaine.
 
+![](.img/spyder1.png)
+
 #### 1. Fonctionnalités Clés de Spyder
 
 - **Interface Utilisateur Intuitive** :
@@ -40,6 +42,9 @@ Spyder est un Environnement de Développement Intégré (IDE) créé spécifique
 #### 3. Gestion des Environnements Virtuels
 
 - Spyder permet de gérer facilement les environnements virtuels Python, ce qui est crucial pour maintenir les dépendances spécifiques à chaque projet isolées et gérables.
+
+![](.img/spyder2.png)
+
 
 #### 4. Personnalisation et Extensions
 

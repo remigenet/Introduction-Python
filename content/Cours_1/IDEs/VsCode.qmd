@@ -19,6 +19,8 @@ image: ../.img/vscode.png
 
 Visual Studio Code, communément appelé VS Code, est un IDE largement adopté par la communauté des développeurs Python. Sa réputation repose sur sa légèreté, sa flexibilité et ses capacités de personnalisation. Examinons en détail les caractéristiques qui font de VS Code un choix privilégié pour le développement Python.
 
+![](.img/VSCode.png)
+
 #### 1. Caractéristiques Principales de VS Code
 
 - **Éditeur Polyvalent** :
@@ -57,6 +59,8 @@ Visual Studio Code, communément appelé VS Code, est un IDE largement adopté p
   
 - **Développement Web** :
   - L'IDE fournit un support exhaustif pour les technologies web, facilitant le développement tant sur le front-end que le back-end.
+
+![](.img/copilot.jpg)
 
 #### 6. Communauté Active et Mises à Jour Constantes
 

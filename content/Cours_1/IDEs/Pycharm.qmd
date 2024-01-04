@@ -19,6 +19,10 @@ image: ../.img/pycharm.png
 
 PyCharm, développé par JetBrains, est un Environnement de Développement Intégré (IDE) conçu spécifiquement pour Python. Il est reconnu pour son ensemble complet de fonctionnalités qui soutiennent et facilitent le développement en Python. Voyons de plus près ce qui rend PyCharm si apprécié dans la communauté Python.
 
+![](.img/pucharmmain.png)
+
+
+
 #### 1. Fonctionnalités de PyCharm
 
 - **Support Intelligent du Code** :
@@ -37,6 +41,8 @@ PyCharm, développé par JetBrains, est un Environnement de Développement Inté
 
 - PyCharm simplifie la création et la gestion des environnements virtuels Python, permettant une séparation efficace des dépendances entre les projets.
 - L'IDE offre une interface utilisateur intuitive pour la gestion des packages Python, facilitant l'installation et la mise à jour des bibliothèques.
+
+![](.img/pycharm_ssh_runner.webp)
 
 #### 3. Interface Utilisateur et Personnalisation
 

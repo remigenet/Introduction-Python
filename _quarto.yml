@@ -6,7 +6,8 @@ filters:
 
 website:
   title: "Introduction à Python"
-  favicon: /content/.img/favicon.png
+  open-graph: true
+  favicon: content/.img/favicon.png
   page-navigation: true
   back-to-top-navigation: true
   reader-mode: true
@@ -75,6 +76,7 @@ website:
       [Code source disponible sur {{< fa brands github >}} `GitHub`](https://github.com/remigenet/Introduction-Python)
 
 
+
 format:
   html:
     light: sandstone
@@ -83,48 +85,14 @@ format:
     toc: true
     toc-depth: 3
     code-overflow: wrap
-    # embed-resources: true
 
-
-  
-crossref:
-  chapters: true
-
-# format-links: true
+format-links: true
 author: Remi Genet
 date: today
 date-format: iso
 page-layout: article
-
 google-scholar: true
 commentable: true
-# title-block-banner: "#e9f3fa"
-
 validate-yaml: false
-# jupyter: python3
-
-# wrap: preserve
-# cache: true
-# keep-ipynb: true
-
-
-
-
-# format:
-#   html:
-#     theme: cosmo
-#     css: styles.css
-#     toc: true
-#     code-overflow: wrap
-#     embed-resources: true
-  
-
-
-# date-format: iso
-# page-layout: article
-
-# validate-yaml: false
-# # jupyter: python3
-
-# wrap: preserve
-# keep-ipynb: true
+crossref:
+  chapters: true
