@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.534">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Remi Genet">
+<meta name="dcterms.date" content="2024-01-04">
+<meta name="description" content="Ce chapitre se concentre sur les fonctions et les modules en Python, deux composants clés pour écrire un code propre et réutilisable. Il aborde la création de fonctions, la manipulation des arguments, l’utilisation des expressions lambda, ainsi que l’importation et l’organisation des modules. Des exemples pratiques illustrent comment ces éléments peuvent être utilisés pour structurer efficacement un projet Python et simplifier la gestion des dépendances.">
+
+<title>Introduction à Python - Fonctions et Modules</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../content/Cours_2/3-IntroducingPOOConcept.html" rel="next">
+<link href="../../content/Cours_2/1-FondamentauxSyntaxique.html" rel="prev">
+<link href="../..//content/.img/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta name="citation_title" content="Fonctions et Modules">
+<meta name="citation_author" content="Remi Genet">
+<meta name="citation_publication_date" content="2024-01-04">
+<meta name="citation_cover_date" content="2024-01-04">
+<meta name="citation_year" content="2024">
+<meta name="citation_online_date" content="2024-01-04">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Introduction-Python//content/Cours_2/2-FonctionsEtModules.html">
+<meta name="citation_language" content="en">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Introduction à Python</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-comprendre-et-installer-python" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Comprendre Et Installer Python</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-comprendre-et-installer-python">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/1-Histoire.html">
+ <span class="dropdown-text">Histoire du Langage</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/2-Python_Execution.html">
+ <span class="dropdown-text">Exécution d’un Programme Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/3-ManyPythons.html">
+ <span class="dropdown-text">Versions et Compilation de Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/4-Path.html">
+ <span class="dropdown-text">Le PATH</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/5-PathandVirtualEnv.html">
+ <span class="dropdown-text">Path.. et environnements virtuels!</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/6-IDEs.html">
+ <span class="dropdown-text">Les IDEs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/7-Notebooks.html">
+ <span class="dropdown-text">Les Notebooks</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Quelques IDEs en Python</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/VsCode.html">
+ <span class="dropdown-text">VsCode - L’IDE Flexible et Polyvalent</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Spyder.html">
+ <span class="dropdown-text">Spyder - Un IDE Orienté Science des Données</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Pycharm.html">
+ <span class="dropdown-text">PyCharm - L’IDE orienté Python</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/TP-ConstruireSonPython.html">
+ <span class="dropdown-text">TP - Construire son python depuis la source</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-syntaxes-et-concepts-de-base" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Syntaxes et Concepts de Base</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-syntaxes-et-concepts-de-base">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/1-FondamentauxSyntaxique.html">
+ <span class="dropdown-text">Syntaxe et objets de Base Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/2-FonctionsEtModules.html">
+ <span class="dropdown-text">Fonctions et Modules</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/3-IntroducingPOOConcept.html">
+ <span class="dropdown-text">Introduction à la POO en Python</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-annexes" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Annexes</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-annexes">    
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/LinuxTerminal.html">
+ <span class="dropdown-text">Utiliser le terminal Linux - les bases de bash</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/git_basics.html">
+ <span class="dropdown-text">Git Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/git_advanced.html">
+ <span class="dropdown-text">Git - Pour aller plus loin</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/remigenet/Introduction-Python">
+            Code source
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_2/2-FonctionsEtModules.html">Fonctions et Modules</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_2/1-FondamentauxSyntaxique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syntaxe et objets de Base Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_2/2-FonctionsEtModules.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Fonctions et Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_2/3-IntroducingPOOConcept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction à la POO en Python</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#fonctions-et-modules-en-python" id="toc-fonctions-et-modules-en-python" class="nav-link active" data-scroll-target="#fonctions-et-modules-en-python">Fonctions et Modules en Python</a>
+  <ul class="collapse">
+  <li><a href="#section-2.1-définition-et-appel-de-fonctions" id="toc-section-2.1-définition-et-appel-de-fonctions" class="nav-link" data-scroll-target="#section-2.1-définition-et-appel-de-fonctions">Section 2.1 : Définition et Appel de Fonctions</a>
+  <ul class="collapse">
+  <li><a href="#création-de-fonctions" id="toc-création-de-fonctions" class="nav-link" data-scroll-target="#création-de-fonctions">Création de Fonctions</a></li>
+  <li><a href="#appel-de-fonctions" id="toc-appel-de-fonctions" class="nav-link" data-scroll-target="#appel-de-fonctions">Appel de Fonctions :</a></li>
+  <li><a href="#arguments-et-portée-des-variables" id="toc-arguments-et-portée-des-variables" class="nav-link" data-scroll-target="#arguments-et-portée-des-variables">Arguments et Portée des Variables</a></li>
+  <li><a href="#arguments-par-défaut-et-nommés" id="toc-arguments-par-défaut-et-nommés" class="nav-link" data-scroll-target="#arguments-par-défaut-et-nommés">Arguments par Défaut et Nommés :</a></li>
+  <li><a href="#portée-des-variables" id="toc-portée-des-variables" class="nav-link" data-scroll-target="#portée-des-variables">Portée des Variables :</a></li>
+  </ul></li>
+  <li><a href="#section-2.2-modules-et-packages" id="toc-section-2.2-modules-et-packages" class="nav-link" data-scroll-target="#section-2.2-modules-et-packages">Section 2.2 : Modules et Packages</a>
+  <ul class="collapse">
+  <li><a href="#importation-de-modules-et-packages" id="toc-importation-de-modules-et-packages" class="nav-link" data-scroll-target="#importation-de-modules-et-packages">Importation de Modules et Packages</a></li>
+  <li><a href="#création-et-utilisation-de-packages" id="toc-création-et-utilisation-de-packages" class="nav-link" data-scroll-target="#création-et-utilisation-de-packages">Création et Utilisation de Packages</a></li>
+  </ul></li>
+  <li><a href="#section-2.3-lambda-map-filter-et-reduce" id="toc-section-2.3-lambda-map-filter-et-reduce" class="nav-link" data-scroll-target="#section-2.3-lambda-map-filter-et-reduce">Section 2.3 : Lambda, Map, Filter, et Reduce</a>
+  <ul class="collapse">
+  <li><a href="#expressions-lambda" id="toc-expressions-lambda" class="nav-link" data-scroll-target="#expressions-lambda">Expressions Lambda</a></li>
+  <li><a href="#fonctions-map-filter-et-reduce" id="toc-fonctions-map-filter-et-reduce" class="nav-link" data-scroll-target="#fonctions-map-filter-et-reduce">Fonctions Map, Filter et Reduce</a></li>
+  </ul></li>
+  <li><a href="#section-2.7-manipulation-des-arguments-de-fonction-avec-args-et-kwargs" id="toc-section-2.7-manipulation-des-arguments-de-fonction-avec-args-et-kwargs" class="nav-link" data-scroll-target="#section-2.7-manipulation-des-arguments-de-fonction-avec-args-et-kwargs">Section 2.7 : Manipulation des Arguments de Fonction avec <code>*args</code> et <code>kwargs</code></a>
+  <ul class="collapse">
+  <li><a href="#utilisation-de-args" id="toc-utilisation-de-args" class="nav-link" data-scroll-target="#utilisation-de-args">Utilisation de <code>*args</code></a></li>
+  <li><a href="#utilisation-de-kwargs" id="toc-utilisation-de-kwargs" class="nav-link" data-scroll-target="#utilisation-de-kwargs">Utilisation de <code>kwargs</code></a></li>
+  </ul></li>
+  <li><a href="#section-2.8-expressions-lambda-pour-des-fonctions-anonymes" id="toc-section-2.8-expressions-lambda-pour-des-fonctions-anonymes" class="nav-link" data-scroll-target="#section-2.8-expressions-lambda-pour-des-fonctions-anonymes">Section 2.8 : Expressions Lambda pour des Fonctions Anonymes</a>
+  <ul class="collapse">
+  <li><a href="#création-et-utilisation-dexpressions-lambda" id="toc-création-et-utilisation-dexpressions-lambda" class="nav-link" data-scroll-target="#création-et-utilisation-dexpressions-lambda">Création et Utilisation d’Expressions Lambda</a></li>
+  </ul></li>
+  <li><a href="#section-2.9-modules-et-packages-pour-structurer-les-projets" id="toc-section-2.9-modules-et-packages-pour-structurer-les-projets" class="nav-link" data-scroll-target="#section-2.9-modules-et-packages-pour-structurer-les-projets">Section 2.9 : Modules et Packages pour Structurer les Projets</a>
+  <ul class="collapse">
+  <li><a href="#création-de-modules-et-packages" id="toc-création-de-modules-et-packages" class="nav-link" data-scroll-target="#création-de-modules-et-packages">Création de Modules et Packages</a></li>
+  <li><a href="#importation-de-modules-et-packages-1" id="toc-importation-de-modules-et-packages-1" class="nav-link" data-scroll-target="#importation-de-modules-et-packages-1">Importation de Modules et Packages</a></li>
+  <li><a href="#avantages-des-packages" id="toc-avantages-des-packages" class="nav-link" data-scroll-target="#avantages-des-packages">Avantages des Packages</a></li>
+  </ul></li>
+  <li><a href="#section-2.10-mécanisme-dimportation-en-python-et-gestion-des-dépendances" id="toc-section-2.10-mécanisme-dimportation-en-python-et-gestion-des-dépendances" class="nav-link" data-scroll-target="#section-2.10-mécanisme-dimportation-en-python-et-gestion-des-dépendances">Section 2.10 : Mécanisme d’Importation en Python et Gestion des Dépendances</a>
+  <ul class="collapse">
+  <li><a href="#chemin-de-recherche-des-modules-pythonpath" id="toc-chemin-de-recherche-des-modules-pythonpath" class="nav-link" data-scroll-target="#chemin-de-recherche-des-modules-pythonpath">Chemin de Recherche des Modules (PYTHONPATH)</a></li>
+  <li><a href="#importation-de-modules" id="toc-importation-de-modules" class="nav-link" data-scroll-target="#importation-de-modules">Importation de Modules</a></li>
+  <li><a href="#dépendances-circulaires" id="toc-dépendances-circulaires" class="nav-link" data-scroll-target="#dépendances-circulaires">Dépendances Circulaires</a></li>
+  <li><a href="#bonnes-pratiques-dimportation" id="toc-bonnes-pratiques-dimportation" class="nav-link" data-scroll-target="#bonnes-pratiques-dimportation">Bonnes Pratiques d’Importation</a></li>
+  </ul></li>
+  <li><a href="#section-2.11-coût-des-importations-répétées-et-abréviations-standard-en-python" id="toc-section-2.11-coût-des-importations-répétées-et-abréviations-standard-en-python" class="nav-link" data-scroll-target="#section-2.11-coût-des-importations-répétées-et-abréviations-standard-en-python">Section 2.11 : Coût des Importations Répétées et Abréviations Standard en Python</a>
+  <ul class="collapse">
+  <li><a href="#coût-des-importations-répétées" id="toc-coût-des-importations-répétées" class="nav-link" data-scroll-target="#coût-des-importations-répétées">Coût des Importations Répétées</a></li>
+  <li><a href="#abréviations-standard-des-modules-courants" id="toc-abréviations-standard-des-modules-courants" class="nav-link" data-scroll-target="#abréviations-standard-des-modules-courants">Abréviations Standard des Modules Courants</a></li>
+  <li><a href="#bonnes-pratiques-dimportation-1" id="toc-bonnes-pratiques-dimportation-1" class="nav-link" data-scroll-target="#bonnes-pratiques-dimportation-1">Bonnes Pratiques d’Importation</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Introduction-Python/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Fonctions et Modules</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Cours</div>
+    <div class="quarto-category">Fondamentaux</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Ce chapitre se concentre sur les fonctions et les modules en Python, deux composants clés pour écrire un code propre et réutilisable. Il aborde la création de fonctions, la manipulation des arguments, l’utilisation des expressions lambda, ainsi que l’importation et l’organisation des modules. Des exemples pratiques illustrent comment ces éléments peuvent être utilisés pour structurer efficacement un projet Python et simplifier la gestion des dépendances.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Remi Genet </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2024-01-04</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="fonctions-et-modules-en-python" class="level1">
+<h1>Fonctions et Modules en Python</h1>
+<hr>
+<section id="section-2.1-définition-et-appel-de-fonctions" class="level2">
+<h2 class="anchored" data-anchor-id="section-2.1-définition-et-appel-de-fonctions">Section 2.1 : Définition et Appel de Fonctions</h2>
+<p>Les fonctions en Python sont des blocs de code réutilisables conçus pour effectuer une tâche spécifique. La création de fonctions bien définies est un élément clé de la programmation efficace et lisible.</p>
+<section id="création-de-fonctions" class="level3">
+<h3 class="anchored" data-anchor-id="création-de-fonctions">Création de Fonctions</h3>
+<ul>
+<li>Pour définir une fonction en Python, utilisez le mot-clé <code>def</code>, suivi du nom de la fonction, des parenthèses et des paramètres.</li>
+</ul>
+<div id="c088a6ed" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> ma_fonction(param1, param2):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Corps de la fonction</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> param1 <span class="op">+</span> param2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="appel-de-fonctions" class="level3">
+<h3 class="anchored" data-anchor-id="appel-de-fonctions">Appel de Fonctions :</h3>
+<ul>
+<li>Appelez une fonction en utilisant son nom suivi des arguments entre parenthèses.</li>
+</ul>
+<div id="1f6d8fe7" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    resultat <span class="op">=</span> ma_fonction(<span class="dv">5</span>, <span class="dv">3</span>)  <span class="co"># Appel de la fonction avec 5 et 3 comme arguments</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="arguments-et-portée-des-variables" class="level3">
+<h3 class="anchored" data-anchor-id="arguments-et-portée-des-variables">Arguments et Portée des Variables</h3>
+</section>
+<section id="arguments-par-défaut-et-nommés" class="level3">
+<h3 class="anchored" data-anchor-id="arguments-par-défaut-et-nommés">Arguments par Défaut et Nommés :</h3>
+<ul>
+<li>Les fonctions peuvent avoir des arguments par défaut, qui prennent une valeur spécifiée si aucun argument n’est fourni.</li>
+<li>Les arguments nommés permettent de passer des arguments dans n’importe quel ordre en spécifiant leur nom.</li>
+</ul>
+<div id="8316d96c" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> saluer(nom, message<span class="op">=</span><span class="st">"Bonjour"</span>):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>message<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>nom<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    saluer(<span class="st">"Alice"</span>)             <span class="co"># Utilise le message par défaut</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    saluer(<span class="st">"Bob"</span>, <span class="st">"Salut"</span>)      <span class="co"># Utilise un message personnalisé</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    saluer(nom<span class="op">=</span><span class="st">"Carol"</span>, message<span class="op">=</span><span class="st">"Bienvenue"</span>)  <span class="co"># Arguments nommés</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="portée-des-variables" class="level3">
+<h3 class="anchored" data-anchor-id="portée-des-variables">Portée des Variables :</h3>
+<ul>
+<li>Les variables définies dans une fonction ont une portée locale à cette fonction. Les variables définies en dehors ont une portée globale.</li>
+</ul>
+<div id="14d258a6" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="st">"global"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> exemple_scope():</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> <span class="st">"local"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(x)  <span class="co"># Accède à la variable globale x</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(y)  <span class="co"># Accède à la variable locale y</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    exemple_scope()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="section-2.2-modules-et-packages" class="level2">
+<h2 class="anchored" data-anchor-id="section-2.2-modules-et-packages">Section 2.2 : Modules et Packages</h2>
+<p>Les modules et packages en Python permettent de structurer et d’organiser le code de manière logique et réutilisable.</p>
+<section id="importation-de-modules-et-packages" class="level3">
+<h3 class="anchored" data-anchor-id="importation-de-modules-et-packages">Importation de Modules et Packages</h3>
+<ul>
+<li>Un module est un fichier Python contenant des fonctions, des classes et des variables, ainsi que du code exécutable.</li>
+</ul>
+<div id="0f66f7a4" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  <span class="im">import</span> math</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(math.sqrt(<span class="dv">16</span>))  <span class="co"># Utilise la fonction s²qrt du module math</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="création-et-utilisation-de-packages" class="level3">
+<h3 class="anchored" data-anchor-id="création-et-utilisation-de-packages">Création et Utilisation de Packages</h3>
+<ul>
+<li><p>Un package est une collection de modules. Il contient un fichier spécial nommé <code>__init__.py</code>.</p>
+<ul>
+<li><p>Pour créer un package, créez un répertoire portant le nom du package, puis ajoutez-y des modules et un fichier <code>__init__.py</code>.</p></li>
+<li><p>Importez des modules spécifiques du package :</p></li>
+</ul></li>
+</ul>
+<div id="812f7ea2" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> monpackage <span class="im">import</span> monmodule</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="section-2.3-lambda-map-filter-et-reduce" class="level2">
+<h2 class="anchored" data-anchor-id="section-2.3-lambda-map-filter-et-reduce">Section 2.3 : Lambda, Map, Filter, et Reduce</h2>
+<p>Python propose des fonctions intégrées et des expressions lambda pour effectuer des opérations fonctionnelles courantes comme le mappage, le filtrage et la réduction des données.</p>
+<section id="expressions-lambda" class="level3">
+<h3 class="anchored" data-anchor-id="expressions-lambda">Expressions Lambda</h3>
+<ul>
+<li>Les expressions lambda sont de petites fonctions anonymes.</li>
+</ul>
+<div id="d42c4f1f" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  doubler <span class="op">=</span> <span class="kw">lambda</span> x: x <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(doubler(<span class="dv">5</span>))  <span class="co"># Affiche 10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fonctions-map-filter-et-reduce" class="level3">
+<h3 class="anchored" data-anchor-id="fonctions-map-filter-et-reduce">Fonctions Map, Filter et Reduce</h3>
+<ul>
+<li><code>map()</code> applique une fonction à chaque élément d’une séquence.</li>
+<li><code>filter()</code> crée une liste de tous les éléments pour lesquels une fonction renvoie True.</li>
+<li><code>reduce()</code> applique une fonction cumulativement aux éléments d’une séquence, de gauche à droite, pour réduire la séquence à une seule valeur.</li>
+</ul>
+<div id="786ad847" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Exemple d'utilisation de map et filter</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  nombres <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  carres <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: x2, nombres))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  pairs <span class="op">=</span> <span class="bu">list</span>(<span class="bu">filter</span>(<span class="kw">lambda</span> x: x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>, carres))</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Utilisation de reduce</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="im">from</span> functools <span class="im">import</span> <span class="bu">reduce</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  somme <span class="op">=</span> <span class="bu">reduce</span>(<span class="kw">lambda</span> x, y: x <span class="op">+</span> y, nombres)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+</section>
+<section id="section-2.7-manipulation-des-arguments-de-fonction-avec-args-et-kwargs" class="level2">
+<h2 class="anchored" data-anchor-id="section-2.7-manipulation-des-arguments-de-fonction-avec-args-et-kwargs">Section 2.7 : Manipulation des Arguments de Fonction avec <code>*args</code> et <code>kwargs</code></h2>
+<p>En Python, <code>*args</code> et <code>kwargs</code> permettent de gérer de manière flexible un nombre variable d’arguments dans les fonctions.</p>
+<section id="utilisation-de-args" class="level3">
+<h3 class="anchored" data-anchor-id="utilisation-de-args">Utilisation de <code>*args</code></h3>
+<ul>
+<li><code>*args</code> est utilisé pour passer une liste variable d’arguments non-nommés à une fonction. Les arguments sont accessibles comme une tuple.</li>
+</ul>
+<div id="697f9f4e" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fonction_avec_args(<span class="op">*</span>args):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> arg <span class="kw">in</span> args:</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(arg)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>fonction_avec_args(<span class="st">'Python'</span>, <span class="st">'est'</span>, <span class="st">'génial'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="utilisation-de-kwargs" class="level3">
+<h3 class="anchored" data-anchor-id="utilisation-de-kwargs">Utilisation de <code>kwargs</code></h3>
+<ul>
+<li><code>kwargs</code> permet de passer une liste variable d’arguments nommés. Les arguments sont accessibles comme un dictionnaire.</li>
+</ul>
+<div id="00bc0c12" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fonction_avec_kwargs(kwargs):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> cle, valeur <span class="kw">in</span> kwargs.items():</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>cle<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>valeur<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>fonction_avec_kwargs(premier<span class="op">=</span><span class="st">'Python'</span>, deuxieme<span class="op">=</span><span class="st">'est'</span>, troisieme<span class="op">=</span><span class="st">'génial'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="section-2.8-expressions-lambda-pour-des-fonctions-anonymes" class="level2">
+<h2 class="anchored" data-anchor-id="section-2.8-expressions-lambda-pour-des-fonctions-anonymes">Section 2.8 : Expressions Lambda pour des Fonctions Anonymes</h2>
+<p>Les expressions lambda en Python offrent un moyen compact de créer des fonctions anonymes pour des opérations simples.</p>
+<section id="création-et-utilisation-dexpressions-lambda" class="level3">
+<h3 class="anchored" data-anchor-id="création-et-utilisation-dexpressions-lambda">Création et Utilisation d’Expressions Lambda</h3>
+<ul>
+<li>Les expressions lambda sont souvent utilisées pour des fonctions courtes et simples, comme des arguments pour des fonctions comme <code>map</code>, <code>filter</code>, et <code>sorted</code>.</li>
+</ul>
+<div id="c6e22ead" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tri d'une liste de tuples basé sur le deuxième élément</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>liste <span class="op">=</span> [(<span class="dv">1</span>, <span class="st">'d'</span>), (<span class="dv">2</span>, <span class="st">'b'</span>), (<span class="dv">3</span>, <span class="st">'c'</span>), (<span class="dv">4</span>, <span class="st">'a'</span>)]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>liste.sort(key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">1</span>])</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(liste)  <span class="co"># Affiche [(4, 'a'), (2, 'b'), (3, 'c'), (1, 'd')]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="section-2.9-modules-et-packages-pour-structurer-les-projets" class="level2">
+<h2 class="anchored" data-anchor-id="section-2.9-modules-et-packages-pour-structurer-les-projets">Section 2.9 : Modules et Packages pour Structurer les Projets</h2>
+<p>L’organisation des projets en modules et packages est essentielle pour maintenir une structure claire et une maintenance facile du code.</p>
+<section id="création-de-modules-et-packages" class="level3">
+<h3 class="anchored" data-anchor-id="création-de-modules-et-packages">Création de Modules et Packages</h3>
+<ul>
+<li>Un module en Python est simplement un fichier <code>.py</code>. Pour utiliser un module, utilisez <code>import nom_du_module</code>.</li>
+<li>Un package est un répertoire contenant un fichier spécial <code>__init__.py</code> et un ou plusieurs modules.</li>
+</ul>
+</section>
+<section id="importation-de-modules-et-packages-1" class="level3">
+<h3 class="anchored" data-anchor-id="importation-de-modules-et-packages-1">Importation de Modules et Packages</h3>
+<ul>
+<li>Utilisez <code>import</code> pour accéder aux fonctions, classes et variables d’un module ou package. Les alias peuvent être utilisés pour simplifier les noms.</li>
+</ul>
+<div id="59c01055" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mon_module <span class="im">as</span> mm</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mon_package <span class="im">import</span> mon_module</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="avantages-des-packages" class="level3">
+<h3 class="anchored" data-anchor-id="avantages-des-packages">Avantages des Packages</h3>
+<ul>
+<li>Les packages permettent de regrouper des modules logiquement liés, facilitant ainsi la réutilisation et la distribution du code.</li>
+<li>Ils aident à éviter les conflits de noms et rendent le code plus organisable et maintenable.</li>
+</ul>
+</section>
+</section>
+<section id="section-2.10-mécanisme-dimportation-en-python-et-gestion-des-dépendances" class="level2">
+<h2 class="anchored" data-anchor-id="section-2.10-mécanisme-dimportation-en-python-et-gestion-des-dépendances">Section 2.10 : Mécanisme d’Importation en Python et Gestion des Dépendances</h2>
+<p>La compréhension de la façon dont Python importe des modules et gère les chemins d’accès aux packages est essentielle pour éviter des erreurs courantes, notamment les dépendances circulaires.</p>
+<section id="chemin-de-recherche-des-modules-pythonpath" class="level3">
+<h3 class="anchored" data-anchor-id="chemin-de-recherche-des-modules-pythonpath">Chemin de Recherche des Modules (PYTHONPATH)</h3>
+<ul>
+<li>Lorsque vous importez un module, Python recherche d’abord dans le répertoire courant, puis dans les répertoires listés dans la variable d’environnement <code>PYTHONPATH</code>, et enfin dans les emplacements par défaut.</li>
+</ul>
+<div id="e90c131e" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sys.path)  <span class="co"># Affiche les chemins où Python recherche les modules</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><code>PYTHONPATH</code> est similaire à <code>PATH</code> vu précédemment. Il s’agit d’une liste de répertoires dans lesquels Python cherche des modules à importer.</li>
+</ul>
+</section>
+<section id="importation-de-modules" class="level3">
+<h3 class="anchored" data-anchor-id="importation-de-modules">Importation de Modules</h3>
+<ul>
+<li>Lorsque vous utilisez <code>from X import Y</code>, Python exécute tout le code à la racine du module <code>X</code>. Cela signifie que tout code au niveau du module, y compris les importations, sera exécuté lors de l’importation.</li>
+</ul>
+<div id="f27a0f25" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dans le module X.py</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Module X importé"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fonction_Y():</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Fonction Y exécutée"</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Dans un autre module</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> X <span class="im">import</span> fonction_Y  <span class="co"># Affiche "Module X importé" lors de l'exécution</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="dépendances-circulaires" class="level3">
+<h3 class="anchored" data-anchor-id="dépendances-circulaires">Dépendances Circulaires</h3>
+<ul>
+<li><p>Une dépendance circulaire se produit lorsque deux modules s’importent mutuellement. Cela peut entraîner des erreurs d’exécution car l’ordre d’importation peut affecter la disponibilité des fonctions et des classes.</p>
+<ul>
+<li>Pour éviter cela, structurez votre code pour minimiser les dépendances inter-modules.</li>
+<li>Considérez l’utilisation de l’importation à l’intérieur des fonctions ou des classes si l’importation est nécessaire uniquement dans une portée locale.</li>
+</ul></li>
+</ul>
+</section>
+<section id="bonnes-pratiques-dimportation" class="level3">
+<h3 class="anchored" data-anchor-id="bonnes-pratiques-dimportation">Bonnes Pratiques d’Importation</h3>
+<ul>
+<li>Évitez les importations génériques (<code>from module import *</code>) car elles peuvent polluer l’espace de noms.</li>
+<li>Utilisez des alias pour clarifier l’origine des modules ou pour éviter des conflits de noms.</li>
+</ul>
+<div id="9cd50246" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np  <span class="co"># Utilisation d'un alias pour numpy</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="section-2.11-coût-des-importations-répétées-et-abréviations-standard-en-python" class="level2">
+<h2 class="anchored" data-anchor-id="section-2.11-coût-des-importations-répétées-et-abréviations-standard-en-python">Section 2.11 : Coût des Importations Répétées et Abréviations Standard en Python</h2>
+<p>Comprendre les subtilités des importations en Python, y compris leur coût et les conventions d’abréviation, peut améliorer la lisibilité et l’efficacité du code.</p>
+<section id="coût-des-importations-répétées" class="level3">
+<h3 class="anchored" data-anchor-id="coût-des-importations-répétées">Coût des Importations Répétées</h3>
+<ul>
+<li>En Python, importer plusieurs fois le même module ne pénalise pas les performances de manière significative. Lorsqu’un module est importé pour la première fois, il est compilé en bytecode et stocké en mémoire. Les importations suivantes du même module font simplement référence à la version en mémoire.</li>
+</ul>
+<div id="0c1c1e0a" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math  <span class="co"># Le module est chargé en mémoire</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math  <span class="co"># Référence le module déjà chargé, sans coût supplémentaire</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Cela signifie que vous pouvez importer le même module dans différents fichiers ou plusieurs fois dans le même fichier sans vous soucier d’un impact négatif sur les performances.</li>
+</ul>
+</section>
+<section id="abréviations-standard-des-modules-courants" class="level3">
+<h3 class="anchored" data-anchor-id="abréviations-standard-des-modules-courants">Abréviations Standard des Modules Courants</h3>
+<ul>
+<li><p>Il existe des conventions d’abréviations pour certains modules fréquemment utilisés en Python. Utiliser ces abréviations peut rendre votre code plus lisible et conforme aux standards de la communauté.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Module</th>
+<th>Abréviation Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>pandas</td>
+<td>pd</td>
+</tr>
+<tr class="even">
+<td>numpy</td>
+<td>np</td>
+</tr>
+<tr class="odd">
+<td>matplotlib.pyplot</td>
+<td>plt</td>
+</tr>
+<tr class="even">
+<td>seaborn</td>
+<td>sns</td>
+</tr>
+<tr class="odd">
+<td>tensorflow</td>
+<td>tf</td>
+</tr>
+<tr class="even">
+<td>scikit-learn</td>
+<td>skl</td>
+</tr>
+<tr class="odd">
+<td>scipy</td>
+<td>sp</td>
+</tr>
+<tr class="even">
+<td>os</td>
+<td>os (généralement utilisé tel quel)</td>
+</tr>
+<tr class="odd">
+<td>sys</td>
+<td>sys (généralement utilisé tel quel)</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>Ces abréviations sont largement reconnues et leur utilisation est recommandée pour maintenir la cohérence avec les pratiques de la communauté Python.</p></li>
+</ul>
+</section>
+<section id="bonnes-pratiques-dimportation-1" class="level3">
+<h3 class="anchored" data-anchor-id="bonnes-pratiques-dimportation-1">Bonnes Pratiques d’Importation</h3>
+<ul>
+<li>En plus d’utiliser des abréviations standard, il est également conseillé de regrouper les importations en haut du fichier.</li>
+<li>Séparez les importations standard, tierces et locales par des lignes vides pour une meilleure lisibilité.</li>
+</ul>
+<div id="f6594702" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Importations standard</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Importations tierces</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Importations locales</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mon_module <span class="im">import</span> ma_fonction</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>```</p>
+
+
+</section>
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/Cours_2/1-FondamentauxSyntaxique.html" class="pagination-link  aria-label=" syntaxe="" et="" objets="" de="" base="" python"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Syntaxe et objets de Base Python</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/Cours_2/3-IntroducingPOOConcept.html" class="pagination-link" aria-label="Introduction à la POO en Python">
+        <span class="nav-page-text">Introduction à la POO en Python</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Introduction à Python, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

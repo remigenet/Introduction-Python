@@ -2,66 +2,74 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://remigenet.github.io/Introduction-Python/index.html</loc>
-    <lastmod>2024-01-03T10:02:34.690Z</lastmod>
+    <lastmod>2024-01-04T01:05:15.078Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Introduction-Python/content/Cours_1/6-IDEs.html</loc>
-    <lastmod>2024-01-03T10:02:31.798Z</lastmod>
+    <lastmod>2024-01-03T09:08:59.821Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Introduction-Python/content/Cours_1/TP-ConstruireSonPython.html</loc>
-    <lastmod>2024-01-03T10:02:31.070Z</lastmod>
+    <lastmod>2024-01-04T00:23:55.252Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Introduction-Python/content/Cours_1/IDEs/VsCode.html</loc>
-    <lastmod>2024-01-03T10:02:30.422Z</lastmod>
+    <lastmod>2024-01-03T08:27:01.661Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Introduction-Python/content/Cours_1/4-Path.html</loc>
-    <lastmod>2024-01-03T10:02:29.842Z</lastmod>
+    <lastmod>2024-01-04T01:54:28.635Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Introduction-Python/content/Cours_1/2-Python_Execution.html</loc>
-    <lastmod>2024-01-03T10:02:29.022Z</lastmod>
+    <lastmod>2024-01-04T01:48:17.104Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Introduction-Python/content/Cours_1/3-ManyPythons.html</loc>
-    <lastmod>2024-01-03T10:02:28.338Z</lastmod>
+    <lastmod>2024-01-04T01:51:12.032Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_2/3-IntroducingPOOConcept.html</loc>
+    <lastmod>2024-01-04T04:05:20.024Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Introduction-Python/content/Annexes/LinuxTerminal.html</loc>
-    <lastmod>2024-01-03T10:02:27.746Z</lastmod>
+    <lastmod>2024-01-03T09:51:16.585Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Introduction-Python/content/Annexes/git_advanced.html</loc>
-    <lastmod>2024-01-03T10:02:27.126Z</lastmod>
+    <lastmod>2024-01-03T09:51:31.921Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Introduction-Python/content/Annexes/git_basics.html</loc>
-    <lastmod>2024-01-03T10:02:27.446Z</lastmod>
+    <lastmod>2024-01-03T09:51:23.069Z</lastmod>
   </url>
   <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_2/sometest.html</loc>
-    <lastmod>2024-01-03T10:02:27.958Z</lastmod>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_2/1-FondamentauxSyntaxique.html</loc>
+    <lastmod>2024-01-04T03:51:11.302Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_2/2-FonctionsEtModules.html</loc>
+    <lastmod>2024-01-04T04:03:11.380Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Introduction-Python/content/Cours_1/7-Notebooks.html</loc>
-    <lastmod>2024-01-03T10:02:28.714Z</lastmod>
+    <lastmod>2024-01-03T07:48:54.731Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Introduction-Python/content/Cours_1/5-PathandVirtualEnv.html</loc>
-    <lastmod>2024-01-03T10:02:29.470Z</lastmod>
+    <lastmod>2024-01-03T07:48:43.551Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Introduction-Python/content/Cours_1/IDEs/Pycharm.html</loc>
-    <lastmod>2024-01-03T10:02:30.126Z</lastmod>
+    <lastmod>2024-01-03T08:26:50.137Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Introduction-Python/content/Cours_1/IDEs/Spyder.html</loc>
-    <lastmod>2024-01-03T10:02:30.706Z</lastmod>
+    <lastmod>2024-01-03T08:26:55.057Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Introduction-Python/content/Cours_1/1-Histoire.html</loc>
-    <lastmod>2024-01-03T10:02:31.474Z</lastmod>
+    <lastmod>2024-01-04T01:45:59.745Z</lastmod>
   </url>
 </urlset>

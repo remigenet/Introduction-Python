@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.534">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Rémi Genet">
-<meta name="dcterms.date" content="2024-01-03">
+<meta name="author" content="Remi Genet">
+<meta name="dcterms.date" content="2024-01-04">
 
 <title>Introduction à Python - Page Not Found</title>
 <style>
@@ -46,13 +46,20 @@ ul.task-list li input[type="checkbox"] {
 <link href="/Introduction-Python/site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <link href="/Introduction-Python/site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="/Introduction-Python/site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<link href="/Introduction-Python/site_libs/quarto-contrib/animate-4.1.1/animate.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -61,6 +68,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -69,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-sample-listings .list');
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
@@ -82,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-sample-listings'] = new List('listing-sample-listings', options);
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -95,22 +103,46 @@ ul.task-list li input[type="checkbox"] {
     }
   })
   </script>
-<style>
-
-      .quarto-title-block .quarto-title-banner {
-        background: #e9f3fa;
-      }
-</style>
+<style>:root{--animate-duration:3s;--animate-delay:2s;--animate-repeat:1}</style>
+<style>:root{--animate-duration:3s;--animate-delay:2s;--animate-repeat:1}</style>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="/Introduction-Python/styles.css">
 <meta name="citation_title" content="Page Not Found">
-<meta name="citation_author" content="Rémi Genet">
-<meta name="citation_publication_date" content="2024-01-03">
-<meta name="citation_cover_date" content="2024-01-03">
+<meta name="citation_author" content="Remi Genet">
+<meta name="citation_publication_date" content="2024-01-04">
+<meta name="citation_cover_date" content="2024-01-04">
 <meta name="citation_year" content="2024">
-<meta name="citation_online_date" content="2024-01-03">
+<meta name="citation_online_date" content="2024-01-04">
 <meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Introduction-Python//404.html">
 <meta name="citation_language" content="en">
 </head>
@@ -119,9 +151,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="/Introduction-Python/index.html">
     <span class="navbar-title">Introduction à Python</span>
     </a>
@@ -133,93 +165,110 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="/Introduction-Python/index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="/Introduction-Python/index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-comprendre-et-installer-python" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-comprendre-et-installer-python" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Comprendre Et Installer Python</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-comprendre-et-installer-python">    
         <li>
-    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/1-Histoire.html" rel="" target="">
+    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/1-Histoire.html">
  <span class="dropdown-text">Histoire du Langage</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/2-Python_Execution.html" rel="" target="">
+    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/2-Python_Execution.html">
  <span class="dropdown-text">Exécution d’un Programme Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/3-ManyPythons.html" rel="" target="">
+    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/3-ManyPythons.html">
  <span class="dropdown-text">Versions et Compilation de Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/4-Path.html" rel="" target="">
+    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/4-Path.html">
  <span class="dropdown-text">Le PATH</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/5-PathandVirtualEnv.html" rel="" target="">
+    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/5-PathandVirtualEnv.html">
  <span class="dropdown-text">Path.. et environnements virtuels!</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/6-IDEs.html" rel="" target="">
+    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/6-IDEs.html">
  <span class="dropdown-text">Les IDEs</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/7-Notebooks.html" rel="" target="">
+    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/7-Notebooks.html">
  <span class="dropdown-text">Les Notebooks</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Quelques IDEs en Python</li>
         <li>
-    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/IDEs/VsCode.html" rel="" target="">
+    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/IDEs/VsCode.html">
  <span class="dropdown-text">VsCode - L’IDE Flexible et Polyvalent</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/IDEs/Spyder.html" rel="" target="">
+    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/IDEs/Spyder.html">
  <span class="dropdown-text">Spyder - Un IDE Orienté Science des Données</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/IDEs/Pycharm.html" rel="" target="">
+    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/IDEs/Pycharm.html">
  <span class="dropdown-text">PyCharm - L’IDE orienté Python</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
         <li>
-    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/TP-ConstruireSonPython.html" rel="" target="">
+    <a class="dropdown-item" href="/Introduction-Python/content/Cours_1/TP-ConstruireSonPython.html">
  <span class="dropdown-text">TP - Construire son python depuis la source</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-premiers-pas" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Premiers pas</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-syntaxes-et-concepts-de-base" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Syntaxes et Concepts de Base</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-premiers-pas">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-syntaxes-et-concepts-de-base">    
         <li>
-    <a class="dropdown-item" href="/Introduction-Python/content/Cours_2/sometest.html" rel="" target="">
- <span class="dropdown-text">1- Discover</span></a>
+    <a class="dropdown-item" href="/Introduction-Python/content/Cours_2/1-FondamentauxSyntaxique.html">
+ <span class="dropdown-text">Syntaxe et objets de Base Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="/Introduction-Python/content/Cours_2/2-FonctionsEtModules.html">
+ <span class="dropdown-text">Fonctions et Modules</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="/Introduction-Python/content/Cours_2/3-IntroducingPOOConcept.html">
+ <span class="dropdown-text">Introduction à la POO en Python</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-annexes" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-annexes" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Annexes</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-annexes">    
         <li>
-    <a class="dropdown-item" href="/Introduction-Python/content/Annexes/LinuxTerminal.html" rel="" target="">
+    <a class="dropdown-item" href="/Introduction-Python/content/Annexes/LinuxTerminal.html">
  <span class="dropdown-text">Utiliser le terminal Linux - les bases de bash</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="/Introduction-Python/content/Annexes/git_basics.html">
+ <span class="dropdown-text">Git Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="/Introduction-Python/content/Annexes/git_advanced.html">
+ <span class="dropdown-text">Git - Pour aller plus loin</span></a>
   </li>  
     </ul>
   </li>
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/remigenet/Introduction-Python">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/remigenet/Introduction-Python">
             Code source
             </a>
           </li>
@@ -231,41 +280,38 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header">
-<h1 class="title display-7">Page Not Found</h1>
-<p class="author">Rémi Genet</p>
-
-<p class="date">2024-01-03</p>
-</header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(15)</span></div><div class="category" data-category="Annexes">Annexes <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Cours">Cours <span class="quarto-category-count">(8)</span></div><div class="category" data-category="Git">Git <span class="quarto-category-count">(3)</span></div><div class="category" data-category="IDEs">IDEs <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Introduction">Introduction <span class="quarto-category-count">(8)</span></div><div class="category" data-category="TP">TP <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Utils">Utils <span class="quarto-category-count">(3)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(17)</span></div><div class="category" data-category="Annexes">Annexes <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Cours">Cours <span class="quarto-category-count">(10)</span></div><div class="category" data-category="Fondamentaux">Fondamentaux <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Git">Git <span class="quarto-category-count">(3)</span></div><div class="category" data-category="IDEs">IDEs <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Introduction">Introduction <span class="quarto-category-count">(8)</span></div><div class="category" data-category="TP">TP <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Utils">Utils <span class="quarto-category-count">(3)</span></div></div></div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header">
+<h1 class="title display-7">Page Not Found</h1>
+<p class="author">Remi Genet</p>
+
+<p class="date">2024-01-04</p>
+</header>
 
 
-
-<section id="it-seems-you-lost" class="level1">
-<h1>404 - it seems you lost</h1>
-<p>La page demandée n’existe pas ou n’existe plus 🙃.</p>
-<p>Essayez d’accéder à la page en navigant
-sur le site grâce aux tables de matières ou
-en cherchant la page voulue depuis la mosaïque
-suivante :</p>
+<section id="section" class="level1">
+<h1>404 - <span class="animate__animated animate__hinge" style="display: inline-block;">it seems you lost yourself !</span></h1>
+<p>La page demandée n’existe pas ou n’existe plus <span class="animate__animated animate__bounce" style="display: inline-block;">🙃</span>.</p>
+<p>Essayez d’accéder à la page en navigant sur le site grâce aux tables de matières ou en cherchant la page voulue depuis la mosaïque suivante :</p>
 
 
 
 </section>
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-sample-listings">
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="Annexes,Git" data-listing-date-sort="1704236400000" data-listing-file-modified-sort="1704275476585" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="g-col-1" data-index="0" data-categories="Annexes,Git" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1704275476585" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="488">
 <a href="/Introduction-Python/./content/Annexes/LinuxTerminal.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -288,17 +334,17 @@ Utiliser le terminal Linux - les bases de bash
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
-Rémi Genet
+Remi Genet
 </div>
 <div class="listing-date">
-2024-01-03
+2024-01-04
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="Annexes,Git" data-listing-date-sort="1704236400000" data-listing-file-modified-sort="1704275491921" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="g-col-1" data-index="1" data-categories="Annexes,Git" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1704275491921" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="829">
 <a href="/Introduction-Python/./content/Annexes/git_advanced.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -321,17 +367,17 @@ Git a su s’imposer car il permet de nombreuse options qui lui permettent de co
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
-Rémi Genet
+Remi Genet
 </div>
 <div class="listing-date">
-2024-01-03
+2024-01-04
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="Annexes,Git" data-listing-date-sort="1704236400000" data-listing-file-modified-sort="1704275483069" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="g-col-1" data-index="2" data-categories="Annexes,Git" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1704275483069" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="694">
 <a href="/Introduction-Python/./content/Annexes/git_basics.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -354,17 +400,17 @@ Git c’est imposé comme un incontournable pour le développement, et ne concer
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
-Rémi Genet
+Remi Genet
 </div>
 <div class="listing-date">
-2024-01-03
+2024-01-04
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="Cours,Introduction" data-listing-date-sort="1704236400000" data-listing-file-modified-sort="1704264670076" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9">
+<div class="g-col-1" data-index="3" data-categories="Cours,Introduction" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1704332759745" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1779">
 <a href="/Introduction-Python/./content/Cours_1/1-Histoire.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -387,17 +433,17 @@ Explorer l’histoire de Python, c’est comprendre ses choix de conception, son
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
-Rémi Genet
+Remi Genet
 </div>
 <div class="listing-date">
-2024-01-03
+2024-01-04
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="4" data-categories="Cours,Introduction" data-listing-date-sort="1704236400000" data-listing-file-modified-sort="1704272589236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="g-col-1" data-index="4" data-categories="Cours,Introduction" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1704332897104" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="944">
 <a href="/Introduction-Python/./content/Cours_1/2-Python_Execution.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -420,17 +466,17 @@ Explorer les mécanismes sous-jacents à l’exécution d’un programme Python 
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
-Rémi Genet
+Remi Genet
 </div>
 <div class="listing-date">
-2024-01-03
+2024-01-04
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="5" data-categories="Cours,Introduction" data-listing-date-sort="1704236400000" data-listing-file-modified-sort="1704270454702" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
+<div class="g-col-1" data-index="5" data-categories="Cours,Introduction" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1704333072032" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1100">
 <a href="/Introduction-Python/./content/Cours_1/3-ManyPythons.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -453,17 +499,17 @@ Explorer les diverses implémentations de Python et le processus de compilation 
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
-Rémi Genet
+Remi Genet
 </div>
 <div class="listing-date">
-2024-01-03
+2024-01-04
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="6" data-categories="Cours,Introduction" data-listing-date-sort="1704236400000" data-listing-file-modified-sort="1704268091935" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="g-col-1" data-index="6" data-categories="Cours,Introduction" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1704333268635" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="908">
 <a href="/Introduction-Python/./content/Cours_1/4-Path.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -486,17 +532,17 @@ Explorer la notion de PATH, un élément essentiel dans la configuration des env
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
-Rémi Genet
+Remi Genet
 </div>
 <div class="listing-date">
-2024-01-03
+2024-01-04
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="7" data-categories="Cours,Introduction" data-listing-date-sort="1704236400000" data-listing-file-modified-sort="1704268123551" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9">
+<div class="g-col-1" data-index="7" data-categories="Cours,Introduction" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1704268123551" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1681">
 <a href="/Introduction-Python/./content/Cours_1/5-PathandVirtualEnv.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -519,17 +565,17 @@ Les outils pour gerer plusieurs versions de python facilement, et le concept d�
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
-Rémi Genet
+Remi Genet
 </div>
 <div class="listing-date">
-2024-01-03
+2024-01-04
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="8" data-categories="Cours,Introduction" data-listing-date-sort="1704236400000" data-listing-file-modified-sort="1704272939821" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="g-col-1" data-index="8" data-categories="Cours,Introduction" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1704272939821" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="527">
 <a href="/Introduction-Python/./content/Cours_1/6-IDEs.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -552,17 +598,17 @@ Choisir son IDE, une question de goûts mais un impact important sur la producti
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
-Rémi Genet
+Remi Genet
 </div>
 <div class="listing-date">
-2024-01-03
+2024-01-04
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="9" data-categories="Cours,Introduction" data-listing-date-sort="1704236400000" data-listing-file-modified-sort="1704268134731" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
+<div class="g-col-1" data-index="9" data-categories="Cours,Introduction" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1704268134731" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1050">
 <a href="/Introduction-Python/./content/Cours_1/7-Notebooks.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -585,17 +631,17 @@ LeS Notebooks représentent l’un des support de choix pour la recherche et la 
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
-Rémi Genet
+Remi Genet
 </div>
 <div class="listing-date">
-2024-01-03
+2024-01-04
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="10" data-categories="Utils,IDEs" data-listing-date-sort="1704236400000" data-listing-file-modified-sort="1704270410137" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="g-col-1" data-index="10" data-categories="Utils,IDEs" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1704270410137" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="456">
 <a href="/Introduction-Python/./content/Cours_1/IDEs/Pycharm.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -618,17 +664,17 @@ Avant de se lancer
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
-Rémi Genet
+Remi Genet
 </div>
 <div class="listing-date">
-2024-01-03
+2024-01-04
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="11" data-categories="Utils,IDEs" data-listing-date-sort="1704236400000" data-listing-file-modified-sort="1704270415057" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="g-col-1" data-index="11" data-categories="Utils,IDEs" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1704270415057" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="405">
 <a href="/Introduction-Python/./content/Cours_1/IDEs/Spyder.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -651,17 +697,17 @@ Avant de se lancer
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
-Rémi Genet
+Remi Genet
 </div>
 <div class="listing-date">
-2024-01-03
+2024-01-04
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="12" data-categories="Utils,IDEs" data-listing-date-sort="1704236400000" data-listing-file-modified-sort="1704270421661" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="g-col-1" data-index="12" data-categories="Utils,IDEs" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1704270421661" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="485">
 <a href="/Introduction-Python/./content/Cours_1/IDEs/VsCode.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -684,17 +730,17 @@ Avant de se lancer
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
-Rémi Genet
+Remi Genet
 </div>
 <div class="listing-date">
-2024-01-03
+2024-01-04
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="13" data-categories="TP,Introduction" data-listing-date-sort="1704236400000" data-listing-file-modified-sort="1704275469693" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="g-col-1" data-index="13" data-categories="TP,Introduction" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1704327835252" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1024">
 <a href="/Introduction-Python/./content/Cours_1/TP-ConstruireSonPython.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -717,38 +763,109 @@ Introduction
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
-Rémi Genet
+Remi Genet
 </div>
 <div class="listing-date">
-2024-01-03
+2024-01-04
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="14" data-categories="Cours" data-listing-date-sort="1704236400000" data-listing-file-modified-sort="1704275958714" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<a href="/Introduction-Python/./content/Cours_2/sometest.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="14" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1704340271302" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2410">
+<a href="/Introduction-Python/./content/Cours_2/1-FondamentauxSyntaxique.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<!-- img(9CEB782EFEE6)[progressive=false, height=150px]:content/Cours_2/sometest.html -->
+<p class="card-img-top">
+<img src="/Introduction-Python/content/Cours_2/.img/basesyntax.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-1- Discover
+Syntaxe et objets de Base Python
 </h5>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Cours'); return false;">
 Cours
 </div>
+<div class="listing-category" onclick="window.quartoListingCategory('Fondamentaux'); return false;">
+Fondamentaux
+</div>
 </div>
 <div class="card-text listing-description">
-<p><code>TODO</code></p>
+Ce chapitre offre une plongée approfondie dans la syntaxe et les objets de base de Python. Il vise à fournir une compréhension solide des fondements du langage, couvrant…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
-Rémi Genet
+Remi Genet
 </div>
 <div class="listing-date">
-2024-01-03
+2024-01-04
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="15" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1704340991380" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1751">
+<a href="/Introduction-Python/./content/Cours_2/2-FonctionsEtModules.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="/Introduction-Python/content/Cours_2/.img/functionsandmodules.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Fonctions et Modules
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Cours'); return false;">
+Cours
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Fondamentaux'); return false;">
+Fondamentaux
+</div>
+</div>
+<div class="card-text listing-description">
+Ce chapitre se concentre sur les fonctions et les modules en Python, deux composants clés pour écrire un code propre et réutilisable. Il aborde la création de fonctions, la…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Remi Genet
+</div>
+<div class="listing-date">
+2024-01-04
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="16" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1704341120024" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1360">
+<a href="/Introduction-Python/./content/Cours_2/3-IntroducingPOOConcept.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="/Introduction-Python/content/Cours_2/.img/poo.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Introduction à la POO en Python
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Cours'); return false;">
+Cours
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Fondamentaux'); return false;">
+Fondamentaux
+</div>
+</div>
+<div class="card-text listing-description">
+Dans ce chapitre, nous explorons les principes fondamentaux de la Programmation Orientée Objet (POO) en Python. Les étudiants découvriront comment Python applique les…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Remi Genet
+</div>
+<div class="listing-date">
+2024-01-04
 </div>
 </div>
 </div>
@@ -839,10 +956,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -852,8 +968,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -866,6 +991,120 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -909,6 +1148,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -934,6 +1174,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -996,17 +1262,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Introduction à Python, Rémi Genet.<br>
-Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br>
-Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></div>   
+    <div class="nav-footer-left">
+<p>Introduction à Python, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br>
-Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br>
-<a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></div>
+    <div class="nav-footer-right">
+<p>Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></p>
+</div>
   </div>
 </footer>
+
 
 
 

@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.534">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Rémi Genet">
-<meta name="dcterms.date" content="2024-01-03">
+<meta name="author" content="Remi Genet">
+<meta name="dcterms.date" content="2024-01-04">
 <meta name="description" content="Explorer la notion de PATH, un élément essentiel dans la configuration des environnements de développement.">
 
 <title>Introduction à Python - Le PATH</title>
@@ -53,7 +53,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -62,36 +68,32 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-<style>
-
-      .quarto-title-block .quarto-title-banner {
-        background: #e9f3fa;
-      }
-</style>
 
 
+<link rel="stylesheet" href="../../styles.css">
 <meta name="citation_title" content="Le PATH">
-<meta name="citation_author" content="Rémi Genet">
-<meta name="citation_publication_date" content="2024-01-03">
-<meta name="citation_cover_date" content="2024-01-03">
+<meta name="citation_author" content="Remi Genet">
+<meta name="citation_publication_date" content="2024-01-04">
+<meta name="citation_cover_date" content="2024-01-04">
 <meta name="citation_year" content="2024">
-<meta name="citation_online_date" content="2024-01-03">
+<meta name="citation_online_date" content="2024-01-04">
 <meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Introduction-Python//content/Cours_1/4-Path.html">
 <meta name="citation_language" content="en">
 </head>
 
-<body class="nav-sidebar floating nav-fixed fullcontent">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Introduction à Python</span>
     </a>
@@ -103,93 +105,110 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-comprendre-et-installer-python" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-comprendre-et-installer-python" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Comprendre Et Installer Python</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-comprendre-et-installer-python">    
         <li>
-    <a class="dropdown-item" href="../../content/Cours_1/1-Histoire.html" rel="" target="">
+    <a class="dropdown-item" href="../../content/Cours_1/1-Histoire.html">
  <span class="dropdown-text">Histoire du Langage</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../content/Cours_1/2-Python_Execution.html" rel="" target="">
+    <a class="dropdown-item" href="../../content/Cours_1/2-Python_Execution.html">
  <span class="dropdown-text">Exécution d’un Programme Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../content/Cours_1/3-ManyPythons.html" rel="" target="">
+    <a class="dropdown-item" href="../../content/Cours_1/3-ManyPythons.html">
  <span class="dropdown-text">Versions et Compilation de Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../content/Cours_1/4-Path.html" rel="" target="">
+    <a class="dropdown-item" href="../../content/Cours_1/4-Path.html">
  <span class="dropdown-text">Le PATH</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../content/Cours_1/5-PathandVirtualEnv.html" rel="" target="">
+    <a class="dropdown-item" href="../../content/Cours_1/5-PathandVirtualEnv.html">
  <span class="dropdown-text">Path.. et environnements virtuels!</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../content/Cours_1/6-IDEs.html" rel="" target="">
+    <a class="dropdown-item" href="../../content/Cours_1/6-IDEs.html">
  <span class="dropdown-text">Les IDEs</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../content/Cours_1/7-Notebooks.html" rel="" target="">
+    <a class="dropdown-item" href="../../content/Cours_1/7-Notebooks.html">
  <span class="dropdown-text">Les Notebooks</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Quelques IDEs en Python</li>
         <li>
-    <a class="dropdown-item" href="../../content/Cours_1/IDEs/VsCode.html" rel="" target="">
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/VsCode.html">
  <span class="dropdown-text">VsCode - L’IDE Flexible et Polyvalent</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Spyder.html" rel="" target="">
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Spyder.html">
  <span class="dropdown-text">Spyder - Un IDE Orienté Science des Données</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Pycharm.html" rel="" target="">
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Pycharm.html">
  <span class="dropdown-text">PyCharm - L’IDE orienté Python</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
         <li>
-    <a class="dropdown-item" href="../../content/Cours_1/TP-ConstruireSonPython.html" rel="" target="">
+    <a class="dropdown-item" href="../../content/Cours_1/TP-ConstruireSonPython.html">
  <span class="dropdown-text">TP - Construire son python depuis la source</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-premiers-pas" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Premiers pas</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-syntaxes-et-concepts-de-base" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Syntaxes et Concepts de Base</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-premiers-pas">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-syntaxes-et-concepts-de-base">    
         <li>
-    <a class="dropdown-item" href="../../content/Cours_2/sometest.html" rel="" target="">
- <span class="dropdown-text">1- Discover</span></a>
+    <a class="dropdown-item" href="../../content/Cours_2/1-FondamentauxSyntaxique.html">
+ <span class="dropdown-text">Syntaxe et objets de Base Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/2-FonctionsEtModules.html">
+ <span class="dropdown-text">Fonctions et Modules</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/3-IntroducingPOOConcept.html">
+ <span class="dropdown-text">Introduction à la POO en Python</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-annexes" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-annexes" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Annexes</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-annexes">    
         <li>
-    <a class="dropdown-item" href="../../content/Annexes/LinuxTerminal.html" rel="" target="">
+    <a class="dropdown-item" href="../../content/Annexes/LinuxTerminal.html">
  <span class="dropdown-text">Utiliser le terminal Linux - les bases de bash</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/git_basics.html">
+ <span class="dropdown-text">Git Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/git_advanced.html">
+ <span class="dropdown-text">Git - Pour aller plus loin</span></a>
   </li>  
     </ul>
   </li>
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/remigenet/Introduction-Python">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/remigenet/Introduction-Python">
             Code source
             </a>
           </li>
@@ -201,61 +220,23 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_1/4-Path.html">Le PATH</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_1/4-Path.html">Le PATH</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Le PATH</h1>
-                  <div>
-        <div class="description">
-          Explorer la notion de PATH, un élément essentiel dans la configuration des environnements de développement.
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">Cours</div>
-                <div class="quarto-category">Introduction</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Rémi Genet </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">2024-01-03</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -349,110 +330,164 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#chapitre-4---le-path-cest-quoi" id="toc-chapitre-4---le-path-cest-quoi" class="nav-link active" data-scroll-target="#chapitre-4---le-path-cest-quoi">Chapitre 4 - Le PATH ? C’est quoi ?</a>
+  <ul class="collapse">
+  <li><a href="#section-4.1---définition-de-path" id="toc-section-4.1---définition-de-path" class="nav-link" data-scroll-target="#section-4.1---définition-de-path">Section 4.1 - Définition de PATH</a></li>
+  <li><a href="#section-4.2---fonctionnement-de-path" id="toc-section-4.2---fonctionnement-de-path" class="nav-link" data-scroll-target="#section-4.2---fonctionnement-de-path">Section 4.2 - Fonctionnement de PATH</a></li>
+  <li><a href="#section-4.3---modification-de-path" id="toc-section-4.3---modification-de-path" class="nav-link" data-scroll-target="#section-4.3---modification-de-path">Section 4.3 - Modification de PATH</a>
+  <ul class="collapse">
+  <li><a href="#pourquoi-modifier-path" id="toc-pourquoi-modifier-path" class="nav-link" data-scroll-target="#pourquoi-modifier-path">Pourquoi Modifier PATH?</a></li>
+  <li><a href="#comment-modifier-path" id="toc-comment-modifier-path" class="nav-link" data-scroll-target="#comment-modifier-path">Comment Modifier PATH?</a></li>
+  </ul></li>
+  <li><a href="#section-4.4---importance-et-utilisation-de-path" id="toc-section-4.4---importance-et-utilisation-de-path" class="nav-link" data-scroll-target="#section-4.4---importance-et-utilisation-de-path">Section 4.4 - Importance et Utilisation de PATH</a>
+  <ul class="collapse">
+  <li><a href="#simplification-daccès" id="toc-simplification-daccès" class="nav-link" data-scroll-target="#simplification-daccès">Simplification d’Accès</a></li>
+  <li><a href="#organisation-des-exécutables" id="toc-organisation-des-exécutables" class="nav-link" data-scroll-target="#organisation-des-exécutables">Organisation des Exécutables</a></li>
+  <li><a href="#sécurité-et-path" id="toc-sécurité-et-path" class="nav-link" data-scroll-target="#sécurité-et-path">4. Sécurité et PATH</a></li>
+  </ul></li>
+  <li><a href="#section-4.5---configuration-de-path-pour-windows-linux-et-macos" id="toc-section-4.5---configuration-de-path-pour-windows-linux-et-macos" class="nav-link" data-scroll-target="#section-4.5---configuration-de-path-pour-windows-linux-et-macos">Section 4.5 - Configuration de PATH pour Windows, Linux, et MacOS</a>
+  <ul class="collapse">
+  <li><a href="#configuration-de-path-pour-une-version-python-compilée-manuellement" id="toc-configuration-de-path-pour-une-version-python-compilée-manuellement" class="nav-link" data-scroll-target="#configuration-de-path-pour-une-version-python-compilée-manuellement">Configuration de PATH pour une Version Python Compilée Manuellement</a></li>
+  <li><a href="#points-importants-à-noter" id="toc-points-importants-à-noter" class="nav-link" data-scroll-target="#points-importants-à-noter">Points Importants à Noter</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Le PATH</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Cours</div>
+    <div class="quarto-category">Introduction</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Explorer la notion de PATH, un élément essentiel dans la configuration des environnements de développement.
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Remi Genet </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2024-01-04</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
-<section id="définition-et-fonctionnement-général-de-path" class="level3">
-<h3 class="anchored" data-anchor-id="définition-et-fonctionnement-général-de-path">1. Définition et Fonctionnement Général de PATH</h3>
-<section id="a.-définition-de-path" class="level4">
-<h4 class="anchored" data-anchor-id="a.-définition-de-path">a. Définition de PATH</h4>
+</header>
+
+
+<section id="chapitre-4---le-path-cest-quoi" class="level1">
+<h1>Chapitre 4 - Le PATH ? C’est quoi ?</h1>
+<hr>
+<section id="section-4.1---définition-de-path" class="level2">
+<h2 class="anchored" data-anchor-id="section-4.1---définition-de-path">Section 4.1 - Définition de PATH</h2>
 <ul>
 <li><code>PATH</code> est une variable d’environnement utilisée par le système d’exploitation pour localiser les fichiers exécutables requis pour lancer des programmes ou des commandes.</li>
 <li>Elle contient une liste de répertoires séparés par un délimiteur spécifique au système d’exploitation : point-virgule (<code>;</code>) pour Windows et deux-points (<code>:</code>) pour Unix/Linux.</li>
 </ul>
 </section>
-<section id="b.-fonctionnement-de-path" class="level4">
-<h4 class="anchored" data-anchor-id="b.-fonctionnement-de-path">b. Fonctionnement de PATH</h4>
+<section id="section-4.2---fonctionnement-de-path" class="level2">
+<h2 class="anchored" data-anchor-id="section-4.2---fonctionnement-de-path">Section 4.2 - Fonctionnement de PATH</h2>
 <ul>
 <li>Lorsqu’une commande est saisie dans le terminal ou l’invite de commande, le système parcourt les répertoires listés dans <code>PATH</code> à la recherche d’un fichier exécutable correspondant au nom de la commande.</li>
 <li>Si le fichier est trouvé, il est exécuté. Sinon, un message d’erreur indique que la commande est introuvable.</li>
 </ul>
 </section>
-</section>
-<section id="modification-de-path" class="level3">
-<h3 class="anchored" data-anchor-id="modification-de-path">2. Modification de PATH</h3>
-<section id="a.-pourquoi-modifier-path" class="level4">
-<h4 class="anchored" data-anchor-id="a.-pourquoi-modifier-path">a. Pourquoi Modifier PATH?</h4>
+<section id="section-4.3---modification-de-path" class="level2">
+<h2 class="anchored" data-anchor-id="section-4.3---modification-de-path">Section 4.3 - Modification de PATH</h2>
+<section id="pourquoi-modifier-path" class="level3">
+<h3 class="anchored" data-anchor-id="pourquoi-modifier-path">Pourquoi Modifier PATH?</h3>
 <ul>
 <li>Ajouter de nouveaux chemins à <code>PATH</code> est souvent nécessaire après l’installation de nouveaux logiciels ou scripts pour permettre leur exécution depuis n’importe quel répertoire.</li>
 <li>La modification de <code>PATH</code> facilite l’accès à ces programmes sans avoir besoin de naviguer vers leur répertoire d’installation ou de spécifier leur chemin complet.</li>
 </ul>
 </section>
-<section id="b.-comment-modifier-path" class="level4">
-<h4 class="anchored" data-anchor-id="b.-comment-modifier-path">b. Comment Modifier PATH?</h4>
+<section id="comment-modifier-path" class="level3">
+<h3 class="anchored" data-anchor-id="comment-modifier-path">Comment Modifier PATH?</h3>
 <ul>
 <li>Sous Windows, <code>PATH</code> peut être modifié via les Propriétés Système ou l’Éditeur de Registre.</li>
 <li>Sous Unix/Linux et MacOS, <code>PATH</code> est généralement modifié en éditant les fichiers de configuration de l’interpréteur de commandes, tels que <code>.bashrc</code>, <code>.bash_profile</code>, ou <code>.zshrc</code>.</li>
 </ul>
 </section>
 </section>
-<section id="importance-et-utilisation-de-path" class="level3">
-<h3 class="anchored" data-anchor-id="importance-et-utilisation-de-path">3. Importance et Utilisation de PATH</h3>
-<section id="a.-simplification-daccès" class="level4">
-<h4 class="anchored" data-anchor-id="a.-simplification-daccès">a. Simplification d’Accès</h4>
+<section id="section-4.4---importance-et-utilisation-de-path" class="level2">
+<h2 class="anchored" data-anchor-id="section-4.4---importance-et-utilisation-de-path">Section 4.4 - Importance et Utilisation de PATH</h2>
+<section id="simplification-daccès" class="level3">
+<h3 class="anchored" data-anchor-id="simplification-daccès">Simplification d’Accès</h3>
 <ul>
 <li><code>PATH</code> permet de lancer des applications et des scripts facilement depuis n’importe quel répertoire dans le terminal, en supprimant le besoin de saisir des chemins complets.</li>
 </ul>
 </section>
-<section id="b.-organisation-des-exécutables" class="level4">
-<h4 class="anchored" data-anchor-id="b.-organisation-des-exécutables">b. Organisation des Exécutables</h4>
+<section id="organisation-des-exécutables" class="level3">
+<h3 class="anchored" data-anchor-id="organisation-des-exécutables">Organisation des Exécutables</h3>
 <ul>
 <li>Une gestion efficace de <code>PATH</code> aide à maintenir une organisation claire des programmes et scripts fréquemment utilisés, en centralisant leur accès.</li>
 </ul>
 </section>
-</section>
 <section id="sécurité-et-path" class="level3">
 <h3 class="anchored" data-anchor-id="sécurité-et-path">4. Sécurité et PATH</h3>
-<section id="a.-risques-de-sécurité" class="level4">
-<h4 class="anchored" data-anchor-id="a.-risques-de-sécurité">a. Risques de Sécurité</h4>
-<ul>
-<li>Ajouter des répertoires non sécurisés ou de sources inconnues à <code>PATH</code> peut exposer le système à des risques de sécurité. Des exécutables malveillants dans ces répertoires pourraient être lancés involontairement.</li>
-</ul>
-</section>
-<section id="b.-bonnes-pratiques" class="level4">
-<h4 class="anchored" data-anchor-id="b.-bonnes-pratiques">b. Bonnes Pratiques</h4>
-<ul>
-<li>Il est recommandé de n’ajouter que des répertoires de confiance à <code>PATH</code> et de vérifier régulièrement son contenu pour éviter des risques de sécurité.</li>
-</ul>
+<p><strong>Risques de Sécurité</strong> - Ajouter des répertoires non sécurisés ou de sources inconnues à <code>PATH</code> peut exposer le système à des risques de sécurité. Des exécutables malveillants dans ces répertoires pourraient être lancés involontairement.</p>
+<p><strong>Bonnes Pratiques</strong> - Il est recommandé de n’ajouter que des répertoires de confiance à <code>PATH</code> et de vérifier régulièrement son contenu pour éviter des risques de sécurité.</p>
 </section>
 </section>
-<section id="configuration-de-path-pour-windows-linux-et-macos" class="level3">
-<h3 class="anchored" data-anchor-id="configuration-de-path-pour-windows-linux-et-macos">5. Configuration de PATH pour Windows, Linux, et MacOS</h3>
-<section id="a.-windows" class="level4">
-<h4 class="anchored" data-anchor-id="a.-windows">a. Windows</h4>
+<section id="section-4.5---configuration-de-path-pour-windows-linux-et-macos" class="level2">
+<h2 class="anchored" data-anchor-id="section-4.5---configuration-de-path-pour-windows-linux-et-macos">Section 4.5 - Configuration de PATH pour Windows, Linux, et MacOS</h2>
+<section id="windows" class="level4">
+<h4 class="anchored" data-anchor-id="windows">Windows</h4>
 <ul>
 <li><strong>Accès à PATH</strong> : Accessible via Panneau de configuration &gt; Système &gt; Paramètres système avancés &gt; Variables d’environnement.</li>
 <li><strong>Modification</strong> : Ajouter ou modifier les valeurs dans la variable <code>Path</code> sous Variables d’environnement.</li>
 <li><strong>Application des Changements</strong> : Les modifications prennent effet après redémarrage de l’invite de commande ou redémarrage du système.</li>
 </ul>
 </section>
-<section id="b.-linux" class="level4">
-<h4 class="anchored" data-anchor-id="b.-linux">b. Linux</h4>
+<section id="linux" class="level4">
+<h4 class="anchored" data-anchor-id="linux">Linux</h4>
 <ul>
 <li><strong>Fichiers de Configuration</strong> : <code>.bashrc</code>, <code>.bash_profile</code>, ou <code>.profile</code> dans le répertoire personnel de l’utilisateur.</li>
 <li><strong>Modification</strong> : Ajouter <code>export PATH="/nouveau/chemin:$PATH"</code> au fichier correspondant.</li>
 <li><strong>Application des Changements</strong> : Exécuter <code>source ~/.bashrc</code> ou ouvrir un nouveau terminal.</li>
 </ul>
 </section>
-<section id="c.-macos" class="level4">
-<h4 class="anchored" data-anchor-id="c.-macos">c.&nbsp;MacOS</h4>
+<section id="macos" class="level4">
+<h4 class="anchored" data-anchor-id="macos">MacOS</h4>
 <ul>
 <li>Similaire à Linux, MacOS utilise <code>.bash_profile</code> ou <code>.zshrc</code> pour les utilisateurs de zsh.</li>
 <li>La modification et l’application des changements sont identiques à celles de Linux.</li>
 </ul>
 </section>
-</section>
 <section id="configuration-de-path-pour-une-version-python-compilée-manuellement" class="level3">
 <h3 class="anchored" data-anchor-id="configuration-de-path-pour-une-version-python-compilée-manuellement">Configuration de PATH pour une Version Python Compilée Manuellement</h3>
 <p>La configuration de la variable <code>PATH</code> pour une version de Python compilée manuellement est un processus essentiel pour s’assurer que le système utilise la bonne version de Python. Voici des instructions spécifiques pour Windows, Linux et MacOS.</p>
-<section id="windows" class="level4">
-<h4 class="anchored" data-anchor-id="windows">Windows</h4>
+<section id="windows-1" class="level4">
+<h4 class="anchored" data-anchor-id="windows-1">Windows</h4>
 <ol type="1">
 <li><strong>Localisation de l’Exécutable Python</strong>:
 <ul>
@@ -472,8 +507,8 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ol>
 </section>
-<section id="linux" class="level4">
-<h4 class="anchored" data-anchor-id="linux">Linux</h4>
+<section id="linux-1" class="level4">
+<h4 class="anchored" data-anchor-id="linux-1">Linux</h4>
 <ol type="1">
 <li><strong>Localisation de l’Exécutable Python</strong>:
 <ul>
@@ -492,8 +527,8 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ol>
 </section>
-<section id="macos" class="level4">
-<h4 class="anchored" data-anchor-id="macos">MacOS</h4>
+<section id="macos-1" class="level4">
+<h4 class="anchored" data-anchor-id="macos-1">MacOS</h4>
 <ol type="1">
 <li><strong>Localisation de l’Exécutable Python</strong>:
 <ul>
@@ -523,6 +558,8 @@ ul.task-list li input[type="checkbox"] {
 <p>En suivant ces étapes, vous pouvez configurer votre système pour utiliser une version spécifique de Python, vous offrant ainsi une plus grande flexibilité et contrôle sur votre environnement de développement.</p>
 
 
+</section>
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -605,10 +642,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -618,8 +654,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -632,6 +677,120 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -675,6 +834,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -700,6 +860,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -761,12 +947,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../content/Cours_1/3-ManyPythons.html" class="pagination-link">
+      <a href="../../content/Cours_1/3-ManyPythons.html" class="pagination-link  aria-label=" versions="" et="" compilation="" de="" python"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Versions et Compilation de Python</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../content/Cours_1/5-PathandVirtualEnv.html" class="pagination-link">
+      <a href="../../content/Cours_1/5-PathandVirtualEnv.html" class="pagination-link" aria-label="Path.. et environnements virtuels!">
         <span class="nav-page-text">Path.. et environnements virtuels!</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -774,17 +960,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Introduction à Python, Rémi Genet.<br>
-Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br>
-Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></div>   
+    <div class="nav-footer-left">
+<p>Introduction à Python, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br>
-Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br>
-<a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></div>
+    <div class="nav-footer-right">
+<p>Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></p>
+</div>
   </div>
 </footer>
+
 
 
 
