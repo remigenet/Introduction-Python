@@ -59,8 +59,8 @@ website:
     - id: Use 
       title: "Les Librairies Python"
       contents: 
-      - content/Cours_3/1-Dataframes.qmd
-      - content/Cours_3/2-Calcul_Scientifique_et_Optimization.qmd
+       - content/Cours_3/1-Dataframes.qmd
+       - content/Cours_3/2-Calcul_Scientifique_et_Optimization.qmd
        - content/Cours_3/3-MachineLearning.qmd
        - content/Cours_3/4-Access_Internet.qmd
        - content/Cours_3/5-Feed_Internet.qmd

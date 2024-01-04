@@ -1,0 +1,20 @@
+---
+title: "Python - Aussi un language pour servir des données"
+weight: 10
+tags:
+  - Pandas
+  - Bases
+  - Libraries
+  - Cours
+categories:
+  - Cours
+  - Fondamentaux
+type: book
+description: "Django, FastAPI, Flask, Bottle, Pyramid, Falcon, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy, Sanic, Tornado, AIOHTTP, Starlette, Quart, Morepath, TurboGears, Nameko, Eve, Hug, Molten, APIStar, CherryPy..... La liste est longue"
+image: .img/api.png
+code-links: binder
+---
+
+# Python - Aussi un language pour servir des données
+
+---

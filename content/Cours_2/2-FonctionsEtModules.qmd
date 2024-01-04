@@ -16,9 +16,6 @@ type: book
 description: "Ce chapitre se concentre sur les fonctions et les modules en Python, deux composants clés pour écrire un code propre et réutilisable. Il aborde la création de fonctions, la manipulation des arguments, l'utilisation des expressions lambda, ainsi que l'importation et l'organisation des modules. Des exemples pratiques illustrent comment ces éléments peuvent être utilisés pour structurer efficacement un projet Python et simplifier la gestion des dépendances."
 image: .img/functionsandmodules.png
 code-links: binder
-eval: fenced
-echo: true
-output: true
 ---
 
 
@@ -99,7 +96,7 @@ Les modules et packages en Python permettent de structurer et d'organiser le cod
 
   - Importez des modules spécifiques du package :
 
-```{python}
+```python
     from monpackage import monmodule
 ```
 
@@ -123,9 +120,10 @@ Python propose des fonctions intégrées et des expressions lambda pour effectue
 - `filter()` crée une liste de tous les éléments pour lesquels une fonction renvoie True.
 - `reduce()` applique une fonction cumulativement aux éléments d'une séquence, de gauche à droite, pour réduire la séquence à une seule valeur.
 
-```{python}
+```python
   # Exemple d'utilisation de map et filter
   nombres = [1, 2, 3, 4, 5]
+
   carres = list(map(lambda x: x2, nombres))
   pairs = list(filter(lambda x: x % 2 == 0, carres))
 
@@ -158,7 +156,7 @@ fonction_avec_args('Python', 'est', 'génial')
 - `kwargs` permet de passer une liste variable d'arguments nommés. Les arguments sont accessibles comme un dictionnaire.
 
 ```{python}
-def fonction_avec_kwargs(kwargs):
+def fonction_avec_kwargs(**kwargs):
     for cle, valeur in kwargs.items():
         print(f"{cle}: {valeur}")
 
@@ -195,7 +193,7 @@ L'organisation des projets en modules et packages est essentielle pour maintenir
 
 - Utilisez `import` pour accéder aux fonctions, classes et variables d'un module ou package. Les alias peuvent être utilisés pour simplifier les noms.
 
-```{python}
+```python
 import mon_module as mm
 from mon_package import mon_module
 ```
@@ -226,7 +224,7 @@ print(sys.path)  # Affiche les chemins où Python recherche les modules
 
 - Lorsque vous utilisez `from X import Y`, Python exécute tout le code à la racine du module `X`. Cela signifie que tout code au niveau du module, y compris les importations, sera exécuté lors de l'importation.
 
-```{python}
+```python
 # Dans le module X.py
 print("Module X importé")
 def fonction_Y():
@@ -292,7 +290,7 @@ import math  # Référence le module déjà chargé, sans coût supplémentaire
 - En plus d'utiliser des abréviations standard, il est également conseillé de regrouper les importations en haut du fichier.
 - Séparez les importations standard, tierces et locales par des lignes vides pour une meilleure lisibilité.
 
-```{python}
+```python
   # Importations standard
 import os
 import sys

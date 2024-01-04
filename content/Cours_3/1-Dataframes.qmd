@@ -1,0 +1,95 @@
+---
+title: "Les DataFrames"
+weight: 10
+tags:
+  - Pandas
+  - Bases
+  - Libraries
+  - Cours
+categories:
+  - Cours
+  - Fondamentaux
+type: book
+description: "Les DataFrames"
+image: .img/pandas.jpg
+code-links: binder
+---
+
+# Dataframes en Python
+
+---
+
+#### Introduction aux Dataframes
+
+**Définition et Rôle des Dataframes :**
+Un dataframe est une structure de données bidimensionnelle, souvent comparée à une feuille de calcul Excel ou une table de base de données SQL. Il est utilisé pour stocker et manipuler des ensembles de données organisées en lignes et colonnes. Chaque colonne représente une variable, et chaque ligne représente une observation.
+
+Les dataframes sont cruciaux en analyse de données, statistiques, science des données et machine learning pour le traitement et l'analyse de grands ensembles de données. Ils facilitent la manipulation des données, notamment le tri, le filtrage, la transformation et l'agrégation.
+
+**Librairies Python pour Dataframes :**
+Les deux principales librairies en Python pour travailler avec des dataframes sont Pandas et NumPy.
+
+1. **Pandas :** C'est la librairie la plus populaire pour la manipulation de données en Python. Pandas offre une API riche et intuitive pour la création, la manipulation et l'analyse de dataframes.
+2. **NumPy :** Bien que principalement utilisé pour les calculs sur des tableaux multidimensionnels, NumPy est souvent employé en tandem avec Pandas, surtout pour les opérations numériques.
+
+#### Utilisation de Pandas pour les Dataframes
+
+**Création d'un Dataframe :**
+Pour créer un dataframe avec Pandas, on peut utiliser diverses méthodes, notamment à partir d'un dictionnaire, d'un fichier CSV, ou d'un tableau NumPy.
+
+**Exemple de Code - Création d'un Dataframe :**
+```python
+import pandas as pd
+
+# Création d'un dataframe à partir d'un dictionnaire
+data = {'Nom': ['Alice', 'Bob', 'Charlie'], 'Age': [25, 30, 35], 'Ville': ['New York', 'Paris', 'Berlin']}
+df = pd.DataFrame(data)
+
+print(df)
+```
+
+**Manipulation de Dataframes :**
+Les opérations courantes sur les dataframes incluent le filtrage, le tri, la manipulation de colonnes, et l'agrégation de données.
+
+**Exemple de Code - Manipulation de Dataframe :**
+```python
+# Sélection de colonnes
+df_age_ville = df[['Age', 'Ville']]
+
+# Filtrage des données
+df_filtré = df[df['Age'] > 30]
+
+# Tri des données
+df_trié = df.sort_values(by='Age')
+
+print(df_filtré)
+print(df_trié)
+```
+
+#### Exercice Pratique
+
+**Objectif :** Créer et manipuler un dataframe avec Pandas.
+
+1. **Créer un DataFrame :** Utilisez un dictionnaire pour créer un dataframe contenant trois colonnes : 'Produit', 'Quantité' et 'Prix'.
+2. **Filtrer les Données :** Sélectionnez les produits dont la quantité est supérieure à 10.
+3. **Trier les Données :** Triez le dataframe en fonction du prix, par ordre décroissant.
+
+**Solution :**
+```python
+import pandas as pd
+
+# Création du dataframe
+data = {'Produit': ['Pommes', 'Bananes', 'Oranges'], 'Quantité': [12, 5, 20], 'Prix': [1.5, 0.5, 0.75]}
+df = pd.DataFrame(data)
+
+# Filtrage
+df_filtré = df[df['Quantité'] > 10]
+
+# Tri
+df_trié = df.sort_values(by='Prix', ascending=False)
+
+print(df_filtré)
+print(df_trié)
+```
+
+Dans le prochain message, nous approfondirons l'analyse des données avec les dataframes, en explorant des fonctions avancées telles que les opérations de groupement et de fusion.
