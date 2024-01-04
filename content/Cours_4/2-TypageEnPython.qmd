@@ -11,7 +11,7 @@ categories:
   - Fondamentaux
 type: book
 description: ""
-image: .img/numpy.png
+image: .img/typehinting.webp
 code-links: binder
 ---
 
@@ -139,3 +139,4 @@ cdef int multiply(int a, int b):
 
 #### Conclusion
 Le typage en Python, avec ses différentes facettes - typage dynamique, type hinting, classes abstraites et Cython - offre une gamme variée d'outils pour augmenter la clarté, la performance et la structure du code. La compréhension de ces aspects est essentielle pour les développeurs Python afin de produire des codes efficaces, maintenables et performants.
+

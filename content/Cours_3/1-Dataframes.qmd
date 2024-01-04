@@ -190,3 +190,13 @@ La maîtrise des dataframes dans Pandas ne se limite pas seulement à connaître
 
 Vous trouverez également des exemples simple d'utilisation de tout les fonctions standards dans [ce Notebook](pandas_short_example.ipynb)
 
+que vous pouvez également télécharger directement ici:
+
+{{< downloadthis pandas_short_example.ipynb dname=File label="Telecharger le Notebook d'exemple" icon=file-earmark-jupyter type=success >}}
+
+Pour vous entrainer, vous pouvez télécharger le fichier suivant et l'importer dans un notebook Jupyter :
+
+{{< downloadthis Exercice-pandas_and_geography.ipynb dname=Exercice-pandas_and_geography label="Telecharger le Notebook du TP" icon=file-earmark-jupyter type=success >}}
+
+{{< downloadthis population_communes.csv dname="population_communes.csv" label="Download the population_communes dataset" icon="database-fill-down" type="info" >}}
+

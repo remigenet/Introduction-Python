@@ -11,7 +11,7 @@ categories:
   - Fondamentaux
 type: book
 description: ""
-image: .img/numpy.png
+image: .img/mutability.webp
 code-links: binder
 ---
 

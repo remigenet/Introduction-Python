@@ -56,11 +56,13 @@ website:
       title: "Syntaxes et Concepts de Base"
       contents: 
        - content/Cours_2/1-FondamentauxSyntaxique.qmd
-       - content/Cours_2/1.1-Exercices.py
-       - content/Cours_2/1.2-Exercices.py
-       - content/Cours_2/1-FondamentauxSyntaxique.qmd
        - content/Cours_2/2-FonctionsEtModules.qmd
        - content/Cours_2/3-IntroducingPOOConcept.qmd
+       - section: Travaux Pratiques
+         expanded: false
+         contents:
+         - content/Cours_2/1.1-Exercices.py
+         - content/Cours_2/1.2-Exercices.py
     - id: libraries 
       title: "Les Librairies Python"
       contents: 
@@ -70,8 +72,12 @@ website:
        - content/Cours_3/4-Access_Internet.qmd
        - content/Cours_3/5-Feed_Internet.qmd
        - content/Cours_3/6-Visualisation.qmd
-       - content/Cours_3/bonus-pandas_short_examplet.qmd
-       - content/Cours_3/TP-pandas_and_geography.ipynb
+       - section: Travaux Pratiques
+         expanded: false
+         contents:
+         - content/Cours_3/bonus-pandas_short_examplet.qmd
+         - content/Cours_3/TP-pandas_and_geography.ipynb
+         - content/Cours_3/TP-3.qmd
     - id: advanced_mix 
       title: "Bonne pratiques, Dangers, et Astuces"
       contents: 
@@ -128,3 +134,4 @@ commentable: true
 validate-yaml: false
 crossref:
   chapters: true
+lightbox: auto

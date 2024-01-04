@@ -13,6 +13,7 @@ categories:
 type: book
 description: Avant de se lancer
 image: ../.img/pycharm.png
+lightbox: auto
 ---
 
 #### Présentation Générale de PyCharm

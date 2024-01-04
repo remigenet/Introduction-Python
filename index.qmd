@@ -8,6 +8,8 @@ listing:
     type: grid
     sort: "number"
     categories: true
+
+lightbox: auto
 ---
 
 # {{< animate backInDown "Introduction à Python !" >}} 

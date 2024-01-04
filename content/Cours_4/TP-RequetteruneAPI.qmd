@@ -11,10 +11,9 @@ categories:
   - Fondamentaux
 type: book
 description: "Asynchronie vs synchronie"
-image: .img/Untitled.png
+image: .img/asyncthreadproc.webp
 code-links: binder
 ---
 
 # Visualisation de données avec Python
 
----
