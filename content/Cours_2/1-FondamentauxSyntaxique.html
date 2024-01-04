@@ -433,16 +433,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>Expressions</strong> : En Python, chaque ligne de code est généralement une expression, par exemple <code>a = 5</code> ou <code>print(a)</code>.</p></li>
 <li><p><strong>Indentations</strong> : Python utilise l’indentation pour définir des blocs de code. Contrairement à d’autres langages qui utilisent des accolades, l’indentation en Python n’est pas seulement pour la lisibilité mais est syntaxiquement significative.</p></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> a <span class="op">&gt;</span> <span class="dv">5</span>:</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a est supérieur à 5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="287847a6" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> a <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a est supérieur à 5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>a est supérieur à 5</code></pre>
+</div>
+</div>
 </section>
 <section id="commentaires" class="level3">
 <h3 class="anchored" data-anchor-id="commentaires">Commentaires</h3>
 <ul>
 <li>En Python, les commentaires commencent par <code>#</code>. Tout ce qui suit <code>#</code> sur la ligne est ignoré par l’interpréteur.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ceci est un commentaire</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello, World!"</span>)  <span class="co"># Ceci est un commentaire en fin de ligne</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5addba6a" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ceci est un commentaire</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello, World!"</span>)  <span class="co"># Ceci est un commentaire en fin de ligne</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello, World!</code></pre>
+</div>
+</div>
 <ul>
 <li><em>NB: L’utilisation du # est utilisé dans de nombreux langages de programmation, comme le C, le C++, le Java, le PHP, le Perl, le Ruby, le Python, etc. pour définir les commentaires</em></li>
 </ul>
@@ -465,8 +476,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p>Les noms de variables doivent commencer par une lettre ou un underscore <code>_</code>, suivis de lettres, chiffres, ou underscores.</p></li>
 <li><p>Les conventions de nommage courantes incluent <code>snake_case</code> pour les variables et fonctions, <code>CamelCase</code> pour les classes.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ma_variable <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>uneAutreVariable <span class="op">=</span> <span class="st">"Bonjour"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div id="f7826dc3" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ma_variable <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>uneAutreVariable <span class="op">=</span> <span class="st">"Bonjour"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 </ul>
 </section>
 <section id="opérateurs-arithmétiques-et-de-comparaison" class="level3">
@@ -498,23 +511,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="instructions-conditionnelles">Instructions Conditionnelles</h3>
 <ul>
 <li><p><code>if</code>, <code>else</code>, <code>elif</code> permettent d’exécuter des blocs de code basés sur des conditions.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> condition:</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># code si condition est vraie</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> autre_condition:</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># code si autre_condition est vraie</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># code si aucune des conditions précédentes n'est vraie</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> condition:</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># code si condition est vraie</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> autre_condition:</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># code si autre_condition est vraie</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># code si aucune des conditions précédentes n'est vraie</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 </section>
 <section id="boucles" class="level3">
 <h3 class="anchored" data-anchor-id="boucles">Boucles</h3>
 <ul>
 <li><p><strong>Boucle For</strong> : Itère sur une séquence (comme une liste, un tuple, un dictionnaire, un ensemble, ou une chaîne de caractères).</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> element <span class="kw">in</span> sequence:</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># code exécuté pour chaque élément</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> element <span class="kw">in</span> sequence:</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># code exécuté pour chaque élément</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p><strong>Boucle While</strong> : Continue à exécuter un bloc de code tant qu’une condition est vraie.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> condition:</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># code exécuté tant que la condition est vraie</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> condition:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># code exécuté tant que la condition est vraie</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 <p><strong>Compréhensions de Liste</strong></p>
 <ul>
@@ -530,33 +543,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="try-except-blocks">Try-Except Blocks</h3>
 <ul>
 <li><p>Un bloc <code>try</code> permet de tester un bloc de code pour les erreurs, et le bloc <code>except</code> permet de gérer l’erreur.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code à essayer d'exécuter</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    resultat <span class="op">=</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">0</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ZeroDivisionError</span>:</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code exécuté en cas de ZeroDivisionError</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Division par zéro!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div id="bb266da0" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code à essayer d'exécuter</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    resultat <span class="op">=</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">0</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ZeroDivisionError</span>:</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code exécuté en cas de ZeroDivisionError</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Division par zéro!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Division par zéro!</code></pre>
+</div>
+</div></li>
 </ul>
 </section>
 <section id="gestion-de-plusieurs-exceptions" class="level3">
 <h3 class="anchored" data-anchor-id="gestion-de-plusieurs-exceptions">Gestion de Plusieurs Exceptions :</h3>
 <p>Vous pouvez spécifier plusieurs blocs <code>except</code> pour gérer différentes exceptions.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tentative d'exécution de code</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">TypeError</span>:</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gestion d'une TypeError</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ValueError</span>:</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gestion d'une ValueError</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tentative d'exécution de code</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">TypeError</span>:</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gestion d'une TypeError</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gestion d'une ValueError</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="bloc-finally" class="level3">
 <h3 class="anchored" data-anchor-id="bloc-finally">Bloc Finally :</h3>
 <p>Le bloc <code>finally</code> est facultatif et exécuté quel que soit le résultat des blocs <code>try</code> et <code>except</code>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code à essayer</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gestion d'une exception</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="cf">finally</span>:</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code exécuté après les blocs try et except</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code à essayer</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gestion d'une exception</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="cf">finally</span>:</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code exécuté après les blocs try et except</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="section-1.5-exemple-concret-mélangeant-les-concepts" class="level2">
@@ -565,25 +583,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exemple-pratique-boucle-et-conditions" class="level3">
 <h3 class="anchored" data-anchor-id="exemple-pratique-boucle-et-conditions">Exemple Pratique : Boucle et Conditions</h3>
 <p>Imaginons un scénario où nous avons deux variables <code>x</code> et <code>y</code>. Nous voulons exécuter une boucle qui continue tant que la somme de <code>x</code> et <code>y</code> est supérieure à 8. Dans la boucle, nous effectuons une opération qui peut potentiellement lever une exception.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> x <span class="op">+</span> y <span class="op">&gt;</span> <span class="dv">8</span>:</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Si x est impair, essayez de diviser par zéro (pour générer une exception)</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span>:</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>            resultat <span class="op">=</span> x <span class="op">/</span> <span class="dv">0</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Autrement, décrémentez x</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>            x <span class="op">-=</span> <span class="dv">1</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ZeroDivisionError</span>:</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Tentative de division par zéro. 'x' était impair."</span>)</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">finally</span>:</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Décrémentez y à chaque itération</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>        y <span class="op">-=</span> <span class="dv">1</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Fin de la boucle avec x = </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> et y = </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> x <span class="op">+</span> y <span class="op">&gt;</span> <span class="dv">8</span>:</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Si x est impair, essayez de diviser par zéro (pour générer une exception)</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>            resultat <span class="op">=</span> x <span class="op">/</span> <span class="dv">0</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Autrement, décrémentez x</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>            x <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ZeroDivisionError</span>:</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Tentative de division par zéro. 'x' était impair."</span>)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">finally</span>:</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Décrémentez y à chaque itération</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        y <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Fin de la boucle avec x = </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> et y = </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dans cet exemple, la boucle <code>while</code> continue de s’exécuter tant que la condition <code>x + y &gt; 8</code> est vraie. Si <code>x</code> est impair, le code essaie de diviser par zéro, ce qui lève une <code>ZeroDivisionError</code>. Dans ce cas, le message d’erreur est imprimé, et le mot-clé <code>break</code> interrompt la boucle. Le bloc <code>finally</code> est exécuté après chaque itération, peu importe les erreurs.</p>
 </section>
 </section>
@@ -594,7 +612,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="listes">Listes</h3>
 <ul>
 <li><p>Les listes en Python sont des collections ordonnées et modifiables. Elles peuvent contenir des éléments de différents types.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ma_liste <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">"Python"</span>, <span class="va">True</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div id="4a138851" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ma_liste <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">"Python"</span>, <span class="va">True</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 <li><p><strong>Opérations de Base sur les Listes</strong> :</p>
 <ul>
 <li>Ajout d’éléments (<code>append</code>, <code>extend</code>).</li>
@@ -607,7 +627,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="tuples">Tuples</h3>
 <ul>
 <li><p>Les tuples sont similaires aux listes, mais ils sont immuables (leurs valeurs ne peuvent pas être modifiées après leur création).</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mon_tuple <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">"Python"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div id="680a0222" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mon_tuple <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">"Python"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 <li><p>Utilisés pour des données qui ne doivent pas être modifiées, comme les clés dans les dictionnaires.</p></li>
 </ul>
 </section>
@@ -619,7 +641,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="dictionnaires">Dictionnaires</h3>
 <ul>
 <li><p>Les dictionnaires stockent des paires clé-valeur. Ils sont mutables et non ordonnés.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mon_dictionnaire <span class="op">=</span> {<span class="st">"nom"</span>: <span class="st">"Alice"</span>, <span class="st">"age"</span>: <span class="dv">30</span>, <span class="st">"langage"</span>: <span class="st">"Python"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div id="b4b775fe" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mon_dictionnaire <span class="op">=</span> {<span class="st">"nom"</span>: <span class="st">"Alice"</span>, <span class="st">"age"</span>: <span class="dv">30</span>, <span class="st">"langage"</span>: <span class="st">"Python"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 <li><p><strong>Manipulation de Dictionnaires</strong> :</p>
 <ul>
 <li>Ajout et modification d’éléments (<code>mon_dictionnaire["nom"] = "Bob"</code>).</li>
@@ -632,7 +656,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="ensembles">Ensembles</h3>
 <ul>
 <li><p>Les ensembles sont des collections non ordonnées de valeurs uniques. Utiles pour les opérations mathématiques comme les unions, intersections, et différences.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mon_ensemble <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div id="a06d10af" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mon_ensemble <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 <li><p><strong>Opérations sur les Ensembles</strong> :</p>
 <ul>
 <li>Ajout (<code>add</code>) et suppression (<code>remove</code>) d’éléments.</li>
@@ -647,16 +673,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exemple-de-manipulation-de-structures-de-données" class="level3">
 <h3 class="anchored" data-anchor-id="exemple-de-manipulation-de-structures-de-données">Exemple de Manipulation de Structures de Données</h3>
 <p>Supposons que nous avons une liste de tuples, chaque tuple contenant le nom d’un étudiant et son score. Nous voulons créer un dictionnaire où chaque clé est un score unique, et la valeur est la liste des noms d’étudiants ayant ce score.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>etudiants <span class="op">=</span> [(<span class="st">"Alice"</span>, <span class="dv">85</span>), (<span class="st">"Bob"</span>, <span class="dv">90</span>), (<span class="st">"Eve"</span>, <span class="dv">85</span>), (<span class="st">"Dave"</span>, <span class="dv">90</span>), (<span class="st">"Carol"</span>, <span class="dv">75</span>)]</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> {}</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nom, score <span class="kw">in</span> etudiants:</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> score <span class="kw">not</span> <span class="kw">in</span> scores:</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        scores[score] <span class="op">=</span> [nom]</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>        scores[score].append(nom)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(scores)  <span class="co"># {85: ['Alice', 'Eve'], 90: ['Bob', 'Dave'], 75: ['Carol']}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>::: {#5ab7be50 .cell execution_count=9} ``` {.python .cell-code} etudiants = [(“Alice”, 85), (“Bob”, 90), (“Eve”, 85), (“Dave”, 90), (“Carol”, 75)] scores = {}</p>
+<p>for nom, score in etudiants: if score not in scores: scores[score] = [nom] else: scores[score].append(nom)</p>
+<p>print(scores) # {85: [‘Alice’, ‘Eve’], 90: [‘Bob’, ‘Dave’], 75: [‘Carol’]} ```</p>
+<p>::: {.cell-output .cell-output-stdout} <code>{85: ['Alice', 'Eve'], 90: ['Bob', 'Dave'], 75: ['Carol']}</code> ::: :::</p>
 <p>Dans cet exemple, nous parcourons la liste <code>etudiants</code>. Pour chaque tuple, nous vérifions si le score est déjà une clé dans le dictionnaire <code>scores</code>. Si ce n’est pas le cas, nous ajoutons une nouvelle clé avec le score et initialisons sa valeur avec une liste contenant le nom de l’étudiant. Si le score existe déjà, nous ajoutons simplement le nom de l’étudiant à la liste correspondante.</p>
 <hr>
 </section>
@@ -668,24 +688,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="compréhensions-de-liste">Compréhensions de Liste</h3>
 <ul>
 <li><p>Les compréhensions de liste fournissent une façon concise de créer des listes. Elles consistent en une expression suivie par une clause <code>for</code>, puis zéro ou plusieurs clauses <code>for</code> ou <code>if</code>.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'une liste des carrés des nombres de 0 à 9</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>carres <span class="op">=</span> [x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div id="8920663e" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'une liste des carrés des nombres de 0 à 9</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>carres <span class="op">=</span> [x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 </ul>
 </section>
 <section id="compréhensions-de-dictionnaire" class="level3">
 <h3 class="anchored" data-anchor-id="compréhensions-de-dictionnaire">Compréhensions de Dictionnaire</h3>
 <ul>
 <li><p>Semblables aux compréhensions de liste, mais créent des dictionnaires. Elles sont entourées de <code>{}</code> avec une paire clé-valeur suivie d’une clause <code>for</code>.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'un dictionnaire avec des nombres et leurs carrés</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>carres_dict <span class="op">=</span> {x: x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div id="329b22da" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'un dictionnaire avec des nombres et leurs carrés</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>carres_dict <span class="op">=</span> {x: x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 </ul>
 </section>
 <section id="compréhensions-densemble" class="level3">
 <h3 class="anchored" data-anchor-id="compréhensions-densemble">Compréhensions d’Ensemble</h3>
 <ul>
 <li><p>Utilisées pour créer des ensembles de manière similaire aux compréhensions de liste, mais avec des éléments uniques.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'un ensemble de carrés des nombres impairs</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>carres_impairs <span class="op">=</span> {x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>) <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div id="0eae2d7a" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'un ensemble de carrés des nombres impairs</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>carres_impairs <span class="op">=</span> {x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>) <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 </ul>
 </section>
 </section>
@@ -695,10 +721,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exemple-pratique-transformation-de-données" class="level3">
 <h3 class="anchored" data-anchor-id="exemple-pratique-transformation-de-données">Exemple Pratique : Transformation de Données</h3>
 <p>Imaginons que nous avons une liste de mots et que nous voulons créer un dictionnaire qui associe chaque mot à sa longueur, mais seulement pour les mots de plus de trois lettres.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>mots <span class="op">=</span> [<span class="st">"python"</span>, <span class="st">"est"</span>, <span class="st">"un"</span>, <span class="st">"langage"</span>, <span class="st">"puissant"</span>]</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>longueur_mots <span class="op">=</span> {mot: <span class="bu">len</span>(mot) <span class="cf">for</span> mot <span class="kw">in</span> mots <span class="cf">if</span> <span class="bu">len</span>(mot) <span class="op">&gt;</span> <span class="dv">3</span>}</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(longueur_mots)  <span class="co"># {'python': 6, 'langage': 7, 'puissant': 8}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>::: {#cb1fea3a .cell execution_count=13} ``` {.python .cell-code} mots = [“python”, “est”, “un”, “langage”, “puissant”] longueur_mots = {mot: len(mot) for mot in mots if len(mot) &gt; 3}</p>
+<p>print(longueur_mots) # {‘python’: 6, ‘langage’: 7, ‘puissant’: 8} ```</p>
+<p>::: {.cell-output .cell-output-stdout} <code>{'python': 6, 'langage': 7, 'puissant': 8}</code> ::: :::</p>
 <p>Dans cet exemple, la compréhension de dictionnaire parcourt la liste <code>mots</code>, incluant uniquement les mots dont la longueur dépasse trois lettres. Pour chaque mot éligible, le dictionnaire <code>longueur_mots</code> est construit avec le mot comme clé et sa longueur comme valeur.</p>
 </section>
 </section>
@@ -709,18 +734,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="opérateurs-ternaires">Opérateurs Ternaires</h3>
 <ul>
 <li><p>Les opérateurs ternaires permettent d’écrire des instructions conditionnelles en une seule ligne. La syntaxe est : <code>[valeur_si_vrai] if [condition] else [valeur_si_faux]</code>.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple d'opérateur ternaire</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>statut <span class="op">=</span> <span class="st">"majeur"</span> <span class="cf">if</span> age <span class="op">&gt;=</span> <span class="dv">18</span> <span class="cf">else</span> <span class="st">"mineur"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div id="a6df2d1c" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple d'opérateur ternaire</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>statut <span class="op">=</span> <span class="st">"majeur"</span> <span class="cf">if</span> age <span class="op">&gt;=</span> <span class="dv">18</span> <span class="cf">else</span> <span class="st">"mineur"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 </ul>
 </section>
 <section id="expressions-lambda" class="level3">
 <h3 class="anchored" data-anchor-id="expressions-lambda">Expressions Lambda</h3>
 <ul>
 <li><p>Les expressions lambda permettent de créer de petites fonctions anonymes. Elles sont utiles pour des opérations simples nécessitant une fonction.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple d'expression lambda</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>additionner <span class="op">=</span> <span class="kw">lambda</span> x, y: x <span class="op">+</span> y</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(additionner(<span class="dv">5</span>, <span class="dv">3</span>))  <span class="co"># Affiche 8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div id="1d6e371c" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple d'expression lambda</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>additionner <span class="op">=</span> <span class="kw">lambda</span> x, y: x <span class="op">+</span> y</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(additionner(<span class="dv">5</span>, <span class="dv">3</span>))  <span class="co"># Affiche 8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>8</code></pre>
+</div>
+</div></li>
 </ul>
 </section>
 </section>
@@ -731,19 +763,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="slicing-avancé">Slicing Avancé</h3>
 <ul>
 <li><p>Le slicing permet de sélectionner des sous-parties d’une séquence. En plus des bases, Python permet des slicings plus complexes.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>ma_liste <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>sous_liste <span class="op">=</span> ma_liste[::<span class="dv">2</span>]  <span class="co"># Sélectionne chaque élément pair</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div id="93d18912" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>ma_liste <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>sous_liste <span class="op">=</span> ma_liste[::<span class="dv">2</span>]  <span class="co"># Sélectionne chaque élément pair</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 </ul>
 </section>
 <section id="listes-et-dictionnaires-imbriqués" class="level3">
 <h3 class="anchored" data-anchor-id="listes-et-dictionnaires-imbriqués">Listes et Dictionnaires Imbriqués</h3>
 <ul>
 <li><p>Les listes et dictionnaires peuvent être imbriqués pour créer des structures de données complexes.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de dictionnaire contenant des listes</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>informations <span class="op">=</span> {</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"nom"</span>: <span class="st">"Alice"</span>,</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"hobbies"</span>: [<span class="st">"programmation"</span>, <span class="st">"jeux vidéo"</span>, <span class="st">"lecture"</span>]</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div id="577a2ff0" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de dictionnaire contenant des listes</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>informations <span class="op">=</span> {</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"nom"</span>: <span class="st">"Alice"</span>,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"hobbies"</span>: [<span class="st">"programmation"</span>, <span class="st">"jeux vidéo"</span>, <span class="st">"lecture"</span>]</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 </ul>
 </section>
 </section>
@@ -753,14 +789,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exemple-filtrage-et-transformation-de-données" class="level3">
 <h3 class="anchored" data-anchor-id="exemple-filtrage-et-transformation-de-données">Exemple : Filtrage et Transformation de Données</h3>
 <p>Supposons que nous avons une liste de dictionnaires représentant des livres, et nous voulons extraire les titres des livres publiés après 2000.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>livres <span class="op">=</span> [</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"titre"</span>: <span class="st">"Python 101"</span>, <span class="st">"année"</span>: <span class="dv">1999</span>},</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"titre"</span>: <span class="st">"Le Guide du Voyageur Galactique"</span>, <span class="st">"année"</span>: <span class="dv">1979</span>},</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"titre"</span>: <span class="st">"Apprendre la Programmation"</span>, <span class="st">"année"</span>: <span class="dv">2015</span>}</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>titres_recent <span class="op">=</span> [livre[<span class="st">"titre"</span>] <span class="cf">for</span> livre <span class="kw">in</span> livres <span class="cf">if</span> livre[<span class="st">"année"</span>] <span class="op">&gt;</span> <span class="dv">2000</span>]</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(titres_recent)  <span class="co"># Affiche ['Apprendre la Programmation']</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>::: {#16bfb00d .cell execution_count=18} ``` {.python .cell-code} livres = [ {“titre”: “Python 101”, “année”: 1999}, {“titre”: “Le Guide du Voyageur Galactique”, “année”: 1979}, {“titre”: “Apprendre la Programmation”, “année”: 2015} ]</p>
+<p>titres_recent = [livre[“titre”] for livre in livres if livre[“année”] &gt; 2000] print(titres_recent) # Affiche [‘Apprendre la Programmation’] ```</p>
+<p>::: {.cell-output .cell-output-stdout} <code>['Apprendre la Programmation']</code> ::: :::</p>
 <p>Dans cet exemple, une compréhension de liste est utilisée pour parcourir <code>livres</code>, en extrayant le <code>titre</code> de chaque livre dont l’<code>année</code> est supérieure à 2000. Cela démontre comment les compréhensions de liste peuvent être utilisées pour filtrer et transformer des données de manière concise et lisible. ```</p>
 
 

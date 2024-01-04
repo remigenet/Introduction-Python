@@ -8,9 +8,9 @@
 
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2024-01-04">
-<meta name="description" content="Ce chapitre offre une plongée approfondie dans la syntaxe et les objets de base de Python. Il vise à fournir une compréhension solide des fondements du langage, couvrant tout, des variables et opérateurs aux structures de données essentielles comme les listes, les dictionnaires, et les tuples. Chaque section est enrichie d’exemples concrets et d’explications détaillées pour faciliter la compréhension et l’application pratique des concepts.">
+<meta name="description" content="Les DataFrames">
 
-<title>Introduction à Python - Syntaxe et objets de Base Python</title>
+<title>Introduction à Python - Les DataFrames</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -33,6 +67,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../content/Cours_3/2-Calcul_Scientifique_et_Optimization.html" rel="next">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -75,11 +110,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction à Python - Syntaxe et objets de Base Python">
-<meta property="og:description" content="Ce chapitre offre une plongée approfondie dans la syntaxe et les objets de base de Python. Il vise à fournir une compréhension solide des fondements du langage, couvrant tout, des variables et opérateurs aux structures de données essentielles comme les listes, les dictionnaires, et les tuples. Chaque section est enrichie d’exemples concrets et d’explications détaillées pour faciliter la compréhension et l’application pratique des concepts.">
-<meta property="og:image" content="https://remigenet.github.io/Introduction-Python/content/Cours_3/.img/basesyntax.png">
+<meta property="og:title" content="Introduction à Python - Les DataFrames">
+<meta property="og:description" content="Les DataFrames">
+<meta property="og:image" content="https://remigenet.github.io/Introduction-Python/content/Cours_3/.img/pandas.jpg">
 <meta property="og:site_name" content="Introduction à Python">
-<meta name="citation_title" content="Syntaxe et objets de Base Python">
+<meta name="citation_title" content="Les DataFrames">
 <meta name="citation_author" content="Remi Genet">
 <meta name="citation_publication_date" content="2024-01-04">
 <meta name="citation_cover_date" content="2024-01-04">
@@ -229,7 +264,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_3/1-Dataframes.html">Syntaxe et objets de Base Python</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_3/1-Dataframes.html">Les DataFrames</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -244,26 +279,59 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_3/1-Dataframes.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Syntaxe et objets de Base Python</span></a>
+ <span class="menu-text">Les DataFrames</span></a>
   </div>
 </li>
         <li class="sidebar-item">
- <span class="menu-text">content/Cours_3/2-Calcul_Scientifique_et_Optimization.qmd - content/Cours_3/3-MachineLearning.qmd - content/Cours_3/4-Access_Internet.qmd - content/Cours_3/5-Feed_Internet.qmd - content/Cours_3/6-Visualisation.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/2-Calcul_Scientifique_et_Optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calcul Scientifique et Optimization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/3-MachineLearning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Machine Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/4-Access_Internet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Recupérer des données du net</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/5-Feed_Internet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python - Aussi un language pour servir des données</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/6-Visualisation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualiser et présenter ces données avec Python</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Introduction-Python/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#dataframes-en-python" id="toc-dataframes-en-python" class="nav-link active" data-scroll-target="#dataframes-en-python">Dataframes en Python</a></li>
+  </ul>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Introduction-Python/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Syntaxe et objets de Base Python</h1>
+<h1 class="title">Les DataFrames</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Cours</div>
     <div class="quarto-category">Fondamentaux</div>
@@ -272,7 +340,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Ce chapitre offre une plongée approfondie dans la syntaxe et les objets de base de Python. Il vise à fournir une compréhension solide des fondements du langage, couvrant tout, des variables et opérateurs aux structures de données essentielles comme les listes, les dictionnaires, et les tuples. Chaque section est enrichie d’exemples concrets et d’explications détaillées pour faciliter la compréhension et l’application pratique des concepts.
+    Les DataFrames
   </div>
 </div>
 
@@ -301,8 +369,72 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="dataframes-en-python" class="level1">
+<h1>Dataframes en Python</h1>
+<hr>
+<section id="introduction-aux-dataframes" class="level4">
+<h4 class="anchored" data-anchor-id="introduction-aux-dataframes">Introduction aux Dataframes</h4>
+<p><strong>Définition et Rôle des Dataframes :</strong> Un dataframe est une structure de données bidimensionnelle, souvent comparée à une feuille de calcul Excel ou une table de base de données SQL. Il est utilisé pour stocker et manipuler des ensembles de données organisées en lignes et colonnes. Chaque colonne représente une variable, et chaque ligne représente une observation.</p>
+<p>Les dataframes sont cruciaux en analyse de données, statistiques, science des données et machine learning pour le traitement et l’analyse de grands ensembles de données. Ils facilitent la manipulation des données, notamment le tri, le filtrage, la transformation et l’agrégation.</p>
+<p><strong>Librairies Python pour Dataframes :</strong> Les deux principales librairies en Python pour travailler avec des dataframes sont Pandas et NumPy.</p>
+<ol type="1">
+<li><strong>Pandas :</strong> C’est la librairie la plus populaire pour la manipulation de données en Python. Pandas offre une API riche et intuitive pour la création, la manipulation et l’analyse de dataframes.</li>
+<li><strong>NumPy :</strong> Bien que principalement utilisé pour les calculs sur des tableaux multidimensionnels, NumPy est souvent employé en tandem avec Pandas, surtout pour les opérations numériques.</li>
+</ol>
+</section>
+<section id="utilisation-de-pandas-pour-les-dataframes" class="level4">
+<h4 class="anchored" data-anchor-id="utilisation-de-pandas-pour-les-dataframes">Utilisation de Pandas pour les Dataframes</h4>
+<p><strong>Création d’un Dataframe :</strong> Pour créer un dataframe avec Pandas, on peut utiliser diverses méthodes, notamment à partir d’un dictionnaire, d’un fichier CSV, ou d’un tableau NumPy.</p>
+<p><strong>Exemple de Code - Création d’un Dataframe :</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'un dataframe à partir d'un dictionnaire</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Nom'</span>: [<span class="st">'Alice'</span>, <span class="st">'Bob'</span>, <span class="st">'Charlie'</span>], <span class="st">'Age'</span>: [<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>], <span class="st">'Ville'</span>: [<span class="st">'New York'</span>, <span class="st">'Paris'</span>, <span class="st">'Berlin'</span>]}</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Manipulation de Dataframes :</strong> Les opérations courantes sur les dataframes incluent le filtrage, le tri, la manipulation de colonnes, et l’agrégation de données.</p>
+<p><strong>Exemple de Code - Manipulation de Dataframe :</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sélection de colonnes</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_age_ville <span class="op">=</span> df[[<span class="st">'Age'</span>, <span class="st">'Ville'</span>]]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrage des données</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df_filtré <span class="op">=</span> df[df[<span class="st">'Age'</span>] <span class="op">&gt;</span> <span class="dv">30</span>]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Tri des données</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>df_trié <span class="op">=</span> df.sort_values(by<span class="op">=</span><span class="st">'Age'</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_filtré)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_trié)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exercice-pratique" class="level4">
+<h4 class="anchored" data-anchor-id="exercice-pratique">Exercice Pratique</h4>
+<p><strong>Objectif :</strong> Créer et manipuler un dataframe avec Pandas.</p>
+<ol type="1">
+<li><strong>Créer un DataFrame :</strong> Utilisez un dictionnaire pour créer un dataframe contenant trois colonnes : ‘Produit’, ‘Quantité’ et ‘Prix’.</li>
+<li><strong>Filtrer les Données :</strong> Sélectionnez les produits dont la quantité est supérieure à 10.</li>
+<li><strong>Trier les Données :</strong> Triez le dataframe en fonction du prix, par ordre décroissant.</li>
+</ol>
+<p><strong>Solution :</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Création du dataframe</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Produit'</span>: [<span class="st">'Pommes'</span>, <span class="st">'Bananes'</span>, <span class="st">'Oranges'</span>], <span class="st">'Quantité'</span>: [<span class="dv">12</span>, <span class="dv">5</span>, <span class="dv">20</span>], <span class="st">'Prix'</span>: [<span class="fl">1.5</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>]}</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrage</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>df_filtré <span class="op">=</span> df[df[<span class="st">'Quantité'</span>] <span class="op">&gt;</span> <span class="dv">10</span>]</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Tri</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>df_trié <span class="op">=</span> df.sort_values(by<span class="op">=</span><span class="st">'Prix'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_filtré)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_trié)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans le prochain message, nous approfondirons l’analyse des données avec les dataframes, en explorant des fonctions avancées telles que les opérations de groupement et de fusion.</p>
 
 
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -687,6 +819,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/Cours_3/2-Calcul_Scientifique_et_Optimization.html" class="pagination-link" aria-label="Calcul Scientifique et Optimization">
+        <span class="nav-page-text">Calcul Scientifique et Optimization</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
