@@ -1,6 +1,9 @@
 project:
   type: website
 
+filters:
+  - shinylive
+
 website:
   title: "Introduction à Python"
   favicon: /content/.img/favicon.png
@@ -92,6 +95,9 @@ author: Remi Genet
 date: today
 date-format: iso
 page-layout: article
+
+google-scholar: true
+commentable: true
 # title-block-banner: "#e9f3fa"
 
 validate-yaml: false
@@ -103,9 +109,6 @@ validate-yaml: false
 
 
 
-google-scholar: true
-
-commentable: true
 
 # format:
 #   html:
