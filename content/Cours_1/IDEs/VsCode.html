@@ -47,6 +47,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -179,20 +182,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Syntaxe et objets de Base Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../content/Cours_2/1.1-Exercices.py">
- <span class="dropdown-text"></span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../content/Cours_2/1-FondamentauxSyntaxique.html">
- <span class="dropdown-text">Syntaxe et objets de Base Python</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../../../content/Cours_2/2-FonctionsEtModules.html">
  <span class="dropdown-text">Fonctions et Modules</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../../content/Cours_2/3-IntroducingPOOConcept.html">
  <span class="dropdown-text">Introduction à la POO en Python</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../../content/Cours_2/1.1-Exercices.py">
+ <span class="dropdown-text"></span></a>
   </li>  
     </ul>
   </li>
@@ -224,6 +225,12 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../../../content/Cours_3/6-Visualisation.html">
  <span class="dropdown-text">Visualiser et présenter ces données avec Python</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../../content/Cours_3/TP-3.html">
+ <span class="dropdown-text">TP-3 Libraries</span></a>
   </li>  
     </ul>
   </li>
@@ -467,7 +474,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="présentation-générale-de-visual-studio-code-vs-code" class="level4">
 <h4 class="anchored" data-anchor-id="présentation-générale-de-visual-studio-code-vs-code">Présentation Générale de Visual Studio Code (VS Code)</h4>
 <p>Visual Studio Code, communément appelé VS Code, est un IDE largement adopté par la communauté des développeurs Python. Sa réputation repose sur sa légèreté, sa flexibilité et ses capacités de personnalisation. Examinons en détail les caractéristiques qui font de VS Code un choix privilégié pour le développement Python.</p>
-<p><img src=".img/VSCode.png" class="img-fluid"></p>
+<p><a href=".img/VSCode.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src=".img/VSCode.png" class="img-fluid"></a></p>
 </section>
 <section id="caractéristiques-principales-de-vs-code" class="level4">
 <h4 class="anchored" data-anchor-id="caractéristiques-principales-de-vs-code">1. Caractéristiques Principales de VS Code</h4>
@@ -527,7 +534,7 @@ ul.task-list li input[type="checkbox"] {
 <li>L’IDE fournit un support exhaustif pour les technologies web, facilitant le développement tant sur le front-end que le back-end.</li>
 </ul></li>
 </ul>
-<p><img src=".img/copilot.jpg" class="img-fluid"></p>
+<p><a href=".img/copilot.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src=".img/copilot.jpg" class="img-fluid"></a></p>
 </section>
 <section id="communauté-active-et-mises-à-jour-constantes" class="level4">
 <h4 class="anchored" data-anchor-id="communauté-active-et-mises-à-jour-constantes">6. Communauté Active et Mises à Jour Constantes</h4>
@@ -951,6 +958,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","selector":".lightbox"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

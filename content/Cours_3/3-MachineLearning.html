@@ -216,20 +216,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Syntaxe et objets de Base Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../content/Cours_2/1.1-Exercices.py">
- <span class="dropdown-text"></span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_2/1-FondamentauxSyntaxique.html">
- <span class="dropdown-text">Syntaxe et objets de Base Python</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../../content/Cours_2/2-FonctionsEtModules.html">
  <span class="dropdown-text">Fonctions et Modules</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_2/3-IntroducingPOOConcept.html">
  <span class="dropdown-text">Introduction à la POO en Python</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/1.1-Exercices.py">
+ <span class="dropdown-text"></span></a>
   </li>  
     </ul>
   </li>
@@ -261,6 +259,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../content/Cours_3/6-Visualisation.html">
  <span class="dropdown-text">Visualiser et présenter ces données avec Python</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3.html">
+ <span class="dropdown-text">TP-3 Libraries</span></a>
   </li>  
     </ul>
   </li>
@@ -398,11 +402,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Visualiser et présenter ces données avec Python</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Travaux Pratiques</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
  <span class="menu-text">content/Cours_3/bonus-pandas_short_examplet.qmd</span>
   </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
  <span class="menu-text">content/Cours_3/TP-pandas_and_geography.ipynb</span>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/TP-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP-3 Libraries</span></a>
+  </div>
+</li>
+      </ul>
   </li>
     </ul>
     </div>
@@ -501,7 +522,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>Classification avec Scikit-learn</strong>:</li>
 </ul>
-<div id="acdb74bd" class="cell" data-execution_count="1">
+<div id="575b6ca4" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_iris</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -536,7 +557,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Énoncé</strong>: Utilisez Scikit-learn pour construire un classificateur simple sur un jeu de données standard, évaluez ses performances, et essayez d’améliorer ses résultats en ajustant les paramètres.</li>
 <li><strong>Solution</strong>:</li>
 </ol>
-<div id="fc56a997" class="cell" data-execution_count="2">
+<div id="70ecd4be" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -550,7 +571,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> clf.predict(X_test)</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Accuracy:"</span>, accuracy_score(y_test, y_pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Accuracy: 0.9333333333333333</code></pre>
+<pre><code>Accuracy: 0.9777777777777777</code></pre>
 </div>
 </div>
 </section>
@@ -604,7 +625,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Énoncé</strong>: Construisez et entraînez un réseau de neurones simple pour classifier des images à partir d’un jeu de données standard comme MNIST.</li>
 <li><strong>Solution</strong> (avec PyTorch) :</li>
 </ol>
-<div id="0e34c0a2" class="cell" data-execution_count="3">
+<div id="242c0504" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
@@ -640,11 +661,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        optimizer.step()</span>
 <span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Epoch </span><span class="sc">{</span>epoch<span class="sc">}</span><span class="ss">, Loss: </span><span class="sc">{</span>loss<span class="sc">.</span>item()<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Epoch 0, Loss: 0.7023621201515198
-Epoch 1, Loss: 0.24246001243591309
-Epoch 2, Loss: 0.4038937985897064
-Epoch 3, Loss: 0.3790201246738434
-Epoch 4, Loss: 0.33704066276550293</code></pre>
+<pre><code>Epoch 0, Loss: 0.5936780571937561
+Epoch 1, Loss: 0.8667830228805542
+Epoch 2, Loss: 0.38287875056266785
+Epoch 3, Loss: 0.5282533168792725
+Epoch 4, Loss: 0.4394441843032837</code></pre>
 </div>
 </div>
 </section>

@@ -110,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Introduction à Python - Typage en Python">
-<meta property="og:image" content="https://remigenet.github.io/Introduction-Python/content/Cours_4/.img/numpy.png">
+<meta property="og:image" content="https://remigenet.github.io/Introduction-Python/content/Cours_4/.img/typehinting.webp">
 <meta property="og:site_name" content="Introduction à Python">
 <meta name="citation_title" content="Typage en Python">
 <meta name="citation_author" content="Remi Genet">
@@ -208,20 +208,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Syntaxe et objets de Base Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../content/Cours_2/1.1-Exercices.py">
- <span class="dropdown-text"></span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_2/1-FondamentauxSyntaxique.html">
- <span class="dropdown-text">Syntaxe et objets de Base Python</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../../content/Cours_2/2-FonctionsEtModules.html">
  <span class="dropdown-text">Fonctions et Modules</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_2/3-IntroducingPOOConcept.html">
  <span class="dropdown-text">Introduction à la POO en Python</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/1.1-Exercices.py">
+ <span class="dropdown-text"></span></a>
   </li>  
     </ul>
   </li>
@@ -253,6 +251,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../content/Cours_3/6-Visualisation.html">
  <span class="dropdown-text">Visualiser et présenter ces données avec Python</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3.html">
+ <span class="dropdown-text">TP-3 Libraries</span></a>
   </li>  
     </ul>
   </li>
@@ -446,7 +450,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="typage-dynamique-en-python" class="level5">
 <h5 class="anchored" data-anchor-id="typage-dynamique-en-python">Typage Dynamique en Python</h5>
 <p>Python est un langage à typage dynamique, ce qui signifie que le type d’une variable est déterminé à l’exécution et peut changer au cours du temps.</p>
-<div id="1be238a1" class="cell" data-execution_count="1">
+<div id="3d7552fb" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span>       <span class="co"># x est un entier</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">"Hello"</span> <span class="co"># x est maintenant une chaîne de caractères</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -464,7 +468,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="type-hinting-en-python">Type Hinting en Python</h2>
 <p>Introduction au Type Hinting</p>
 <p>Le Type Hinting en Python permet de spécifier les types attendus des variables. Bien qu’il ne soit pas strictement appliqué à l’exécution, il facilite la compréhension et la vérification du code. Utiliser le Type Hinting</p>
-<div id="4a05a27c" class="cell" data-execution_count="2">
+<div id="5183956b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_numbers(a: <span class="bu">int</span>, b: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -474,7 +478,7 @@ Débogage : Facilite la détection des erreurs de type.
 Compatibilité avec les Outils : Les IDE et les outils d'analyse statique peuvent utiliser le Type Hinting pour détecter des erreurs.</code></pre>
 <p>Conventions et Documentation</p>
 <p>Les annotations de type peuvent être complétées par des Docstrings pour fournir des explications plus détaillées sur le comportement d’une fonction.</p>
-<div id="a027604b" class="cell" data-execution_count="3">
+<div id="9825a3cb" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_numbers(a: <span class="bu">int</span>, b: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Add two integers and return the result.</span></span>
@@ -515,7 +519,7 @@ Compatibilité avec les Outils : Les IDE et les outils d'analyse statique peuven
 </section>
 <section id="exemple-de-classe-abstraite" class="level5">
 <h5 class="anchored" data-anchor-id="exemple-de-classe-abstraite">Exemple de Classe Abstraite</h5>
-<div id="5b19a9cc" class="cell" data-execution_count="4">
+<div id="f7029b11" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Shape(ABC):</span>
