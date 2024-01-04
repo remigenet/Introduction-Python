@@ -56,6 +56,15 @@ website:
        - content/Cours_2/1-FondamentauxSyntaxique.qmd
        - content/Cours_2/2-FonctionsEtModules.qmd
        - content/Cours_2/3-IntroducingPOOConcept.qmd
+    - id: Use 
+      title: "Les Librairies Python"
+      contents: 
+      - content/Cours_3/1-Dataframes.qmd
+      - content/Cours_3/2-Calcul_Scientifique_et_Optimization.qmd
+       - content/Cours_3/3-MachineLearning.qmd
+       - content/Cours_3/4-Access_Internet.qmd
+       - content/Cours_3/5-Feed_Internet.qmd
+       - content/Cours_3/6-Visualisation.qmd
     - id: annexes 
       title: "Annexes"
       contents: 
