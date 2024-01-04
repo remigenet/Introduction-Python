@@ -23,6 +23,12 @@
     "/content/Cours_3/3-MachineLearning.html",
     "/content/Cours_3/4-Access_Internet.html",
     "/content/Cours_3/5-Feed_Internet.html",
-    "/content/Cours_3/6-Visualisation.html"
+    "/content/Cours_3/6-Visualisation.html",
+    "/content/Cours_4/1-MutabilitéEtScopes.html",
+    "/content/Cours_4/2-TypageEnPython.html",
+    "/content/Cours_4/3-TournonsAutourduGIL.html",
+    "/content/Cours_4/TP-RequetteruneAPI.html",
+    "/content/Cours_5/AST.html",
+    "/content/Cours_5/POO_le_retour.html"
   ]
 }
