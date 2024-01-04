@@ -1,8 +1,6 @@
 project:
   type: website
 
-filters:
-  - shinylive
 
 website:
   title: "Introduction à Python"

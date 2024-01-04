@@ -1,0 +1,20 @@
+---
+title: "Typage en Python"
+weight: 10
+tags:
+  - Pandas
+  - Bases
+  - Libraries
+  - Cours
+categories:
+  - Cours
+  - Fondamentaux
+type: book
+description: ""
+image: .img/numpy.png
+code-links: binder
+---
+
+# Typage en Python - Utile ou pas ?
+
+---

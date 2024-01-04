@@ -1,0 +1,20 @@
+---
+title: "POO - Python Orienté Objet"
+weight: 10
+tags:
+  - Pandas
+  - Bases
+  - Libraries
+  - Cours
+categories:
+  - Cours
+  - Fondamentaux
+type: book
+description: ""
+image: .img/numpy.png
+code-links: binder
+---
+
+# POO - Python Orienté Objet"
+
+---
