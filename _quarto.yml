@@ -20,6 +20,7 @@ website:
       - sidebar:introduction
       - sidebar:discover
       - sidebar:annexes
+      - sidebar:Bibliotheques
     tools:
       - icon: github
         menu:
@@ -56,7 +57,7 @@ website:
        - content/Cours_2/1-FondamentauxSyntaxique.qmd
        - content/Cours_2/2-FonctionsEtModules.qmd
        - content/Cours_2/3-IntroducingPOOConcept.qmd
-    - id: Use 
+    - id: Bibliotheques 
       title: "Les Librairies Python"
       contents: 
        - content/Cours_3/1-Dataframes.qmd
