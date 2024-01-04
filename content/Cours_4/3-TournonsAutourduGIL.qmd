@@ -17,5 +17,6 @@ code-links: binder
 
 # Asynchronie et Multiprocessing - comment donner le tournis au GIL
 
----
+---  /home/remi/PhDWork/Python-API/content/Cours_2/3-Conception-optimizations.qmd
 
+[Cours sur Async, thread, process]("https://remigenet.github.io/Python-API/content/Cours_2/3-Conception-optimizations.html")
