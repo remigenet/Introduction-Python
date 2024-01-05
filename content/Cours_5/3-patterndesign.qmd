@@ -11,7 +11,7 @@ categories:
   - Fondamentaux
 type: book
 description: ""
-image: .img/standast2.webp
+image: .img/stdandast2.webp
 code-links: binder
 ---
 
