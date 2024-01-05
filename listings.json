@@ -17,9 +17,12 @@
       "/content/Cours_1/IDEs/Spyder.html",
       "/content/Cours_1/IDEs/VsCode.html",
       "/content/Cours_1/TP-ConstruireSonPython.html",
+      "/content/Cours_1/index.html",
       "/content/Cours_2/1-FondamentauxSyntaxique.html",
       "/content/Cours_2/2-FonctionsEtModules.html",
       "/content/Cours_2/3-IntroducingPOOConcept.html",
+      "/content/Cours_2/index copy.html",
+      "/content/Cours_2/index.html",
       "/content/Cours_3/1-Dataframes.html",
       "/content/Cours_3/2-Calcul_Scientifique_et_Optimization.html",
       "/content/Cours_3/3-MachineLearning.html",
@@ -27,10 +30,80 @@
       "/content/Cours_3/5-Feed_Internet.html",
       "/content/Cours_3/6-Visualisation.html",
       "/content/Cours_3/TP-3.html",
+      "/content/Cours_3/index.html",
       "/content/Cours_4/1-MutabilitéEtScopes.html",
       "/content/Cours_4/2-TypageEnPython.html",
       "/content/Cours_4/3-TournonsAutourduGIL.html",
       "/content/Cours_4/TP-RequetteruneAPI.html",
+      "/content/Cours_4/index.html",
+      "/content/Cours_5/1-AST.html",
+      "/content/Cours_5/2-POO_le_retour.html",
+      "/content/Cours_5/index.html",
+      "/content/Projets/index.html",
+      "/content/Projets/projets_L3_2023.html"
+    ]
+  },
+  {
+    "listing": "/content/Cours_1/index.html",
+    "items": [
+      "/content/Cours_1/2-Python_Execution.html",
+      "/content/Cours_1/1-Histoire.html",
+      "/content/Cours_1/4-Path.html",
+      "/content/Cours_1/6-IDEs.html",
+      "/content/Cours_1/7-Notebooks.html",
+      "/content/Cours_1/5-PathandVirtualEnv.html",
+      "/content/Cours_1/TP-ConstruireSonPython.html",
+      "/content/Cours_1/3-ManyPythons.html"
+    ]
+  },
+  {
+    "listing": "/content/Cours_2/index copy.html",
+    "items": [
+      "/content/Cours_2/2-FonctionsEtModules.html",
+      "/content/Cours_2/3-IntroducingPOOConcept.html",
+      "/content/Cours_2/1-FondamentauxSyntaxique.html",
+      "/content/Cours_2/index.html"
+    ]
+  },
+  {
+    "listing": "/content/Cours_4/index.html",
+    "items": [
+      "/content/Cours_4/3-TournonsAutourduGIL.html",
+      "/content/Cours_4/1-MutabilitéEtScopes.html",
+      "/content/Cours_4/TP-RequetteruneAPI.html",
+      "/content/Cours_4/2-TypageEnPython.html"
+    ]
+  },
+  {
+    "listing": "/content/Cours_3/index.html",
+    "items": [
+      "/content/Cours_3/2-Calcul_Scientifique_et_Optimization.html",
+      "/content/Cours_3/1-Dataframes.html",
+      "/content/Cours_3/3-MachineLearning.html",
+      "/content/Cours_3/5-Feed_Internet.html",
+      "/content/Cours_3/4-Access_Internet.html",
+      "/content/Cours_3/TP-3.html",
+      "/content/Cours_3/6-Visualisation.html"
+    ]
+  },
+  {
+    "listing": "/content/Projets/index.html",
+    "items": [
+      "/content/Projets/projets_L3_2023.html"
+    ]
+  },
+  {
+    "listing": "/content/Cours_2/index.html",
+    "items": [
+      "/content/Cours_2/2-FonctionsEtModules.html",
+      "/content/Cours_2/3-IntroducingPOOConcept.html",
+      "/content/Cours_2/1-FondamentauxSyntaxique.html",
+      "/content/Cours_2/index copy.html"
+    ]
+  },
+  {
+    "listing": "/content/Cours_5/index.html",
+    "items": [
       "/content/Cours_5/1-AST.html",
       "/content/Cours_5/2-POO_le_retour.html"
     ]
