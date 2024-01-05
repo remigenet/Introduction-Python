@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://remigenet.github.io/Introduction-Python/content/Cours_1/index.html</loc>
-    <lastmod>2024-01-05T02:11:15.255Z</lastmod>
+    <lastmod>2024-01-05T02:47:24.686Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Introduction-Python/content/Cours_1/IDEs/Spyder.html</loc>
@@ -37,104 +37,100 @@
     <lastmod>2024-01-04T16:00:18.269Z</lastmod>
   </url>
   <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_2/index copy.html</loc>
-    <lastmod>2024-01-05T01:58:05.507Z</lastmod>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_2/index.html</loc>
+    <lastmod>2024-01-05T02:45:26.680Z</lastmod>
   </url>
   <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_2/3-IntroducingPOOConcept.html</loc>
-    <lastmod>2024-01-04T07:00:41.391Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Projets/projets_L3_2023.html</loc>
-    <lastmod>2024-01-05T02:04:27.318Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/3-MachineLearning.html</loc>
-    <lastmod>2024-01-04T09:04:59.488Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/1-Dataframes.html</loc>
-    <lastmod>2024-01-04T17:43:04.973Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/2-Calcul_Scientifique_et_Optimization.html</loc>
-    <lastmod>2024-01-04T11:11:24.218Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/pandas_short_example.html</loc>
-    <lastmod>2024-01-04T07:26:20.876Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/Exercice-pandas_and_geography.html</loc>
-    <lastmod>2024-01-04T07:26:20.848Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Annexes/LinuxTerminal.html</loc>
-    <lastmod>2024-01-03T09:51:16.585Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Annexes/git_advanced.html</loc>
-    <lastmod>2024-01-03T09:51:31.921Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_4/2-TypageEnPython.html</loc>
-    <lastmod>2024-01-04T15:58:17.289Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_4/1-MutabilitéEtScopes.html</loc>
-    <lastmod>2024-01-04T15:57:29.410Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_4/3-TournonsAutourduGIL.html</loc>
-    <lastmod>2024-01-04T15:59:11.409Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_4/index.html</loc>
-    <lastmod>2024-01-05T02:12:04.683Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_4/TP-RequetteruneAPI.html</loc>
-    <lastmod>2024-01-04T16:06:35.869Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Annexes/use_poetry.html</loc>
-    <lastmod>2024-01-04T09:30:56.606Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Annexes/git_basics.html</loc>
-    <lastmod>2024-01-04T17:19:39.458Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/TP-3.html</loc>
-    <lastmod>2024-01-04T09:58:18.396Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/6-Visualisation.html</loc>
-    <lastmod>2024-01-04T09:47:55.964Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/5-Feed_Internet.html</loc>
-    <lastmod>2024-01-04T11:10:12.386Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/index.html</loc>
-    <lastmod>2024-01-05T02:12:15.251Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/4-Access_Internet.html</loc>
-    <lastmod>2024-01-04T11:01:44.417Z</lastmod>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_2/1-FondamentauxSyntaxique.html</loc>
+    <lastmod>2024-01-05T02:46:51.586Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Introduction-Python/content/Projets/index.html</loc>
     <lastmod>2024-01-05T01:58:33.907Z</lastmod>
   </url>
   <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_2/1-FondamentauxSyntaxique.html</loc>
-    <lastmod>2024-01-04T07:07:52.273Z</lastmod>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/4-Access_Internet.html</loc>
+    <lastmod>2024-01-04T11:01:44.417Z</lastmod>
   </url>
   <url>
-    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_2/index.html</loc>
-    <lastmod>2024-01-05T02:12:40.183Z</lastmod>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/index.html</loc>
+    <lastmod>2024-01-05T02:12:15.251Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/5-Feed_Internet.html</loc>
+    <lastmod>2024-01-04T11:10:12.386Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/6-Visualisation.html</loc>
+    <lastmod>2024-01-04T09:47:55.964Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/TP-3.html</loc>
+    <lastmod>2024-01-04T09:58:18.396Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Annexes/git_basics.html</loc>
+    <lastmod>2024-01-04T17:19:39.458Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Annexes/use_poetry.html</loc>
+    <lastmod>2024-01-04T09:30:56.606Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_4/TP-RequetteruneAPI.html</loc>
+    <lastmod>2024-01-04T16:06:35.869Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_4/index.html</loc>
+    <lastmod>2024-01-05T02:12:04.683Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_4/3-TournonsAutourduGIL.html</loc>
+    <lastmod>2024-01-04T15:59:11.409Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_4/1-MutabilitéEtScopes.html</loc>
+    <lastmod>2024-01-04T15:57:29.410Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_4/2-TypageEnPython.html</loc>
+    <lastmod>2024-01-04T15:58:17.289Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Annexes/git_advanced.html</loc>
+    <lastmod>2024-01-03T09:51:31.921Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Annexes/LinuxTerminal.html</loc>
+    <lastmod>2024-01-03T09:51:16.585Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/Exercice-pandas_and_geography.html</loc>
+    <lastmod>2024-01-04T07:26:20.848Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/pandas_short_example.html</loc>
+    <lastmod>2024-01-04T07:26:20.876Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/2-Calcul_Scientifique_et_Optimization.html</loc>
+    <lastmod>2024-01-04T11:11:24.218Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/1-Dataframes.html</loc>
+    <lastmod>2024-01-04T17:43:04.973Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_3/3-MachineLearning.html</loc>
+    <lastmod>2024-01-04T09:04:59.488Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Projets/projets_L3_2023.html</loc>
+    <lastmod>2024-01-05T02:04:27.318Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Introduction-Python/content/Cours_2/3-IntroducingPOOConcept.html</loc>
+    <lastmod>2024-01-04T07:00:41.391Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Introduction-Python/content/Cours_2/2-FonctionsEtModules.html</loc>

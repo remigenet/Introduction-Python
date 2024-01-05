@@ -488,7 +488,7 @@ threading et multiprocessing :
 functools :
     Fournit des outils pour manipuler les fonctions. La fonction cache (dans Python 3.9+, lru_cache dans les versions antérieures) est particulièrement utile pour mémoriser les résultats des appels de fonctions coûteux.</code></pre>
 <p>Exemple d’Utilisation de functools.cache</p>
-<div id="4e50ec93" class="cell" data-execution_count="1">
+<div id="e8fca47a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> cache</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -509,9 +509,9 @@ functools :
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'computation took:'</span>, time.time()<span class="op">-</span>t1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>result is: 102334155
-computation took: 11.43067455291748
+computation took: 11.17765188217163
 result is: 102334155
-computation took: 5.364418029785156e-05</code></pre>
+computation took: 5.1975250244140625e-05</code></pre>
 </div>
 </div>
 </section>
