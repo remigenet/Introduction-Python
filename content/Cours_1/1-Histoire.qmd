@@ -30,6 +30,7 @@ Sa philosophie, encapsulée dans le [[**"Zen de Python" (PEP 20)**](https://peps
 , guide la rédaction de programmes efficaces et lisibles. Il s'agit un ensemble de 19 aphorismes pour écrire de bons programmes en Python. Parmi les plus célèbres, on trouve "Beautiful is better than ugly", "Explicit is better than implicit" et "Simple is better than complex".
 Cette philosophie a été un facteur clé dans le succès de Python, en particulier pour les débutants qui peuvent facilement apprendre le langage et écrire des programmes simples et lisibles et est à garder en tête lors de l'écriture de code Python. 
 
+
 ```latex
 Beautiful is better than ugly.
 Explicit is better than implicit.

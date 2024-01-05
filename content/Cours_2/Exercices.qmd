@@ -1,0 +1,25 @@
+---
+title: "Exercices d'applications"
+weight: 10
+tags:
+  - Syntaxe
+  - Bases
+  - fonctions
+  - lambda
+  - decorateur
+  - variables
+  - import
+categories:
+  - Cours
+  - Fondamentaux
+type: book
+---
+
+# Liste des fichiers à télécharger
+
+---
+
+
+{{< downloadthis 1.1-Exercices.py dname=1.1-Exercices label="Telecharger le premier jeu d'exercice" icon=file-earmark-python type=success >}}
+
+{{< downloadthis 1.1-Exercices.py dname=1.2-Exercices label="Telecharger le premier second d'exercice" icon=file-earmark-python type=success >}}

@@ -10,7 +10,6 @@ website:
   back-to-top-navigation: true
   reader-mode: true
   navbar:
-    background: "white"
     search: true
     left:
       - text: Back to Main Website
@@ -122,12 +121,13 @@ website:
       Inspiration pour la mise en forme du site [ici](https://github.com/linogaliana/python-datascientist)<br>
       [Code source disponible sur {{< fa brands github >}} `GitHub`](https://github.com/remigenet/Introduction-Python)
 
+theme:
+  light: zephir
+  dark: vapor
 
 
 format:
   html:
-    light: sandstone
-    dark: darkly
     css: styles.css
     toc: true
     toc-depth: 3

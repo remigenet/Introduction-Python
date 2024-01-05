@@ -15,8 +15,9 @@ image: .img/reqandgraph.webp
 code-links: binder
 ---
 
-# Asynchronie et Multiprocessing - comment donner le tournis au GIL
+# Asynchronie et Multiprocessing - Quels solutions sous le joug du GIL ?
 
----  /home/remi/PhDWork/Python-API/content/Cours_2/3-Conception-optimizations.qmd
+---  
 
+Vous trouverez ici les cours sur les solutions d'asynchronie et de multiprocessing en Python:
 [Cours sur Async, thread, process]("https://remigenet.github.io/Python-API/content/Cours_2/3-Conception-optimizations.html")
