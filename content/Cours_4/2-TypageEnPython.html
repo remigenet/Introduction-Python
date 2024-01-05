@@ -8,6 +8,7 @@
 
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2024-01-05">
+<meta name="description" content="Typage en Python - Utile ou pas ?">
 
 <title>Introduction à Python - Typage en Python</title>
 <style>
@@ -73,10 +74,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -110,6 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Introduction à Python - Typage en Python">
+<meta property="og:description" content="Typage en Python - Utile ou pas ?">
 <meta property="og:image" content="https://remigenet.github.io/Introduction-Python/content/Cours_4/.img/typehinting.webp">
 <meta property="og:site_name" content="Introduction à Python">
 <meta name="citation_title" content="Typage en Python">
@@ -308,6 +312,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../content/Cours_5/2-POO_le_retour.html">
  <span class="dropdown-text">POO - Python Orienté Objet</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/3-patterndesign.html">
+ <span class="dropdown-text">POO - Les Design Pattern</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -317,28 +325,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-annexes" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Annexes</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-annexes">    
-        <li>
-    <a class="dropdown-item" href="../../content/Annexes/LinuxTerminal.html">
- <span class="dropdown-text">Utiliser le terminal Linux - les bases de bash</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Annexes/git_basics.html">
- <span class="dropdown-text">Git Basics</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Annexes/git_advanced.html">
- <span class="dropdown-text">Git - Pour aller plus loin</span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+          <div class="quarto-navbar-tools tools-wide">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -349,6 +338,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </li>
       </ul>
     </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -407,11 +397,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#typage-en-python---utile-ou-pas" id="toc-typage-en-python---utile-ou-pas" class="nav-link active" data-scroll-target="#typage-en-python---utile-ou-pas">Typage en Python - Utile ou pas ?</a>
   <ul class="collapse">
-  <li><a href="#typage-en-python" id="toc-typage-en-python" class="nav-link" data-scroll-target="#typage-en-python">Typage en Python</a></li>
   <li><a href="#types-et-typage-dynamique" id="toc-types-et-typage-dynamique" class="nav-link" data-scroll-target="#types-et-typage-dynamique">Types et Typage Dynamique</a></li>
+  </ul></li>
   <li><a href="#type-hinting-en-python" id="toc-type-hinting-en-python" class="nav-link" data-scroll-target="#type-hinting-en-python">Type Hinting en Python</a>
   <ul class="collapse">
-  <li><a href="#typage-en-python-approfondissement" id="toc-typage-en-python-approfondissement" class="nav-link" data-scroll-target="#typage-en-python-approfondissement">Typage en Python: Approfondissement</a></li>
+  <li><a href="#typage-en-python-approfondissement" id="toc-typage-en-python-approfondissement" class="nav-link" data-scroll-target="#typage-en-python-approfondissement">Typage en Python: Approfondissement</a>
+  <ul class="collapse">
+  <li><a href="#typage-dynamique-en-python-1" id="toc-typage-dynamique-en-python-1" class="nav-link" data-scroll-target="#typage-dynamique-en-python-1">Typage Dynamique en Python</a></li>
+  <li><a href="#classes-abstraites" id="toc-classes-abstraites" class="nav-link" data-scroll-target="#classes-abstraites">Classes Abstraites</a></li>
+  <li><a href="#compilation-avec-cython" id="toc-compilation-avec-cython" class="nav-link" data-scroll-target="#compilation-avec-cython">Compilation avec Cython</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -429,6 +424,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   </div>
 
+<div>
+  <div class="description">
+    Typage en Python - Utile ou pas ?
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -458,21 +458,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="typage-en-python---utile-ou-pas" class="level1">
 <h1>Typage en Python - Utile ou pas ?</h1>
 <hr>
-<section id="typage-en-python" class="level3">
-<h3 class="anchored" data-anchor-id="typage-en-python">Typage en Python</h3>
-</section>
 <section id="types-et-typage-dynamique" class="level2">
 <h2 class="anchored" data-anchor-id="types-et-typage-dynamique">Types et Typage Dynamique</h2>
-<section id="typage-dynamique-en-python" class="level5">
-<h5 class="anchored" data-anchor-id="typage-dynamique-en-python">Typage Dynamique en Python</h5>
+<section id="typage-dynamique-en-python" class="level4">
+<h4 class="anchored" data-anchor-id="typage-dynamique-en-python">Typage Dynamique en Python</h4>
 <p>Python est un langage à typage dynamique, ce qui signifie que le type d’une variable est déterminé à l’exécution et peut changer au cours du temps.</p>
-<div id="5ddadaef" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span>       <span class="co"># x est un entier</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">"Hello"</span> <span class="co"># x est maintenant une chaîne de caractères</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="001a431f" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span>        <span class="co"># x est un entier</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">"Hello"</span>  <span class="co"># x est maintenant une chaîne de caractères</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="avantages-et-inconvénients" class="level5">
-<h5 class="anchored" data-anchor-id="avantages-et-inconvénients">Avantages et Inconvénients</h5>
+<section id="avantages-et-inconvénients" class="level4">
+<h4 class="anchored" data-anchor-id="avantages-et-inconvénients">Avantages et Inconvénients</h4>
 <ul>
 <li><strong>Avantages</strong> : Flexibilité et facilité d’écriture du code.</li>
 <li><strong>Inconvénients</strong> : Moins de prévisibilité et risque accru d’erreurs à l’exécution.</li>
@@ -480,21 +477,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="type-hinting-en-python" class="level2">
-<h2 class="anchored" data-anchor-id="type-hinting-en-python">Type Hinting en Python</h2>
+</section>
+<section id="type-hinting-en-python" class="level1">
+<h1>Type Hinting en Python</h1>
 <p>Introduction au Type Hinting</p>
 <p>Le Type Hinting en Python permet de spécifier les types attendus des variables. Bien qu’il ne soit pas strictement appliqué à l’exécution, il facilite la compréhension et la vérification du code. Utiliser le Type Hinting</p>
-<div id="2eb2ec6e" class="cell" data-execution_count="2">
+<div id="8f47ad02" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_numbers(a: <span class="bu">int</span>, b: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Avantages du Type Hinting</p>
+<p>Avantages du Type Hinting:</p>
 <pre><code>Amélioration de la Lisibilité : Rend le code plus facile à comprendre.
 Débogage : Facilite la détection des erreurs de type.
 Compatibilité avec les Outils : Les IDE et les outils d'analyse statique peuvent utiliser le Type Hinting pour détecter des erreurs.</code></pre>
 <p>Conventions et Documentation</p>
 <p>Les annotations de type peuvent être complétées par des Docstrings pour fournir des explications plus détaillées sur le comportement d’une fonction.</p>
-<div id="7ade2bab" class="cell" data-execution_count="3">
+<div id="300720d9" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_numbers(a: <span class="bu">int</span>, b: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Add two integers and return the result.</span></span>
@@ -505,21 +503,23 @@ Compatibilité avec les Outils : Les IDE et les outils d'analyse statique peuven
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="typage-en-python-approfondissement" class="level3">
-<h3 class="anchored" data-anchor-id="typage-en-python-approfondissement">Typage en Python: Approfondissement</h3>
-<section id="typage-dynamique-en-python-1" class="level4">
-<h4 class="anchored" data-anchor-id="typage-dynamique-en-python-1">Typage Dynamique en Python</h4>
-<section id="comprendre-le-typage-dynamique" class="level5">
-<h5 class="anchored" data-anchor-id="comprendre-le-typage-dynamique">Comprendre le Typage Dynamique</h5>
+<section id="typage-en-python-approfondissement" class="level2">
+<h2 class="anchored" data-anchor-id="typage-en-python-approfondissement">Typage en Python: Approfondissement</h2>
+<section id="typage-dynamique-en-python-1" class="level3">
+<h3 class="anchored" data-anchor-id="typage-dynamique-en-python-1">Typage Dynamique en Python</h3>
+<section id="comprendre-le-typage-dynamique" class="level4">
+<h4 class="anchored" data-anchor-id="comprendre-le-typage-dynamique">Comprendre le Typage Dynamique</h4>
 <p>Python est un langage à typage dynamique, ce qui signifie que le type d’une variable est déterminé au moment de l’exécution et non à la compilation. Cette caractéristique offre une grande flexibilité.</p>
 </section>
-<section id="exemple-de-typage-dynamique" class="level5">
-<h5 class="anchored" data-anchor-id="exemple-de-typage-dynamique">Exemple de Typage Dynamique</h5>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span>       <span class="co"># Ici, x est un entier</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">"Hello"</span> <span class="co"># Maintenant, x est une chaîne de caractères</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="exemple-de-typage-dynamique" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-de-typage-dynamique">Exemple de Typage Dynamique</h4>
+<div id="a50833a2" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span>        <span class="co">#Ici, x est un entier</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">"Hello"</span>  <span class="co">#Maintenant, x est une chaîne de caractères</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="implications-du-typage-dynamique" class="level5">
-<h5 class="anchored" data-anchor-id="implications-du-typage-dynamique">Implications du Typage Dynamique</h5>
+<section id="implications-du-typage-dynamique" class="level4">
+<h4 class="anchored" data-anchor-id="implications-du-typage-dynamique">Implications du Typage Dynamique</h4>
 <ul>
 <li><strong>Flexibilité</strong> : Permet de réaffecter des variables à différents types.</li>
 <li><strong>Risques Potentiels</strong> : Peut conduire à des erreurs subtiles, difficiles à détecter avant l’exécution.</li>
@@ -527,15 +527,15 @@ Compatibilité avec les Outils : Les IDE et les outils d'analyse statique peuven
 <hr>
 </section>
 </section>
-<section id="classes-abstraites" class="level4">
-<h4 class="anchored" data-anchor-id="classes-abstraites">Classes Abstraites</h4>
-<section id="utilisation-des-classes-abstraites" class="level5">
-<h5 class="anchored" data-anchor-id="utilisation-des-classes-abstraites">Utilisation des Classes Abstraites</h5>
+<section id="classes-abstraites" class="level3">
+<h3 class="anchored" data-anchor-id="classes-abstraites">Classes Abstraites</h3>
+<section id="utilisation-des-classes-abstraites" class="level4">
+<h4 class="anchored" data-anchor-id="utilisation-des-classes-abstraites">Utilisation des Classes Abstraites</h4>
 <p>Les classes abstraites en Python, utilisées via le module <code>abc</code>, servent à définir une interface pour d’autres classes à suivre, imposant ainsi une certaine structure dans le code.</p>
 </section>
-<section id="exemple-de-classe-abstraite" class="level5">
-<h5 class="anchored" data-anchor-id="exemple-de-classe-abstraite">Exemple de Classe Abstraite</h5>
-<div id="ca929759" class="cell" data-execution_count="4">
+<section id="exemple-de-classe-abstraite" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-de-classe-abstraite">Exemple de Classe Abstraite</h4>
+<div id="1f5af835" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Shape(ABC):</span>
@@ -552,8 +552,8 @@ Compatibilité avec les Outils : Les IDE et les outils d'analyse statique peuven
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fl">3.14</span> <span class="op">*</span> <span class="va">self</span>.radius <span class="op">**</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="importance-des-classes-abstraites" class="level5">
-<h5 class="anchored" data-anchor-id="importance-des-classes-abstraites">Importance des Classes Abstraites</h5>
+<section id="importance-des-classes-abstraites" class="level4">
+<h4 class="anchored" data-anchor-id="importance-des-classes-abstraites">Importance des Classes Abstraites</h4>
 <ul>
 <li><strong>Définition d’Interfaces</strong> : Force les classes dérivées à implémenter certaines méthodes.</li>
 <li><strong>Structuration du Code</strong> : Aide à maintenir une architecture de code claire et organisée.</li>
@@ -561,34 +561,32 @@ Compatibilité avec les Outils : Les IDE et les outils d'analyse statique peuven
 <hr>
 </section>
 </section>
-<section id="compilation-avec-cython" class="level4">
-<h4 class="anchored" data-anchor-id="compilation-avec-cython">Compilation avec Cython</h4>
-<section id="amélioration-des-performances-avec-cython" class="level5">
-<h5 class="anchored" data-anchor-id="amélioration-des-performances-avec-cython">Amélioration des Performances avec Cython</h5>
+<section id="compilation-avec-cython" class="level3">
+<h3 class="anchored" data-anchor-id="compilation-avec-cython">Compilation avec Cython</h3>
+<section id="amélioration-des-performances-avec-cython" class="level4">
+<h4 class="anchored" data-anchor-id="amélioration-des-performances-avec-cython">Amélioration des Performances avec Cython</h4>
 <p>Cython permet d’écrire des extensions Python en C pour une exécution plus rapide, ce qui est particulièrement utile pour les calculs intensifs.</p>
 </section>
-<section id="exemple-de-code-cython" class="level5">
-<h5 class="anchored" data-anchor-id="exemple-de-code-cython">Exemple de Code Cython</h5>
-<pre class="{cython}"><code># Définition d'une fonction en Cython
-cdef int multiply(int a, int b):
-    return a * b
-
-# Cette fonction peut maintenant être utilisée comme une fonction Python normale, mais elle est compilée en C et s'exécute plus rapidement.</code></pre>
+<section id="exemple-de-code-cython" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-de-code-cython">Exemple de Code Cython</h4>
+<p>Définition d’une fonction en Cython</p>
+<pre><code>cdef int multiply(int a, int b):
+    return a * b</code></pre>
+<p>Cette fonction peut maintenant être utilisée comme une fonction Python normale, mais elle est compilée en C et s’exécute plus rapidement.</p>
 </section>
-<section id="avantages-de-lutilisation-de-cython" class="level5">
-<h5 class="anchored" data-anchor-id="avantages-de-lutilisation-de-cython">Avantages de l’Utilisation de Cython</h5>
+<section id="avantages-de-lutilisation-de-cython" class="level4">
+<h4 class="anchored" data-anchor-id="avantages-de-lutilisation-de-cython">Avantages de l’Utilisation de Cython</h4>
 <ul>
 <li><strong>Performance</strong> : Le code Cython est généralement beaucoup plus rapide.</li>
 <li><strong>Interopérabilité</strong> : Permet d’intégrer facilement des bibliothèques C/C++ dans des applications Python.</li>
 </ul>
 </section>
 </section>
-<section id="conclusion" class="level4">
-<h4 class="anchored" data-anchor-id="conclusion">Conclusion</h4>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
 <p>Le typage en Python, avec ses différentes facettes - typage dynamique, type hinting, classes abstraites et Cython - offre une gamme variée d’outils pour augmenter la clarté, la performance et la structure du code. La compréhension de ces aspects est essentielle pour les développeurs Python afin de produire des codes efficaces, maintenables et performants.</p>
 
 
-</section>
 </section>
 </section>
 </section>
@@ -614,6 +612,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

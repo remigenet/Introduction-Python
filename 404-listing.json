@@ -1,10 +1,6 @@
 {
   "listing": "/404.html",
   "items": [
-    "/content/Annexes/LinuxTerminal.html",
-    "/content/Annexes/git_advanced.html",
-    "/content/Annexes/git_basics.html",
-    "/content/Annexes/use_poetry.html",
     "/content/Cours_1/1-Histoire.html",
     "/content/Cours_1/2-Python_Execution.html",
     "/content/Cours_1/3-ManyPythons.html",
@@ -20,6 +16,7 @@
     "/content/Cours_2/1-FondamentauxSyntaxique.html",
     "/content/Cours_2/2-FonctionsEtModules.html",
     "/content/Cours_2/3-IntroducingPOOConcept.html",
+    "/content/Cours_2/Exercices.html",
     "/content/Cours_2/index.html",
     "/content/Cours_3/1-Dataframes.html",
     "/content/Cours_3/2-Calcul_Scientifique_et_Optimization.html",
@@ -36,6 +33,7 @@
     "/content/Cours_4/index.html",
     "/content/Cours_5/1-AST.html",
     "/content/Cours_5/2-POO_le_retour.html",
+    "/content/Cours_5/3-patterndesign.html",
     "/content/Cours_5/index.html",
     "/content/Projets/index.html",
     "/content/Projets/projets_L3_2023.html"
