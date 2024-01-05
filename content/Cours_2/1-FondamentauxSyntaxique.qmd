@@ -413,3 +413,9 @@ Supposons que nous avons une liste de dictionnaires représentant des livres, et
 
 Dans cet exemple, une compréhension de liste est utilisée pour parcourir `livres`, en extrayant le `titre` de chaque livre dont l'`année` est supérieure à 2000. Cela démontre comment les compréhensions de liste peuvent être utilisées pour filtrer et transformer des données de manière concise et lisible.
 ```
+
+Pour vous entrainez à pratiquer ces notions:
+
+{{< downloadthis 1.1-Exercices.py dname=1.1-Exercices label="Telecharger le premier jeu d'exercice" icon=file-earmark-python type=success >}}
+
+{{< downloadthis 1.1-Exercices.py dname=1.2-Exercices label="Telecharger le premier second d'exercice" icon=file-earmark-python type=success >}}
