@@ -13,6 +13,8 @@ website:
     background: "white"
     search: true
     left:
+      - text: Back to Main Website
+        url: https://remigenet.github.io/website/
       - file: index.qmd
         text: Home 
       - sidebar:introduction
@@ -27,13 +29,18 @@ website:
         menu:
           - text: Code source
             url:  https://github.com/remigenet/Introduction-Python
+            
   sidebar: 
+    - id: root
+      title: "Introduction à Python"
+      href: index.qmd
     - id: home
       title: "Homepage"
       href: index.qmd
     - id: introduction
       title: "Comprendre Et Installer Python"
       contents: 
+      - content/Cours_1/index.qmd
       - content/Cours_1/1-Histoire.qmd
       - content/Cours_1/2-Python_Execution.qmd
       - content/Cours_1/3-ManyPythons.qmd
@@ -55,6 +62,7 @@ website:
     - id: discover 
       title: "Syntaxes et Concepts de Base"
       contents: 
+       - content/Cours_2/index.qmd
        - content/Cours_2/1-FondamentauxSyntaxique.qmd
        - content/Cours_2/2-FonctionsEtModules.qmd
        - content/Cours_2/3-IntroducingPOOConcept.qmd
@@ -66,6 +74,7 @@ website:
     - id: libraries 
       title: "Les Librairies Python"
       contents: 
+       - content/Cours_3/index.qmd
        - content/Cours_3/1-Dataframes.qmd
        - content/Cours_3/2-Calcul_Scientifique_et_Optimization.qmd
        - content/Cours_3/3-MachineLearning.qmd

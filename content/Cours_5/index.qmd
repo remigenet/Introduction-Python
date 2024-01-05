@@ -1,0 +1,14 @@
+---
+title: "Concepts avancés"
+toc: false
+sidebar: false
+title-block-style: none
+listing:
+    id: sample-listings
+    contents: /*.qmd
+    type: grid
+    categories: false
+lightbox: auto
+---
+
+# {{< animate backInDown "Les cours de cette partie sont:" >}} 
