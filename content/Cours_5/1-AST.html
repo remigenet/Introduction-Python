@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Remi Genet">
-<meta name="dcterms.date" content="2024-01-05">
+<meta name="dcterms.date" content="2024-01-06">
 
 <title>Introduction à Python - L’arbre Syntaxique Abstrait ou AST</title>
 <style>
@@ -116,10 +116,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta property="og:site_name" content="Introduction à Python">
 <meta name="citation_title" content="L&amp;amp;#039;arbre Syntaxique Abstrait ou AST">
 <meta name="citation_author" content="Remi Genet">
-<meta name="citation_publication_date" content="2024-01-05">
-<meta name="citation_cover_date" content="2024-01-05">
+<meta name="citation_publication_date" content="2024-01-06">
+<meta name="citation_cover_date" content="2024-01-06">
 <meta name="citation_year" content="2024">
-<meta name="citation_online_date" content="2024-01-05">
+<meta name="citation_online_date" content="2024-01-06">
 <meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Introduction-Python//content/Cours_5/1-AST.html">
 <meta name="citation_language" content="en">
 </head>
@@ -232,8 +232,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
         <li>
-    <a class="dropdown-item" href="../../content/Cours_2/1.1-Exercices.py">
- <span class="dropdown-text"></span></a>
+    <a class="dropdown-item" href="../../content/Cours_2/Exercices.html">
+ <span class="dropdown-text">Exercices d’applications</span></a>
   </li>  
     </ul>
   </li>
@@ -314,6 +314,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../content/Cours_5/3-patterndesign.html">
  <span class="dropdown-text">POO - Les Design Pattern</span></a>
   </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -380,8 +382,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">POO - Les Design Pattern</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
- <span class="menu-text">content/Cours_5/TP-POO.qmd</span>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Travaux Pratiques</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">content/Cours_5/TP.qmd</span>
+  </li>
+      </ul>
   </li>
     </ul>
     </div>
@@ -427,7 +440,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-01-05</p>
+      <p class="date">2024-01-06</p>
     </div>
   </div>
   
@@ -479,7 +492,7 @@ threading et multiprocessing :
 functools :
     Fournit des outils pour manipuler les fonctions. La fonction cache (dans Python 3.9+, lru_cache dans les versions antérieures) est particulièrement utile pour mémoriser les résultats des appels de fonctions coûteux.</code></pre>
 <p>Exemple d’Utilisation de functools.cache</p>
-<div id="be6644bc" class="cell" data-execution_count="1">
+<div id="bc080e9d" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> cache</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -500,9 +513,9 @@ functools :
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'computation took:'</span>, time.time()<span class="op">-</span>t1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>result is: 102334155
-computation took: 11.00635027885437
+computation took: 10.7185218334198
 result is: 102334155
-computation took: 5.4836273193359375e-05</code></pre>
+computation took: 4.9591064453125e-05</code></pre>
 </div>
 </div>
 </section>

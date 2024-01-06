@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Remi Genet">
-<meta name="dcterms.date" content="2024-01-05">
+<meta name="dcterms.date" content="2024-01-06">
 <meta name="description" content="Dans ce chapitre, nous explorons les principes fondamentaux de la Programmation Orientée Objet (POO) en Python. Les étudiants découvriront comment Python applique les concepts de la POO tels que l’encapsulation, l’héritage et le polymorphisme pour créer des modèles financiers complexes. Avec une emphase sur les applications pratiques en finance de marché, ce chapitre vise à doter les étudiants d’une compréhension robuste de la POO pour le développement de solutions logicielles sophistiquées et efficaces en Python.">
 
 <title>Introduction à Python - Introduction à la POO en Python</title>
@@ -67,7 +67,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Cours_2/1.1-Exercices.py" rel="next">
+<link href="../../content/Cours_2/Exercices.html" rel="next">
 <link href="../../content/Cours_2/2-FonctionsEtModules.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
@@ -121,10 +121,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta property="og:image:width" content="1024">
 <meta name="citation_title" content="Introduction à la POO en Python">
 <meta name="citation_author" content="Remi Genet">
-<meta name="citation_publication_date" content="2024-01-05">
-<meta name="citation_cover_date" content="2024-01-05">
+<meta name="citation_publication_date" content="2024-01-06">
+<meta name="citation_cover_date" content="2024-01-06">
 <meta name="citation_year" content="2024">
-<meta name="citation_online_date" content="2024-01-05">
+<meta name="citation_online_date" content="2024-01-06">
 <meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Introduction-Python//content/Cours_2/3-IntroducingPOOConcept.html">
 <meta name="citation_language" content="en">
 </head>
@@ -237,8 +237,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
         <li>
-    <a class="dropdown-item" href="../../content/Cours_2/1.1-Exercices.py">
- <span class="dropdown-text"></span></a>
+    <a class="dropdown-item" href="../../content/Cours_2/Exercices.html">
+ <span class="dropdown-text">Exercices d’applications</span></a>
   </li>  
     </ul>
   </li>
@@ -319,6 +319,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../content/Cours_5/3-patterndesign.html">
  <span class="dropdown-text">POO - Les Design Pattern</span></a>
   </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -401,8 +403,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">content/Cours_2/1.2-Exercices.py</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_2/Exercices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercices d’applications</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -484,7 +489,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-01-05</p>
+      <p class="date">2024-01-06</p>
     </div>
   </div>
   
@@ -516,7 +521,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Python est un langage multi-paradigme qui supporte à la fois la programmation procédurale et la POO. Ce qui le rend particulièrement puissant est sa capacité à offrir une syntaxe claire et une grande flexibilité dans la conception de classes et d’objets.</p></li>
 <li><p>Contrairement à d’autres langages où les objets et les types de base sont distincts, en Python, tout est un objet. Cela inclut les types de base comme les nombres, les chaînes et les listes. Cette uniformité rend le langage cohérent et élégant.</p></li>
 </ul>
-<div id="9a74feb1" class="cell" data-execution_count="1">
+<div id="7e997735" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>  a <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(a.__class__)  <span class="co"># Affiche &lt;class 'int'&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -558,7 +563,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Une classe en Python est définie en utilisant le mot-clé <code>class</code>. Elle peut contenir des attributs (variables) et des méthodes (fonctions).</li>
 </ul>
-<div id="309a0f1c" class="cell" data-execution_count="2">
+<div id="795ab26a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Voiture:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, marque, modele):</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.marque <span class="op">=</span> marque</span>
@@ -583,7 +588,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Après avoir défini une classe, vous pouvez créer des instances (objets) et accéder à leurs attributs et méthodes.</li>
 </ul>
-<div id="4434b71b" class="cell" data-execution_count="3">
+<div id="d9a713fd" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'une autre instance de Voiture</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>autre_voiture <span class="op">=</span> Voiture(<span class="st">"Honda"</span>, <span class="st">"Civic"</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>autre_voiture.afficher_info()  <span class="co"># Affiche "Marque: Honda, Modèle: Civic"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -601,7 +606,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>En Python, une classe peut hériter d’une autre classe, ce qui lui permet de reprendre ses attributs et méthodes.</li>
 </ul>
-<div id="5971cfb1" class="cell" data-execution_count="4">
+<div id="20fe4191" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> VehiculeElectrique(Voiture):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, marque, modele, autonomie):</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(marque, modele)</span>
@@ -631,7 +636,7 @@ Autonomie: 600 km</code></pre>
 <ul>
 <li>Le polymorphisme se manifeste lorsqu’une interface commune (comme une méthode) est implémentée de différentes manières par différentes classes.</li>
 </ul>
-<div id="39381d13" class="cell" data-execution_count="5">
+<div id="ba1eb000" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> afficher_details_vehicule(vehicule):</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    vehicule.afficher_info()</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(vehicule, VehiculeElectrique):</span>
@@ -659,7 +664,7 @@ Autonomie: 600 km</code></pre>
 <ul>
 <li>L’encapsulation consiste à regrouper les données et les méthodes qui les manipulent, et à restreindre l’accès direct aux données d’une classe. Cela est crucial pour la sécurité et l’intégrité des modèles financiers.</li>
 </ul>
-<div id="1610d3c4" class="cell" data-execution_count="6">
+<div id="b99d7522" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Obligation:</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, principal, taux_interet, maturite):</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.__principal <span class="op">=</span> principal          <span class="co"># Encapsulé (attribut privé)</span></span>
@@ -699,7 +704,7 @@ Autonomie: 600 km</code></pre>
 <ul>
 <li>Imaginons que nous devons calculer le prix de différentes obligations avec des caractéristiques variées. Nous pouvons utiliser des classes pour modéliser ces obligations et effectuer les calculs nécessaires.</li>
 </ul>
-<div id="f5051a77" class="cell" data-execution_count="7">
+<div id="3a5a1d58" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Obligation:</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nominal, coupon, maturite):</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.nominal <span class="op">=</span> nominal</span>
@@ -1264,8 +1269,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../content/Cours_2/1.1-Exercices.py" class="pagination-link" aria-label="">
-        <span class="nav-page-text"></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../content/Cours_2/Exercices.html" class="pagination-link" aria-label="Exercices d'applications">
+        <span class="nav-page-text">Exercices d’applications</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
