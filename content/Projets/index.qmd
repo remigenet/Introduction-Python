@@ -8,6 +8,8 @@ listing:
     type: grid
     categories: false
 lightbox: auto
+categories:
+  - WebSiteArchitecture
 ---
 
 

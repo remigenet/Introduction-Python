@@ -1,5 +1,5 @@
 ---
-title: "Projets Introduction à Python - Millésime 2024"
+title: "TP-5"
 weight: 10
 tags:
   - Pandas
@@ -11,10 +11,11 @@ categories:
   - Fondamentaux
 type: book
 description: ""
-image: .img/projet.webp
+image: .img/AST2.webp
 code-links: binder
 ---
 
-# Introduction à Python - Millésime 2024
+# POO - Python Orienté Objet"
 
 ---
+

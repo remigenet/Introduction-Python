@@ -13,6 +13,7 @@ categories:
   - Cours
   - Fondamentaux
 type: book
+image: .img/exercice.webp
 ---
 
 # Liste des fichiers à télécharger

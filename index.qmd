@@ -5,12 +5,14 @@ title-block-style: none
 listing:
     id: sample-listings
     contents: content/**/*.qmd
+    exclude:
+        categories: "WebSiteArchitecture"
     type: grid
     sort: "number"
     categories: true
-
 lightbox: auto
 ---
+
 
 # {{< animate backInDown "Introduction à Python !" >}} 
 

@@ -11,7 +11,7 @@ categories:
   - Utils
   - IDEs
 type: book
-description: Avant de se lancer
+description: Un IDE Orienté Science des Données
 image: ../.img/spyder.png
 ---
 #### Présentation de Spyder

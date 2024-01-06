@@ -7,6 +7,8 @@ listing:
    contents: content/**/*.qmd
    type: grid
    sort: "random"
+   exclude:
+   - categories: "WebSiteArchitecture"
    categories: true
 ---
 

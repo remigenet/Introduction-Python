@@ -11,7 +11,7 @@ categories:
   - Utils
   - IDEs
 type: book
-description: Avant de se lancer
+description: L'IDE Flexible et Polyvalent
 image: ../.img/vscode.png
 ---
 

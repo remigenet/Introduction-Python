@@ -67,8 +67,7 @@ website:
        - section: Travaux Pratiques
          expanded: false
          contents:
-         - content/Cours_2/1.1-Exercices.py
-         - content/Cours_2/1.2-Exercices.py
+         - content/Cours_2/Exercices.qmd
     - id: libraries 
       title: "Les Librairies Python"
       contents: 
@@ -82,8 +81,6 @@ website:
        - section: Travaux Pratiques
          expanded: false
          contents:
-         - content/Cours_3/bonus-pandas_short_examplet.qmd
-         - content/Cours_3/TP-pandas_and_geography.ipynb
          - content/Cours_3/TP-3.qmd
     - id: advanced_mix 
       title: "Bonne pratiques, Dangers, et Astuces"
@@ -98,7 +95,10 @@ website:
        - content/Cours_5/1-AST.qmd
        - content/Cours_5/2-POO_le_retour.qmd
        - content/Cours_5/3-patterndesign.qmd
-       - content/Cours_5/TP-POO.qmd
+       - section: Travaux Pratiques
+         expanded: false
+         contents:
+         - content/Cours_5/TP.qmd
     - id: projects 
       title: "Sujets de Projets possibles"
 
