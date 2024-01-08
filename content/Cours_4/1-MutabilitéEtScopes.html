@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Remi Genet">
-<meta name="dcterms.date" content="2024-01-06">
+<meta name="dcterms.date" content="2024-01-08">
 
 <title>Introduction à Python - Mutabilité et Scope</title>
 <style>
@@ -115,10 +115,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta property="og:site_name" content="Introduction à Python">
 <meta name="citation_title" content="Mutabilité et Scope ">
 <meta name="citation_author" content="Remi Genet">
-<meta name="citation_publication_date" content="2024-01-06">
-<meta name="citation_cover_date" content="2024-01-06">
+<meta name="citation_publication_date" content="2024-01-08">
+<meta name="citation_cover_date" content="2024-01-08">
 <meta name="citation_year" content="2024">
-<meta name="citation_online_date" content="2024-01-06">
+<meta name="citation_online_date" content="2024-01-08">
 <meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Introduction-Python//content/Cours_4/1-MutabilitéEtScopes.html">
 <meta name="citation_language" content="en">
 </head>
@@ -389,7 +389,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-01-06</p>
+      <p class="date">2024-01-08</p>
     </div>
   </div>
   
@@ -426,7 +426,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Performance</strong> : La mutabilité peut affecter la performance. Par exemple, l’ajout d’éléments à une liste (mutable) est généralement plus rapide que la concaténation de tuples (immutables).</li>
 </ul>
 <p>Types Immutables</p>
-<div id="7a01b9cb" class="cell" data-execution_count="1">
+<div id="614ad64c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Un entier est immuable</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(x))  <span class="co"># Identifiant de l'objet 'x'</span></span>
@@ -440,21 +440,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">TypeError</span> <span class="im">as</span> e:</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(e)  <span class="co"># Affiche une erreur</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>139839798478544
-139839798478576
+<pre><code>139659342743248
+139659342743280
 'tuple' object does not support item assignment</code></pre>
 </div>
 </div>
 <p>Types Mutables</p>
-<div id="0a78a70b" class="cell" data-execution_count="2">
+<div id="301578e7" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Une liste est mutable</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(my_list))  <span class="co"># Identifiant de 'my_list'</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>my_list.append(<span class="dv">4</span>)  <span class="co"># Modification de la liste</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(my_list))  <span class="co"># L'identifiant reste le même</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>139839579198464
-139839579198464</code></pre>
+<pre><code>139659276653824
+139659276653824</code></pre>
 </div>
 </div>
 <hr>
@@ -482,7 +482,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong><code>nonlocal</code> Keyword</strong> : Utilisé dans les fonctions imbriquées pour modifier une variable dans le scope englobant.</li>
 </ul>
 <p>Exemple 2: Scope en Python</p>
-<div id="feda1e89" class="cell" data-execution_count="3">
+<div id="2f13dd9f" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> outer_function():</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="st">"local to outer_function"</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -518,7 +518,7 @@ Outer function: modified by inner_function</code></pre>
 <li>Les modifications apportées à un objet mutable peuvent avoir des effets inattendus, en particulier lors de la copie d’objets ou du passage d’objets comme arguments à des fonctions.</li>
 </ul>
 <p>Exemple 3: Classes et Mutabilité</p>
-<div id="2c741273" class="cell" data-execution_count="4">
+<div id="eeefbfa8" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Car:</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, color):</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.color <span class="op">=</span> color</span>
@@ -538,7 +538,7 @@ blue</code></pre>
 </section>
 <section id="quatrième-partie-implications-pratiques-et-bonnes-pratiques" class="level4">
 <h4 class="anchored" data-anchor-id="quatrième-partie-implications-pratiques-et-bonnes-pratiques">Quatrième Partie: Implications Pratiques et Bonnes Pratiques</h4>
-<div id="8f1940a2" class="cell" data-execution_count="5">
+<div id="1b442174" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_to_list(element, target_list<span class="op">=</span>[]):  <span class="co"># Liste mutable comme argument par défaut</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    target_list.append(element)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> target_list</span>
@@ -564,7 +564,7 @@ blue</code></pre>
 <li><strong>Prudence avec les Objets Globaux</strong> : Être prudent lors de la modification de variables globales, surtout si elles sont mutables.</li>
 <li><strong>Documentation et Commentaires</strong> : Documenter clairement l’utilisation et les modifications des objets mutables, surtout dans les grandes bases de code et les projets de groupe.</li>
 </ul>
-<div id="8d1f7acf" class="cell" data-execution_count="6">
+<div id="5902f035" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> copy</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>original_list <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]]</span>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Remi Genet">
-<meta name="dcterms.date" content="2024-01-06">
+<meta name="dcterms.date" content="2024-01-08">
 <meta name="description" content="Python, où le ML à deux cliques de souris">
 
 <title>Introduction à Python - Machine Learning</title>
@@ -124,10 +124,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta property="og:image:width" content="306">
 <meta name="citation_title" content="Machine Learning">
 <meta name="citation_author" content="Remi Genet">
-<meta name="citation_publication_date" content="2024-01-06">
-<meta name="citation_cover_date" content="2024-01-06">
+<meta name="citation_publication_date" content="2024-01-08">
+<meta name="citation_cover_date" content="2024-01-08">
 <meta name="citation_year" content="2024">
-<meta name="citation_online_date" content="2024-01-06">
+<meta name="citation_online_date" content="2024-01-08">
 <meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Introduction-Python//content/Cours_3/3-MachineLearning.html">
 <meta name="citation_language" content="en">
 </head>
@@ -492,7 +492,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-01-06</p>
+      <p class="date">2024-01-08</p>
     </div>
   </div>
   
@@ -528,7 +528,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>Classification avec Scikit-learn</strong>:</li>
 </ul>
-<div id="d0c60704" class="cell" data-execution_count="1">
+<div id="e6b0dfd8" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_iris</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -563,7 +563,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Énoncé</strong>: Utilisez Scikit-learn pour construire un classificateur simple sur un jeu de données standard, évaluez ses performances, et essayez d’améliorer ses résultats en ajustant les paramètres.</li>
 <li><strong>Solution</strong>:</li>
 </ol>
-<div id="a343b6d6" class="cell" data-execution_count="2">
+<div id="2b00f762" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -577,7 +577,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> clf.predict(X_test)</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Accuracy:"</span>, accuracy_score(y_test, y_pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Accuracy: 0.9555555555555556</code></pre>
+<pre><code>Accuracy: 0.9777777777777777</code></pre>
 </div>
 </div>
 </section>
@@ -631,7 +631,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Énoncé</strong>: Construisez et entraînez un réseau de neurones simple pour classifier des images à partir d’un jeu de données standard comme MNIST.</li>
 <li><strong>Solution</strong> (avec PyTorch) :</li>
 </ol>
-<div id="d9442877" class="cell" data-execution_count="3">
+<div id="063a079f" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
@@ -667,11 +667,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        optimizer.step()</span>
 <span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Epoch </span><span class="sc">{</span>epoch<span class="sc">}</span><span class="ss">, Loss: </span><span class="sc">{</span>loss<span class="sc">.</span>item()<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Epoch 0, Loss: 0.463758260011673
-Epoch 1, Loss: 0.40204814076423645
-Epoch 2, Loss: 0.5841864347457886
-Epoch 3, Loss: 0.45830824971199036
-Epoch 4, Loss: 0.3604811728000641</code></pre>
+<pre><code>Epoch 0, Loss: 0.7491095066070557
+Epoch 1, Loss: 0.4149514138698578
+Epoch 2, Loss: 0.2551960349082947
+Epoch 3, Loss: 0.45300745964050293
+Epoch 4, Loss: 0.2462620586156845</code></pre>
 </div>
 </div>
 </section>
