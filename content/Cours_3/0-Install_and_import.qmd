@@ -12,7 +12,6 @@ categories:
 type: book
 description: "Rappel sur les bibliothèques Python, la gestion des paquets et les environnements virtuels"
 image: .img/libraries.webp
-code-links: binder
 ---
 
 

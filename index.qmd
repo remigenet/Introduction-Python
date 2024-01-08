@@ -21,7 +21,9 @@ lightbox: auto
 
 # {{< animate backInDown "Introduction à Python: " >}} 
 
-### Python, toutes les bases pour bien démarrer !
+### Toutes les bases pour bien démarrer !
+
+#### Un petit aperçu des réjouissances ci-dessous, mais pour [[commencer...](content/Cours_1/1-Histoire.qmd)]{.animate__animated .animate__pulse .animate__infinite style="display:inline-block;"}
 
 
 
