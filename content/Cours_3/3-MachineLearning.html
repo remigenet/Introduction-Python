@@ -255,6 +255,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Les Librairies Python</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../../content/Cours_3/0-Install_and_import.html">
+ <span class="dropdown-text">Installer et importer des librairies en Python</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_3/1-Dataframes.html">
  <span class="dropdown-text">Les DataFrames</span></a>
   </li>  
@@ -316,11 +320,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_5/2-POO_le_retour.html">
- <span class="dropdown-text">POO - Python Orienté Objet</span></a>
+ <span class="dropdown-text">Python Orienté Objet - Les Dunders</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_5/3-patterndesign.html">
- <span class="dropdown-text">POO - Les Design Pattern</span></a>
+ <span class="dropdown-text">Python Orienté Objet - les Design Patterns</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
@@ -367,7 +371,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
@@ -376,6 +380,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_3/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Les Librairies Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/0-Install_and_import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installer et importer des librairies en Python</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -462,7 +472,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Introduction-Python/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -480,7 +490,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -528,7 +538,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>Classification avec Scikit-learn</strong>:</li>
 </ul>
-<div id="8a720350" class="cell" data-execution_count="1">
+<div id="9e303b4c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_iris</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -563,7 +573,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Énoncé</strong>: Utilisez Scikit-learn pour construire un classificateur simple sur un jeu de données standard, évaluez ses performances, et essayez d’améliorer ses résultats en ajustant les paramètres.</li>
 <li><strong>Solution</strong>:</li>
 </ol>
-<div id="d7130e30" class="cell" data-execution_count="2">
+<div id="bd10a6f9" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -577,7 +587,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> clf.predict(X_test)</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Accuracy:"</span>, accuracy_score(y_test, y_pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Accuracy: 0.8888888888888888</code></pre>
+<pre><code>Accuracy: 0.9111111111111111</code></pre>
 </div>
 </div>
 </section>
@@ -631,7 +641,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Énoncé</strong>: Construisez et entraînez un réseau de neurones simple pour classifier des images à partir d’un jeu de données standard comme MNIST.</li>
 <li><strong>Solution</strong> (avec PyTorch) :</li>
 </ol>
-<div id="cd431993" class="cell" data-execution_count="3">
+<div id="f1a65ef1" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
@@ -667,11 +677,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        optimizer.step()</span>
 <span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Epoch </span><span class="sc">{</span>epoch<span class="sc">}</span><span class="ss">, Loss: </span><span class="sc">{</span>loss<span class="sc">.</span>item()<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Epoch 0, Loss: 0.5657572746276855
-Epoch 1, Loss: 0.453056275844574
-Epoch 2, Loss: 0.5422431826591492
-Epoch 3, Loss: 0.374867707490921
-Epoch 4, Loss: 0.4605671763420105</code></pre>
+<pre><code>Epoch 0, Loss: 0.41705164313316345
+Epoch 1, Loss: 0.5665220618247986
+Epoch 2, Loss: 0.41818493604660034
+Epoch 3, Loss: 0.4157223701477051
+Epoch 4, Loss: 0.49468794465065</code></pre>
 </div>
 </div>
 </section>
@@ -1210,7 +1220,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../../content/Cours_3/2-Calcul_Scientifique_et_Optimization.html" class="pagination-link  aria-label=" calcul="" scientifique="" et="" optimization"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Calcul Scientifique et Optimization</span>

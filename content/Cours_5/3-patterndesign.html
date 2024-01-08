@@ -8,8 +8,9 @@
 
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2024-01-08">
+<meta name="description" content="Découvrir les design paterns, et connaitre les plus standards">
 
-<title>Introduction à Python - POO - Les Design Pattern</title>
+<title>Introduction à Python - Python Orienté Objet - les Design Patterns</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -77,10 +112,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction à Python - POO - Les Design Pattern">
-<meta property="og:image" content="https://remigenet.github.io/Introduction-Python/content/Cours_5/.img/stdandast2.webp">
+<meta property="og:title" content="Introduction à Python - Python Orienté Objet - les Design Patterns">
+<meta property="og:description" content="Découvrir les design paterns, et connaitre les plus standards">
+<meta property="og:image" content="https://remigenet.github.io/Introduction-Python/content/Cours_5/.img/dunder_poo2.webp">
 <meta property="og:site_name" content="Introduction à Python">
-<meta name="citation_title" content="POO - Les Design Pattern">
+<meta name="citation_title" content="Python Orienté Objet - les Design Patterns">
 <meta name="citation_author" content="Remi Genet">
 <meta name="citation_publication_date" content="2024-01-08">
 <meta name="citation_cover_date" content="2024-01-08">
@@ -213,6 +249,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Les Librairies Python</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../../content/Cours_3/0-Install_and_import.html">
+ <span class="dropdown-text">Installer et importer des librairies en Python</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_3/1-Dataframes.html">
  <span class="dropdown-text">Les DataFrames</span></a>
   </li>  
@@ -274,11 +314,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_5/2-POO_le_retour.html">
- <span class="dropdown-text">POO - Python Orienté Objet</span></a>
+ <span class="dropdown-text">Python Orienté Objet - Les Dunders</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_5/3-patterndesign.html">
- <span class="dropdown-text">POO - Les Design Pattern</span></a>
+ <span class="dropdown-text">Python Orienté Objet - les Design Patterns</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
@@ -318,14 +358,14 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_5/3-patterndesign.html">POO - Les Design Pattern</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_5/3-patterndesign.html">Python Orienté Objet - les Design Patterns</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
@@ -339,13 +379,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_5/2-POO_le_retour.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">POO - Python Orienté Objet</span></a>
+ <span class="menu-text">Python Orienté Objet - Les Dunders</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_5/3-patterndesign.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">POO - Les Design Pattern</span></a>
+ <span class="menu-text">Python Orienté Objet - les Design Patterns</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -372,25 +412,37 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#poo---python-orienté-objet" id="toc-poo---python-orienté-objet" class="nav-link active" data-scroll-target="#poo---python-orienté-objet">POO - Python Orienté Objet”</a></li>
+  <li><a href="#python-orienté-objet---les-design-patterns" id="toc-python-orienté-objet---les-design-patterns" class="nav-link active" data-scroll-target="#python-orienté-objet---les-design-patterns">Python Orienté Objet - les Design Patterns</a>
+  <ul class="collapse">
+  <li><a href="#introduction-aux-design-patterns" id="toc-introduction-aux-design-patterns" class="nav-link" data-scroll-target="#introduction-aux-design-patterns">Introduction aux Design Patterns</a></li>
+  <li><a href="#a---design-patterns-de-création" id="toc-a---design-patterns-de-création" class="nav-link" data-scroll-target="#a---design-patterns-de-création">A - Design Patterns de Création</a></li>
+  <li><a href="#b---design-patterns-structurels" id="toc-b---design-patterns-structurels" class="nav-link" data-scroll-target="#b---design-patterns-structurels">B - Design Patterns Structurels</a></li>
+  <li><a href="#c---design-patterns-comportementaux" id="toc-c---design-patterns-comportementaux" class="nav-link" data-scroll-target="#c---design-patterns-comportementaux">C - Design Patterns Comportementaux</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Introduction-Python/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">POO - Les Design Pattern</h1>
+<h1 class="title">Python Orienté Objet - les Design Patterns</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Cours</div>
     <div class="quarto-category">Fondamentaux</div>
   </div>
   </div>
 
+<div>
+  <div class="description">
+    Découvrir les design paterns, et connaitre les plus standards
+  </div>
+</div>
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -414,11 +466,187 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="poo---python-orienté-objet" class="level1">
-<h1>POO - Python Orienté Objet”</h1>
+<section id="python-orienté-objet---les-design-patterns" class="level1">
+<h1>Python Orienté Objet - les Design Patterns</h1>
 <hr>
+<section id="introduction-aux-design-patterns" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-aux-design-patterns">Introduction aux Design Patterns</h2>
+<ol type="1">
+<li><strong>Définition et Importance des Design Patterns</strong>:
+<ul>
+<li><strong>Définition</strong>: Un design pattern en programmation orientée objet est une solution réutilisable à un problème couramment rencontré dans la conception logicielle.</li>
+<li><strong>Rôle des Design Patterns</strong>: Ils fournissent un cadre de référence pour résoudre des problèmes de conception similaires et améliorent la lisibilité et la maintenabilité du code.</li>
+</ul></li>
+<li><strong>Catégories des Design Patterns</strong>:
+<ul>
+<li><strong>Patterns de Création</strong>: Concernent la manière de créer des objets tout en séparant la logique de construction de leur représentation.</li>
+<li><strong>Patterns Structurels</strong>: Se concentrent sur la composition des classes ou objets pour former des structures plus grandes.</li>
+<li><strong>Patterns Comportementaux</strong>: Traitent de la communication entre les objets et la répartition des responsabilités.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="a---design-patterns-de-création" class="level2">
+<h2 class="anchored" data-anchor-id="a---design-patterns-de-création">A - Design Patterns de Création</h2>
+<ol type="1">
+<li><strong>Singleton</strong>:
+<ul>
+<li><strong>Principe</strong>: Assure qu’une classe n’a qu’une seule instance et fournit un point d’accès global à celle-ci.</li>
+<li><strong>Application en Python</strong>:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Singleton:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    _instance <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__new__</span>(cls):</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> cls._instance <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>            cls._instance <span class="op">=</span> <span class="bu">super</span>(Singleton, cls).<span class="fu">__new__</span>(cls)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> cls._instance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><strong>Factory Method</strong>:
+<ul>
+<li><strong>Principe</strong>: Définit une interface pour créer un objet, mais laisse les sous-classes décider quelle classe instancier.</li>
+<li><strong>Application en Python</strong>:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Animal:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> speak(<span class="va">self</span>):</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Dog(Animal):</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> speak(<span class="va">self</span>):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Bark"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Cat(Animal):</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> speak(<span class="va">self</span>):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Meow"</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> AnimalFactory:</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_animal(<span class="va">self</span>, animal_type):</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> animal_type <span class="op">==</span> <span class="st">"dog"</span>:</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> Dog()</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> animal_type <span class="op">==</span> <span class="st">"cat"</span>:</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> Cat()</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>factory <span class="op">=</span> AnimalFactory()</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>dog <span class="op">=</span> factory.get_animal(<span class="st">"dog"</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dog.speak())  <span class="co"># Affiche "Bark"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+<hr>
+</section>
+<section id="b---design-patterns-structurels" class="level2">
+<h2 class="anchored" data-anchor-id="b---design-patterns-structurels">B - Design Patterns Structurels</h2>
+<ol type="1">
+<li><strong>Adapter</strong>:
+<ul>
+<li><strong>Principe</strong>: Permet à des interfaces incompatibles de travailler ensemble. Il agit comme un intermédiaire entre deux classes non compatibles.</li>
+<li><strong>Application en Python</strong>:</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FrenchSpeaker:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> greet(<span class="va">self</span>):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Bonjour"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> EnglishSpeaker:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> greet(<span class="va">self</span>):</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Hello"</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TranslatorAdapter:</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, speaker):</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.speaker <span class="op">=</span> speaker</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> greet(<span class="va">self</span>):</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">isinstance</span>(<span class="va">self</span>.speaker, FrenchSpeaker):</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">self</span>.speaker.greet()</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="bu">isinstance</span>(<span class="va">self</span>.speaker, EnglishSpeaker):</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">self</span>.speaker.greet().replace(<span class="st">"Hello"</span>, <span class="st">"Bonjour"</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>french_speaker <span class="op">=</span> FrenchSpeaker()</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>english_speaker <span class="op">=</span> EnglishSpeaker()</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>translator <span class="op">=</span> TranslatorAdapter(english_speaker)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(translator.greet())  <span class="co"># Affiche "Bonjour", traduit de "Hello"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><strong>Decorator</strong>:
+<ul>
+<li><strong>Principe</strong>: Permet d’ajouter dynamiquement de nouvelles fonctionnalités à un objet sans modifier sa structure.</li>
+<li><strong>Application en Python</strong>:</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bold_decorator(func):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> wrapper():</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"&lt;b&gt;"</span> <span class="op">+</span> func() <span class="op">+</span> <span class="st">"&lt;/b&gt;"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> wrapper</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">@bold_decorator</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> say_hello():</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"Hello"</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(say_hello())  <span class="co"># Affiche "&lt;b&gt;Hello&lt;/b&gt;"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+<hr>
+</section>
+<section id="c---design-patterns-comportementaux" class="level2">
+<h2 class="anchored" data-anchor-id="c---design-patterns-comportementaux">C - Design Patterns Comportementaux</h2>
+<ol type="1">
+<li><strong>Observer</strong>:
+<ul>
+<li><strong>Principe</strong>: Définit une dépendance entre objets de manière à ce que lorsque l’un change d’état, tous ses dépendants sont notifiés et mis à jour automatiquement.</li>
+<li><strong>Application en Python</strong>:</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Subject:</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._observers <span class="op">=</span> []</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> register_observer(<span class="va">self</span>, observer):</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._observers.append(observer)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> notify_observers(<span class="va">self</span>, message):</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> observer <span class="kw">in</span> <span class="va">self</span>._observers:</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            observer.notify(message)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Observer:</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> notify(<span class="va">self</span>, message):</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(message)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>subject <span class="op">=</span> Subject()</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>observer <span class="op">=</span> Observer()</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>subject.register_observer(observer)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>subject.notify_observers(<span class="st">"Notification"</span>)  <span class="co"># Affiche "Notification"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><strong>Strategy</strong>:
+<ul>
+<li><strong>Principe</strong>: Permet de définir une famille d’algorithmes, encapsule chacun d’eux et les rend interchangeables. La stratégie laisse l’algorithme varier indépendamment des clients qui l’utilisent.</li>
+<li><strong>Application en Python</strong>:</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SortingStrategy:</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> sort(<span class="va">self</span>, data):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">NotImplementedError</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> QuickSort(SortingStrategy):</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> sort(<span class="va">self</span>, data):</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Implémentation de QuickSort</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">sorted</span>(data)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BubbleSort(SortingStrategy):</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> sort(<span class="va">self</span>, data):</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Implémentation de BubbleSort</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">sorted</span>(data)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Context:</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, strategy):</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._strategy <span class="op">=</span> strategy</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> arrange(<span class="va">self</span>, data):</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._strategy.sort(data)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>]</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>context <span class="op">=</span> Context(QuickSort())</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(context.arrange(data))  <span class="co"># Affiche la liste triée</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Les design patterns en POO en Python jouent un rôle crucial dans la conception de logiciels efficaces, maintenables et évolutifs. Ils permettent aux développeurs de suivre des modèles éprouvés pour résoudre des problèmes communs de conception logicielle. Cette approche ne remplace pas la créativité dans la conception logicielle, mais fournit un langage commun et des solutions éprouvées pour des problèmes de conception courants.</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -948,10 +1176,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../../content/Cours_5/2-POO_le_retour.html" class="pagination-link  aria-label=" poo="" -="" python="" orienté="" objet"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">POO - Python Orienté Objet</span>
+      <a href="../../content/Cours_5/2-POO_le_retour.html" class="pagination-link  aria-label=" python="" orienté="" objet="" -="" les="" dunders"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Python Orienté Objet - Les Dunders</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

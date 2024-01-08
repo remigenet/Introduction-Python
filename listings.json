@@ -17,6 +17,7 @@
       "/content/Cours_2/2-FonctionsEtModules.html",
       "/content/Cours_2/3-IntroducingPOOConcept.html",
       "/content/Cours_2/Exercices.html",
+      "/content/Cours_3/0-Install_and_import.html",
       "/content/Cours_3/1-Dataframes.html",
       "/content/Cours_3/2-Calcul_Scientifique_et_Optimization.html",
       "/content/Cours_3/3-MachineLearning.html",
@@ -70,6 +71,7 @@
     "listing": "/content/Cours_3/index.html",
     "items": [
       "/content/Cours_3/2-Calcul_Scientifique_et_Optimization.html",
+      "/content/Cours_3/0-Install_and_import.html",
       "/content/Cours_3/1-Dataframes.html",
       "/content/Cours_3/3-MachineLearning.html",
       "/content/Cours_3/5-Feed_Internet.html",
@@ -88,8 +90,8 @@
     "listing": "/content/Cours_5/index.html",
     "items": [
       "/content/Cours_5/1-AST.html",
-      "/content/Cours_5/3-patterndesign.html",
       "/content/Cours_5/2-POO_le_retour.html",
+      "/content/Cours_5/3-patterndesign.html",
       "/content/Cours_5/TP5.html"
     ]
   }

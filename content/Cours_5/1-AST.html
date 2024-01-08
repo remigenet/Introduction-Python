@@ -247,6 +247,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Les Librairies Python</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../../content/Cours_3/0-Install_and_import.html">
+ <span class="dropdown-text">Installer et importer des librairies en Python</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_3/1-Dataframes.html">
  <span class="dropdown-text">Les DataFrames</span></a>
   </li>  
@@ -308,11 +312,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_5/2-POO_le_retour.html">
- <span class="dropdown-text">POO - Python Orienté Objet</span></a>
+ <span class="dropdown-text">Python Orienté Objet - Les Dunders</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_5/3-patterndesign.html">
- <span class="dropdown-text">POO - Les Design Pattern</span></a>
+ <span class="dropdown-text">Python Orienté Objet - les Design Patterns</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
@@ -359,7 +363,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
@@ -373,13 +377,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_5/2-POO_le_retour.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">POO - Python Orienté Objet</span></a>
+ <span class="menu-text">Python Orienté Objet - Les Dunders</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_5/3-patterndesign.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">POO - Les Design Pattern</span></a>
+ <span class="menu-text">Python Orienté Objet - les Design Patterns</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -415,7 +419,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Introduction-Python/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -428,7 +432,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -492,7 +496,7 @@ threading et multiprocessing :
 functools :
     Fournit des outils pour manipuler les fonctions. La fonction cache (dans Python 3.9+, lru_cache dans les versions antérieures) est particulièrement utile pour mémoriser les résultats des appels de fonctions coûteux.</code></pre>
 <p>Exemple d’Utilisation de functools.cache</p>
-<div id="f4134855" class="cell" data-execution_count="1">
+<div id="e43efa11" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> cache</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -513,9 +517,9 @@ functools :
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'computation took:'</span>, time.time()<span class="op">-</span>t1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>result is: 102334155
-computation took: 10.797030925750732
+computation took: 12.195524215698242
 result is: 102334155
-computation took: 5.1021575927734375e-05</code></pre>
+computation took: 5.459785461425781e-05</code></pre>
 </div>
 </div>
 </section>
@@ -1148,12 +1152,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../content/Cours_5/2-POO_le_retour.html" class="pagination-link" aria-label="POO - Python Orienté Objet">
-        <span class="nav-page-text">POO - Python Orienté Objet</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../content/Cours_5/2-POO_le_retour.html" class="pagination-link" aria-label="Python Orienté Objet - Les Dunders">
+        <span class="nav-page-text">Python Orienté Objet - Les Dunders</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

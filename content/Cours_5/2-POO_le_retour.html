@@ -8,8 +8,9 @@
 
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2024-01-08">
+<meta name="description" content="Comprendre la base des objets en python avec les dunder">
 
-<title>Introduction à Python - POO - Python Orienté Objet</title>
+<title>Introduction à Python - Python Orienté Objet - Les Dunders</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -78,10 +113,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction à Python - POO - Python Orienté Objet">
-<meta property="og:image" content="https://remigenet.github.io/Introduction-Python/content/Cours_5/.img/stdandast.webp">
+<meta property="og:title" content="Introduction à Python - Python Orienté Objet - Les Dunders">
+<meta property="og:description" content="Comprendre la base des objets en python avec les dunder">
+<meta property="og:image" content="https://remigenet.github.io/Introduction-Python/content/Cours_5/.img/dunder_poo.webp">
 <meta property="og:site_name" content="Introduction à Python">
-<meta name="citation_title" content="POO - Python Orienté Objet">
+<meta name="citation_title" content="Python Orienté Objet - Les Dunders">
 <meta name="citation_author" content="Remi Genet">
 <meta name="citation_publication_date" content="2024-01-08">
 <meta name="citation_cover_date" content="2024-01-08">
@@ -214,6 +250,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Les Librairies Python</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../../content/Cours_3/0-Install_and_import.html">
+ <span class="dropdown-text">Installer et importer des librairies en Python</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_3/1-Dataframes.html">
  <span class="dropdown-text">Les DataFrames</span></a>
   </li>  
@@ -275,11 +315,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_5/2-POO_le_retour.html">
- <span class="dropdown-text">POO - Python Orienté Objet</span></a>
+ <span class="dropdown-text">Python Orienté Objet - Les Dunders</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_5/3-patterndesign.html">
- <span class="dropdown-text">POO - Les Design Pattern</span></a>
+ <span class="dropdown-text">Python Orienté Objet - les Design Patterns</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
@@ -319,14 +359,14 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_5/2-POO_le_retour.html">POO - Python Orienté Objet</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_5/2-POO_le_retour.html">Python Orienté Objet - Les Dunders</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
@@ -340,13 +380,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_5/2-POO_le_retour.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">POO - Python Orienté Objet</span></a>
+ <span class="menu-text">Python Orienté Objet - Les Dunders</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_5/3-patterndesign.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">POO - Les Design Pattern</span></a>
+ <span class="menu-text">Python Orienté Objet - les Design Patterns</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -373,25 +413,34 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#poo---python-orienté-objet" id="toc-poo---python-orienté-objet" class="nav-link active" data-scroll-target="#poo---python-orienté-objet">POO - Python Orienté Objet”</a></li>
+  <li><a href="#poo---python-orienté-objet---introduction-aux-dunder" id="toc-poo---python-orienté-objet---introduction-aux-dunder" class="nav-link active" data-scroll-target="#poo---python-orienté-objet---introduction-aux-dunder">POO - Python Orienté Objet - Introduction aux dunder</a>
+  <ul class="collapse">
+  <li><a href="#partie-2-avantages-et-coûts-en-termes-de-performances-et-de-mémoire" id="toc-partie-2-avantages-et-coûts-en-termes-de-performances-et-de-mémoire" class="nav-link" data-scroll-target="#partie-2-avantages-et-coûts-en-termes-de-performances-et-de-mémoire">Partie 2: Avantages et Coûts en Termes de Performances et de Mémoire</a></li>
+  <li><a href="#partie-3-exemple-concret-dutilisation-des-méthodes-dunder" id="toc-partie-3-exemple-concret-dutilisation-des-méthodes-dunder" class="nav-link" data-scroll-target="#partie-3-exemple-concret-dutilisation-des-méthodes-dunder">Partie 3: Exemple Concret d’Utilisation des Méthodes Dunder</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Introduction-Python/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">POO - Python Orienté Objet</h1>
+<h1 class="title">Python Orienté Objet - Les Dunders</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Cours</div>
     <div class="quarto-category">Fondamentaux</div>
   </div>
   </div>
 
+<div>
+  <div class="description">
+    Comprendre la base des objets en python avec les dunder
+  </div>
+</div>
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -415,11 +464,100 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="poo---python-orienté-objet" class="level1">
-<h1>POO - Python Orienté Objet”</h1>
+<section id="poo---python-orienté-objet---introduction-aux-dunder" class="level1">
+<h1>POO - Python Orienté Objet - Introduction aux dunder</h1>
 <hr>
+<section id="les-objets-en-python-et-les-méthodes-dunder" class="level4">
+<h4 class="anchored" data-anchor-id="les-objets-en-python-et-les-méthodes-dunder">Les Objets en Python et les Méthodes Dunder</h4>
+<ol type="1">
+<li><strong>Nature des Objets en Python</strong>:
+<ul>
+<li><strong>Définition d’un Objet</strong>: Un objet en Python est une entité qui contient des données ainsi que des méthodes pour traiter ces données. Chaque élément en Python, qu’il s’agisse d’une donnée simple comme un nombre ou une chaîne de caractères, ou de structures plus complexes comme des listes ou des fonctions, est un objet.</li>
+<li><strong>Classes et Instances</strong>: Chaque objet est une instance d’une classe. Une classe est un modèle qui définit les attributs (données) et les méthodes (fonctions) que ses instances possèderont.</li>
+</ul></li>
+<li><strong>Rôle des Méthodes Dunder</strong>:
+<ul>
+<li><strong>Identification des Méthodes Dunder</strong>: Les méthodes Dunder (ou méthodes magiques) sont identifiables par leur double underscore de part et d’autre du nom (par exemple, <code>__init__</code> ou <code>__str__</code>).</li>
+<li><strong>Fonctionnalités des Méthodes Dunder</strong>: Ces méthodes ont des responsabilités spéciales en Python. Par exemple, <code>__init__</code> est utilisée pour initialiser de nouvelles instances d’une classe, <code>__str__</code> est appelée lorsqu’une représentation sous forme de chaîne de l’objet est requise.</li>
+<li><strong>Personnalisation du Comportement</strong>: Les méthodes Dunder permettent de définir comment une instance d’une classe se comporte avec les opérateurs Python intégrés (comme +, -, *, etc.).</li>
+</ul></li>
+<li><strong>Uniformité et Cohérence</strong>:
+<ul>
+<li><strong>Manipulation Homogène des Objets</strong>: Grâce aux méthodes Dunder, Python assure que les objets, qu’ils soient intégrés ou définis par l’utilisateur, se comportent de manière cohérente avec les opérateurs et fonctions intégrés.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="partie-2-avantages-et-coûts-en-termes-de-performances-et-de-mémoire" class="level3">
+<h3 class="anchored" data-anchor-id="partie-2-avantages-et-coûts-en-termes-de-performances-et-de-mémoire">Partie 2: Avantages et Coûts en Termes de Performances et de Mémoire</h3>
+<section id="gestion-efficace-des-types-de-données-complexes" class="level4">
+<h4 class="anchored" data-anchor-id="gestion-efficace-des-types-de-données-complexes">Gestion Efficace des Types de Données Complexes</h4>
+<ol type="1">
+<li><strong>Précision des Opérations</strong>:
+<ul>
+<li><strong>Gestion des Nombres en Python</strong>: Python traite les nombres avec une précision quasi-infinie, contrairement à des langages comme C/C++, où la précision est limitée par la taille des types de données primitifs. Cela permet à Python de gérer efficacement de grandes valeurs numériques et des calculs de haute précision.</li>
+</ul></li>
+<li><strong>Création de Structures Complexes</strong>:
+<ul>
+<li><strong>Flexibilité des Objets Python</strong>: L’utilisation des méthodes Dunder en combinaison avec la flexibilité des types en Python facilite la création de structures de données complexes comme des arbres, des graphes, ou des structures algébriques personnalisées.</li>
+</ul></li>
+</ol>
+</section>
+<section id="coût-en-termes-de-performances-et-de-mémoire" class="level4">
+<h4 class="anchored" data-anchor-id="coût-en-termes-de-performances-et-de-mémoire">Coût en Termes de Performances et de Mémoire</h4>
+<ol type="1">
+<li><strong>Consommation de Mémoire</strong>:
+<ul>
+<li><strong>Gestion des Objets</strong>: La manipulation des objets en Python, en particulier pour les types de données complexes, peut entraîner une utilisation plus importante de la mémoire par rapport à des langages de bas niveau.</li>
+</ul></li>
+<li><strong>Impact sur les Performances</strong>:
+<ul>
+<li><strong>Surcharge des Opérations</strong>: La flexibilité de Python, bien qu’avantageuse pour la facilité de programmation, peut conduire à une surcharge en termes de performances. Par exemple, les opérations arithmétiques simples comme l’addition ou la multiplication peuvent être plus coûteuses en ressources comparées à leur équivalent en langage C, en raison de la gestion des objets et de la vérification des types.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="partie-3-exemple-concret-dutilisation-des-méthodes-dunder" class="level3">
+<h3 class="anchored" data-anchor-id="partie-3-exemple-concret-dutilisation-des-méthodes-dunder">Partie 3: Exemple Concret d’Utilisation des Méthodes Dunder</h3>
+<section id="création-dune-classe-de-nombre-complexe" class="level4">
+<h4 class="anchored" data-anchor-id="création-dune-classe-de-nombre-complexe">Création d’une Classe de Nombre Complexe</h4>
+<ol type="1">
+<li><strong>Définition de la Classe</strong>:
+<ul>
+<li><strong>Classe <code>ComplexNumber</code></strong>: La classe <code>ComplexNumber</code> représente un nombre complexe avec une partie réelle (<code>real</code>) et une partie imaginaire (<code>imag</code>).</li>
+</ul></li>
+<li><strong>Méthodes Dunder Implémentées</strong>:
+<ul>
+<li><strong>Méthode <code>__init__</code></strong>: Initialise une nouvelle instance de <code>ComplexNumber</code> avec les valeurs fournies pour <code>real</code> et <code>imag</code>.</li>
+<li><strong>Méthode <code>__add__</code></strong>: Permet l’addition de deux instances de <code>ComplexNumber</code>. Elle définit comment l’opérateur <code>+</code> fonctionne pour cette classe.</li>
+<li><strong>Méthode <code>__repr__</code></strong>: Fournit une représentation sous forme de chaîne de caractères de l’instance, utile pour l’affichage ou le débogage.</li>
+</ul></li>
+<li><strong>Code d’Exemple</strong>:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ComplexNumber:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, real, imag):</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.real <span class="op">=</span> real</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.imag <span class="op">=</span> imag</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__add__</span>(<span class="va">self</span>, other):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> ComplexNumber(<span class="va">self</span>.real <span class="op">+</span> other.real, <span class="va">self</span>.imag <span class="op">+</span> other.imag)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>real<span class="sc">}</span><span class="ss"> + </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>imag<span class="sc">}</span><span class="ss">i"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>num1 <span class="op">=</span> ComplexNumber(<span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>num2 <span class="op">=</span> ComplexNumber(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(num1 <span class="op">+</span> num2)  <span class="co"># Affiche 3 + 4i</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="conclusion" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion">Conclusion</h4>
+<p>Les méthodes Dunder en Python offrent une puissance et une flexibilité incroyables pour la conception d’objets et de classes. Elles permettent une manipulation intuitive et élégante de types de données complexes et la création de structures sophistiquées. Bien que cette approche puisse avoir un impact sur les performances et la consommation de mémoire, elle rend Python extrêmement puissant et adapté à une vaste gamme d’applications.</p>
 
 
+</section>
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -949,15 +1087,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../../content/Cours_5/1-AST.html" class="pagination-link  aria-label=" l&#39;arbre="" syntaxique="" abstrait="" ou="" ast"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">L’arbre Syntaxique Abstrait ou AST</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../content/Cours_5/3-patterndesign.html" class="pagination-link" aria-label="POO - Les Design Pattern">
-        <span class="nav-page-text">POO - Les Design Pattern</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../content/Cours_5/3-patterndesign.html" class="pagination-link" aria-label="Python Orienté Objet - les Design Patterns">
+        <span class="nav-page-text">Python Orienté Objet - les Design Patterns</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

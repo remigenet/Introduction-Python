@@ -253,6 +253,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Les Librairies Python</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../../content/Cours_3/0-Install_and_import.html">
+ <span class="dropdown-text">Installer et importer des librairies en Python</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_3/1-Dataframes.html">
  <span class="dropdown-text">Les DataFrames</span></a>
   </li>  
@@ -314,11 +318,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_5/2-POO_le_retour.html">
- <span class="dropdown-text">POO - Python Orienté Objet</span></a>
+ <span class="dropdown-text">Python Orienté Objet - Les Dunders</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_5/3-patterndesign.html">
- <span class="dropdown-text">POO - Les Design Pattern</span></a>
+ <span class="dropdown-text">Python Orienté Objet - les Design Patterns</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
@@ -365,7 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
@@ -494,7 +498,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Introduction-Python/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -512,7 +516,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -548,7 +552,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>Expressions</strong> : En Python, chaque ligne de code est généralement une expression, par exemple <code>a = 5</code> ou <code>print(a)</code>.</p></li>
 <li><p><strong>Indentations</strong> : Python utilise l’indentation pour définir des blocs de code. Contrairement à d’autres langages qui utilisent des accolades, l’indentation en Python n’est pas seulement pour la lisibilité mais est syntaxiquement significative.</p></li>
 </ul>
-<div id="48ae2ba4" class="cell" data-execution_count="1">
+<div id="35a93ac1" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span><span class="dv">10</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> a <span class="op">&gt;</span> <span class="dv">5</span>:</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a est supérieur à 5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -562,7 +566,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>En Python, les commentaires commencent par <code>#</code>. Tout ce qui suit <code>#</code> sur la ligne est ignoré par l’interpréteur.</li>
 </ul>
-<div id="ac52fc87" class="cell" data-execution_count="2">
+<div id="8f2e209f" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ceci est un commentaire</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello, World!"</span>)  <span class="co"># Ceci est un commentaire en fin de ligne</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -591,7 +595,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p>Les noms de variables doivent commencer par une lettre ou un underscore <code>_</code>, suivis de lettres, chiffres, ou underscores.</p></li>
 <li><p>Les conventions de nommage courantes incluent <code>snake_case</code> pour les variables et fonctions, <code>CamelCase</code> pour les classes.</p>
-<div id="dcdb28dc" class="cell" data-execution_count="3">
+<div id="a8ba44b8" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ma_variable <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>uneAutreVariable <span class="op">=</span> <span class="st">"Bonjour"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
@@ -658,7 +662,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="try-except-blocks">Try-Except Blocks</h3>
 <ul>
 <li><p>Un bloc <code>try</code> permet de tester un bloc de code pour les erreurs, et le bloc <code>except</code> permet de gérer l’erreur.</p>
-<div id="48d01a71" class="cell" data-execution_count="4">
+<div id="50ed69b1" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code à essayer d'exécuter</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    resultat <span class="op">=</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">0</span></span>
@@ -727,7 +731,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="listes">Listes</h3>
 <ul>
 <li><p>Les listes en Python sont des collections ordonnées et modifiables. Elles peuvent contenir des éléments de différents types.</p>
-<div id="a1f4d019" class="cell" data-execution_count="5">
+<div id="f2fc0762" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ma_liste <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">"Python"</span>, <span class="va">True</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p><strong>Opérations de Base sur les Listes</strong> :</p>
@@ -742,7 +746,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="tuples">Tuples</h3>
 <ul>
 <li><p>Les tuples sont similaires aux listes, mais ils sont immuables (leurs valeurs ne peuvent pas être modifiées après leur création).</p>
-<div id="55c7bd05" class="cell" data-execution_count="6">
+<div id="c7505808" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mon_tuple <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">"Python"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p>Utilisés pour des données qui ne doivent pas être modifiées, comme les clés dans les dictionnaires.</p></li>
@@ -756,7 +760,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="dictionnaires">Dictionnaires</h3>
 <ul>
 <li><p>Les dictionnaires stockent des paires clé-valeur. Ils sont mutables et non ordonnés.</p>
-<div id="d6096109" class="cell" data-execution_count="7">
+<div id="6ab7cf44" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mon_dictionnaire <span class="op">=</span> {<span class="st">"nom"</span>: <span class="st">"Alice"</span>, <span class="st">"age"</span>: <span class="dv">30</span>, <span class="st">"langage"</span>: <span class="st">"Python"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p><strong>Manipulation de Dictionnaires</strong> :</p>
@@ -771,7 +775,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="ensembles">Ensembles</h3>
 <ul>
 <li><p>Les ensembles sont des collections non ordonnées de valeurs uniques. Utiles pour les opérations mathématiques comme les unions, intersections, et différences.</p>
-<div id="3a5adcf8" class="cell" data-execution_count="8">
+<div id="b7bd7a8b" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mon_ensemble <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p><strong>Opérations sur les Ensembles</strong> :</p>
@@ -788,7 +792,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exemple-de-manipulation-de-structures-de-données" class="level3">
 <h3 class="anchored" data-anchor-id="exemple-de-manipulation-de-structures-de-données">Exemple de Manipulation de Structures de Données</h3>
 <p>Supposons que nous avons une liste de tuples, chaque tuple contenant le nom d’un étudiant et son score. Nous voulons créer un dictionnaire où chaque clé est un score unique, et la valeur est la liste des noms d’étudiants ayant ce score.</p>
-<p>::: {#15b6878f .cell execution_count=9} ``` {.python .cell-code} etudiants = [(“Alice”, 85), (“Bob”, 90), (“Eve”, 85), (“Dave”, 90), (“Carol”, 75)] scores = {}</p>
+<p>::: {#ccfc59e7 .cell execution_count=9} ``` {.python .cell-code} etudiants = [(“Alice”, 85), (“Bob”, 90), (“Eve”, 85), (“Dave”, 90), (“Carol”, 75)] scores = {}</p>
 <p>for nom, score in etudiants: if score not in scores: scores[score] = [nom] else: scores[score].append(nom)</p>
 <p>print(scores) # {85: [‘Alice’, ‘Eve’], 90: [‘Bob’, ‘Dave’], 75: [‘Carol’]} ```</p>
 <p>::: {.cell-output .cell-output-stdout} <code>{85: ['Alice', 'Eve'], 90: ['Bob', 'Dave'], 75: ['Carol']}</code> ::: :::</p>
@@ -803,7 +807,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="compréhensions-de-liste">Compréhensions de Liste</h3>
 <ul>
 <li><p>Les compréhensions de liste fournissent une façon concise de créer des listes. Elles consistent en une expression suivie par une clause <code>for</code>, puis zéro ou plusieurs clauses <code>for</code> ou <code>if</code>.</p>
-<div id="986f7bac" class="cell" data-execution_count="10">
+<div id="5152f238" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'une liste des carrés des nombres de 0 à 9</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>carres <span class="op">=</span> [x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
@@ -813,7 +817,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="compréhensions-de-dictionnaire">Compréhensions de Dictionnaire</h3>
 <ul>
 <li><p>Semblables aux compréhensions de liste, mais créent des dictionnaires. Elles sont entourées de <code>{}</code> avec une paire clé-valeur suivie d’une clause <code>for</code>.</p>
-<div id="4b099521" class="cell" data-execution_count="11">
+<div id="6b084ec3" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'un dictionnaire avec des nombres et leurs carrés</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>carres_dict <span class="op">=</span> {x: x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
@@ -823,7 +827,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="compréhensions-densemble">Compréhensions d’Ensemble</h3>
 <ul>
 <li><p>Utilisées pour créer des ensembles de manière similaire aux compréhensions de liste, mais avec des éléments uniques.</p>
-<div id="19fec865" class="cell" data-execution_count="12">
+<div id="8c2fad24" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'un ensemble de carrés des nombres impairs</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>carres_impairs <span class="op">=</span> {x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>) <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
@@ -836,7 +840,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exemple-pratique-transformation-de-données" class="level3">
 <h3 class="anchored" data-anchor-id="exemple-pratique-transformation-de-données">Exemple Pratique : Transformation de Données</h3>
 <p>Imaginons que nous avons une liste de mots et que nous voulons créer un dictionnaire qui associe chaque mot à sa longueur, mais seulement pour les mots de plus de trois lettres.</p>
-<p>::: {#a9c49813 .cell execution_count=13} ``` {.python .cell-code} mots = [“python”, “est”, “un”, “langage”, “puissant”] longueur_mots = {mot: len(mot) for mot in mots if len(mot) &gt; 3}</p>
+<p>::: {#adbc564a .cell execution_count=13} ``` {.python .cell-code} mots = [“python”, “est”, “un”, “langage”, “puissant”] longueur_mots = {mot: len(mot) for mot in mots if len(mot) &gt; 3}</p>
 <p>print(longueur_mots) # {‘python’: 6, ‘langage’: 7, ‘puissant’: 8} ```</p>
 <p>::: {.cell-output .cell-output-stdout} <code>{'python': 6, 'langage': 7, 'puissant': 8}</code> ::: :::</p>
 <p>Dans cet exemple, la compréhension de dictionnaire parcourt la liste <code>mots</code>, incluant uniquement les mots dont la longueur dépasse trois lettres. Pour chaque mot éligible, le dictionnaire <code>longueur_mots</code> est construit avec le mot comme clé et sa longueur comme valeur.</p>
@@ -849,7 +853,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="opérateurs-ternaires">Opérateurs Ternaires</h3>
 <ul>
 <li><p>Les opérateurs ternaires permettent d’écrire des instructions conditionnelles en une seule ligne. La syntaxe est : <code>[valeur_si_vrai] if [condition] else [valeur_si_faux]</code>.</p>
-<div id="fca639d7" class="cell" data-execution_count="14">
+<div id="541bd799" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple d'opérateur ternaire</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>statut <span class="op">=</span> <span class="st">"majeur"</span> <span class="cf">if</span> age <span class="op">&gt;=</span> <span class="dv">18</span> <span class="cf">else</span> <span class="st">"mineur"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -860,7 +864,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="expressions-lambda">Expressions Lambda</h3>
 <ul>
 <li><p>Les expressions lambda permettent de créer de petites fonctions anonymes. Elles sont utiles pour des opérations simples nécessitant une fonction.</p>
-<div id="372252a1" class="cell" data-execution_count="15">
+<div id="b1cb2997" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple d'expression lambda</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>additionner <span class="op">=</span> <span class="kw">lambda</span> x, y: x <span class="op">+</span> y</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(additionner(<span class="dv">5</span>, <span class="dv">3</span>))  <span class="co"># Affiche 8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -878,7 +882,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="slicing-avancé">Slicing Avancé</h3>
 <ul>
 <li><p>Le slicing permet de sélectionner des sous-parties d’une séquence. En plus des bases, Python permet des slicings plus complexes.</p>
-<div id="9aabb454" class="cell" data-execution_count="16">
+<div id="a0ddba45" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>ma_liste <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>sous_liste <span class="op">=</span> ma_liste[::<span class="dv">2</span>]  <span class="co"># Sélectionne chaque élément pair</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
@@ -888,7 +892,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="listes-et-dictionnaires-imbriqués">Listes et Dictionnaires Imbriqués</h3>
 <ul>
 <li><p>Les listes et dictionnaires peuvent être imbriqués pour créer des structures de données complexes.</p>
-<div id="737cb62b" class="cell" data-execution_count="17">
+<div id="107ac69b" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de dictionnaire contenant des listes</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>informations <span class="op">=</span> {</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"nom"</span>: <span class="st">"Alice"</span>,</span>
@@ -904,12 +908,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exemple-filtrage-et-transformation-de-données" class="level3">
 <h3 class="anchored" data-anchor-id="exemple-filtrage-et-transformation-de-données">Exemple : Filtrage et Transformation de Données</h3>
 <p>Supposons que nous avons une liste de dictionnaires représentant des livres, et nous voulons extraire les titres des livres publiés après 2000.</p>
-<p>::: {#48d4f15e .cell execution_count=18} ``` {.python .cell-code} livres = [ {“titre”: “Python 101”, “année”: 1999}, {“titre”: “Le Guide du Voyageur Galactique”, “année”: 1979}, {“titre”: “Apprendre la Programmation”, “année”: 2015} ]</p>
+<p>::: {#badb14a9 .cell execution_count=18} ``` {.python .cell-code} livres = [ {“titre”: “Python 101”, “année”: 1999}, {“titre”: “Le Guide du Voyageur Galactique”, “année”: 1979}, {“titre”: “Apprendre la Programmation”, “année”: 2015} ]</p>
 <p>titres_recent = [livre[“titre”] for livre in livres if livre[“année”] &gt; 2000] print(titres_recent) # Affiche [‘Apprendre la Programmation’] ```</p>
 <p>::: {.cell-output .cell-output-stdout} <code>['Apprendre la Programmation']</code> ::: :::</p>
 <p>Dans cet exemple, une compréhension de liste est utilisée pour parcourir <code>livres</code>, en extrayant le <code>titre</code> de chaque livre dont l’<code>année</code> est supérieure à 2000. Cela démontre comment les compréhensions de liste peuvent être utilisées pour filtrer et transformer des données de manière concise et lisible. ```</p>
 <p>Pour vous entrainez à pratiquer ces notions:</p>
-<p><a href="#dnldts50245" onclick="fetch('data:application/x-python;base64,IyBDb3B5cmlnaHQgMjAxMCBHb29nbGUgSW5jLgojIExpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAKIyBodHRwOi8vd3d3LmFwYWNoZS5vcmcvbGljZW5zZXMvTElDRU5TRS0yLjAKCiMgR29vZ2xlJ3MgUHl0aG9uIENsYXNzCiMgaHR0cDovL2NvZGUuZ29vZ2xlLmNvbS9lZHUvbGFuZ3VhZ2VzL2dvb2dsZS1weXRob24tY2xhc3MvCgojIEJhc2ljIGxpc3QgZXhlcmNpc2VzCiMgRmlsbCBpbiB0aGUgY29kZSBmb3IgdGhlIGZ1bmN0aW9ucyBiZWxvdy4gbWFpbigpIGlzIGFscmVhZHkgc2V0IHVwCiMgdG8gY2FsbCB0aGUgZnVuY3Rpb25zIHdpdGggYSBmZXcgZGlmZmVyZW50IGlucHV0cywKIyBwcmludGluZyAnT0snIHdoZW4gZWFjaCBmdW5jdGlvbiBpcyBjb3JyZWN0LgojIFRoZSBzdGFydGVyIGNvZGUgZm9yIGVhY2ggZnVuY3Rpb24gaW5jbHVkZXMgYSAncmV0dXJuJwojIHdoaWNoIGlzIGp1c3QgYSBwbGFjZWhvbGRlciBmb3IgeW91ciBjb2RlLgojIEl0J3Mgb2sgaWYgeW91IGRvIG5vdCBjb21wbGV0ZSBhbGwgdGhlIGZ1bmN0aW9ucywgYW5kIHRoZXJlCiMgYXJlIHNvbWUgYWRkaXRpb25hbCBmdW5jdGlvbnMgdG8gdHJ5IGluIGxpc3QyLnB5LgoKIyBBLiBtYXRjaF9lbmRzCiMgR2l2ZW4gYSBsaXN0IG9mIHN0cmluZ3MsIHJldHVybiB0aGUgY291bnQgb2YgdGhlIG51bWJlciBvZgojIHN0cmluZ3Mgd2hlcmUgdGhlIHN0cmluZyBsZW5ndGggaXMgMiBvciBtb3JlIGFuZCB0aGUgZmlyc3QKIyBhbmQgbGFzdCBjaGFycyBvZiB0aGUgc3RyaW5nIGFyZSB0aGUgc2FtZS4KIyBOb3RlOiBweXRob24gZG9lcyBub3QgaGF2ZSBhICsrIG9wZXJhdG9yLCBidXQgKz0gd29ya3MuCmRlZiBtYXRjaF9lbmRzKHdvcmRzKToKICAgIHJldHVybgoKCiMgQi4gZnJvbnRfeAojIEdpdmVuIGEgbGlzdCBvZiBzdHJpbmdzLCByZXR1cm4gYSBsaXN0IHdpdGggdGhlIHN0cmluZ3MKIyBpbiBzb3J0ZWQgb3JkZXIsIGV4Y2VwdCBncm91cCBhbGwgdGhlIHN0cmluZ3MgdGhhdCBiZWdpbiB3aXRoICd4JyBmaXJzdC4KIyBlLmcuIFsnbWl4JywgJ3h5eicsICdhcHBsZScsICd4YW5hZHUnLCAnYWFyZHZhcmsnXSB5aWVsZHMKIyBbJ3hhbmFkdScsICd4eXonLCAnYWFyZHZhcmsnLCAnYXBwbGUnLCAnbWl4J10KIyBIaW50OiB0aGlzIGNhbiBiZSBkb25lIGJ5IG1ha2luZyAyIGxpc3RzIGFuZCBzb3J0aW5nIGVhY2ggb2YgdGhlbQojIGJlZm9yZSBjb21iaW5pbmcgdGhlbS4KZGVmIGZyb250X3god29yZHMpOgogICAgcmV0dXJuCgoKIyBDLiBzb3J0X2xhc3QKIyBHaXZlbiBhIGxpc3Qgb2Ygbm9uLWVtcHR5IHR1cGxlcywgcmV0dXJuIGEgbGlzdCBzb3J0ZWQgaW4gaW5jcmVhc2luZwojIG9yZGVyIGJ5IHRoZSBsYXN0IGVsZW1lbnQgaW4gZWFjaCB0dXBsZS4KIyBlLmcuIFsoMSwgNyksICgxLCAzKSwgKDMsIDQsIDUpLCAoMiwgMildIHlpZWxkcwojIFsoMiwgMiksICgxLCAzKSwgKDMsIDQsIDUpLCAoMSwgNyldCiMgSGludDogdXNlIGEgY3VzdG9tIGtleT0gZnVuY3Rpb24gdG8gZXh0cmFjdCB0aGUgbGFzdCBlbGVtZW50IGZvcm0gZWFjaCB0dXBsZS4KZGVmIHNvcnRfbGFzdCh0dXBsZXMpOgogICAgcmV0dXJuCgoKIyBTaW1wbGUgcHJvdmlkZWQgdGVzdCgpIGZ1bmN0aW9uIHVzZWQgaW4gbWFpbigpIHRvIHByaW50CiMgd2hhdCBlYWNoIGZ1bmN0aW9uIHJldHVybnMgdnMuIHdoYXQgaXQncyBzdXBwb3NlZCB0byByZXR1cm4uCmRlZiB0ZXN0KGdvdCwgZXhwZWN0ZWQpOgogICAgaWYgZ290ID09IGV4cGVjdGVkOgogICAgICAgIHByZWZpeCA9ICcgT0sgJwogICAgZWxzZToKICAgICAgICBwcmVmaXggPSAnICBYICcKICAgIHByaW50KCclcyBnb3Q6ICVzIGV4cGVjdGVkOiAlcycgJSAocHJlZml4LCByZXByKGdvdCksIHJlcHIoZXhwZWN0ZWQpKSkKCgojIENhbGxzIHRoZSBhYm92ZSBmdW5jdGlvbnMgd2l0aCBpbnRlcmVzdGluZyBpbnB1dHMuCmRlZiBtYWluKCk6CiAgICBwcmludAogICAgJ21hdGNoX2VuZHMnCiAgICB0ZXN0KG1hdGNoX2VuZHMoWydhYmEnLCAneHl6JywgJ2FhJywgJ3gnLCAnYmJiJ10pLCAzKQogICAgdGVzdChtYXRjaF9lbmRzKFsnJywgJ3gnLCAneHknLCAneHl4JywgJ3h4J10pLCAyKQogICAgdGVzdChtYXRjaF9lbmRzKFsnYWFhJywgJ2JlJywgJ2FiYycsICdoZWxsbyddKSwgMSkKCiAgICBwcmludAogICAgcHJpbnQKICAgICdmcm9udF94JwogICAgdGVzdChmcm9udF94KFsnYmJiJywgJ2NjYycsICdheHgnLCAneHp6JywgJ3hhYSddKSwKICAgICAgICAgWyd4YWEnLCAneHp6JywgJ2F4eCcsICdiYmInLCAnY2NjJ10pCiAgICB0ZXN0KGZyb250X3goWydjY2MnLCAnYmJiJywgJ2FhYScsICd4Y2MnLCAneGFhJ10pLAogICAgICAgICBbJ3hhYScsICd4Y2MnLCAnYWFhJywgJ2JiYicsICdjY2MnXSkKICAgIHRlc3QoZnJvbnRfeChbJ21peCcsICd4eXonLCAnYXBwbGUnLCAneGFuYWR1JywgJ2FhcmR2YXJrJ10pLAogICAgICAgICBbJ3hhbmFkdScsICd4eXonLCAnYWFyZHZhcmsnLCAnYXBwbGUnLCAnbWl4J10pCgogICAgcHJpbnQKICAgIHByaW50CiAgICAnc29ydF9sYXN0JwogICAgdGVzdChzb3J0X2xhc3QoWygxLCAzKSwgKDMsIDIpLCAoMiwgMSldKSwKICAgICAgICAgWygyLCAxKSwgKDMsIDIpLCAoMSwgMyldKQogICAgdGVzdChzb3J0X2xhc3QoWygyLCAzKSwgKDEsIDIpLCAoMywgMSldKSwKICAgICAgICAgWygzLCAxKSwgKDEsIDIpLCAoMiwgMyldKQogICAgdGVzdChzb3J0X2xhc3QoWygxLCA3KSwgKDEsIDMpLCAoMywgNCwgNSksICgyLCAyKV0pLAogICAgICAgICBbKDIsIDIpLCAoMSwgMyksICgzLCA0LCA1KSwgKDEsIDcpXSkKCgppZiBfX25hbWVfXyA9PSAnX19tYWluX18nOgogICAgbWFpbigp').then(res => res.blob()).then(blob => {
+<p><a href="#dnldts613" onclick="fetch('data:application/x-python;base64,IyBDb3B5cmlnaHQgMjAxMCBHb29nbGUgSW5jLgojIExpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAKIyBodHRwOi8vd3d3LmFwYWNoZS5vcmcvbGljZW5zZXMvTElDRU5TRS0yLjAKCiMgR29vZ2xlJ3MgUHl0aG9uIENsYXNzCiMgaHR0cDovL2NvZGUuZ29vZ2xlLmNvbS9lZHUvbGFuZ3VhZ2VzL2dvb2dsZS1weXRob24tY2xhc3MvCgojIEJhc2ljIGxpc3QgZXhlcmNpc2VzCiMgRmlsbCBpbiB0aGUgY29kZSBmb3IgdGhlIGZ1bmN0aW9ucyBiZWxvdy4gbWFpbigpIGlzIGFscmVhZHkgc2V0IHVwCiMgdG8gY2FsbCB0aGUgZnVuY3Rpb25zIHdpdGggYSBmZXcgZGlmZmVyZW50IGlucHV0cywKIyBwcmludGluZyAnT0snIHdoZW4gZWFjaCBmdW5jdGlvbiBpcyBjb3JyZWN0LgojIFRoZSBzdGFydGVyIGNvZGUgZm9yIGVhY2ggZnVuY3Rpb24gaW5jbHVkZXMgYSAncmV0dXJuJwojIHdoaWNoIGlzIGp1c3QgYSBwbGFjZWhvbGRlciBmb3IgeW91ciBjb2RlLgojIEl0J3Mgb2sgaWYgeW91IGRvIG5vdCBjb21wbGV0ZSBhbGwgdGhlIGZ1bmN0aW9ucywgYW5kIHRoZXJlCiMgYXJlIHNvbWUgYWRkaXRpb25hbCBmdW5jdGlvbnMgdG8gdHJ5IGluIGxpc3QyLnB5LgoKIyBBLiBtYXRjaF9lbmRzCiMgR2l2ZW4gYSBsaXN0IG9mIHN0cmluZ3MsIHJldHVybiB0aGUgY291bnQgb2YgdGhlIG51bWJlciBvZgojIHN0cmluZ3Mgd2hlcmUgdGhlIHN0cmluZyBsZW5ndGggaXMgMiBvciBtb3JlIGFuZCB0aGUgZmlyc3QKIyBhbmQgbGFzdCBjaGFycyBvZiB0aGUgc3RyaW5nIGFyZSB0aGUgc2FtZS4KIyBOb3RlOiBweXRob24gZG9lcyBub3QgaGF2ZSBhICsrIG9wZXJhdG9yLCBidXQgKz0gd29ya3MuCmRlZiBtYXRjaF9lbmRzKHdvcmRzKToKICAgIHJldHVybgoKCiMgQi4gZnJvbnRfeAojIEdpdmVuIGEgbGlzdCBvZiBzdHJpbmdzLCByZXR1cm4gYSBsaXN0IHdpdGggdGhlIHN0cmluZ3MKIyBpbiBzb3J0ZWQgb3JkZXIsIGV4Y2VwdCBncm91cCBhbGwgdGhlIHN0cmluZ3MgdGhhdCBiZWdpbiB3aXRoICd4JyBmaXJzdC4KIyBlLmcuIFsnbWl4JywgJ3h5eicsICdhcHBsZScsICd4YW5hZHUnLCAnYWFyZHZhcmsnXSB5aWVsZHMKIyBbJ3hhbmFkdScsICd4eXonLCAnYWFyZHZhcmsnLCAnYXBwbGUnLCAnbWl4J10KIyBIaW50OiB0aGlzIGNhbiBiZSBkb25lIGJ5IG1ha2luZyAyIGxpc3RzIGFuZCBzb3J0aW5nIGVhY2ggb2YgdGhlbQojIGJlZm9yZSBjb21iaW5pbmcgdGhlbS4KZGVmIGZyb250X3god29yZHMpOgogICAgcmV0dXJuCgoKIyBDLiBzb3J0X2xhc3QKIyBHaXZlbiBhIGxpc3Qgb2Ygbm9uLWVtcHR5IHR1cGxlcywgcmV0dXJuIGEgbGlzdCBzb3J0ZWQgaW4gaW5jcmVhc2luZwojIG9yZGVyIGJ5IHRoZSBsYXN0IGVsZW1lbnQgaW4gZWFjaCB0dXBsZS4KIyBlLmcuIFsoMSwgNyksICgxLCAzKSwgKDMsIDQsIDUpLCAoMiwgMildIHlpZWxkcwojIFsoMiwgMiksICgxLCAzKSwgKDMsIDQsIDUpLCAoMSwgNyldCiMgSGludDogdXNlIGEgY3VzdG9tIGtleT0gZnVuY3Rpb24gdG8gZXh0cmFjdCB0aGUgbGFzdCBlbGVtZW50IGZvcm0gZWFjaCB0dXBsZS4KZGVmIHNvcnRfbGFzdCh0dXBsZXMpOgogICAgcmV0dXJuCgoKIyBTaW1wbGUgcHJvdmlkZWQgdGVzdCgpIGZ1bmN0aW9uIHVzZWQgaW4gbWFpbigpIHRvIHByaW50CiMgd2hhdCBlYWNoIGZ1bmN0aW9uIHJldHVybnMgdnMuIHdoYXQgaXQncyBzdXBwb3NlZCB0byByZXR1cm4uCmRlZiB0ZXN0KGdvdCwgZXhwZWN0ZWQpOgogICAgaWYgZ290ID09IGV4cGVjdGVkOgogICAgICAgIHByZWZpeCA9ICcgT0sgJwogICAgZWxzZToKICAgICAgICBwcmVmaXggPSAnICBYICcKICAgIHByaW50KCclcyBnb3Q6ICVzIGV4cGVjdGVkOiAlcycgJSAocHJlZml4LCByZXByKGdvdCksIHJlcHIoZXhwZWN0ZWQpKSkKCgojIENhbGxzIHRoZSBhYm92ZSBmdW5jdGlvbnMgd2l0aCBpbnRlcmVzdGluZyBpbnB1dHMuCmRlZiBtYWluKCk6CiAgICBwcmludAogICAgJ21hdGNoX2VuZHMnCiAgICB0ZXN0KG1hdGNoX2VuZHMoWydhYmEnLCAneHl6JywgJ2FhJywgJ3gnLCAnYmJiJ10pLCAzKQogICAgdGVzdChtYXRjaF9lbmRzKFsnJywgJ3gnLCAneHknLCAneHl4JywgJ3h4J10pLCAyKQogICAgdGVzdChtYXRjaF9lbmRzKFsnYWFhJywgJ2JlJywgJ2FiYycsICdoZWxsbyddKSwgMSkKCiAgICBwcmludAogICAgcHJpbnQKICAgICdmcm9udF94JwogICAgdGVzdChmcm9udF94KFsnYmJiJywgJ2NjYycsICdheHgnLCAneHp6JywgJ3hhYSddKSwKICAgICAgICAgWyd4YWEnLCAneHp6JywgJ2F4eCcsICdiYmInLCAnY2NjJ10pCiAgICB0ZXN0KGZyb250X3goWydjY2MnLCAnYmJiJywgJ2FhYScsICd4Y2MnLCAneGFhJ10pLAogICAgICAgICBbJ3hhYScsICd4Y2MnLCAnYWFhJywgJ2JiYicsICdjY2MnXSkKICAgIHRlc3QoZnJvbnRfeChbJ21peCcsICd4eXonLCAnYXBwbGUnLCAneGFuYWR1JywgJ2FhcmR2YXJrJ10pLAogICAgICAgICBbJ3hhbmFkdScsICd4eXonLCAnYWFyZHZhcmsnLCAnYXBwbGUnLCAnbWl4J10pCgogICAgcHJpbnQKICAgIHByaW50CiAgICAnc29ydF9sYXN0JwogICAgdGVzdChzb3J0X2xhc3QoWygxLCAzKSwgKDMsIDIpLCAoMiwgMSldKSwKICAgICAgICAgWygyLCAxKSwgKDMsIDIpLCAoMSwgMyldKQogICAgdGVzdChzb3J0X2xhc3QoWygyLCAzKSwgKDEsIDIpLCAoMywgMSldKSwKICAgICAgICAgWygzLCAxKSwgKDEsIDIpLCAoMiwgMyldKQogICAgdGVzdChzb3J0X2xhc3QoWygxLCA3KSwgKDEsIDMpLCAoMywgNCwgNSksICgyLCAyKV0pLAogICAgICAgICBbKDIsIDIpLCAoMSwgMyksICgzLCA0LCA1KSwgKDEsIDcpXSkKCgppZiBfX25hbWVfXyA9PSAnX19tYWluX18nOgogICAgbWFpbigp').then(res => res.blob()).then(blob => {
       const downloadURL = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       document.body.appendChild(a);
@@ -917,8 +921,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       a.download = '1.1-Exercices.py'; a.click();
       window.URL.revokeObjectURL(downloadURL);
       document.body.removeChild(a);
-        });"><button class="btn btn-success downloadthis  " id="dnldts50245"><i class="bi bi-file-earmark-python"></i> Telecharger le premier jeu d'exercice </button></a></p>
-<p><a href="#dnldts3188" onclick="fetch('data:application/x-python;base64,IyBDb3B5cmlnaHQgMjAxMCBHb29nbGUgSW5jLgojIExpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAKIyBodHRwOi8vd3d3LmFwYWNoZS5vcmcvbGljZW5zZXMvTElDRU5TRS0yLjAKCiMgR29vZ2xlJ3MgUHl0aG9uIENsYXNzCiMgaHR0cDovL2NvZGUuZ29vZ2xlLmNvbS9lZHUvbGFuZ3VhZ2VzL2dvb2dsZS1weXRob24tY2xhc3MvCgojIEJhc2ljIGxpc3QgZXhlcmNpc2VzCiMgRmlsbCBpbiB0aGUgY29kZSBmb3IgdGhlIGZ1bmN0aW9ucyBiZWxvdy4gbWFpbigpIGlzIGFscmVhZHkgc2V0IHVwCiMgdG8gY2FsbCB0aGUgZnVuY3Rpb25zIHdpdGggYSBmZXcgZGlmZmVyZW50IGlucHV0cywKIyBwcmludGluZyAnT0snIHdoZW4gZWFjaCBmdW5jdGlvbiBpcyBjb3JyZWN0LgojIFRoZSBzdGFydGVyIGNvZGUgZm9yIGVhY2ggZnVuY3Rpb24gaW5jbHVkZXMgYSAncmV0dXJuJwojIHdoaWNoIGlzIGp1c3QgYSBwbGFjZWhvbGRlciBmb3IgeW91ciBjb2RlLgojIEl0J3Mgb2sgaWYgeW91IGRvIG5vdCBjb21wbGV0ZSBhbGwgdGhlIGZ1bmN0aW9ucywgYW5kIHRoZXJlCiMgYXJlIHNvbWUgYWRkaXRpb25hbCBmdW5jdGlvbnMgdG8gdHJ5IGluIGxpc3QyLnB5LgoKIyBBLiBtYXRjaF9lbmRzCiMgR2l2ZW4gYSBsaXN0IG9mIHN0cmluZ3MsIHJldHVybiB0aGUgY291bnQgb2YgdGhlIG51bWJlciBvZgojIHN0cmluZ3Mgd2hlcmUgdGhlIHN0cmluZyBsZW5ndGggaXMgMiBvciBtb3JlIGFuZCB0aGUgZmlyc3QKIyBhbmQgbGFzdCBjaGFycyBvZiB0aGUgc3RyaW5nIGFyZSB0aGUgc2FtZS4KIyBOb3RlOiBweXRob24gZG9lcyBub3QgaGF2ZSBhICsrIG9wZXJhdG9yLCBidXQgKz0gd29ya3MuCmRlZiBtYXRjaF9lbmRzKHdvcmRzKToKICAgIHJldHVybgoKCiMgQi4gZnJvbnRfeAojIEdpdmVuIGEgbGlzdCBvZiBzdHJpbmdzLCByZXR1cm4gYSBsaXN0IHdpdGggdGhlIHN0cmluZ3MKIyBpbiBzb3J0ZWQgb3JkZXIsIGV4Y2VwdCBncm91cCBhbGwgdGhlIHN0cmluZ3MgdGhhdCBiZWdpbiB3aXRoICd4JyBmaXJzdC4KIyBlLmcuIFsnbWl4JywgJ3h5eicsICdhcHBsZScsICd4YW5hZHUnLCAnYWFyZHZhcmsnXSB5aWVsZHMKIyBbJ3hhbmFkdScsICd4eXonLCAnYWFyZHZhcmsnLCAnYXBwbGUnLCAnbWl4J10KIyBIaW50OiB0aGlzIGNhbiBiZSBkb25lIGJ5IG1ha2luZyAyIGxpc3RzIGFuZCBzb3J0aW5nIGVhY2ggb2YgdGhlbQojIGJlZm9yZSBjb21iaW5pbmcgdGhlbS4KZGVmIGZyb250X3god29yZHMpOgogICAgcmV0dXJuCgoKIyBDLiBzb3J0X2xhc3QKIyBHaXZlbiBhIGxpc3Qgb2Ygbm9uLWVtcHR5IHR1cGxlcywgcmV0dXJuIGEgbGlzdCBzb3J0ZWQgaW4gaW5jcmVhc2luZwojIG9yZGVyIGJ5IHRoZSBsYXN0IGVsZW1lbnQgaW4gZWFjaCB0dXBsZS4KIyBlLmcuIFsoMSwgNyksICgxLCAzKSwgKDMsIDQsIDUpLCAoMiwgMildIHlpZWxkcwojIFsoMiwgMiksICgxLCAzKSwgKDMsIDQsIDUpLCAoMSwgNyldCiMgSGludDogdXNlIGEgY3VzdG9tIGtleT0gZnVuY3Rpb24gdG8gZXh0cmFjdCB0aGUgbGFzdCBlbGVtZW50IGZvcm0gZWFjaCB0dXBsZS4KZGVmIHNvcnRfbGFzdCh0dXBsZXMpOgogICAgcmV0dXJuCgoKIyBTaW1wbGUgcHJvdmlkZWQgdGVzdCgpIGZ1bmN0aW9uIHVzZWQgaW4gbWFpbigpIHRvIHByaW50CiMgd2hhdCBlYWNoIGZ1bmN0aW9uIHJldHVybnMgdnMuIHdoYXQgaXQncyBzdXBwb3NlZCB0byByZXR1cm4uCmRlZiB0ZXN0KGdvdCwgZXhwZWN0ZWQpOgogICAgaWYgZ290ID09IGV4cGVjdGVkOgogICAgICAgIHByZWZpeCA9ICcgT0sgJwogICAgZWxzZToKICAgICAgICBwcmVmaXggPSAnICBYICcKICAgIHByaW50KCclcyBnb3Q6ICVzIGV4cGVjdGVkOiAlcycgJSAocHJlZml4LCByZXByKGdvdCksIHJlcHIoZXhwZWN0ZWQpKSkKCgojIENhbGxzIHRoZSBhYm92ZSBmdW5jdGlvbnMgd2l0aCBpbnRlcmVzdGluZyBpbnB1dHMuCmRlZiBtYWluKCk6CiAgICBwcmludAogICAgJ21hdGNoX2VuZHMnCiAgICB0ZXN0KG1hdGNoX2VuZHMoWydhYmEnLCAneHl6JywgJ2FhJywgJ3gnLCAnYmJiJ10pLCAzKQogICAgdGVzdChtYXRjaF9lbmRzKFsnJywgJ3gnLCAneHknLCAneHl4JywgJ3h4J10pLCAyKQogICAgdGVzdChtYXRjaF9lbmRzKFsnYWFhJywgJ2JlJywgJ2FiYycsICdoZWxsbyddKSwgMSkKCiAgICBwcmludAogICAgcHJpbnQKICAgICdmcm9udF94JwogICAgdGVzdChmcm9udF94KFsnYmJiJywgJ2NjYycsICdheHgnLCAneHp6JywgJ3hhYSddKSwKICAgICAgICAgWyd4YWEnLCAneHp6JywgJ2F4eCcsICdiYmInLCAnY2NjJ10pCiAgICB0ZXN0KGZyb250X3goWydjY2MnLCAnYmJiJywgJ2FhYScsICd4Y2MnLCAneGFhJ10pLAogICAgICAgICBbJ3hhYScsICd4Y2MnLCAnYWFhJywgJ2JiYicsICdjY2MnXSkKICAgIHRlc3QoZnJvbnRfeChbJ21peCcsICd4eXonLCAnYXBwbGUnLCAneGFuYWR1JywgJ2FhcmR2YXJrJ10pLAogICAgICAgICBbJ3hhbmFkdScsICd4eXonLCAnYWFyZHZhcmsnLCAnYXBwbGUnLCAnbWl4J10pCgogICAgcHJpbnQKICAgIHByaW50CiAgICAnc29ydF9sYXN0JwogICAgdGVzdChzb3J0X2xhc3QoWygxLCAzKSwgKDMsIDIpLCAoMiwgMSldKSwKICAgICAgICAgWygyLCAxKSwgKDMsIDIpLCAoMSwgMyldKQogICAgdGVzdChzb3J0X2xhc3QoWygyLCAzKSwgKDEsIDIpLCAoMywgMSldKSwKICAgICAgICAgWygzLCAxKSwgKDEsIDIpLCAoMiwgMyldKQogICAgdGVzdChzb3J0X2xhc3QoWygxLCA3KSwgKDEsIDMpLCAoMywgNCwgNSksICgyLCAyKV0pLAogICAgICAgICBbKDIsIDIpLCAoMSwgMyksICgzLCA0LCA1KSwgKDEsIDcpXSkKCgppZiBfX25hbWVfXyA9PSAnX19tYWluX18nOgogICAgbWFpbigp').then(res => res.blob()).then(blob => {
+        });"><button class="btn btn-success downloadthis  " id="dnldts613"><i class="bi bi-file-earmark-python"></i> Telecharger le premier jeu d'exercice </button></a></p>
+<p><a href="#dnldts34671" onclick="fetch('data:application/x-python;base64,IyBDb3B5cmlnaHQgMjAxMCBHb29nbGUgSW5jLgojIExpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAKIyBodHRwOi8vd3d3LmFwYWNoZS5vcmcvbGljZW5zZXMvTElDRU5TRS0yLjAKCiMgR29vZ2xlJ3MgUHl0aG9uIENsYXNzCiMgaHR0cDovL2NvZGUuZ29vZ2xlLmNvbS9lZHUvbGFuZ3VhZ2VzL2dvb2dsZS1weXRob24tY2xhc3MvCgojIEJhc2ljIGxpc3QgZXhlcmNpc2VzCiMgRmlsbCBpbiB0aGUgY29kZSBmb3IgdGhlIGZ1bmN0aW9ucyBiZWxvdy4gbWFpbigpIGlzIGFscmVhZHkgc2V0IHVwCiMgdG8gY2FsbCB0aGUgZnVuY3Rpb25zIHdpdGggYSBmZXcgZGlmZmVyZW50IGlucHV0cywKIyBwcmludGluZyAnT0snIHdoZW4gZWFjaCBmdW5jdGlvbiBpcyBjb3JyZWN0LgojIFRoZSBzdGFydGVyIGNvZGUgZm9yIGVhY2ggZnVuY3Rpb24gaW5jbHVkZXMgYSAncmV0dXJuJwojIHdoaWNoIGlzIGp1c3QgYSBwbGFjZWhvbGRlciBmb3IgeW91ciBjb2RlLgojIEl0J3Mgb2sgaWYgeW91IGRvIG5vdCBjb21wbGV0ZSBhbGwgdGhlIGZ1bmN0aW9ucywgYW5kIHRoZXJlCiMgYXJlIHNvbWUgYWRkaXRpb25hbCBmdW5jdGlvbnMgdG8gdHJ5IGluIGxpc3QyLnB5LgoKIyBBLiBtYXRjaF9lbmRzCiMgR2l2ZW4gYSBsaXN0IG9mIHN0cmluZ3MsIHJldHVybiB0aGUgY291bnQgb2YgdGhlIG51bWJlciBvZgojIHN0cmluZ3Mgd2hlcmUgdGhlIHN0cmluZyBsZW5ndGggaXMgMiBvciBtb3JlIGFuZCB0aGUgZmlyc3QKIyBhbmQgbGFzdCBjaGFycyBvZiB0aGUgc3RyaW5nIGFyZSB0aGUgc2FtZS4KIyBOb3RlOiBweXRob24gZG9lcyBub3QgaGF2ZSBhICsrIG9wZXJhdG9yLCBidXQgKz0gd29ya3MuCmRlZiBtYXRjaF9lbmRzKHdvcmRzKToKICAgIHJldHVybgoKCiMgQi4gZnJvbnRfeAojIEdpdmVuIGEgbGlzdCBvZiBzdHJpbmdzLCByZXR1cm4gYSBsaXN0IHdpdGggdGhlIHN0cmluZ3MKIyBpbiBzb3J0ZWQgb3JkZXIsIGV4Y2VwdCBncm91cCBhbGwgdGhlIHN0cmluZ3MgdGhhdCBiZWdpbiB3aXRoICd4JyBmaXJzdC4KIyBlLmcuIFsnbWl4JywgJ3h5eicsICdhcHBsZScsICd4YW5hZHUnLCAnYWFyZHZhcmsnXSB5aWVsZHMKIyBbJ3hhbmFkdScsICd4eXonLCAnYWFyZHZhcmsnLCAnYXBwbGUnLCAnbWl4J10KIyBIaW50OiB0aGlzIGNhbiBiZSBkb25lIGJ5IG1ha2luZyAyIGxpc3RzIGFuZCBzb3J0aW5nIGVhY2ggb2YgdGhlbQojIGJlZm9yZSBjb21iaW5pbmcgdGhlbS4KZGVmIGZyb250X3god29yZHMpOgogICAgcmV0dXJuCgoKIyBDLiBzb3J0X2xhc3QKIyBHaXZlbiBhIGxpc3Qgb2Ygbm9uLWVtcHR5IHR1cGxlcywgcmV0dXJuIGEgbGlzdCBzb3J0ZWQgaW4gaW5jcmVhc2luZwojIG9yZGVyIGJ5IHRoZSBsYXN0IGVsZW1lbnQgaW4gZWFjaCB0dXBsZS4KIyBlLmcuIFsoMSwgNyksICgxLCAzKSwgKDMsIDQsIDUpLCAoMiwgMildIHlpZWxkcwojIFsoMiwgMiksICgxLCAzKSwgKDMsIDQsIDUpLCAoMSwgNyldCiMgSGludDogdXNlIGEgY3VzdG9tIGtleT0gZnVuY3Rpb24gdG8gZXh0cmFjdCB0aGUgbGFzdCBlbGVtZW50IGZvcm0gZWFjaCB0dXBsZS4KZGVmIHNvcnRfbGFzdCh0dXBsZXMpOgogICAgcmV0dXJuCgoKIyBTaW1wbGUgcHJvdmlkZWQgdGVzdCgpIGZ1bmN0aW9uIHVzZWQgaW4gbWFpbigpIHRvIHByaW50CiMgd2hhdCBlYWNoIGZ1bmN0aW9uIHJldHVybnMgdnMuIHdoYXQgaXQncyBzdXBwb3NlZCB0byByZXR1cm4uCmRlZiB0ZXN0KGdvdCwgZXhwZWN0ZWQpOgogICAgaWYgZ290ID09IGV4cGVjdGVkOgogICAgICAgIHByZWZpeCA9ICcgT0sgJwogICAgZWxzZToKICAgICAgICBwcmVmaXggPSAnICBYICcKICAgIHByaW50KCclcyBnb3Q6ICVzIGV4cGVjdGVkOiAlcycgJSAocHJlZml4LCByZXByKGdvdCksIHJlcHIoZXhwZWN0ZWQpKSkKCgojIENhbGxzIHRoZSBhYm92ZSBmdW5jdGlvbnMgd2l0aCBpbnRlcmVzdGluZyBpbnB1dHMuCmRlZiBtYWluKCk6CiAgICBwcmludAogICAgJ21hdGNoX2VuZHMnCiAgICB0ZXN0KG1hdGNoX2VuZHMoWydhYmEnLCAneHl6JywgJ2FhJywgJ3gnLCAnYmJiJ10pLCAzKQogICAgdGVzdChtYXRjaF9lbmRzKFsnJywgJ3gnLCAneHknLCAneHl4JywgJ3h4J10pLCAyKQogICAgdGVzdChtYXRjaF9lbmRzKFsnYWFhJywgJ2JlJywgJ2FiYycsICdoZWxsbyddKSwgMSkKCiAgICBwcmludAogICAgcHJpbnQKICAgICdmcm9udF94JwogICAgdGVzdChmcm9udF94KFsnYmJiJywgJ2NjYycsICdheHgnLCAneHp6JywgJ3hhYSddKSwKICAgICAgICAgWyd4YWEnLCAneHp6JywgJ2F4eCcsICdiYmInLCAnY2NjJ10pCiAgICB0ZXN0KGZyb250X3goWydjY2MnLCAnYmJiJywgJ2FhYScsICd4Y2MnLCAneGFhJ10pLAogICAgICAgICBbJ3hhYScsICd4Y2MnLCAnYWFhJywgJ2JiYicsICdjY2MnXSkKICAgIHRlc3QoZnJvbnRfeChbJ21peCcsICd4eXonLCAnYXBwbGUnLCAneGFuYWR1JywgJ2FhcmR2YXJrJ10pLAogICAgICAgICBbJ3hhbmFkdScsICd4eXonLCAnYWFyZHZhcmsnLCAnYXBwbGUnLCAnbWl4J10pCgogICAgcHJpbnQKICAgIHByaW50CiAgICAnc29ydF9sYXN0JwogICAgdGVzdChzb3J0X2xhc3QoWygxLCAzKSwgKDMsIDIpLCAoMiwgMSldKSwKICAgICAgICAgWygyLCAxKSwgKDMsIDIpLCAoMSwgMyldKQogICAgdGVzdChzb3J0X2xhc3QoWygyLCAzKSwgKDEsIDIpLCAoMywgMSldKSwKICAgICAgICAgWygzLCAxKSwgKDEsIDIpLCAoMiwgMyldKQogICAgdGVzdChzb3J0X2xhc3QoWygxLCA3KSwgKDEsIDMpLCAoMywgNCwgNSksICgyLCAyKV0pLAogICAgICAgICBbKDIsIDIpLCAoMSwgMyksICgzLCA0LCA1KSwgKDEsIDcpXSkKCgppZiBfX25hbWVfXyA9PSAnX19tYWluX18nOgogICAgbWFpbigp').then(res => res.blob()).then(blob => {
       const downloadURL = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       document.body.appendChild(a);
@@ -926,7 +930,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       a.download = '1.2-Exercices.py'; a.click();
       window.URL.revokeObjectURL(downloadURL);
       document.body.removeChild(a);
-        });"><button class="btn btn-success downloadthis  " id="dnldts3188"><i class="bi bi-file-earmark-python"></i> Telecharger le premier second d'exercice </button></a></p>
+        });"><button class="btn btn-success downloadthis  " id="dnldts34671"><i class="bi bi-file-earmark-python"></i> Telecharger le premier second d'exercice </button></a></p>
 
 
 </section>
@@ -1460,7 +1464,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../../content/Cours_2/index.html" class="pagination-link  aria-label=" syntaxes="" et="" concepts="" de="" base"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Syntaxes et Concepts de Base</span>
