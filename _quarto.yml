@@ -135,5 +135,5 @@ crossref:
   chapters: true
 lightbox: auto
 theme:
-  light: zephir
+  light: flatly
   dark: vapor
