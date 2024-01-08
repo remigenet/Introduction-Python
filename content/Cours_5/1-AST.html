@@ -67,6 +67,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../content/Cours_5/2-POO_le_retour.html" rel="next">
+<link href="../../content/Cours_5/index.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -288,6 +289,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-bonne-pratiques-dangers-et-astuces">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_4/index.html">
+ <span class="dropdown-text">Bonne pratiques, Dangers, et Astuces</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/1-MutabilitéEtScopes.html">
+ <span class="dropdown-text">Mutabilité et Scope</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_4/2-TypageEnPython.html">
  <span class="dropdown-text">Typage en Python</span></a>
   </li>  
@@ -295,6 +304,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../content/Cours_4/3-TournonsAutourduGIL.html">
  <span class="dropdown-text">Asynchronie et Multiprocessing</span></a>
   </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
         <li>
     <a class="dropdown-item" href="../../content/Cours_4/TP-RequetteruneAPI.html">
  <span class="dropdown-text">TP - Requettes API avec Python</span></a>
@@ -306,6 +317,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Concepts avancés</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-concepts-avancés">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/index.html">
+ <span class="dropdown-text">Concepts avancés</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_5/1-AST.html">
  <span class="dropdown-text">L’arbre Syntaxique Abstrait ou AST</span></a>
@@ -320,6 +335,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/TP5.html">
+ <span class="dropdown-text">TP-5</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -370,6 +389,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_5/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Concepts avancés</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../content/Cours_5/1-AST.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">L’arbre Syntaxique Abstrait ou AST</span></a>
   </div>
@@ -396,8 +421,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">content/Cours_5/TP.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_5/TP5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP-5</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -496,7 +524,7 @@ threading et multiprocessing :
 functools :
     Fournit des outils pour manipuler les fonctions. La fonction cache (dans Python 3.9+, lru_cache dans les versions antérieures) est particulièrement utile pour mémoriser les résultats des appels de fonctions coûteux.</code></pre>
 <p>Exemple d’Utilisation de functools.cache</p>
-<div id="e43efa11" class="cell" data-execution_count="1">
+<div id="1f3482cf" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> cache</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -517,9 +545,9 @@ functools :
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'computation took:'</span>, time.time()<span class="op">-</span>t1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>result is: 102334155
-computation took: 12.195524215698242
+computation took: 10.893131017684937
 result is: 102334155
-computation took: 5.459785461425781e-05</code></pre>
+computation took: 5.364418029785156e-05</code></pre>
 </div>
 </div>
 </section>
@@ -1154,6 +1182,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
+      <a href="../../content/Cours_5/index.html" class="pagination-link  aria-label=" concepts="" avancés"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Concepts avancés</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../content/Cours_5/2-POO_le_retour.html" class="pagination-link" aria-label="Python Orienté Objet - Les Dunders">

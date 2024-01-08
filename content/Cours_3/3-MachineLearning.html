@@ -296,6 +296,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-bonne-pratiques-dangers-et-astuces">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_4/index.html">
+ <span class="dropdown-text">Bonne pratiques, Dangers, et Astuces</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/1-MutabilitéEtScopes.html">
+ <span class="dropdown-text">Mutabilité et Scope</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_4/2-TypageEnPython.html">
  <span class="dropdown-text">Typage en Python</span></a>
   </li>  
@@ -303,6 +311,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../content/Cours_4/3-TournonsAutourduGIL.html">
  <span class="dropdown-text">Asynchronie et Multiprocessing</span></a>
   </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
         <li>
     <a class="dropdown-item" href="../../content/Cours_4/TP-RequetteruneAPI.html">
  <span class="dropdown-text">TP - Requettes API avec Python</span></a>
@@ -314,6 +324,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Concepts avancés</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-concepts-avancés">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/index.html">
+ <span class="dropdown-text">Concepts avancés</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_5/1-AST.html">
  <span class="dropdown-text">L’arbre Syntaxique Abstrait ou AST</span></a>
@@ -328,6 +342,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/TP5.html">
+ <span class="dropdown-text">TP-5</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -538,7 +556,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>Classification avec Scikit-learn</strong>:</li>
 </ul>
-<div id="9e303b4c" class="cell" data-execution_count="1">
+<div id="c09afad8" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_iris</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -573,7 +591,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Énoncé</strong>: Utilisez Scikit-learn pour construire un classificateur simple sur un jeu de données standard, évaluez ses performances, et essayez d’améliorer ses résultats en ajustant les paramètres.</li>
 <li><strong>Solution</strong>:</li>
 </ol>
-<div id="bd10a6f9" class="cell" data-execution_count="2">
+<div id="98ca1ebd" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -587,7 +605,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> clf.predict(X_test)</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Accuracy:"</span>, accuracy_score(y_test, y_pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Accuracy: 0.9111111111111111</code></pre>
+<pre><code>Accuracy: 0.9555555555555556</code></pre>
 </div>
 </div>
 </section>
@@ -641,7 +659,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Énoncé</strong>: Construisez et entraînez un réseau de neurones simple pour classifier des images à partir d’un jeu de données standard comme MNIST.</li>
 <li><strong>Solution</strong> (avec PyTorch) :</li>
 </ol>
-<div id="f1a65ef1" class="cell" data-execution_count="3">
+<div id="c80adad4" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
@@ -677,11 +695,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        optimizer.step()</span>
 <span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Epoch </span><span class="sc">{</span>epoch<span class="sc">}</span><span class="ss">, Loss: </span><span class="sc">{</span>loss<span class="sc">.</span>item()<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Epoch 0, Loss: 0.41705164313316345
-Epoch 1, Loss: 0.5665220618247986
-Epoch 2, Loss: 0.41818493604660034
-Epoch 3, Loss: 0.4157223701477051
-Epoch 4, Loss: 0.49468794465065</code></pre>
+<pre><code>Epoch 0, Loss: 0.6141420006752014
+Epoch 1, Loss: 0.6425308585166931
+Epoch 2, Loss: 0.26623204350471497
+Epoch 3, Loss: 0.45643866062164307
+Epoch 4, Loss: 0.2392071932554245</code></pre>
 </div>
 </div>
 </section>
