@@ -13,7 +13,7 @@ website:
     search: true
     left:
       - text: Back to Main Website
-        url: https://remigenet.github.io/website/
+        url: https://remigenet.github.io/
       - file: index.qmd
         text: Home 
       - sidebar:introduction
