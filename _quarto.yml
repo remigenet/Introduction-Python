@@ -74,6 +74,7 @@ website:
        - content/Cours_3/index.qmd
        - content/Cours_3/0-Install_and_import.qmd
        - content/Cours_3/1-Dataframes.qmd
+       - content/Cours_3/pandas_short_example.ipynb
        - content/Cours_3/2-Calcul_Scientifique_et_Optimization.qmd
        - content/Cours_3/3-MachineLearning.qmd
        - content/Cours_3/4-Access_Internet.qmd
@@ -83,6 +84,7 @@ website:
          expanded: false
          contents:
          - content/Cours_3/TP-3.qmd
+         - content/Cours_3/Exercice-pandas_and_geography.ipynb
     - id: advanced_mix 
       title: "Bonne pratiques, Dangers, et Astuces"
       contents: 
@@ -141,4 +143,4 @@ validate-yaml: false
 crossref:
   chapters: true
 lightbox: auto
-
+jupyter: python3
