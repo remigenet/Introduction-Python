@@ -68,7 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../content/Cours_3/3-MachineLearning.html" rel="next">
-<link href="../../content/Cours_3/1-Dataframes.html" rel="prev">
+<link href="../../content/Cours_3/pandas_short_example.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -260,6 +260,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Les DataFrames</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../../content/Cours_3/pandas_short_example.html">
+ <span class="dropdown-text">Exemple sur pandas</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_3/2-Calcul_Scientifique_et_Optimization.html">
  <span class="dropdown-text">Calcul Scientifique et Optimization</span></a>
   </li>  
@@ -284,6 +288,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../content/Cours_3/TP-3.html">
  <span class="dropdown-text">TP-3 Libraries</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/Exercice-pandas_and_geography.html">
+ <span class="dropdown-text">TP - Utiliser pandas</span></a>
   </li>  
     </ul>
   </li>
@@ -411,6 +419,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/pandas_short_example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exemple sur pandas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../content/Cours_3/2-Calcul_Scientifique_et_Optimization.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Calcul Scientifique et Optimization</span></a>
   </div>
@@ -452,6 +466,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_3/TP-3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TP-3 Libraries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/Exercice-pandas_and_geography.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP - Utiliser pandas</span></a>
   </div>
 </li>
       </ul>
@@ -540,26 +560,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li><strong>Tableaux Multidimensionnels</strong>: Les ndarray de NumPy sont plus performants que les listes Python pour les opérations mathématiques.</li>
 </ol>
-<div id="8cb81837" class="cell" data-execution_count="1">
+<div id="7c58a1c1" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li><strong>Opérations Mathématiques Rapides et Efficaces</strong>: NumPy permet des calculs vectorisés, ce qui est plus rapide que les boucles traditionnelles.</li>
 </ol>
-<div id="c17b53b4" class="cell" data-execution_count="2">
+<div id="0ed7d790" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> arr <span class="op">+</span> <span class="dv">1</span>  <span class="co"># Ajoute 1 à chaque élément</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li><strong>Fonctions Mathématiques Avancées</strong>: NumPy inclut des fonctions pour l’algèbre linéaire, la transformée de Fourier, et plus.</li>
 </ol>
-<div id="2c6b1661" class="cell" data-execution_count="3">
+<div id="b45707ec" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">=</span> np.random.rand(<span class="dv">3</span>, <span class="dv">3</span>)  <span class="co"># Crée une matrice 3x3 de nombres aléatoires</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>np.linalg.inv(matrix)  <span class="co"># Inversion d'une matrice</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>array([[ -6.08794503,   4.33903692,   3.78819027],
-       [ -9.052401  ,   0.86526983,  13.67654364],
-       [ 18.55456069,  -5.81987141, -19.77268184]])</code></pre>
+<pre><code>array([[-6.17120731,  4.81482288, -0.88841628],
+       [ 2.36515312, -1.86908713,  1.52402082],
+       [ 3.49011947, -1.69927224,  0.19144154]])</code></pre>
 </div>
 </div>
 </section>
@@ -574,7 +594,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>Optimisation</strong>: Trouver le minimum ou le maximum d’une fonction.</li>
 </ul>
-<div id="02cef7ea" class="cell" data-execution_count="4">
+<div id="e003e5b6" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> func(x):</span>
@@ -590,7 +610,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Énoncé</strong>: Définissez une fonction mathématique simple (par exemple, un polynôme) et utilisez SciPy pour trouver son minimum.</li>
 <li><strong>Solution</strong>:</li>
 </ol>
-<div id="caf5ab64" class="cell" data-execution_count="5">
+<div id="52fb59f9" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> poly(x):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">4</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -640,7 +660,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Énoncé</strong>: Créez un tableau 2D avec NumPy et utilisez l’indexation fantaisie pour sélectionner des éléments spécifiques. Ensuite, définissez une fonction multivariable et utilisez SciPy pour la minimiser avec des contraintes.</li>
 <li><strong>Solution</strong>:</li>
 </ol>
-<div id="3ad2fc73" class="cell" data-execution_count="6">
+<div id="cabd4113" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1240,8 +1260,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../../content/Cours_3/1-Dataframes.html" class="pagination-link  aria-label=" les="" dataframes"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Les DataFrames</span>
+      <a href="../../content/Cours_3/pandas_short_example.html" class="pagination-link  aria-label=" exemple="" sur="" pandas"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Exemple sur pandas</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
