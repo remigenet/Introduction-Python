@@ -115,10 +115,6 @@ website:
       Inspiration pour la mise en forme du site [ici](https://github.com/linogaliana/python-datascientist)<br>
       [Code source disponible sur {{< fa brands github >}} `GitHub`](https://github.com/remigenet/Introduction-Python)
 
-theme:
-  light: zephir
-  dark: vapor
-
 
 format:
   html:
@@ -131,10 +127,13 @@ format-links: true
 author: Remi Genet
 date: today
 date-format: iso
-page-layout: article
+#page-layout: article
 google-scholar: true
 commentable: true
 validate-yaml: false
 crossref:
   chapters: true
 lightbox: auto
+theme:
+  light: zephir
+  dark: vapor
