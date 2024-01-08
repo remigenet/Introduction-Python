@@ -1,5 +1,5 @@
 ---
-title: "POO - Les Design Pattern"
+title: "Python Orienté Objet - les Design Patterns"
 weight: 10
 tags:
   - Pandas
@@ -10,12 +10,188 @@ categories:
   - Cours
   - Fondamentaux
 type: book
-description: ""
-image: .img/stdandast2.webp
+description: "Découvrir les design paterns, et connaitre les plus standards"
+image: .img/dunder_poo2.webp
 code-links: binder
 ---
 
-# POO - Python Orienté Objet"
+# Python Orienté Objet - les Design Patterns
 
 ---
 
+## Introduction aux Design Patterns
+
+1. **Définition et Importance des Design Patterns**:
+    - **Définition**: Un design pattern en programmation orientée objet est une solution réutilisable à un problème couramment rencontré dans la conception logicielle. 
+    - **Rôle des Design Patterns**: Ils fournissent un cadre de référence pour résoudre des problèmes de conception similaires et améliorent la lisibilité et la maintenabilité du code.
+
+2. **Catégories des Design Patterns**:
+    - **Patterns de Création**: Concernent la manière de créer des objets tout en séparant la logique de construction de leur représentation.
+    - **Patterns Structurels**: Se concentrent sur la composition des classes ou objets pour former des structures plus grandes.
+    - **Patterns Comportementaux**: Traitent de la communication entre les objets et la répartition des responsabilités.
+
+---
+
+## A - Design Patterns de Création
+
+1. **Singleton**:
+    - **Principe**: Assure qu'une classe n'a qu'une seule instance et fournit un point d'accès global à celle-ci.
+    - **Application en Python**:
+
+    ```python
+    class Singleton:
+        _instance = None
+
+        def __new__(cls):
+            if cls._instance is None:
+                cls._instance = super(Singleton, cls).__new__(cls)
+            return cls._instance
+    ```
+
+2. **Factory Method**:
+    - **Principe**: Définit une interface pour créer un objet, mais laisse les sous-classes décider quelle classe instancier.
+    - **Application en Python**:
+
+    ```python
+    class Animal:
+        def speak(self):
+            pass
+
+    class Dog(Animal):
+        def speak(self):
+            return "Bark"
+
+    class Cat(Animal):
+        def speak(self):
+            return "Meow"
+
+    class AnimalFactory:
+        def get_animal(self, animal_type):
+            if animal_type == "dog":
+                return Dog()
+            elif animal_type == "cat":
+                return Cat()
+
+    # Utilisation
+    factory = AnimalFactory()
+    dog = factory.get_animal("dog")
+    print(dog.speak())  # Affiche "Bark"
+    ```
+
+---
+
+## B - Design Patterns Structurels
+
+1. **Adapter**:
+    - **Principe**: Permet à des interfaces incompatibles de travailler ensemble. Il agit comme un intermédiaire entre deux classes non compatibles.
+    - **Application en Python**:
+
+    ```python
+    class FrenchSpeaker:
+        def greet(self):
+            return "Bonjour"
+
+    class EnglishSpeaker:
+        def greet(self):
+            return "Hello"
+
+    class TranslatorAdapter:
+        def __init__(self, speaker):
+            self.speaker = speaker
+
+        def greet(self):
+            if isinstance(self.speaker, FrenchSpeaker):
+                return self.speaker.greet()
+            elif isinstance(self.speaker, EnglishSpeaker):
+                return self.speaker.greet().replace("Hello", "Bonjour")
+
+    # Utilisation
+    french_speaker = FrenchSpeaker()
+    english_speaker = EnglishSpeaker()
+    translator = TranslatorAdapter(english_speaker)
+    print(translator.greet())  # Affiche "Bonjour", traduit de "Hello"
+    ```
+
+2. **Decorator**:
+    - **Principe**: Permet d'ajouter dynamiquement de nouvelles fonctionnalités à un objet sans modifier sa structure.
+    - **Application en Python**:
+
+    ```python
+    def bold_decorator(func):
+        def wrapper():
+            return "<b>" + func() + "</b>"
+        return wrapper
+
+    @bold_decorator
+    def say_hello():
+        return "Hello"
+
+    print(say_hello())  # Affiche "<b>Hello</b>"
+    ```
+
+---
+
+## C - Design Patterns Comportementaux
+
+1. **Observer**:
+    - **Principe**: Définit une dépendance entre objets de manière à ce que lorsque l'un change d'état, tous ses dépendants sont notifiés et mis à jour automatiquement.
+    - **Application en Python**:
+
+    ```python
+    class Subject:
+        def __init__(self):
+            self._observers = []
+
+        def register_observer(self, observer):
+            self._observers.append(observer)
+
+        def notify_observers(self, message):
+            for observer in self._observers:
+                observer.notify(message)
+
+    class Observer:
+        def notify(self, message):
+            print(message)
+
+    # Utilisation
+    subject = Subject()
+    observer = Observer()
+    subject.register_observer(observer)
+    subject.notify_observers("Notification")  # Affiche "Notification"
+    ```
+
+2. **Strategy**:
+    - **Principe**: Permet de définir une famille d'algorithmes, encapsule chacun d'eux et les rend interchangeables. La stratégie laisse l'algorithme varier indépendamment des clients qui l'utilisent.
+    - **Application en Python**:
+
+    ```python
+    class SortingStrategy:
+        def sort(self, data):
+            raise NotImplementedError
+
+    class QuickSort(SortingStrategy):
+        def sort(self, data):
+            # Implémentation de QuickSort
+            return sorted(data)
+
+    class BubbleSort(SortingStrategy):
+        def sort(self, data):
+            # Implémentation de BubbleSort
+            return sorted(data)
+
+    class Context:
+        def __init__(self, strategy):
+            self._strategy = strategy
+
+        def arrange(self, data):
+            return self._strategy.sort(data)
+
+    # Utilisation
+    data = [3, 2, 1]
+    context = Context(QuickSort())
+    print(context.arrange(data))  # Affiche la liste triée
+    ```
+
+## Conclusion
+
+Les design patterns en POO en Python jouent un rôle crucial dans la conception de logiciels efficaces, maintenables et évolutifs. Ils permettent aux développeurs de suivre des modèles éprouvés pour résoudre des problèmes communs de conception logicielle. Cette approche ne remplace pas la créativité dans la conception logicielle, mais fournit un langage commun et des solutions éprouvées pour des problèmes de conception courants.

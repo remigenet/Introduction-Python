@@ -19,7 +19,7 @@ lightbox: auto
 <a class="github-button" href="https://github.com/remigenet/Introduction-Python" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this website on Github">Star this website on Github</a><script async defer src="https://buttons.github.io/buttons.js"></script>
 ```
 
-# {{< animate backInDown "API avec Python " >}} 
+# {{< animate backInDown "Introduction à Python: " >}} 
 
 ### Python, toutes les bases pour bien démarrer !
 

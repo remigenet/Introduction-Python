@@ -72,6 +72,7 @@ website:
       title: "Les Librairies Python"
       contents: 
        - content/Cours_3/index.qmd
+       - content/Cours_3/0-Install_and_import.qmd
        - content/Cours_3/1-Dataframes.qmd
        - content/Cours_3/2-Calcul_Scientifique_et_Optimization.qmd
        - content/Cours_3/3-MachineLearning.qmd
@@ -127,7 +128,7 @@ format-links: true
 author: Remi Genet
 date: today
 date-format: iso
-#page-layout: article
+page-layout: full
 google-scholar: true
 commentable: true
 validate-yaml: false

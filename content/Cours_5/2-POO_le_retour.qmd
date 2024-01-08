@@ -1,5 +1,5 @@
 ---
-title: "POO - Python Orienté Objet"
+title: "Python Orienté Objet - Les Dunders"
 weight: 10
 tags:
   - Pandas
@@ -10,12 +10,83 @@ categories:
   - Cours
   - Fondamentaux
 type: book
-description: ""
-image: .img/stdandast.webp
+description: "Comprendre la base des objets en python avec les dunder"
+image: .img/dunder_poo.webp
 code-links: binder
 ---
 
-# POO - Python Orienté Objet"
+# POO - Python Orienté Objet - Introduction aux dunder
 
 ---
 
+#### Les Objets en Python et les Méthodes Dunder
+
+1. **Nature des Objets en Python**:
+    - **Définition d'un Objet**: Un objet en Python est une entité qui contient des données ainsi que des méthodes pour traiter ces données. Chaque élément en Python, qu'il s'agisse d'une donnée simple comme un nombre ou une chaîne de caractères, ou de structures plus complexes comme des listes ou des fonctions, est un objet.
+    - **Classes et Instances**: Chaque objet est une instance d'une classe. Une classe est un modèle qui définit les attributs (données) et les méthodes (fonctions) que ses instances possèderont.
+
+2. **Rôle des Méthodes Dunder**:
+    - **Identification des Méthodes Dunder**: Les méthodes Dunder (ou méthodes magiques) sont identifiables par leur double underscore de part et d'autre du nom (par exemple, `__init__` ou `__str__`). 
+    - **Fonctionnalités des Méthodes Dunder**: Ces méthodes ont des responsabilités spéciales en Python. Par exemple, `__init__` est utilisée pour initialiser de nouvelles instances d'une classe, `__str__` est appelée lorsqu'une représentation sous forme de chaîne de l'objet est requise.
+    - **Personnalisation du Comportement**: Les méthodes Dunder permettent de définir comment une instance d'une classe se comporte avec les opérateurs Python intégrés (comme +, -, *, etc.).
+
+3. **Uniformité et Cohérence**:
+    - **Manipulation Homogène des Objets**: Grâce aux méthodes Dunder, Python assure que les objets, qu'ils soient intégrés ou définis par l'utilisateur, se comportent de manière cohérente avec les opérateurs et fonctions intégrés.
+
+---
+
+### Partie 2: Avantages et Coûts en Termes de Performances et de Mémoire
+
+#### Gestion Efficace des Types de Données Complexes
+
+1. **Précision des Opérations**:
+    - **Gestion des Nombres en Python**: Python traite les nombres avec une précision quasi-infinie, contrairement à des langages comme C/C++, où la précision est limitée par la taille des types de données primitifs. Cela permet à Python de gérer efficacement de grandes valeurs numériques et des calculs de haute précision.
+
+2. **Création de Structures Complexes**:
+    - **Flexibilité des Objets Python**: L'utilisation des méthodes Dunder en combinaison avec la flexibilité des types en Python facilite la création de structures de données complexes comme des arbres, des graphes, ou des structures algébriques personnalisées.
+
+#### Coût en Termes de Performances et de Mémoire
+
+1. **Consommation de Mémoire**:
+    - **Gestion des Objets**: La manipulation des objets en Python, en particulier pour les types de données complexes, peut entraîner une utilisation plus importante de la mémoire par rapport à des langages de bas niveau.
+
+2. **Impact sur les Performances**:
+    - **Surcharge des Opérations**: La flexibilité de Python, bien qu'avantageuse pour la facilité de programmation, peut conduire à une surcharge en termes de performances. Par exemple, les opérations arithmétiques simples comme l'addition ou la multiplication peuvent être plus coûteuses en ressources comparées à leur équivalent en langage C, en raison de la gestion des objets et de la vérification des types.
+
+---
+
+### Partie 3: Exemple Concret d'Utilisation des Méthodes Dunder
+
+#### Création d'une Classe de Nombre Complexe
+
+1. **Définition de la Classe**:
+    - **Classe `ComplexNumber`**: La classe `ComplexNumber` représente un nombre complexe avec une partie réelle (`real`) et une partie imaginaire (`imag`).
+
+2. **Méthodes Dunder Implémentées**:
+    - **Méthode `__init__`**: Initialise une nouvelle instance de `ComplexNumber` avec les valeurs fournies pour `real` et `imag`.
+    - **Méthode `__add__`**: Permet l'addition de deux instances de `ComplexNumber`. Elle définit comment l'opérateur `+` fonctionne pour cette classe.
+    - **Méthode `__repr__`**: Fournit une représentation sous forme de chaîne de caractères de l'instance, utile pour l'affichage ou le débogage.
+
+3. **Code d'Exemple**:
+
+```python
+class ComplexNumber:
+    def __init__(self, real, imag):
+        self.real = real
+        self.imag = imag
+
+    def __add__(self, other):
+        return ComplexNumber(self.real + other.real, self.imag + other.imag)
+
+    def __repr__(self):
+        return f"{self.real} + {self.imag}i"
+
+# Utilisation
+num1 = ComplexNumber(2, 3)
+num2 = ComplexNumber(1, 1)
+print(num1 + num2)  # Affiche 3 + 4i
+```
+
+#### Conclusion
+
+Les méthodes Dunder en Python offrent une puissance et une flexibilité incroyables pour la conception d'objets et de classes. Elles permettent une manipulation intuitive et élégante de types de données complexes et la création de structures sophistiquées. Bien que cette approche puisse avoir un impact sur les performances et la consommation de mémoire, elle rend Python extrêmement puissant et adapté à une vaste gamme d'applications.

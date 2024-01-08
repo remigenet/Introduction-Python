@@ -66,6 +66,13 @@ Visual Studio Code, communément appelé VS Code, est un IDE largement adopté p
 
 - Avec une communauté dynamique et des mises à jour régulières, VS Code continue d'évoluer, ajoutant continuellement de nouvelles fonctionnalités et améliorations.
 
+
+#### 7. Github Copilot
+
+Enfin, VS Code est le premier IDE à intégrer Github Copilot, un outil d'IA qui génère du code à partir soit de commande direct comme dans ChatGPT, soit en proposant une continuation direct du code en cours d'écriture. Pas toujours pertinent, cet outil peut cependant permettre un gain de temps énorme pour des actions répétitives ou pour identifier des erreurs de syntaxe. 
+
+Github Copilot necessite un abonnement payant, mais github offre au sein de github student pack un accès gratuit à cet outil.
+
 #### Conclusion
 
 Visual Studio Code se distingue comme un environnement de développement hautement personnalisable et polyvalent, adapté à une vaste gamme de projets Python. Que ce soit pour la data science, le développement web, ou des applications générales, VS Code offre un ensemble d'outils et de fonctionnalités qui répondent aux besoins des développeurs de tous niveaux.
