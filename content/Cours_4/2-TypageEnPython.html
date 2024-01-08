@@ -145,7 +145,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://remigenet.github.io/website/"> 
+    <a class="nav-link" href="https://remigenet.github.io/"> 
 <span class="menu-text">Back to Main Website</span></a>
   </li>  
   <li class="nav-item">
@@ -516,7 +516,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="typage-dynamique-en-python" class="level4">
 <h4 class="anchored" data-anchor-id="typage-dynamique-en-python">Typage Dynamique en Python</h4>
 <p>Python est un langage à typage dynamique, ce qui signifie que le type d’une variable est déterminé à l’exécution et peut changer au cours du temps.</p>
-<div id="8022d16c" class="cell" data-execution_count="1">
+<div id="33f05bc8" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span>        <span class="co"># x est un entier</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">"Hello"</span>  <span class="co"># x est maintenant une chaîne de caractères</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -535,7 +535,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Type Hinting en Python</h1>
 <p>Introduction au Type Hinting</p>
 <p>Le Type Hinting en Python permet de spécifier les types attendus des variables. Bien qu’il ne soit pas strictement appliqué à l’exécution, il facilite la compréhension et la vérification du code. Utiliser le Type Hinting</p>
-<div id="8bbf4d32" class="cell" data-execution_count="2">
+<div id="58f89d3c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_numbers(a: <span class="bu">int</span>, b: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -545,7 +545,7 @@ Débogage : Facilite la détection des erreurs de type.
 Compatibilité avec les Outils : Les IDE et les outils d'analyse statique peuvent utiliser le Type Hinting pour détecter des erreurs.</code></pre>
 <p>Conventions et Documentation</p>
 <p>Les annotations de type peuvent être complétées par des Docstrings pour fournir des explications plus détaillées sur le comportement d’une fonction.</p>
-<div id="ded27824" class="cell" data-execution_count="3">
+<div id="667cf8f7" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_numbers(a: <span class="bu">int</span>, b: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Add two integers and return the result.</span></span>
@@ -566,7 +566,7 @@ Compatibilité avec les Outils : Les IDE et les outils d'analyse statique peuven
 </section>
 <section id="exemple-de-typage-dynamique" class="level4">
 <h4 class="anchored" data-anchor-id="exemple-de-typage-dynamique">Exemple de Typage Dynamique</h4>
-<div id="3744d020" class="cell" data-execution_count="4">
+<div id="0e5a1d02" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span>        <span class="co">#Ici, x est un entier</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">"Hello"</span>  <span class="co">#Maintenant, x est une chaîne de caractères</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -588,7 +588,7 @@ Compatibilité avec les Outils : Les IDE et les outils d'analyse statique peuven
 </section>
 <section id="exemple-de-classe-abstraite" class="level4">
 <h4 class="anchored" data-anchor-id="exemple-de-classe-abstraite">Exemple de Classe Abstraite</h4>
-<div id="bf81b726" class="cell" data-execution_count="5">
+<div id="cb39813b" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Shape(ABC):</span>
