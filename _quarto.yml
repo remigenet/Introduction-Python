@@ -55,6 +55,7 @@ website:
       - section: Travaux Pratiques
         expanded: false
         contents:
+        - content/Cours_1/TP-Version-SimplePyenv.qmd
         - content/Cours_1/TP-ConstruireSonPython.qmd
       icon: book
     - id: discover 

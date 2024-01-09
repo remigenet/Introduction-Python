@@ -1,0 +1,147 @@
+---
+title: "TP Guidé - Installer plusieurs versions de python avec pyenv"
+weight: 10
+tags:
+  - Basics
+  - Compilation
+  - Cpython
+  - Versions
+  - Introduction
+categories:
+  - TP
+  - Introduction
+type: book
+description: Débuter de façon guider sur pyenv
+image: .img/pyenvinstall.webp
+---
+
+## TP - Version facile pour assurer les bases
+
+L'objectif de ce TP est de maîtriser la configuration d'une installation Python simple, permettant l'utilisation de différentes versions de Python sur une même machine et de passer facilement d'une version à l'autre. Pour cela, nous utiliserons Pyenv, un gestionnaire de versions Python reconnu pour sa facilité d'utilisation. Pyenv est disponible pour les systèmes [Mac et Linux](https://github.com/pyenv/pyenv), et une alternative pour [Windows](https://github.com/pyenv-win/pyenv-win) est également proposée.
+
+Le second objectif est de vous apprendre comment chercher des librairies, des outils qui peuvent vous être utile, et surtout à simplement penser à lire ce qui est écrit devant vous.
+
+
+### Ou trouvez Pyenv ?
+
+
+
+![](.img/pyenv1.png)
+
+
+
+Pour utiliser Pyenv, une recherche sur Google avec les mots-clés "Pyenv" ou "gestionnaire de versions Python" conduit généralement à un dépôt GitHub. Bien que GitHub puisse sembler complexe au premier abord, il suffit de suivre les instructions d'installation spécifiques à votre système d'exploitation.
+
+
+
+![](.img/pyenv2.png)
+
+
+
+Pour linux et Mac, il suffit de taper les commandes suivantes dans un terminal :
+
+
+```bash
+curl https://pyenv.run | bash
+```
+
+
+Cependant pour certains sur Mac des installations d'autres dépendances peuvent être demandé à l'installation, surveuillé simplement ce qu'indique votre terminal.
+
+Un petit rappel utile des commandes linux est disponible [ici](https://remigenet.github.io/content/LinuxTerminal.html).
+Ici la commande utilisé est `curl` qui permet de télécharger un fichier depuis un lien, qui est ensuite redirigé vers la commande `bash` qui permet d'exécuter un script bash, à l'aide d'un pipe |. 
+
+
+
+
+![](.img/pyenv3.png)
+
+
+
+### Connaitre ses commandes de base, un gain de temps precieux
+
+Sur mon exemple ci-dessous en regardant les logs d'informations on peut ainsi voir un warning, car je possède déjà pyenv d'installer, et l'installation a donc échoué. Afin de pouvoir montrer un exemple pour ce cours, regardons comment j'ai pu faire, simplement sans détruire mon installation existante. 
+Tout d'abord à l'aide de la commande ls on peut voir ce qui se trouve dans les dossiers depuis l'invite de commande. ls, comme la plupart des commandes linux, possède des options, ici -a qui permet de voir les fichiers cachés, et explique celle-ci en tapant simplement command --help (donc ici `ls --help`).
+
+
+
+![](.img/pyenv4.png)
+
+
+
+Ainsi en utilisant l'option -a je peux afficher les dossiers même caché et voir que pyenv est bien installé ici dans le dossier .pyenv (dossier par défaut pour son installation).
+
+
+
+![](.img/pyenv5.png)
+
+
+
+Regardons rapidement ce que vous pouvez trouver dans ce dossiers, et bien il y a les versions que j'ai installé de python dans versions, man qui contient les manuels d'utilisation, plugins qui contient les plugins, et shims qui contient les commandes pyenv, ou le dossier completion qui permet de terminer vos commandes simplement en utilisant tab. Pour conserver ma version je vais simplement pouvoir faire mv .pyenv SomeFolderWhereIWantToStoreIt, pour le remettre ensuite.
+
+
+
+![](.img/pyenv6.png)
+
+
+
+### Installation en quelques lignes:
+
+Maintenant, je peux simplement réinstaller pyenv, et suivre les instructions pour installer les dépendances manquantes, et ainsi avoir une installation propre! Mais malheur, j'ai aussi déjà toute ma configuration du shell de mise en place, et je n'ai aucun warning à montrer. Je peux supprimer la version telecharger avec rm -rf et simplement recommencer l'installation. en utilisant env -i bash, qui permet de lancer un bash sans aucune variable d'environnement, et donc sans aucune configuration. Là le resultat que vous pouvez observer est probablement celui que vous aurez.
+
+
+
+
+![](.img/pyenv7.png)
+
+
+
+Il faut alors simplement lire ce qui est écrit dans le Warning! En l'occurence pyenv nous indique qu'il faut l'ajouter au PATH et dans la configuration du Shell (votre terminal, ce qui vous permet de lancer vos commandes). Pour cela il suffit de suivre les instructions, et de les ajouter dans votre fichier de configuration du shell. Pour cela utiliser ls à nouveau pour voir quel shell vous utiliser, si vous voyez un .zprofile (fréquent sur mac) copier dans celui-ci, mais ce peut etre .profile, .bashrc, .bash_profile ... selon la configuration de la machine sur laquelle vous vous trouvez. Pour ce faire deux choix s'offre à vous:
+
+```bash
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
+echo 'eval "$(pyenv init -)"' >> ~/.profile
+```
+
+Lancer les commandes ci-dessus (en adaptant bien sur le .profile à votre installation), ou bien ouvrir le fichier avec un éditeur de texte, en faisant vim .profile par exemple, et copier les lignes indiquées dans le fichier. Ensuite il suffit de relancer votre terminal, et de vérifier que pyenv est bien installé avec la commande pyenv --version.
+
+
+
+![](.img/pyenv8.png)
+
+
+
+L'installation de pyenv est faite, désormais vous pouvez comme pour ls utiliser --help pour obtenir de l'aide sur les commandes ou man pyenv. 
+
+
+
+![](.img/pyenv9.png)
+
+
+
+### Et utilisation
+
+Vous pourrez ainsi réaliser que vous pouvez updater votre version de pyenv simplemement en faisant pyenv update, et que vous pouvez lister les versions de python disponible avec pyenv install --list, et installer une version avec pyenv install 3.12.1 par exemple.
+Une fois plusieurs versions installé vous pouvez switcher entre elle en utilisant simplement pyenv global xxx ou pyenv local xxx, ou bien en utilisant pyenv shell xxx pour une version spécifique dans un dossier. 
+
+pyenv global xxx permet de changer la version par défaut, pyenv local xxx permet de changer la version dans un dossier, et pyenv shell xxx permet de changer la version dans un dossier pour une commande.
+
+
+
+![](.img/pyenv10.png)
+
+
+
+Enfin, selon les installations que vous avez il se peut que certains soucis apparaissent, comme par exemple le fait que vous n'ayez pas les dépendances pour installer une version de python. Dans ce cas une FAQ est disponible sur le github de pyenv, et vous pouvez aussi utiliser la commande pyenv doctor pour vérifier que tout est bien installé. Un exemple classique est l'absence de librairie SSL, qui vous permet de compiler un python d'apparence normal mais qui coincera dès que vous voudrez utiliser pip. Pour cela il suffit d'installer la librairie manquante (sudo apt install la_librairie_manquante), et de relancer l'installation de python.
+
+
+
+![](.img/pyenv11.png)
+
+
+
+
+## Pour ceux sous Windows 
+
+L'installation est presque totalement similaire, l'une des principales différences étant qu'il faudra lancer les commandes d'installation de pyenv depuis PowerShell lancé en administrateur et non depuis un terminal classique. Dans la plupart des cas si vous n'avez jamais rien installer par ce bien un message d'erreur - copier le dans google et le tour est joué ! 
