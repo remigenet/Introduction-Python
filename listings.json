@@ -17,6 +17,7 @@
       "/content/Cours_2/1-FondamentauxSyntaxique.html",
       "/content/Cours_2/2-FonctionsEtModules.html",
       "/content/Cours_2/3-IntroducingPOOConcept.html",
+      "/content/Cours_2/3.1-ExerciceClass.html",
       "/content/Cours_2/Exercices.html",
       "/content/Cours_3/0-Install_and_import.html",
       "/content/Cours_3/1-Dataframes.html",
@@ -47,9 +48,12 @@
     ]
   },
   {
-    "listing": "/content/Projets/index.html",
+    "listing": "/content/Cours_4/index.html",
     "items": [
-      "/content/Projets/projets_L3_2023.html"
+      "/content/Cours_4/3-TournonsAutourduGIL.html",
+      "/content/Cours_4/1-MutabilitéEtScopes.html",
+      "/content/Cours_4/TP-RequetteruneAPI.html",
+      "/content/Cours_4/2-TypageEnPython.html"
     ]
   },
   {
@@ -66,17 +70,15 @@
     ]
   },
   {
-    "listing": "/content/Cours_4/index.html",
+    "listing": "/content/Projets/index.html",
     "items": [
-      "/content/Cours_4/3-TournonsAutourduGIL.html",
-      "/content/Cours_4/1-MutabilitéEtScopes.html",
-      "/content/Cours_4/TP-RequetteruneAPI.html",
-      "/content/Cours_4/2-TypageEnPython.html"
+      "/content/Projets/projets_L3_2023.html"
     ]
   },
   {
     "listing": "/content/Cours_2/index.html",
     "items": [
+      "/content/Cours_2/3.1-ExerciceClass.html",
       "/content/Cours_2/Exercices.html",
       "/content/Cours_2/2-FonctionsEtModules.html",
       "/content/Cours_2/3-IntroducingPOOConcept.html",
