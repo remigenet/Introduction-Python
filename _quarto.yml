@@ -69,6 +69,7 @@ website:
          expanded: false
          contents:
          - content/Cours_2/Exercices.qmd
+         - content/Cours_2/3.1-ExerciceClass.qmd
     - id: libraries 
       title: "Les Librairies Python"
       contents: 

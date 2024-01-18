@@ -23,4 +23,4 @@ image: .img/exercice.webp
 
 {{< downloadthis 1.1-Exercices.py dname=1.1-Exercices label="Telecharger le premier jeu d'exercice" icon=file-earmark-python type=success >}}
 
-{{< downloadthis 1.1-Exercices.py dname=1.2-Exercices label="Telecharger le premier second d'exercice" icon=file-earmark-python type=success >}}
+{{< downloadthis 1.2-Exercices.py dname=1.2-Exercices label="Telecharger le premier second d'exercice" icon=file-earmark-python type=success >}}

@@ -1,0 +1,171 @@
+---
+title: "Base de la POO: Exercice "
+weight: 10
+tags:
+  - Syntaxe
+  - Bases
+  - fonctions
+  - lambda
+  - decorateur
+  - variables
+  - import
+categories:
+  - Cours
+  - Fondamentaux
+type: book
+description: ""
+image: .img/exercicepoo.webp
+---
+
+# Exercice: Traitement des opérations clients d'une société de courtage
+
+---
+
+## Objectif:
+
+Vous avez un fichier CSV contenant l'historique des opérations des clients d'une société.
+Le fichier a les colonnes suivantes : date, client_id, op_type, op_data.
+- date : format texte "yyyy-mm-dd"
+- client_id : un entier identifiant le client
+- op_type : type d'opération, peut être 'create_account', 'deposit', 'withdraw', 'trade'
+- op_data : 
+    - null pour 'create_account'
+    - un montant pour 'deposit' et 'withdraw'
+    - un dictionnaire pour 'trade' contenant 'side', 'ticker', 'price', 'volume'
+
+Votre tâche est de créer un moyen de récupérer facilement le montant en dollars d'un client et les actions qu'il détient avec leur quantité. Cela nécessitera la lecture des données depuis le fichier CSV, le traitement des différentes opérations, et la mise à jour des informations de chaque client.
+
+## Structure du code:
+1. Classe Client pour représenter chaque client avec son solde et son portefeuille d'actions.
+2. Fonctions pour lire le fichier CSV, traiter chaque opération et mettre à jour les informations des clients.
+
+Instructions:
+- Complétez le code de la classe Client et les fonctions nécessaires.
+- Utilisez l'exemple de contenu CSV fourni pour tester votre code.
+
+# Exemple de contenu pour le fichier CSV:
+
+```{csv}
+date,client_id,op_type,op_data
+2024-01-01,1,create_account,
+2024-01-02,1,deposit,1000
+2024-01-03,1,trade,{"side": "buy", "ticker": "AAPL", "price": 150, "volume": 5}
+2024-01-04,1,trade,{"side": "sell", "ticker": "AAPL", "price": 155, "volume": 2}
+2024-01-05,2,create_account,
+2024-01-06,2,deposit,2000
+2024-01-07,2,trade,{"side": "buy", "ticker": "MSFT", "price": 210, "volume": 10}
+```
+
+
+# Code à compléter
+
+```{python}
+class Client:
+    def __init__(self, client_id):
+        self.client_id = client_id
+        self.balance = 0  # Montant en dollars
+        self.portfolio = {}  # Dictionnaire pour stocker les actions: {"ticker": quantité}
+
+    def traiter_operation(self, op_type, op_data):
+        """
+        Traite une opération donnée et met à jour le solde et le portefeuille du client.
+        :param op_type: Le type d'opération ('deposit', 'withdraw', 'trade')
+        :param op_data: Les données de l'opération (montant ou dict pour 'trade')
+        """
+        # À compléter: Traitement de chaque type d'opération
+
+    def afficher_solde_et_portefeuille(self):
+        """
+        Affiche le solde en dollars et le portefeuille d'actions du client.
+        """
+        # À compléter: Affichage du solde et du portefeuille
+
+# Fonction pour lire les données du fichier CSV et traiter les opérations
+def traiter_fichier_operations(fichier_csv):
+    """
+    Lit un fichier CSV contenant l'historique des opérations et traite chaque opération.
+    :param fichier_csv: Le chemin vers le fichier CSV
+    :return: Dictionnaire des clients avec leurs informations {client_id: Client}
+    """
+    clients = {}
+    # À compléter: Lecture du fichier CSV et traitement des opérations
+    return clients
+
+
+```
+
+
+# Generer un jeu de donnée
+
+Pour generer un fichier d'exemple afin d'essayer votre code, et vous donner un exemple simple de comment utiliser la POO vous pouvez utiliser le code ci-dessous qui écrira un fichier csv. Vous pouvez changer la variable nom_fichier pour choisir le path exacte où le fichier sera créer, sinon par défaut celui-ci sera écrit dans le dossier duquel vous lancerez votre code.
+
+```python
+import csv
+import random
+from datetime import datetime, timedelta
+
+class GenerateurHistorique:
+    def __init__(self, nb_jours=30, nb_clients=10):
+        self.nb_jours = nb_jours
+        self.nb_clients = nb_clients
+        self.operations = ["deposit", "withdraw", "trade"]
+        self.tickers = ["AAPL", "MSFT", "GOOGL", "AMZN"]
+        self.clients = {client_id: {"compte_cree": False, "solde": 0} for client_id in range(1, self.nb_clients + 1)}
+
+    def generer_trade_data(self, solde_client):
+        """ Génère des données aléatoires pour une opération de type 'trade'. """
+        side = random.choice(["buy", "sell"])
+        ticker = random.choice(self.tickers)
+        price = round(random.uniform(1, min(solde_client, 500)), 2)
+        max_volume = solde_client // price if side == "buy" else solde_client // 100
+        volume = random.randint(0, max_volume)
+        return {"side": side, "ticker": ticker, "price": price, "volume": volume}
+
+    def generer_ligne(self, client_id, date):
+        """ Génère une ligne d'opération pour un client_id à une date donnée. """
+        client_info = self.clients[client_id]
+
+        if not client_info["compte_cree"]:
+            client_info["compte_cree"] = True
+            return [date.strftime("%Y-%m-%d"), client_id, "create_account", ""]
+
+        op_type = random.choice(self.operations)
+        op_data = ""
+
+        if not client_info["solde"] < 10 or op_type == "deposit":
+            montant = random.randint(100, 1000)
+            client_info["solde"] += montant
+            op_data = str(montant)
+
+        elif op_type == "withdraw":
+            montant = random.randint(0, int(client_info["solde"]))
+            client_info["solde"] -= montant
+            op_data = str(montant)
+
+        elif op_type == "trade":
+            trade_data = self.generer_trade_data(int(client_info["solde"]))
+            op_data = str(trade_data)
+            if trade_data["side"] == "buy":
+                client_info["solde"] -= trade_data["price"] * trade_data["volume"]
+            else:
+                client_info["solde"] += trade_data["price"] * trade_data["volume"]
+                
+        return [date.strftime("%Y-%m-%d"), client_id, op_type, op_data]
+
+    def generer_fichier(self, nom_fichier):
+        """ Génère un fichier CSV avec un historique d'opérations. """
+        with open(nom_fichier, mode='w', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(["date", "client_id", "op_type", "op_data"])
+
+            for client_id in range(1, self.nb_clients + 1):
+                date = datetime.now()
+                for _ in range(random.randint(1, self.nb_jours)):
+                    date -= timedelta(days=1)
+                    ligne = self.generer_ligne(client_id, date)
+                    writer.writerow(ligne)
+
+# Exemple d'utilisation
+generateur = GenerateurHistorique()
+generateur.generer_fichier("operations.csv")
+```
