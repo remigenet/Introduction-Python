@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../Python-API"
+		},
+		{
+			"path": "../../../remigenet.github.io"
+		},
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../.."
+		}
+	],
+	"settings": {}
+}

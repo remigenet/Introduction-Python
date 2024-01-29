@@ -97,7 +97,7 @@ website:
        - section: Travaux Pratiques
          expanded: false
          contents:
-         - content/Cours_4/TP-RequetteruneAPI.qmd
+         - content/Cours_4/TP_OOP_n_ASYNC.ipynb
     - id: advanced_mix_2 
       title: "Concepts avancés"
       contents: 
