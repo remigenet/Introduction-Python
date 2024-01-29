@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.534">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Remi Genet">
+<meta name="dcterms.date" content="2024-01-29">
+
+<title>Introduction à Python - TP - Creer un outil de récupération de donnée</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../content/Cours_4/3-TournonsAutourduGIL.html" rel="prev">
+<link href="../../content/.img/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/downloadthis-1.9.1/downloadthis.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Introduction à Python - TP - Creer un outil de récupération de donnée">
+<meta property="og:description" content="">
+<meta property="og:site_name" content="Introduction à Python">
+<meta name="citation_title" content="TP - Creer un outil de récupération de donnée">
+<meta name="citation_author" content="Remi Genet">
+<meta name="citation_publication_date" content="2024-01-29">
+<meta name="citation_cover_date" content="2024-01-29">
+<meta name="citation_year" content="2024">
+<meta name="citation_online_date" content="2024-01-29">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Introduction-Python//content/Cours_4/TP_OOP_n_ASYNC.html">
+<meta name="citation_language" content="en">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Introduction à Python</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://remigenet.github.io/"> 
+<span class="menu-text">Back to Main Website</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-comprendre-et-installer-python" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Comprendre Et Installer Python</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-comprendre-et-installer-python">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/index.html">
+ <span class="dropdown-text">Comprendre Et Installer Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/1-Histoire.html">
+ <span class="dropdown-text">Histoire du Langage</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/2-Python_Execution.html">
+ <span class="dropdown-text">Exécution d’un Programme Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/3-ManyPythons.html">
+ <span class="dropdown-text">Versions et Compilation de Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/4-Path.html">
+ <span class="dropdown-text">Le PATH</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/5-PathandVirtualEnv.html">
+ <span class="dropdown-text">Path.. et environnements virtuels!</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/6-IDEs.html">
+ <span class="dropdown-text">Les IDEs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/7-Notebooks.html">
+ <span class="dropdown-text">Les Notebooks</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Quelques IDEs en Python</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/VsCode.html">
+ <span class="dropdown-text">VsCode - L’IDE Flexible et Polyvalent</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Spyder.html">
+ <span class="dropdown-text">Spyder - Un IDE Orienté Science des Données</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Pycharm.html">
+ <span class="dropdown-text">PyCharm - L’IDE orienté Python</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/TP-Version-SimplePyenv.html">
+ <span class="dropdown-text">TP Guidé - Installer plusieurs versions de python avec pyenv</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/TP-ConstruireSonPython.html">
+ <span class="dropdown-text">TP - Construire son python depuis la source</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-syntaxes-et-concepts-de-base" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Syntaxes et Concepts de Base</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-syntaxes-et-concepts-de-base">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/index.html">
+ <span class="dropdown-text">Syntaxes et Concepts de Base</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/1-FondamentauxSyntaxique.html">
+ <span class="dropdown-text">Syntaxe et objets de Base Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/2-FonctionsEtModules.html">
+ <span class="dropdown-text">Fonctions et Modules</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/3-IntroducingPOOConcept.html">
+ <span class="dropdown-text">Introduction à la POO en Python</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/Exercices.html">
+ <span class="dropdown-text">Exercices d’applications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/3.1-ExerciceClass.html">
+ <span class="dropdown-text">Base de la POO: Exercice</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-les-librairies-python" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Les Librairies Python</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-les-librairies-python">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/index.html">
+ <span class="dropdown-text">Les Librairies Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/0-Install_and_import.html">
+ <span class="dropdown-text">Installer et importer des librairies en Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/1-Dataframes.html">
+ <span class="dropdown-text">Les DataFrames</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/pandas_short_example.html">
+ <span class="dropdown-text">Exemple sur pandas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/2-Calcul_Scientifique_et_Optimization.html">
+ <span class="dropdown-text">Calcul Scientifique et Optimization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/3-MachineLearning.html">
+ <span class="dropdown-text">Machine Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/4-Access_Internet.html">
+ <span class="dropdown-text">Recupérer des données du net</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/5-Feed_Internet.html">
+ <span class="dropdown-text">Python - Aussi un language pour servir des données</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/6-Visualisation.html">
+ <span class="dropdown-text">Visualiser et présenter ces données avec Python</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3.html">
+ <span class="dropdown-text">TP-3 Libraries</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/Exercice-pandas_and_geography.html">
+ <span class="dropdown-text">TP - Utiliser pandas</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bonne-pratiques-dangers-et-astuces" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Bonne pratiques, Dangers, et Astuces</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-bonne-pratiques-dangers-et-astuces">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/index.html">
+ <span class="dropdown-text">Bonne pratiques, Dangers, et Astuces</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/1-MutabilitéEtScopes.html">
+ <span class="dropdown-text">Mutabilité et Scope</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/2-TypageEnPython.html">
+ <span class="dropdown-text">Typage en Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/3-TournonsAutourduGIL.html">
+ <span class="dropdown-text">Asynchronie et Multiprocessing</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/TP_OOP_n_ASYNC.html">
+ <span class="dropdown-text">TP - Creer un outil de récupération de donnée</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-concepts-avancés" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Concepts avancés</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-concepts-avancés">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/index.html">
+ <span class="dropdown-text">Concepts avancés</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/1-AST.html">
+ <span class="dropdown-text">L’arbre Syntaxique Abstrait ou AST</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/2-POO_le_retour.html">
+ <span class="dropdown-text">Python Orienté Objet - Les Dunders</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/3-patterndesign.html">
+ <span class="dropdown-text">Python Orienté Objet - les Design Patterns</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/TP5.html">
+ <span class="dropdown-text">TP-5</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sujets-de-projets-possibles" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Sujets de Projets possibles</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools tools-wide">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/remigenet/Introduction-Python">
+            Code source
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_4/TP_OOP_n_ASYNC.html">Travaux Pratiques</a></li><li class="breadcrumb-item"><a href="../../content/Cours_4/TP_OOP_n_ASYNC.html">TP - Creer un outil de récupération de donnée</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bonne pratiques, Dangers, et Astuces</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/1-MutabilitéEtScopes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mutabilité et Scope</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/2-TypageEnPython.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Typage en Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/3-TournonsAutourduGIL.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Asynchronie et Multiprocessing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Travaux Pratiques</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/TP_OOP_n_ASYNC.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">TP - Creer un outil de récupération de donnée</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#tp---creer-un-outil-de-récupération-de-donnée" id="toc-tp---creer-un-outil-de-récupération-de-donnée" class="nav-link active" data-scroll-target="#tp---creer-un-outil-de-récupération-de-donnée">TP - Creer un outil de récupération de donnée</a>
+  <ul class="collapse">
+  <li><a href="#objectifs-de-la-session" id="toc-objectifs-de-la-session" class="nav-link" data-scroll-target="#objectifs-de-la-session">Objectifs de la session :</a></li>
+  <li><a href="#sujets" id="toc-sujets" class="nav-link" data-scroll-target="#sujets">Sujets:</a>
+  <ul class="collapse">
+  <li><a href="#rappel" id="toc-rappel" class="nav-link" data-scroll-target="#rappel">Rappel:</a></li>
+  <li><a href="#api-utilisée" id="toc-api-utilisée" class="nav-link" data-scroll-target="#api-utilisée">API utilisée:</a></li>
+  <li><a href="#consignes" id="toc-consignes" class="nav-link" data-scroll-target="#consignes">Consignes:</a></li>
+  </ul></li>
+  <li><a href="#nb-async-et-notebook" id="toc-nb-async-et-notebook" class="nav-link" data-scroll-target="#nb-async-et-notebook">NB: async et notebook</a></li>
+  <li><a href="#cest-peu-ou-prou-la-meme-chose-avec-lasync---il-faut-bien-penser-à-lendroit-où-lon-va-synchroniser-les-différents-evenement" id="toc-cest-peu-ou-prou-la-meme-chose-avec-lasync---il-faut-bien-penser-à-lendroit-où-lon-va-synchroniser-les-différents-evenement" class="nav-link" data-scroll-target="#cest-peu-ou-prou-la-meme-chose-avec-lasync---il-faut-bien-penser-à-lendroit-où-lon-va-synchroniser-les-différents-evenement">C’est peu ou prou la meme chose avec l’async - il faut bien penser à l’endroit où l’on va synchroniser les différents evenement</a>
+  <ul class="collapse">
+  <li><a href="#petite-note-time-empeche-dutiliser-normalement-await-dans-une-cellule" id="toc-petite-note-time-empeche-dutiliser-normalement-await-dans-une-cellule" class="nav-link" data-scroll-target="#petite-note-time-empeche-dutiliser-normalement-await-dans-une-cellule">Petite note : %%time empeche d’utiliser normalement await dans une cellule</a></li>
+  </ul></li>
+  <li><a href="#on-voit-cependant-au-dessus-que-lon-a-attendu-123-second---pas-top" id="toc-on-voit-cependant-au-dessus-que-lon-a-attendu-123-second---pas-top" class="nav-link" data-scroll-target="#on-voit-cependant-au-dessus-que-lon-a-attendu-123-second---pas-top">On voit cependant au dessus que l’on a attendu 1+2+3 second - pas TOP</a>
+  <ul class="collapse">
+  <li><a href="#il-faut-en-fait-utiliser-gather-par-exemple-pour-pouvoir-executer-plusieurs-coroutine-en-meme-temps-et-les-attendre" id="toc-il-faut-en-fait-utiliser-gather-par-exemple-pour-pouvoir-executer-plusieurs-coroutine-en-meme-temps-et-les-attendre" class="nav-link" data-scroll-target="#il-faut-en-fait-utiliser-gather-par-exemple-pour-pouvoir-executer-plusieurs-coroutine-en-meme-temps-et-les-attendre">Il faut en fait utiliser gather par exemple pour pouvoir executer plusieurs coroutine en meme temps et les attendre</a></li>
+  </ul></li>
+  <li><a href="#enfin-regardons-pourquoi-lon-utilisait-asyncio.sleep-à-la-place-de-time.sleep" id="toc-enfin-regardons-pourquoi-lon-utilisait-asyncio.sleep-à-la-place-de-time.sleep" class="nav-link" data-scroll-target="#enfin-regardons-pourquoi-lon-utilisait-asyncio.sleep-à-la-place-de-time.sleep">Enfin, regardons pourquoi l’on utilisait asyncio.sleep à la place de time.sleep</a>
+  <ul class="collapse">
+  <li><a href="#time.sleep-est-une-fonction-bloquante-cela-veut-dire-que-lon-ne-peux-pas-effectuer-dautre-coroutine-en-attendant-que-time.sleep-sexecute" id="toc-time.sleep-est-une-fonction-bloquante-cela-veut-dire-que-lon-ne-peux-pas-effectuer-dautre-coroutine-en-attendant-que-time.sleep-sexecute" class="nav-link" data-scroll-target="#time.sleep-est-une-fonction-bloquante-cela-veut-dire-que-lon-ne-peux-pas-effectuer-dautre-coroutine-en-attendant-que-time.sleep-sexecute">time.sleep est une fonction bloquante, cela veut dire que l’on ne peux pas effectuer d’autre coroutine en attendant que time.sleep s’execute !</a></li>
+  <li><a href="#cest-le-cas-pour-toute-fonction-bloquante" id="toc-cest-le-cas-pour-toute-fonction-bloquante" class="nav-link" data-scroll-target="#cest-le-cas-pour-toute-fonction-bloquante">C’est le cas pour toute fonction bloquante !</a></li>
+  <li><a href="#cependant-il-est-possible-de-deleguer-une-fonction-bloquante-à-un-executor-qui-est-simplement-un-autre-thread-qui-va-se-charger-dexecuter-le-code-de-la-fonction" id="toc-cependant-il-est-possible-de-deleguer-une-fonction-bloquante-à-un-executor-qui-est-simplement-un-autre-thread-qui-va-se-charger-dexecuter-le-code-de-la-fonction" class="nav-link" data-scroll-target="#cependant-il-est-possible-de-deleguer-une-fonction-bloquante-à-un-executor-qui-est-simplement-un-autre-thread-qui-va-se-charger-dexecuter-le-code-de-la-fonction">Cependant il est possible de deleguer une fonction bloquante à un executor (qui est simplement un autre thread qui va se charger d’executer le code de la fonction)</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_4/TP_OOP_n_ASYNC.html">Travaux Pratiques</a></li><li class="breadcrumb-item"><a href="../../content/Cours_4/TP_OOP_n_ASYNC.html">TP - Creer un outil de récupération de donnée</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">TP - Creer un outil de récupération de donnée</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Remi Genet </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2024-01-29</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="tp---creer-un-outil-de-récupération-de-donnée" class="level1">
+<h1>TP - Creer un outil de récupération de donnée</h1>
+<p><a href="#dnldts25860" onclick="fetch('data:text/plain;base64,ewogImNlbGxzIjogWwogIHsKICAgImNlbGxfdHlwZSI6ICJtYXJrZG93biIsCiAgICJpZCI6ICI4ODVhMjYxMi04YzY5LTQ4OTMtYmQ5OC0zYjczM2U1NTZkYmMiLAogICAibWV0YWRhdGEiOiB7fSwKICAgInNvdXJjZSI6IFsKICAgICIjIFRQIC0gQ3JlZXIgdW4gb3V0aWwgZGUgcsOpY3Vww6lyYXRpb24gZGUgZG9ubsOpZSAiCiAgIF0KICB9LAogIHsKICAgImNlbGxfdHlwZSI6ICJtYXJrZG93biIsCiAgICJpZCI6ICIyMmI2NDNkOCIsCiAgICJtZXRhZGF0YSI6IHt9LAogICAic291cmNlIjogWwogICAgInt7PCBkb3dubG9hZHRoaXMgVFBfT09QX25fQVNZTkMuaXB5bmIgZG5hbWU9RmlsZSBsYWJlbD1cIlRlbGVjaGFyZ2VyIGxlIE5vdGVib29rIGRlIFRQXCIgaWNvbj1maWxlLWVhcm1hcmstanVweXRlciB0eXBlPXN1Y2Nlc3MgPn19IgogICBdCiAgfSwKICB7CiAgICJjZWxsX3R5cGUiOiAibWFya2Rvd24iLAogICAiaWQiOiAiYTNiZGRjNDAtYzVjMS00Mjg3LWJkZmMtOTMyMzQ1YmQwNjc3IiwKICAgIm1ldGFkYXRhIjoge30sCiAgICJzb3VyY2UiOiBbCiAgICAiIyMgT2JqZWN0aWZzIGRlIGxhIHNlc3Npb24gOlxuIiwKICAgICJcbiIsCiAgICAiLSBVdGlsaXNlciBsYSBwcm9ncmFtbWF0aW9uIG9yaWVudMOpZSBvYmpldCAoUE9PKSBwb3VyIHN0cnVjdHVyZXIgbGUgY29kZSBldCBlbmNhcHN1bGVyIGxlcyBtw6l0aG9kZXNcbiIsCiAgICAiLSBVdGlsaXNlciByZXF1ZXN0cyBwb3VyIHLDqWN1cMOpcmVyIGRlcyBkb25uw6llcyBzdXIgSW50ZXJuZXRcbiIsCiAgICAiLSBVdGlsaXNlciBwYW5kYXMgcG91ciByw6lhZ3LDqWdlciBjZXMgZG9ubsOpZXNcbiIsCiAgICAiLSBBam91dGVyIHVuZSBtw6l0aG9kZSBhc3luY2hyb25lIHBvdXIgYW3DqWxpb3JlciBsZXMgcGVyZm9ybWFuY2VzXG4iCiAgIF0KICB9LAogIHsKICAgImNlbGxfdHlwZSI6ICJtYXJrZG93biIsCiAgICJpZCI6ICI1NjA5M2QwMy04OWNkLTQ4MTQtOWM1Ni02ZDg5YjkzNTlmM2UiLAogICAibWV0YWRhdGEiOiB7fSwKICAgInNvdXJjZSI6IFsKICAgICIjIyBTdWpldHM6XG4iLAogICAgIlxuIiwKICAgICJMJ29iamVjdGlmIGVzdCBkZSBjcsOpZXIgdW5lIGNsYXNzZSBlbmNhcHN1bGFudCBsYSByw6ljdXDDqXJhdGlvbiBkZSBiYXJzIE9ITENWIGRlcHVpcyB1bmUgQVBJLCBlbiBwZXJtZXR0YW50IHVuZSBhZ2dyw6lnYXRpb24gw6AgdW5lIGZyw6lxdWVuY2UgZGlmZsOpcmVudGUgZGUgY2VsbGUgZGVzIGRvbm7DqWVzIHLDqWN1cMOpcsOpZXMuXG4iLAogICAgIlxuIiwKICAgICJcbiIsCiAgICAiIyMjIFJhcHBlbDpcbiIsCiAgICAiUG91ciByYXBwZWwsIGxlcyBPSExDViBzaWduaWZpZSBzaW1wbGVtZW50IE9wZW4sIGhpZ2gsIGxvdywgY2xvc2UsIHZvbHVtZSwgaWwgcydhZ2l0IGQndW5lIGRlcyBmb3JtZXMgbGVzIHBsdXMgc3RhbmRhcmQgZCdhZ2dyw6lnYXRpb24gZGUgZG9ubsOpZXMgZmluYW5jaWVyZSBkZSBtYXJjaMOpLlxuIiwKICAgICJFbiBlZmZldCwgcG91ciBuJ2ltcG9ydGUgcXVlbCBtYXJjaMOpcyAoZGFucyBsZSBzZW5zIGNhcm5ldCBkJ29yZHJlIGF2ZWMgdW4gYXNzZXQgZXQgdW5lIGN1cnJlbmN5LCBxdWUgY2Ugc29pdCBkdSBmb3JleCwgZGVzIGNvbnRyYXRzLCBkZXMgY3J5cHRvLCBkZXMgZXF1aXR5Li4pLCBsYSBkb25uw6llIGJydXRlIGR1IG1hcmNow6kgZXN0LCBkJ3VuZSBwYXJ0IGNvdXRldXNlIGF1cHLDqHMgZGVzIHByb3ZpZGVyLCBkJ2F1dHJlcyBwYXJ0IGRpZmZpY2lsZSDDoCB1dGlsaXNlciBldCDDoCBjb21wcmVuZHJlIGZhY2lsZW1lbnQuXG4iLAogICAgIkVuIGVmZmV0LCBsYSBkb25uw6llIGxhIHBsdXMgYnJ1dGUgc2VyYWl0IGwnZW5zZW1ibGUgZGVzIGFqb3V0cywgbW9kZmljYXRpb24gZXQgYW5udWxhdGlvbiBkJ29yZHJlIHN1ciBsZSBtYXJjaMOpLCBjZSBxdWkgYXZlYyBsZXMgbWFyY2jDqXMgw6lsw6ljdHJvbmlxdWVzIGV0IGxlIHRyYWRpbmcgYWxnb3JpdGhtaXF1ZSByZXByw6lzZW50ZSB1bmUgcXVhbnRpdMOpIGNvbG9zc2FsbGUgcGFyIGpvdXIuXG4iLAogICAgIlVuZSB2ZXJzaW9uIGZpbHRyw6kgZGUgY2VsbGUtY2kgZXN0IGwnZW5zZW1ibGUgZGVzIHRyYW5zYWN0aW9ucyBheWFudCBldSBsaWV1ZSBkdXJhbnQgbGEgam91cm7DqWUsIGNlIHF1aSByw6lkdWl0IHRyw6hzIGdyYW5kZW1lbnQgbGEgcXVhbnRpdMOpIGRlIGRvbm7DqWVzIG1haXMgcmVzdGUgdHLDqHMgcGV1IHByYXRpcXVlLlxuIiwKICAgICJMZXMgYmFycyBPSExDViBzb250IHVuZSByZXByw6lzZW50YXRpb24gYWdncsOpZ8OpIGRlIGNldHRlIGRvbm7DqWUsIGNhciBlbGxlIHJlcHLDqXNlbnRlIHN1ciBjaGFxdWUgcMOpcmlvZGUgbCdhZ2dyw6lnYXRpb24gcGFyIHByZW1pZXIsIGRlcm5pZXIsIG1heCwgbWluLCBzb21tZS4uLlxuIiwKICAgICJcbiIsCiAgICAiXG4iLAogICAgIiMjIyBBUEkgdXRpbGlzw6llOlxuIiwKICAgICJQb3VyIGxlIFRQIGQnYXVqb3VyZCdodWkgbm91cyBhbGxvbnMgdXRpbGlzZXIgbGVzIGJhcnMgT0hMQ1YgZGUgbCdBUEkgZGUgQmluYW5jZSwgY2FyIGNlbGxlLWNpIG5lIG5lY2Vzc2l0ZW50IHBhcyBkJ2F1dGhlbnRpZmljYXRpb24sIG1haXMgc2V1bGVtZW50IHVuZSBsaW1pdGUgZGUgcmVxdWV0dGUgcGFyIG1pbnV0ZSBwYXIgSVAuXG4iLAogICAgIkxlcyBkb25uw6llcyBwZXV2ZW50IMOqdHJlIHLDqWN1cMOpcsOpIHBhciByZXF1ZXR0ZSBnZXQgc3VyIGRlcyB1cmxzIGNvbnN0cnVpdCBjb21tZTogaHR0cHM6Ly9hcGkuYmluYW5jZS5jb20vYXBpL3YzL2tsaW5lcz9zeW1ib2w9QlRDVVNEVCZpbnRlcnZhbD0zMG0gXG4iLAogICAgIlxuIiwKICAgICJsYSBkb2N1bWVudGF0aW9uIHNlIHRyb3V2YW50IGljaTpcbiIsCiAgICAiaHR0cHM6Ly9iaW5hbmNlLWRvY3MuZ2l0aHViLmlvL2FwaWRvY3Mvc3BvdC9lbi8ja2xpbmUtY2FuZGxlc3RpY2stZGF0YVxuIiwKICAgICJcbiIsCiAgICAiIyMjIENvbnNpZ25lczpcbiIsCiAgICAiXG4iLAogICAgIioqT2JqZWN0aWYgZmluYWw6KipcbiIsCiAgICAiLSBQb3V2b2lyIHLDqWN1cMOpcmVyIGZhY2lsZW1lbnQgcG91ciBuJ2ltcG9ydGUgcXVlbCBzeW1ib2wvbGlzdGUgZGUgc3ltYm9scyBsZXMgYmFycyDDoCBsYSBtaW51dGUgc3VyIHVuZSBww6lyaW9kZSBkb25uw6llXG4iLAogICAgIi0gUG91dm9pciDDqXRlbmRyZSBjZXR0ZSBww6lyaW9kZSBlbnN1aXRlXG4iLAogICAgIi0gUG91dm9pciByZWN1cGVyZXIgZGVzIGRvbm7DqWVzIGFnZ3LDqWfDqXMgw6AgdW5lIGF1dHJlIGZyw6lxdWVuY2UgKD4xbWludXRlKSBlbiBhZ2dyZWdhbnQgbGVzIGRvbm7DqWVzIGTDqWrDoCBhY3F1aXNlXG4iLAogICAgIi0gQWpvdXRlciB1bmUgb3B0aW9uIHBvdXIgZWZmZWN0dWVyIGxhIHLDqWN1cMOpcmF0aW9uIGRlIGZhY29uIGFzeW5jaHJvbmVcbiIsCiAgICAiXG4iLAogICAgIioqZXRhcGUgMTogUGVuc2VyIGxhIGNsYXNzZToqKlxuIiwKICAgICJDb25zdHJ1aXJlIHVuZSBjbGFzc2UgcGVybWV0dGFudCBkZSByZXByw6lzZW50ZXIgbGUgcHJvYmzDqG1lIGNpLWRlc3N1czpcbiIsCiAgICAiLSBQb3NlciBkJ2Fib3JkIHN1ciBwYXBpZXIgLyBlbiBicm91aWxsb24gZGUgY29kZSBsYSBjbGFzc2UgZGUgYmFzZSwgc2VzIGF0dHJpYnV0ZXMgZXQgc2VzIG3DqXRob2Rlc1xuIiwKICAgICItIFBlbnNlciDDoCBjb21tZW50IHZvdXMgYWxsZXIgcG91dm9pciBsJ3V0aWxpc2VyIGVuc3VpdGVcbiIsCiAgICAiXG4iLAogICAgIioqZXRhcGUgMjogSW1wbGVtZW50ZXIgbGUgbWluaW11bSBuZWNlc3NhaXJlIGV0IHRlc3RlciBhdmVjIHJlcXVlc3RzOioqXG4iLAogICAgIi0gQXZhbnQgZGUgc2UgbGFuY2VyIGRhbnMgbCdhZ2dyw6lnYXRpb24gZXQgZGFucyBsJ2FzeW5jLCBpbXBsZW1lbnRlciBkZSBmYWNvbiBpdGVyYXRpdmUgZW4gdGVzdGFudCB2b3RyZSBjb2RlXG4iLAogICAgIlxuIiwKICAgICIqKmV0YXBlIDM6IEFqb3V0ZXIgdW5lIG3DqXRob2RlIHBvdXIgYWNjZWRlciBhdSBkb25uw6llIHLDqWN1cMOpcsOpIGF2ZWMgdW5lIGF1dHJlIGZyw6lxdWVuY2UqKlxuIiwKICAgICJcbiIsCiAgICAiKipldGFwZSA0OiBDcmVlciB1bmUgdmFyaWFuY2UgZGUgdm90cmUgbcOpdGhvZGUgZGUgcsOpY3Vww6lyYXRpb24gcXVpIGVzdCBhc3luY2hyb25lKipcbiIsCiAgICAiLSBJZMOpYWxsZW1lbnQsIHZvdXMgYXZleiBzw6lwYXLDqSBsZSBjb2RlIGRlIHNvcnRlIHF1ZSBjaGFxdWUgcmVxdWV0dGUgc29pdCBlZmZlY3R1w6kgZGFucyB1bmUgZm9uY3Rpb25cbiIsCiAgICAiLSBBaW5zaSBpbCBlc3QgcG9zc2libGUgZCd1dGlsaXNlciBhc3luY2lvLmdhdGhlci9hc3luY2lvLndhaXQgcG91ciBhdHRlbmRyZSBkZSBtdWx0aXBsZXMgY29yb3V0aW5lcyIKICAgXQogIH0sCiAgewogICAiY2VsbF90eXBlIjogImNvZGUiLAogICAiZXhlY3V0aW9uX2NvdW50IjogNiwKICAgImlkIjogIjMwZWQwMzAxLTAzNjQtNDExYy1hNjFlLTE5Y2ExNDg1MTdhOSIsCiAgICJtZXRhZGF0YSI6IHt9LAogICAib3V0cHV0cyI6IFtdLAogICAic291cmNlIjogWwogICAgIiMgR29vZCBMdWNrXG4iLAogICAgIlxuIiwKICAgICJcbiIKICAgXQogIH0sCiAgewogICAiY2VsbF90eXBlIjogIm1hcmtkb3duIiwKICAgImlkIjogImMyNmJmMTQ1LTJiNjQtNDAyMi1iMDE4LTMwYmEwZTJmMDZmNCIsCiAgICJtZXRhZGF0YSI6IHt9LAogICAic291cmNlIjogWwogICAgIiMjIE5COiBhc3luYyBldCBub3RlYm9va1xuIiwKICAgICJcbiIsCiAgICAiTGVzIG5vdGVib29rIGV0IHVuIC5weSBsYW5jw6kgbm9ybWFsZW1lbnQgYXVyb250IHF1ZWxxdWUgZGlmZsOpcmVuY2UgZGFucyBsZSBjYXMgZCd1bmUgdXRpbGlzYXRpb24gYXN5bmNocm9uZS4gXG4iLAogICAgIkVuIGVmZmV0LCBkYW5zIHVuIGNvbnRleHRlIHN0YW5kYXJkIChmaWNoaWVyIC5weSksIGlsIGVzdCBuZWNlc3NhaXJlIGRlIGNyw6llciB1bmUgYm91Y2xlIGQnZXZlbmVtZW50IGRhbnMgbGVxdWVscyBsZXMgY29yb3V0aW5lcyBzJ2V4ZWN1dGVyb250LlxuIiwKICAgICJMYSBmYcOnb24gc3RhbmRhcmQgZGUgZmFpcmUgY2VsYSBlc3Q6IgogICBdCiAgfSwKICB7CiAgICJjZWxsX3R5cGUiOiAiY29kZSIsCiAgICJleGVjdXRpb25fY291bnQiOiAxMCwKICAgImlkIjogIjlhMDNmNjA5LWFiNTItNGNjYS1hYjdjLTg0MGIyMTRjZjY2NSIsCiAgICJtZXRhZGF0YSI6IHt9LAogICAib3V0cHV0cyI6IFsKICAgIHsKICAgICAibmFtZSI6ICJzdGRlcnIiLAogICAgICJvdXRwdXRfdHlwZSI6ICJzdHJlYW0iLAogICAgICJ0ZXh0IjogWwogICAgICAiPGZyb3plbiBnZW5lcmljcGF0aD46ODk6IFJ1bnRpbWVXYXJuaW5nOiBjb3JvdXRpbmUgJ21haW4nIHdhcyBuZXZlciBhd2FpdGVkXG4iLAogICAgICAiUnVudGltZVdhcm5pbmc6IEVuYWJsZSB0cmFjZW1hbGxvYyB0byBnZXQgdGhlIG9iamVjdCBhbGxvY2F0aW9uIHRyYWNlYmFja1xuIgogICAgIF0KICAgIH0sCiAgICB7CiAgICAgImVuYW1lIjogIlJ1bnRpbWVFcnJvciIsCiAgICAgImV2YWx1ZSI6ICJhc3luY2lvLnJ1bigpIGNhbm5vdCBiZSBjYWxsZWQgZnJvbSBhIHJ1bm5pbmcgZXZlbnQgbG9vcCIsCiAgICAgIm91dHB1dF90eXBlIjogImVycm9yIiwKICAgICAidHJhY2ViYWNrIjogWwogICAgICAiXHUwMDFiWzA7MzFtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXHUwMDFiWzBtIiwKICAgICAgIlx1MDAxYlswOzMxbVJ1bnRpbWVFcnJvclx1MDAxYlswbSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFRyYWNlYmFjayAobW9zdCByZWNlbnQgY2FsbCBsYXN0KSIsCiAgICAgICJDZWxsIFx1MDAxYlswOzMybUluWzEwXSwgbGluZSAxMFx1MDAxYlswbVxuXHUwMDFiWzE7MzJtICAgICAgN1x1MDAxYlswbSAgICAgXHUwMDFiWzM4OzU7Mjg7MDFtcGFzc1x1MDAxYlszOTswMG1cblx1MDAxYlsxOzMybSAgICAgIDlcdTAwMWJbMG0gXHUwMDFiWzM4OzU7Mjg7MDFtaWZcdTAwMWJbMzk7MDBtIFx1MDAxYlszODs1OzE4bV9fbmFtZV9fXHUwMDFiWzM5bSBcdTAwMWJbMzg7NTsyNDFtPT1cdTAwMWJbMzltIFx1MDAxYlszODs1OzEyNG0nXHUwMDFiWzM5bVx1MDAxYlszODs1OzEyNG1fX21haW5fX1x1MDAxYlszOW1cdTAwMWJbMzg7NTsxMjRtJ1x1MDAxYlszOW06XG5cdTAwMWJbMDszMm0tLS0+IDEwXHUwMDFiWzBtICAgICBcdTAwMWJbNDNtYXN5bmNpb1x1MDAxYls0OW1cdTAwMWJbMzg7NTsyNDE7NDNtLlx1MDAxYlszOTs0OW1cdTAwMWJbNDNtcnVuXHUwMDFiWzQ5bVx1MDAxYls0M20oXHUwMDFiWzQ5bVx1MDAxYls0M21tYWluXHUwMDFiWzQ5bVx1MDAxYls0M20oXHUwMDFiWzQ5bVx1MDAxYls0M20pXHUwMDFiWzQ5bVx1MDAxYls0M20pXHUwMDFiWzQ5bVxuIiwKICAgICAgIkZpbGUgXHUwMDFiWzA7MzJtfi8ucHllbnYvdmVyc2lvbnMvMy4xMi4xL2xpYi9weXRob24zLjEyL2FzeW5jaW8vcnVubmVycy5weToxOTBcdTAwMWJbMG0sIGluIFx1MDAxYlswOzM2bXJ1blx1MDAxYlswOzM0bShtYWluLCBkZWJ1ZywgbG9vcF9mYWN0b3J5KVx1MDAxYlswbVxuXHUwMDFiWzE7MzJtICAgIDE2MVx1MDAxYlswbSBcdTAwMWJbMzg7NTsyNTBtXHUwMDFiWzM5bVx1MDAxYlszODs1OzEyNDswM21cIlwiXCJFeGVjdXRlIHRoZSBjb3JvdXRpbmUgYW5kIHJldHVybiB0aGUgcmVzdWx0Llx1MDAxYlszOTswMG1cblx1MDAxYlsxOzMybSAgICAxNjJcdTAwMWJbMG0gXG5cdTAwMWJbMTszMm0gICAgMTYzXHUwMDFiWzBtIFx1MDAxYlszODs1OzEyNDswM21UaGlzIGZ1bmN0aW9uIHJ1bnMgdGhlIHBhc3NlZCBjb3JvdXRpbmUsIHRha2luZyBjYXJlIG9mXHUwMDFiWzM5OzAwbVxuXHUwMDFiWzA7MzJtICAgKC4uLilcdTAwMWJbMG1cblx1MDAxYlsxOzMybSAgICAxODZcdTAwMWJbMG0gXHUwMDFiWzM4OzU7MTI0OzAzbSAgICBhc3luY2lvLnJ1bihtYWluKCkpXHUwMDFiWzM5OzAwbVxuXHUwMDFiWzE7MzJtICAgIDE4N1x1MDAxYlswbSBcdTAwMWJbMzg7NTsxMjQ7MDNtXCJcIlwiXHUwMDFiWzM5OzAwbVxuXHUwMDFiWzE7MzJtICAgIDE4OFx1MDAxYlswbSBcdTAwMWJbMzg7NTsyODswMW1pZlx1MDAxYlszOTswMG0gZXZlbnRzXHUwMDFiWzM4OzU7MjQxbS5cdTAwMWJbMzltX2dldF9ydW5uaW5nX2xvb3AoKSBcdTAwMWJbMzg7NTsxMjk7MDFtaXNcdTAwMWJbMzk7MDBtIFx1MDAxYlszODs1OzEyOTswMW1ub3RcdTAwMWJbMzk7MDBtIFx1MDAxYlszODs1OzI4OzAxbU5vbmVcdTAwMWJbMzk7MDBtOlxuXHUwMDFiWzE7MzJtICAgIDE4OVx1MDAxYlswbSAgICAgXHUwMDFiWzM4OzU7NjY7MDNtIyBmYWlsIGZhc3Qgd2l0aCBzaG9ydCB0cmFjZWJhY2tcdTAwMWJbMzk7MDBtXG5cdTAwMWJbMDszMm0tLT4gMTkwXHUwMDFiWzBtICAgICBcdTAwMWJbMzg7NTsyODswMW1yYWlzZVx1MDAxYlszOTswMG0gXHUwMDFiWzM4OzU7MTY3OzAxbVJ1bnRpbWVFcnJvclx1MDAxYlszOTswMG0oXG5cdTAwMWJbMTszMm0gICAgMTkxXHUwMDFiWzBtICAgICAgICAgXHUwMDFiWzM4OzU7MTI0bVwiXHUwMDFiWzM5bVx1MDAxYlszODs1OzEyNG1hc3luY2lvLnJ1bigpIGNhbm5vdCBiZSBjYWxsZWQgZnJvbSBhIHJ1bm5pbmcgZXZlbnQgbG9vcFx1MDAxYlszOW1cdTAwMWJbMzg7NTsxMjRtXCJcdTAwMWJbMzltKVxuXHUwMDFiWzE7MzJtICAgIDE5M1x1MDAxYlswbSBcdTAwMWJbMzg7NTsyODswMW13aXRoXHUwMDFiWzM5OzAwbSBSdW5uZXIoZGVidWdcdTAwMWJbMzg7NTsyNDFtPVx1MDAxYlszOW1kZWJ1ZywgbG9vcF9mYWN0b3J5XHUwMDFiWzM4OzU7MjQxbT1cdTAwMWJbMzltbG9vcF9mYWN0b3J5KSBcdTAwMWJbMzg7NTsyODswMW1hc1x1MDAxYlszOTswMG0gcnVubmVyOlxuXHUwMDFiWzE7MzJtICAgIDE5NFx1MDAxYlswbSAgICAgXHUwMDFiWzM4OzU7Mjg7MDFtcmV0dXJuXHUwMDFiWzM5OzAwbSBydW5uZXJcdTAwMWJbMzg7NTsyNDFtLlx1MDAxYlszOW1ydW4obWFpbilcbiIsCiAgICAgICJcdTAwMWJbMDszMW1SdW50aW1lRXJyb3JcdTAwMWJbMG06IGFzeW5jaW8ucnVuKCkgY2Fubm90IGJlIGNhbGxlZCBmcm9tIGEgcnVubmluZyBldmVudCBsb29wIgogICAgIF0KICAgIH0KICAgXSwKICAgInNvdXJjZSI6IFsKICAgICJpbXBvcnQgYXN5bmNpb1xuIiwKICAgICJcbiIsCiAgICAiIyBhc3luYyBhbmQgbm9ybWFsIGZ1bmN0aW9ucyAuLi4uXG4iLAogICAgIlxuIiwKICAgICJhc3luYyBkZWYgbWFpbigpOlxuIiwKICAgICIgICAgIyB3aGF0IHlvdSB3b3VsZCBoYXZlIHB1dCBpbiBfX25hbWVfXyA9PSAnX19tYWluX18nIHVzdWFsbHlcbiIsCiAgICAiICAgIHBhc3NcbiIsCiAgICAiXG4iLAogICAgImlmIF9fbmFtZV9fID09ICdfX21haW5fXyc6XG4iLAogICAgIiAgICBhc3luY2lvLnJ1bihtYWluKCkpIgogICBdCiAgfSwKICB7CiAgICJjZWxsX3R5cGUiOiAibWFya2Rvd24iLAogICAiaWQiOiAiYTFmYWYzM2YtNGQxYy00ZTAyLThmYjItNzQyNzBjMTg5NjBmIiwKICAgIm1ldGFkYXRhIjoge30sCiAgICJzb3VyY2UiOiBbCiAgICAiQ2UgcXVpIGVzdCBjaS1kZXNzdXMgbWFyY2hlIGV0IGVzdCBsw6AgZmHDp29uIGxhIHBsdXMgdXN1ZWxsZSBkZSBsYW5jZXIgdW4gY29kZSBhc3luY2hyb25lIGRhbnMgdW4gLnB5LCBtYWlzIGRhbnMgdW4gbm90ZWJvb2sgdm91cyBvYnRpZW5kcmV6IHVuZSBlcnJldXI6XG4iLAogICAgIlxuIiwKICAgICIqKlJ1bnRpbWVFcnJvcjogYXN5bmNpby5ydW4oKSBjYW5ub3QgYmUgY2FsbGVkIGZyb20gYSBydW5uaW5nIGV2ZW50IGxvb3AqKlxuIiwKICAgICJcbiIsCiAgICAiRW4gZWZmZXQsIGxlIGNvZGUgcydleGVjdXRlIGTDqWrDoCBkZSBmYcOnb24gYXN5bmNocm9uZSBkYW5zIHVuIG5vdGVib29rLCBldCBpbCBuJ3kgYSBwYXMgYmVzb2luIGQndXRpbGlzZXIgYXN5bmNpby5ydW4gcG91ciBwb3V2b2lyIHV0aWxpc2VyIGF3YWl0ICEgIgogICBdCiAgfSwKICB7CiAgICJjZWxsX3R5cGUiOiAiY29kZSIsCiAgICJleGVjdXRpb25fY291bnQiOiA1OSwKICAgImlkIjogImQ4M2YwOTk5LTM0M2MtNDQ5ZC05MWJkLWQ3M2IyZWFjNjZiYiIsCiAgICJtZXRhZGF0YSI6IHt9LAogICAib3V0cHV0cyI6IFsKICAgIHsKICAgICAiZGF0YSI6IHsKICAgICAgInRleHQvcGxhaW4iOiBbCiAgICAgICAiPF9Vbml4U2VsZWN0b3JFdmVudExvb3AgcnVubmluZz1UcnVlIGNsb3NlZD1GYWxzZSBkZWJ1Zz1GYWxzZT4iCiAgICAgIF0KICAgICB9LAogICAgICJleGVjdXRpb25fY291bnQiOiA1OSwKICAgICAibWV0YWRhdGEiOiB7fSwKICAgICAib3V0cHV0X3R5cGUiOiAiZXhlY3V0ZV9yZXN1bHQiCiAgICB9CiAgIF0sCiAgICJzb3VyY2UiOiBbCiAgICAiaW1wb3J0IGFzeW5jaW9cbiIsCiAgICAiXG4iLAogICAgImFzeW5jIGRlZiB0ZXN0KHgpOlxuIiwKICAgICIgICAgcHJpbnQoJ2VudGVyIHRlc3QgLSB3YWl0aW5nJywgeClcbiIsCiAgICAiICAgIGF3YWl0IGFzeW5jaW8uc2xlZXAoeClcbiIsCiAgICAiICAgIHJldHVybiB4XG4iLAogICAgIlxuIiwKICAgICJhc3luYyBkZWYgbWFpbigpOlxuIiwKICAgICIgICAgYSA9IGF3YWl0IHRlc3QoMilcbiIsCiAgICAiICAgIGIgPSBhd2FpdCB0ZXN0KDEpXG4iLAogICAgIiAgICBwcmludChhICsgYilcbiIsCiAgICAiICAgIFxuIiwKICAgICJsb29wID0gYXN5bmNpby5nZXRfZXZlbnRfbG9vcCgpXG4iLAogICAgImxvb3AiCiAgIF0KICB9LAogIHsKICAgImNlbGxfdHlwZSI6ICJtYXJrZG93biIsCiAgICJpZCI6ICIzNzk3NTZjZS00YTBlLTQ0NTItYjc1OC0xZjVjYTQyZGY1NTQiLAogICAibWV0YWRhdGEiOiB7fSwKICAgInNvdXJjZSI6IFsKICAgICIjIyMjIElsIGVzdCBkb25jIHBvc3NpYmxlIGQnYXR0ZW5kcmUgdW5lIGZvbmN0aW9uIGFzeW5jaHJvbmUgZGlyZWN0ZW1lbnQgZW4gdXRpbGlzYW50IGF3YWl0OiIKICAgXQogIH0sCiAgewogICAiY2VsbF90eXBlIjogImNvZGUiLAogICAiZXhlY3V0aW9uX2NvdW50IjogOSwKICAgImlkIjogIjYzNzJlODU3LThmZjktNGUwZC1iNTZjLTI3N2Q4MTZjMmE3YSIsCiAgICJtZXRhZGF0YSI6IHt9LAogICAib3V0cHV0cyI6IFsKICAgIHsKICAgICAibmFtZSI6ICJzdGRvdXQiLAogICAgICJvdXRwdXRfdHlwZSI6ICJzdHJlYW0iLAogICAgICJ0ZXh0IjogWwogICAgICAiZW50ZXIgdGVzdCAtIHdhaXRpbmcgMlxuIiwKICAgICAgImVudGVyIHRlc3QgLSB3YWl0aW5nIDFcbiIsCiAgICAgICIzXG4iCiAgICAgXQogICAgfQogICBdLAogICAic291cmNlIjogWwogICAgImF3YWl0IG1haW4oKSIKICAgXQogIH0sCiAgewogICAiY2VsbF90eXBlIjogIm1hcmtkb3duIiwKICAgImlkIjogIjExMzQ3ZjAyLTU0MWQtNDU1Mi04YWFhLWUzNTRiOWQ2OWU0NiIsCiAgICJtZXRhZGF0YSI6IHt9LAogICAic291cmNlIjogWwogICAgIiMjIyMgQ2UgcXVpIHJldmllbnQgw6AgbCdham91dGVyIMOgIGxhIGJvdWNsZSBhY3R1ZWwiCiAgIF0KICB9LAogIHsKICAgImNlbGxfdHlwZSI6ICJjb2RlIiwKICAgImV4ZWN1dGlvbl9jb3VudCI6IDEwLAogICAiaWQiOiAiZGQ5ZGVmZDItOWM1Ny00NThlLWEzMDYtYWNkNjQ1NDRlNmQzIiwKICAgIm1ldGFkYXRhIjoge30sCiAgICJvdXRwdXRzIjogWwogICAgewogICAgICJuYW1lIjogInN0ZG91dCIsCiAgICAgIm91dHB1dF90eXBlIjogInN0cmVhbSIsCiAgICAgInRleHQiOiBbCiAgICAgICJlbnRlciB0ZXN0IC0gd2FpdGluZyAyXG4iLAogICAgICAiZW50ZXIgdGVzdCAtIHdhaXRpbmcgMVxuIiwKICAgICAgIjNcbiIKICAgICBdCiAgICB9CiAgIF0sCiAgICJzb3VyY2UiOiBbCiAgICAiYXdhaXQgbG9vcC5jcmVhdGVfdGFzayhtYWluKCkpIgogICBdCiAgfSwKICB7CiAgICJjZWxsX3R5cGUiOiAibWFya2Rvd24iLAogICAiaWQiOiAiOTI2OWM3ZGItNDZkNi00NmFlLWEyYTgtM2U5ZmM5NWIyMmQwIiwKICAgIm1ldGFkYXRhIjoge30sCiAgICJzb3VyY2UiOiBbCiAgICAiIyMjIyBVbmUgbcOpdGhvZGUgcG9zc2libGUgcG91ciBsYW5jZXIgZGUgZmHDp29uIHNpbWlsYWlyZSB2b3RyZSBjb2RlIGVudHJlIHVuIC5weSBldCB1biBub3RlYm9vayBlc3QgZGUgY3JlZXIgdW4gcHJvY2Vzc3VzIHPDqXBhcsOpIHBvdXIgZXhlY3V0ZXIgbGUgY29kZSwgY29tbWUgY2ktZGVzc291cyBwYXIgZXhlbXBsZToiCiAgIF0KICB9LAogIHsKICAgImNlbGxfdHlwZSI6ICJjb2RlIiwKICAgImV4ZWN1dGlvbl9jb3VudCI6IDIzLAogICAiaWQiOiAiYWQ1MWRiYjUtZjI2NS00ODQwLTlkYzEtNGEzMmFjMDMwOGVjIiwKICAgIm1ldGFkYXRhIjoge30sCiAgICJvdXRwdXRzIjogWwogICAgewogICAgICJuYW1lIjogInN0ZG91dCIsCiAgICAgIm91dHB1dF90eXBlIjogInN0cmVhbSIsCiAgICAgInRleHQiOiBbCiAgICAgICJlbnRlciB0ZXN0IC0gd2FpdGluZyAyXG4iLAogICAgICAiZW50ZXIgdGVzdCAtIHdhaXRpbmcgMVxuIiwKICAgICAgIjNcbiIsCiAgICAgICJlbnRlciB0ZXN0IC0gd2FpdGluZyAyXG4iLAogICAgICAiZW50ZXIgdGVzdCAtIHdhaXRpbmcgMVxuIiwKICAgICAgIjNcbiIsCiAgICAgICJlbnRlciB0ZXN0IC0gd2FpdGluZyAyXG4iLAogICAgICAiZW50ZXIgdGVzdCAtIHdhaXRpbmcgMVxuIiwKICAgICAgIjNcbiIsCiAgICAgICJDUFUgdGltZXM6IHVzZXIgMTQuNiBtcywgc3lzOiAxOC4zIG1zLCB0b3RhbDogMzIuOSBtc1xuIiwKICAgICAgIldhbGwgdGltZTogOS4wNyBzXG4iCiAgICAgXQogICAgfQogICBdLAogICAic291cmNlIjogWwogICAgIiUldGltZSBcbiIsCiAgICAiXG4iLAogICAgImltcG9ydCBtdWx0aXByb2Nlc3NpbmdcbiIsCiAgICAiXG4iLAogICAgImRlZiBydW5faW5fcHJvY2VzcygpOlxuIiwKICAgICIgICAgZGVmIHJ1bigpOlxuIiwKICAgICIgICAgICAgIGxvb3AgPSBhc3luY2lvLm5ld19ldmVudF9sb29wKClcbiIsCiAgICAiICAgICAgICBhc3luY2lvLnJ1bihtYWluKCkpXG4iLAogICAgIlxuIiwKICAgICIgICAgcHJvY2VzcyA9IG11bHRpcHJvY2Vzc2luZy5Qcm9jZXNzKHRhcmdldD1ydW4pICAjb3UgbXVsdGlwcm9jZXNzaW5nLlByb2Nlc3ModGFyZ2V0PXJ1biwgYXJncz10dXBsZSBkJ2FyZ3VtZW50KSBzaSB2b3VzIGF2ZXogZGVzIGFyZ3VtZW50cyBkYW5zIHZvdHJlIGZvbmN0aW9uIHJ1blxuIiwKICAgICIgICAgcHJvY2Vzcy5zdGFydCgpICMgZMOpbWFycmUgbGUgcHJvY2Vzc3VzXG4iLAogICAgIiAgICBwcm9jZXNzLmpvaW4oKSAjIGwnYXR0ZW5kcyAtLT4gcmVuZCBsZSBsYW5jZW1lbnQgZGUgcnVuX2luX3Byb2Nlc3MgYmxvcXVhbnQsIGkuZS4gdm91cyBuZSBwb3V2ZXogcGFzIGVuIGxhbmNlciBwbHVzaWV1cnMgw6AgbGEgZm9pc1xuIiwKICAgICJcbiIsCiAgICAicnVuX2luX3Byb2Nlc3MoKVxuIiwKICAgICJydW5faW5fcHJvY2VzcygpXG4iLAogICAgInJ1bl9pbl9wcm9jZXNzKCkiCiAgIF0KICB9LAogIHsKICAgImNlbGxfdHlwZSI6ICJtYXJrZG93biIsCiAgICJpZCI6ICI1OWU5ODg1NC1iYWUwLTRkMzktYWYyMy0zMDZjMjQwNGVjMTciLAogICAibWV0YWRhdGEiOiB7fSwKICAgInNvdXJjZSI6IFsKICAgICIjIyMjIEVuIGVubGV2YW50IGxlIGpvaW4gZGVzIHByb2Nlc3Mgb24gYXR0ZW5kIHBsdXMgbGVzIHByb2Nlc3MgZXQgbCdvbiBleGVjdXRlIGxlcyAzIGJvdWNsZXMgZCdldmVuZW1lbnQgZW4gbcOqbWUgdGVtcHMiCiAgIF0KICB9LAogIHsKICAgImNlbGxfdHlwZSI6ICJjb2RlIiwKICAgImV4ZWN1dGlvbl9jb3VudCI6IDYwLAogICAiaWQiOiAiMWU1MTZkMDEtZGZlZS00OGJhLWFmN2ItOTBiNzU5ZDA5NTFhIiwKICAgIm1ldGFkYXRhIjoge30sCiAgICJvdXRwdXRzIjogWwogICAgewogICAgICJuYW1lIjogInN0ZG91dCIsCiAgICAgIm91dHB1dF90eXBlIjogInN0cmVhbSIsCiAgICAgInRleHQiOiBbCiAgICAgICJlbnRlciB0ZXN0IC0gd2FpdGluZyAyQ1BVIHRpbWVzOiB1c2VyIDMuNCBtcywgc3lzOiAxMiBtcywgdG90YWw6IDE1LjQgbXNcbiIsCiAgICAgICJXYWxsIHRpbWU6IDEzLjQgbXNcbiIsCiAgICAgICJcbiIsCiAgICAgICJcbiIsCiAgICAgICJlbnRlciB0ZXN0IC0gd2FpdGluZyAyZW50ZXIgdGVzdCAtIHdhaXRpbmcgMlxuIiwKICAgICAgImVudGVyIHRlc3QgLSB3YWl0aW5nIGVudGVyIHRlc3QgLSB3YWl0aW5nMSBcbiIsCiAgICAgICIxXG4iLAogICAgICAiZW50ZXIgdGVzdCAtIHdhaXRpbmcgMVxuIiwKICAgICAgIjMzXG4iLAogICAgICAiXG4iLAogICAgICAiM1xuIgogICAgIF0KICAgIH0KICAgXSwKICAgInNvdXJjZSI6IFsKICAgICIlJXRpbWUgXG4iLAogICAgIlxuIiwKICAgICJkZWYgcnVuX2luX3Byb2Nlc3MoKTpcbiIsCiAgICAiICAgIGRlZiBydW4oKTpcbiIsCiAgICAiICAgICAgICBsb29wID0gYXN5bmNpby5uZXdfZXZlbnRfbG9vcCgpXG4iLAogICAgIiAgICAgICAgYXN5bmNpby5ydW4obWFpbigpKVxuIiwKICAgICJcbiIsCiAgICAiICAgIHByb2Nlc3MgPSBtdWx0aXByb2Nlc3NpbmcuUHJvY2Vzcyh0YXJnZXQ9cnVuKSAgXG4iLAogICAgIiAgICBwcm9jZXNzLnN0YXJ0KCkgXG4iLAogICAgIiAgICAjcHJvY2Vzcy5qb2luKCkgIyBJY2kgbCdvbiBhdHRlbmQgcGFzIGxhIGZpbiBkdSBwcm9jZXNzXG4iLAogICAgIlxuIiwKICAgICJydW5faW5fcHJvY2VzcygpXG4iLAogICAgInJ1bl9pbl9wcm9jZXNzKClcbiIsCiAgICAicnVuX2luX3Byb2Nlc3MoKSIKICAgXQogIH0sCiAgewogICAiY2VsbF90eXBlIjogIm1hcmtkb3duIiwKICAgImlkIjogImNjNDE5MTc1LWY4M2YtNGZhYy04MzliLTJjMThmNjM1Mzg5OCIsCiAgICJtZXRhZGF0YSI6IHt9LAogICAic291cmNlIjogWwogICAgIiMjIyMgTWFpcyBsJ29uIHZvaXQgcXVlICUldGltZSBuJ2FmZmljaGUgcHJlc3F1ZSByaWVuLCBlbiBlZmZldCBvbiBuZSB2ZXJpZmllIHBhcyBxdWUgbGVzIHByb2Nlc3N1cyBzb2l0IHRlcm1pbsOpIGF2YW50IGRlIHBhc3NlciDDoCBsYSBzdWl0ZSwgb24gcGV1dCBmYWlyZSBjZWxhIGNvbW1lIHN1aXQ6IgogICBdCiAgfSwKICB7CiAgICJjZWxsX3R5cGUiOiAiY29kZSIsCiAgICJleGVjdXRpb25fY291bnQiOiA2MiwKICAgImlkIjogImRjNjA0ZjVmLWZjNzItNGFjNC1hOWMxLWU5MGUxZWJjNDJiNSIsCiAgICJtZXRhZGF0YSI6IHt9LAogICAib3V0cHV0cyI6IFsKICAgIHsKICAgICAibmFtZSI6ICJzdGRvdXQiLAogICAgICJvdXRwdXRfdHlwZSI6ICJzdHJlYW0iLAogICAgICJ0ZXh0IjogWwogICAgICAiZW50ZXIgdGVzdCAtIHdhaXRpbmcgMmVudGVyIHRlc3QgLSB3YWl0aW5nXG4iLAogICAgICAiIDJcbiIsCiAgICAgICJlbnRlciB0ZXN0IC0gd2FpdGluZyAyXG4iLAogICAgICAiZW50ZXIgdGVzdCAtIHdhaXRpbmcgMWVudGVyIHRlc3QgLSB3YWl0aW5nIFxuIiwKICAgICAgIjFcbiIsCiAgICAgICJlbnRlciB0ZXN0IC0gd2FpdGluZyAxXG4iLAogICAgICAiM1xuIiwKICAgICAgIjNcbiIsCiAgICAgICIzXG4iLAogICAgICAiQ1BVIHRpbWVzOiB1c2VyIDUuMjIgbXMsIHN5czogMTkuOCBtcywgdG90YWw6IDI1LjEgbXNcbiIsCiAgICAgICJXYWxsIHRpbWU6IDMuMDIgc1xuIgogICAgIF0KICAgIH0KICAgXSwKICAgInNvdXJjZSI6IFsKICAgICIlJXRpbWVcbiIsCiAgICAiXG4iLAogICAgImRlZiBydW5faW5fcHJvY2VzcygpOlxuIiwKICAgICIgICAgZGVmIHJ1bigpOlxuIiwKICAgICIgICAgICAgIGxvb3AgPSBhc3luY2lvLm5ld19ldmVudF9sb29wKClcbiIsCiAgICAiICAgICAgICBhc3luY2lvLnJ1bihtYWluKCkpXG4iLAogICAgIlxuIiwKICAgICIgICAgcHJvY2VzcyA9IG11bHRpcHJvY2Vzc2luZy5Qcm9jZXNzKHRhcmdldD1ydW4pICBcbiIsCiAgICAiICAgIHByb2Nlc3Muc3RhcnQoKSBcbiIsCiAgICAiICAgICNwcm9jZXNzLmpvaW4oKSAjIEljaSBsJ29uIGF0dGVuZCBwYXMgbGEgZmluIGR1IHByb2Nlc3NcbiIsCiAgICAiICAgIHJldHVybiBwcm9jZXNzXG4iLAogICAgIlxuIiwKICAgICJsaXN0X3Byb2Nlc3NlcyA9IFtdXG4iLAogICAgImxpc3RfcHJvY2Vzc2VzLmFwcGVuZChydW5faW5fcHJvY2VzcygpKVxuIiwKICAgICJsaXN0X3Byb2Nlc3Nlcy5hcHBlbmQocnVuX2luX3Byb2Nlc3MoKSlcbiIsCiAgICAibGlzdF9wcm9jZXNzZXMuYXBwZW5kKHJ1bl9pbl9wcm9jZXNzKCkpXG4iLAogICAgImZvciBwIGluIGxpc3RfcHJvY2Vzc2VzOlxuIiwKICAgICIgICAgcC5qb2luKCkiCiAgIF0KICB9LAogIHsKICAgImNlbGxfdHlwZSI6ICJtYXJrZG93biIsCiAgICJpZCI6ICIwNGYxMTcyNi1jMzFjLTRiZGItYWVlYi01OWFlOWM1ODc2ZTciLAogICAibWV0YWRhdGEiOiB7fSwKICAgInNvdXJjZSI6IFsKICAgICIjIyBDJ2VzdCBwZXUgb3UgcHJvdSBsYSBtZW1lIGNob3NlIGF2ZWMgbCdhc3luYyAtIGlsIGZhdXQgYmllbiBwZW5zZXIgw6AgbCdlbmRyb2l0IG/DuSBsJ29uIHZhIHN5bmNocm9uaXNlciBsZXMgZGlmZsOpcmVudHMgZXZlbmVtZW50IFxuIiwKICAgICIjIyMgUGV0aXRlIG5vdGUgOiAlJXRpbWUgZW1wZWNoZSBkJ3V0aWxpc2VyIG5vcm1hbGVtZW50IGF3YWl0IGRhbnMgdW5lIGNlbGx1bGUiCiAgIF0KICB9LAogIHsKICAgImNlbGxfdHlwZSI6ICJjb2RlIiwKICAgImV4ZWN1dGlvbl9jb3VudCI6IDczLAogICAiaWQiOiAiMDVkOGViMDctNDhmOS00MzZlLWFlOTQtNTMwNTlhZTU4OTIwIiwKICAgIm1ldGFkYXRhIjoge30sCiAgICJvdXRwdXRzIjogWwogICAgewogICAgICJlbmFtZSI6ICJTeW50YXhFcnJvciIsCiAgICAgImV2YWx1ZSI6ICInYXdhaXQnIG91dHNpZGUgZnVuY3Rpb24gKDx0aW1lZCBleGVjPiwgbGluZSAxMikiLAogICAgICJvdXRwdXRfdHlwZSI6ICJlcnJvciIsCiAgICAgInRyYWNlYmFjayI6IFsKICAgICAgIlx1MDAxYlswOzM2bSAgRmlsZSBcdTAwMWJbMDszMm08dGltZWQgZXhlYz46MTJcdTAwMWJbMDszNm1cdTAwMWJbMG1cblx1MDAxYlswOzMxbVN5bnRheEVycm9yXHUwMDFiWzBtXHUwMDFiWzA7MzFtOlx1MDAxYlswbSAnYXdhaXQnIG91dHNpZGUgZnVuY3Rpb25cbiIKICAgICBdCiAgICB9CiAgIF0sCiAgICJzb3VyY2UiOiBbCiAgICAiJSV0aW1lIFxuIiwKICAgICJcbiIsCiAgICAiaW1wb3J0IGFzeW5jaW9cbiIsCiAgICAiXG4iLAogICAgImFzeW5jIGRlZiB0ZXN0KHgpOlxuIiwKICAgICIgICAgcHJpbnQoJ2VudGVyIHRlc3QgLSB3YWl0aW5nJywgeClcbiIsCiAgICAiICAgIGF3YWl0IGFzeW5jaW8uc2xlZXAoeClcbiIsCiAgICAiICAgIHJldHVybiB4XG4iLAogICAgIlxuIiwKICAgICJhc3luYyBkZWYgbWFpbigpOlxuIiwKICAgICIgICAgZm9yIGsgaW4gcmFuZ2UoNSk6XG4iLAogICAgIiAgICAgICAgYXdhaXQgdGVzdChrKVxuIiwKICAgICJcbiIsCiAgICAiYXdhaXQgbWFpbigpIgogICBdCiAgfSwKICB7CiAgICJjZWxsX3R5cGUiOiAiY29kZSIsCiAgICJleGVjdXRpb25fY291bnQiOiA5MiwKICAgImlkIjogIjE0YWI5MWI5LTY2ZGEtNDE5NC05YjRiLWQ2MTMxOWFlY2EzOSIsCiAgICJtZXRhZGF0YSI6IHt9LAogICAib3V0cHV0cyI6IFtdLAogICAic291cmNlIjogWwogICAgIiMjIFBldGl0IGNhZGVhdSwgdm9pY2kgdW4gcGV0aXQgZMOpY29yYXRldXIgcGVybWV0dGFudCBkZSBsYW5jZXIgZGFucyB1biBwcm9jZXNzIGxhIGZvbmN0aW9uIGFzeW5jIHNlbGVjdGlvbm7DqSwgcGVybWV0dGFudCBhaW5zaSBkJ3V0aWxpc2VyICUldGltZSBkZSBmYWNvbiBzaW1wbGUiCiAgIF0KICB9LAogIHsKICAgImNlbGxfdHlwZSI6ICJjb2RlIiwKICAgImV4ZWN1dGlvbl9jb3VudCI6IDg4LAogICAiaWQiOiAiYzEyNGNjZjQtMWMxOC00NDMwLWIyZGItZWFlMzdhNzNjZmJkIiwKICAgIm1ldGFkYXRhIjoge30sCiAgICJvdXRwdXRzIjogW10sCiAgICJzb3VyY2UiOiBbCiAgICAiZGVmIHJ1bl9pbl9wcm9jZXNzKGFzeW5jX2Z1bmMpOlxuIiwKICAgICIgICAgZGVmIHdyYXBwZXIoKmFyZ3MsICoqa3dhcmdzKTpcbiIsCiAgICAiICAgICAgICBkZWYgcnVuKCk6XG4iLAogICAgIiAgICAgICAgICAgIGxvb3AgPSBhc3luY2lvLm5ld19ldmVudF9sb29wKClcbiIsCiAgICAiICAgICAgICAgICAgYXN5bmNpby5ydW4oYXN5bmNfZnVuYygqYXJncywgKiprd2FyZ3MpKVxuIiwKICAgICIgICAgICAgIHByb2Nlc3MgPSBtdWx0aXByb2Nlc3NpbmcuUHJvY2Vzcyh0YXJnZXQ9cnVuKSAgXG4iLAogICAgIiAgICAgICAgcHJvY2Vzcy5zdGFydCgpIFxuIiwKICAgICIgICAgICAgIHByb2Nlc3Muam9pbigpICAgIFxuIiwKICAgICIgICAgcmV0dXJuIHdyYXBwZXJcbiIsCiAgICAiICAgICIKICAgXQogIH0sCiAgewogICAiY2VsbF90eXBlIjogImNvZGUiLAogICAiZXhlY3V0aW9uX2NvdW50IjogOTEsCiAgICJpZCI6ICIxZTFiYTBkNy1hMGNhLTRiNGEtYWQ3OS0xM2FlNThkMWIwZDQiLAogICAibWV0YWRhdGEiOiB7fSwKICAgIm91dHB1dHMiOiBbCiAgICB7CiAgICAgIm5hbWUiOiAic3Rkb3V0IiwKICAgICAib3V0cHV0X3R5cGUiOiAic3RyZWFtIiwKICAgICAidGV4dCI6IFsKICAgICAgImVudGVyIHRlc3QgLSB3YWl0aW5nIDBcbiIsCiAgICAgICJlbnRlciB0ZXN0IC0gd2FpdGluZyAxXG4iLAogICAgICAiZW50ZXIgdGVzdCAtIHdhaXRpbmcgMlxuIiwKICAgICAgImVudGVyIHRlc3QgLSB3YWl0aW5nIDNcbiIsCiAgICAgICJDUFUgdGltZXM6IHVzZXIgOC40NSBtcywgc3lzOiA4LjA1IG1zLCB0b3RhbDogMTYuNSBtc1xuIiwKICAgICAgIldhbGwgdGltZTogNi4wMyBzXG4iCiAgICAgXQogICAgfQogICBdLAogICAic291cmNlIjogWwogICAgIiUldGltZSBcbiIsCiAgICAiXG4iLAogICAgImFzeW5jIGRlZiB0ZXN0KHgpOlxuIiwKICAgICIgICAgcHJpbnQoJ2VudGVyIHRlc3QgLSB3YWl0aW5nJywgeClcbiIsCiAgICAiICAgIGF3YWl0IGFzeW5jaW8uc2xlZXAoeClcbiIsCiAgICAiICAgIHJldHVybiB4XG4iLAogICAgIlxuIiwKICAgICJAcnVuX2luX3Byb2Nlc3NcbiIsCiAgICAiYXN5bmMgZGVmIG1haW4oa19tYXg9Myk6XG4iLAogICAgIiAgICBmb3IgayBpbiByYW5nZShrX21heCk6XG4iLAogICAgIiAgICAgICAgYXdhaXQgdGVzdChrKVxuIiwKICAgICJcbiIsCiAgICAibWFpbihrX21heD00KSIKICAgXQogIH0sCiAgewogICAiY2VsbF90eXBlIjogIm1hcmtkb3duIiwKICAgImlkIjogIjU0NmViOGVjLTVkOWYtNDc5ZC1iNjMwLTBhYzJmZThjYjlmMyIsCiAgICJtZXRhZGF0YSI6IHt9LAogICAic291cmNlIjogWwogICAgIiMjIE9uIHZvaXQgY2VwZW5kYW50IGF1IGRlc3N1cyBxdWUgbCdvbiBhIGF0dGVuZHUgMSsyKzMgc2Vjb25kIC0gcGFzIFRPUFxuIiwKICAgICIjIyMgSWwgZmF1dCBlbiBmYWl0IHV0aWxpc2VyIGdhdGhlciBwYXIgZXhlbXBsZSBwb3VyIHBvdXZvaXIgZXhlY3V0ZXIgcGx1c2lldXJzIGNvcm91dGluZSBlbiBtZW1lIHRlbXBzIGV0IGxlcyBhdHRlbmRyZSIKICAgXQogIH0sCiAgewogICAiY2VsbF90eXBlIjogImNvZGUiLAogICAiZXhlY3V0aW9uX2NvdW50IjogOTYsCiAgICJpZCI6ICI1NzE1NWE0YS0xZGNkLTQxN2YtODI0Ny1mYTI4ZmIyYWViYTEiLAogICAibWV0YWRhdGEiOiB7fSwKICAgIm91dHB1dHMiOiBbCiAgICB7CiAgICAgIm5hbWUiOiAic3Rkb3V0IiwKICAgICAib3V0cHV0X3R5cGUiOiAic3RyZWFtIiwKICAgICAidGV4dCI6IFsKICAgICAgImVudGVyIHRlc3QgLSB3YWl0aW5nIDBcbiIsCiAgICAgICJlbnRlciB0ZXN0IC0gd2FpdGluZyAxXG4iLAogICAgICAiZW50ZXIgdGVzdCAtIHdhaXRpbmcgMlxuIiwKICAgICAgImVudGVyIHRlc3QgLSB3YWl0aW5nIDNcbiIsCiAgICAgICJDUFUgdGltZXM6IHVzZXIgMCBucywgc3lzOiAxMy4yIG1zLCB0b3RhbDogMTMuMiBtc1xuIiwKICAgICAgIldhbGwgdGltZTogMy4wMyBzXG4iCiAgICAgXQogICAgfQogICBdLAogICAic291cmNlIjogWwogICAgIiUldGltZSBcbiIsCiAgICAiXG4iLAogICAgImFzeW5jIGRlZiB0ZXN0KHgpOlxuIiwKICAgICIgICAgcHJpbnQoJ2VudGVyIHRlc3QgLSB3YWl0aW5nJywgeClcbiIsCiAgICAiICAgIGF3YWl0IGFzeW5jaW8uc2xlZXAoeClcbiIsCiAgICAiICAgIHJldHVybiB4XG4iLAogICAgIlxuIiwKICAgICJAcnVuX2luX3Byb2Nlc3NcbiIsCiAgICAiYXN5bmMgZGVmIG1haW4oa19tYXg9Myk6XG4iLAogICAgIiAgICBjb3JvcyA9IFtdXG4iLAogICAgIiAgICBmb3IgayBpbiByYW5nZShrX21heCk6XG4iLAogICAgIiAgICAgICAgY29yb3MuYXBwZW5kKHRlc3QoaykpXG4iLAogICAgIiAgICBhd2FpdCBhc3luY2lvLmdhdGhlcigqY29yb3MpXG4iLAogICAgIlxuIiwKICAgICJtYWluKGtfbWF4PTQpIgogICBdCiAgfSwKICB7CiAgICJjZWxsX3R5cGUiOiAibWFya2Rvd24iLAogICAiaWQiOiAiODUyMmJmN2UtNTUwZi00M2MxLTg4NGYtMjk4MWIxZjJiNDRiIiwKICAgIm1ldGFkYXRhIjoge30sCiAgICJzb3VyY2UiOiBbCiAgICAiIyMgRW5maW4sIHJlZ2FyZG9ucyBwb3VycXVvaSBsJ29uIHV0aWxpc2FpdCBhc3luY2lvLnNsZWVwIMOgIGxhIHBsYWNlIGRlIHRpbWUuc2xlZXAiCiAgIF0KICB9LAogIHsKICAgImNlbGxfdHlwZSI6ICJjb2RlIiwKICAgImV4ZWN1dGlvbl9jb3VudCI6IDk3LAogICAiaWQiOiAiMTM0YzgxZWItOWZjOC00MzY4LTg1NjAtMDM1OWY3YjIxMGMxIiwKICAgIm1ldGFkYXRhIjoge30sCiAgICJvdXRwdXRzIjogWwogICAgewogICAgICJuYW1lIjogInN0ZG91dCIsCiAgICAgIm91dHB1dF90eXBlIjogInN0cmVhbSIsCiAgICAgInRleHQiOiBbCiAgICAgICJlbnRlciB0ZXN0IC0gd2FpdGluZyAwXG4iLAogICAgICAiZW50ZXIgdGVzdCAtIHdhaXRpbmcgMVxuIiwKICAgICAgImVudGVyIHRlc3QgLSB3YWl0aW5nIDJcbiIsCiAgICAgICJlbnRlciB0ZXN0IC0gd2FpdGluZyAzXG4iLAogICAgICAiQ1BVIHRpbWVzOiB1c2VyIDAgbnMsIHN5czogMTMuOSBtcywgdG90YWw6IDEzLjkgbXNcbiIsCiAgICAgICJXYWxsIHRpbWU6IDYuMDIgc1xuIgogICAgIF0KICAgIH0KICAgXSwKICAgInNvdXJjZSI6IFsKICAgICIlJXRpbWUgXG4iLAogICAgIlxuIiwKICAgICJpbXBvcnQgdGltZVxuIiwKICAgICJcbiIsCiAgICAiYXN5bmMgZGVmIHRlc3QoeCk6XG4iLAogICAgIiAgICBwcmludCgnZW50ZXIgdGVzdCAtIHdhaXRpbmcnLCB4KVxuIiwKICAgICIgICAgdGltZS5zbGVlcCh4KVxuIiwKICAgICIgICAgcmV0dXJuIHhcbiIsCiAgICAiXG4iLAogICAgIkBydW5faW5fcHJvY2Vzc1xuIiwKICAgICJhc3luYyBkZWYgbWFpbihrX21heD0zKTpcbiIsCiAgICAiICAgIGNvcm9zID0gW11cbiIsCiAgICAiICAgIGZvciBrIGluIHJhbmdlKGtfbWF4KTpcbiIsCiAgICAiICAgICAgICBjb3Jvcy5hcHBlbmQodGVzdChrKSlcbiIsCiAgICAiICAgIGF3YWl0IGFzeW5jaW8uZ2F0aGVyKCpjb3JvcylcbiIsCiAgICAiXG4iLAogICAgIm1haW4oa19tYXg9NCkiCiAgIF0KICB9LAogIHsKICAgImNlbGxfdHlwZSI6ICJtYXJrZG93biIsCiAgICJpZCI6ICIxYzU5ZmVmYi0yYmYyLTRkMDctOWJjMS0xZmZjYTUyNmYzNzQiLAogICAibWV0YWRhdGEiOiB7fSwKICAgInNvdXJjZSI6IFsKICAgICIjIyMgdGltZS5zbGVlcCBlc3QgdW5lIGZvbmN0aW9uIGJsb3F1YW50ZSwgY2VsYSB2ZXV0IGRpcmUgcXVlIGwnb24gbmUgcGV1eCBwYXMgZWZmZWN0dWVyIGQnYXV0cmUgY29yb3V0aW5lIGVuIGF0dGVuZGFudCBxdWUgdGltZS5zbGVlcCBzJ2V4ZWN1dGUgIVxuIiwKICAgICIjIyMgQydlc3QgbGUgY2FzIHBvdXIgdG91dGUgZm9uY3Rpb24gYmxvcXVhbnRlICEgXG4iLAogICAgIlxuIiwKICAgICIjIyMgQ2VwZW5kYW50IGlsIGVzdCBwb3NzaWJsZSBkZSBkZWxlZ3VlciB1bmUgZm9uY3Rpb24gYmxvcXVhbnRlIMOgIHVuIGV4ZWN1dG9yIChxdWkgZXN0IHNpbXBsZW1lbnQgdW4gYXV0cmUgdGhyZWFkIHF1aSB2YSBzZSBjaGFyZ2VyIGQnZXhlY3V0ZXIgbGUgY29kZSBkZSBsYSBmb25jdGlvbilcbiIsCiAgICAiXG4iLAogICAgIkF2ZWMgY2V0dGUgb3B0aW9uIG4naW1wb3J0ZSBxdWVsIGNvZGUgcGV1dCDDqnRyZSByZW5kdSBhc3luY2hyb25lIFxuIiwKICAgICJUb3V0ZWZvaXMgc2kgbGUgY29kZSBlc3QgQ1BVIGJvdW5kIC0gYydlc3Qgw6AgZGlyZSBxdWUgY29udHJhaXJlbWVudCDDoCBzbGVlcCBpbCBkZW1hbmRlIGF1IHRocmVhZCBkJ2VmZmVjdHVlciBkZXMgdGFjaGVzIC0gYWxvcnMgY2VsYSBhdXJhIHBldXQgZCdpbnRlcmV0ICEiCiAgIF0KICB9LAogIHsKICAgImNlbGxfdHlwZSI6ICJjb2RlIiwKICAgImV4ZWN1dGlvbl9jb3VudCI6IDExNCwKICAgImlkIjogImI0ODc5OGUwLTYxOTUtNDUyNi1iZjc4LTk2ZmIyMjFjMWNkOSIsCiAgICJtZXRhZGF0YSI6IHt9LAogICAib3V0cHV0cyI6IFsKICAgIHsKICAgICAibmFtZSI6ICJzdGRvdXQiLAogICAgICJvdXRwdXRfdHlwZSI6ICJzdHJlYW0iLAogICAgICJ0ZXh0IjogWwogICAgICAiZW50ZXIgdGVzdCAtIHdhaXRpbmdlbnRlciB0ZXN0IC0gd2FpdGluZ2VudGVyIHRlc3QgLSB3YWl0aW5nZW50ZXIgdGVzdCAtIHdhaXRpbmcgICAgMjAzXG4iLAogICAgICAiMVxuIiwKICAgICAgIlxuIiwKICAgICAgIlxuIiwKICAgICAgIkNQVSB0aW1lczogdXNlciAxLjY5IG1zLCBzeXM6IDExLjcgbXMsIHRvdGFsOiAxMy40IG1zXG4iLAogICAgICAiV2FsbCB0aW1lOiAzLjAyIHNcbiIKICAgICBdCiAgICB9CiAgIF0sCiAgICJzb3VyY2UiOiBbCiAgICAiJSV0aW1lIFxuIiwKICAgICJcbiIsCiAgICAiZGVmIHRlc3QoeCk6XG4iLAogICAgIiAgICBwcmludCgnZW50ZXIgdGVzdCAtIHdhaXRpbmcnLCB4KVxuIiwKICAgICIgICAgdGltZS5zbGVlcCh4KVxuIiwKICAgICIgICAgcmV0dXJuIHhcbiIsCiAgICAiXG4iLAogICAgImFzeW5jIGRlZiBhdGVzdCh4KTpcbiIsCiAgICAiICAgIGxvb3AgPSBhc3luY2lvLmdldF9ldmVudF9sb29wKClcbiIsCiAgICAiICAgIGYgPSBsYW1iZGEgOiB0ZXN0KHgpXG4iLAogICAgIiAgICBhd2FpdCBsb29wLnJ1bl9pbl9leGVjdXRvcihOb25lLCBmKVxuIiwKICAgICJcbiIsCiAgICAiQHJ1bl9pbl9wcm9jZXNzXG4iLAogICAgImFzeW5jIGRlZiBtYWluKGtfbWF4PTMpOlxuIiwKICAgICIgICAgY29yb3MgPSBbXVxuIiwKICAgICIgICAgbG9vcCA9IGFzeW5jaW8uZ2V0X2V2ZW50X2xvb3AoKVxuIiwKICAgICIgICAgZm9yIGsgaW4gcmFuZ2Uoa19tYXgpOlxuIiwKICAgICIgICAgICAgIGNvcm9zLmFwcGVuZChhdGVzdChrKSlcbiIsCiAgICAiICAgIGF3YWl0IGFzeW5jaW8uZ2F0aGVyKCpjb3JvcylcbiIsCiAgICAiXG4iLAogICAgIm1haW4oa19tYXg9NCkiCiAgIF0KICB9CiBdLAogIm1ldGFkYXRhIjogewogICJrZXJuZWxzcGVjIjogewogICAiZGlzcGxheV9uYW1lIjogIlB5dGhvbiAzIChpcHlrZXJuZWwpIiwKICAgImxhbmd1YWdlIjogInB5dGhvbiIsCiAgICJuYW1lIjogInB5dGhvbjMiCiAgfSwKICAibGFuZ3VhZ2VfaW5mbyI6IHsKICAgImNvZGVtaXJyb3JfbW9kZSI6IHsKICAgICJuYW1lIjogImlweXRob24iLAogICAgInZlcnNpb24iOiAzCiAgIH0sCiAgICJmaWxlX2V4dGVuc2lvbiI6ICIucHkiLAogICAibWltZXR5cGUiOiAidGV4dC94LXB5dGhvbiIsCiAgICJuYW1lIjogInB5dGhvbiIsCiAgICJuYmNvbnZlcnRfZXhwb3J0ZXIiOiAicHl0aG9uIiwKICAgInB5Z21lbnRzX2xleGVyIjogImlweXRob24zIiwKICAgInZlcnNpb24iOiAiMy4xMi4xIgogIH0KIH0sCiAibmJmb3JtYXQiOiA0LAogIm5iZm9ybWF0X21pbm9yIjogNQp9Cg==').then(res => res.blob()).then(blob => {
+      const downloadURL = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.href = downloadURL;
+      a.download = 'File.ipynb'; a.click();
+      window.URL.revokeObjectURL(downloadURL);
+      document.body.removeChild(a);
+        });"><button class="btn btn-success downloadthis  " id="dnldts25860"><i class="bi bi-file-earmark-jupyter"></i> Telecharger le Notebook de TP </button></a></p>
+<section id="objectifs-de-la-session" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs-de-la-session">Objectifs de la session :</h2>
+<ul>
+<li>Utiliser la programmation orientée objet (POO) pour structurer le code et encapsuler les méthodes</li>
+<li>Utiliser requests pour récupérer des données sur Internet</li>
+<li>Utiliser pandas pour réagréger ces données</li>
+<li>Ajouter une méthode asynchrone pour améliorer les performances</li>
+</ul>
+</section>
+<section id="sujets" class="level2">
+<h2 class="anchored" data-anchor-id="sujets">Sujets:</h2>
+<p>L’objectif est de créer une classe encapsulant la récupération de bars OHLCV depuis une API, en permettant une aggrégation à une fréquence différente de celle des données récupérées.</p>
+<section id="rappel" class="level3">
+<h3 class="anchored" data-anchor-id="rappel">Rappel:</h3>
+<p>Pour rappel, les OHLCV signifie simplement Open, high, low, close, volume, il s’agit d’une des formes les plus standard d’aggrégation de données financiere de marché. En effet, pour n’importe quel marchés (dans le sens carnet d’ordre avec un asset et une currency, que ce soit du forex, des contrats, des crypto, des equity..), la donnée brute du marché est, d’une part couteuse auprès des provider, d’autres part difficile à utiliser et à comprendre facilement. En effet, la donnée la plus brute serait l’ensemble des ajouts, modfication et annulation d’ordre sur le marché, ce qui avec les marchés éléctroniques et le trading algorithmique représente une quantité colossalle par jour. Une version filtré de celle-ci est l’ensemble des transactions ayant eu lieue durant la journée, ce qui réduit très grandement la quantité de données mais reste très peu pratique. Les bars OHLCV sont une représentation aggrégé de cette donnée, car elle représente sur chaque période l’aggrégation par premier, dernier, max, min, somme…</p>
+</section>
+<section id="api-utilisée" class="level3">
+<h3 class="anchored" data-anchor-id="api-utilisée">API utilisée:</h3>
+<p>Pour le TP d’aujourd’hui nous allons utiliser les bars OHLCV de l’API de Binance, car celle-ci ne necessitent pas d’authentification, mais seulement une limite de requette par minute par IP. Les données peuvent être récupéré par requette get sur des urls construit comme: https://api.binance.com/api/v3/klines?symbol=BTCUSDT&amp;interval=30m</p>
+<p>la documentation se trouvant ici: https://binance-docs.github.io/apidocs/spot/en/#kline-candlestick-data</p>
+</section>
+<section id="consignes" class="level3">
+<h3 class="anchored" data-anchor-id="consignes">Consignes:</h3>
+<p><strong>Objectif final:</strong> - Pouvoir récupérer facilement pour n’importe quel symbol/liste de symbols les bars à la minute sur une période donnée - Pouvoir étendre cette période ensuite - Pouvoir recuperer des données aggrégés à une autre fréquence (&gt;1minute) en aggregant les données déjà acquise - Ajouter une option pour effectuer la récupération de facon asynchrone</p>
+<p><strong>etape 1: Penser la classe:</strong> Construire une classe permettant de représenter le problème ci-dessus: - Poser d’abord sur papier / en brouillon de code la classe de base, ses attributes et ses méthodes - Penser à comment vous aller pouvoir l’utiliser ensuite</p>
+<p><strong>etape 2: Implementer le minimum necessaire et tester avec requests:</strong> - Avant de se lancer dans l’aggrégation et dans l’async, implementer de facon iterative en testant votre code</p>
+<p><strong>etape 3: Ajouter une méthode pour acceder au donnée récupéré avec une autre fréquence</strong></p>
+<p><strong>etape 4: Creer une variance de votre méthode de récupération qui est asynchrone</strong> - Idéallement, vous avez séparé le code de sorte que chaque requette soit effectué dans une fonction - Ainsi il est possible d’utiliser asyncio.gather/asyncio.wait pour attendre de multiples coroutines</p>
+<div id="30ed0301-0364-411c-a61e-19ca148517a9" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good Luck</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="nb-async-et-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="nb-async-et-notebook">NB: async et notebook</h2>
+<p>Les notebook et un .py lancé normalement auront quelque différence dans le cas d’une utilisation asynchrone. En effet, dans un contexte standard (fichier .py), il est necessaire de créer une boucle d’evenement dans lequels les coroutines s’executeront. La façon standard de faire cela est:</p>
+<div id="9a03f609-ab52-4cca-ab7c-840b214cf665" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># async and normal functions ....</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> main():</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># what you would have put in __name__ == '__main__' usually</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    asyncio.run(main())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>&lt;frozen genericpath&gt;:89: RuntimeWarning: coroutine 'main' was never awaited
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>RuntimeError: asyncio.run() cannot be called from a running event loop</code></pre>
+</div>
+</div>
+<p>Ce qui est ci-dessus marche et est là façon la plus usuelle de lancer un code asynchrone dans un .py, mais dans un notebook vous obtiendrez une erreur:</p>
+<p><strong>RuntimeError: asyncio.run() cannot be called from a running event loop</strong></p>
+<p>En effet, le code s’execute déjà de façon asynchrone dans un notebook, et il n’y a pas besoin d’utiliser asyncio.run pour pouvoir utiliser await !</p>
+<div id="d83f0999-343c-449d-91bd-d73b2eac66bb" class="cell" data-execution_count="59">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> test(x):</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'enter test - waiting'</span>, x)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> asyncio.sleep(x)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> main():</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="cf">await</span> test(<span class="dv">2</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> <span class="cf">await</span> test(<span class="dv">1</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(a <span class="op">+</span> b)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>loop <span class="op">=</span> asyncio.get_event_loop()</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>loop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="59">
+<pre><code>&lt;_UnixSelectorEventLoop running=True closed=False debug=False&gt;</code></pre>
+</div>
+</div>
+<section id="il-est-donc-possible-dattendre-une-fonction-asynchrone-directement-en-utilisant-await" class="level4">
+<h4 class="anchored" data-anchor-id="il-est-donc-possible-dattendre-une-fonction-asynchrone-directement-en-utilisant-await">Il est donc possible d’attendre une fonction asynchrone directement en utilisant await:</h4>
+<div id="6372e857-8ff9-4e0d-b56c-277d816c2a7a" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">await</span> main()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>enter test - waiting 2
+enter test - waiting 1
+3</code></pre>
+</div>
+</div>
+</section>
+<section id="ce-qui-revient-à-lajouter-à-la-boucle-actuel" class="level4">
+<h4 class="anchored" data-anchor-id="ce-qui-revient-à-lajouter-à-la-boucle-actuel">Ce qui revient à l’ajouter à la boucle actuel</h4>
+<div id="dd9defd2-9c57-458e-a306-acd64544e6d3" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">await</span> loop.create_task(main())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>enter test - waiting 2
+enter test - waiting 1
+3</code></pre>
+</div>
+</div>
+</section>
+<section id="une-méthode-possible-pour-lancer-de-façon-similaire-votre-code-entre-un-.py-et-un-notebook-est-de-creer-un-processus-séparé-pour-executer-le-code-comme-ci-dessous-par-exemple" class="level4">
+<h4 class="anchored" data-anchor-id="une-méthode-possible-pour-lancer-de-façon-similaire-votre-code-entre-un-.py-et-un-notebook-est-de-creer-un-processus-séparé-pour-executer-le-code-comme-ci-dessous-par-exemple">Une méthode possible pour lancer de façon similaire votre code entre un .py et un notebook est de creer un processus séparé pour executer le code, comme ci-dessous par exemple:</h4>
+<div id="ad51dbb5-f265-4840-9dc1-4a32ac0308ec" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> multiprocessing</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_in_process():</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> run():</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        loop <span class="op">=</span> asyncio.new_event_loop()</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        asyncio.run(main())</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    process <span class="op">=</span> multiprocessing.Process(target<span class="op">=</span>run)  <span class="co">#ou multiprocessing.Process(target=run, args=tuple d'argument) si vous avez des arguments dans votre fonction run</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    process.start() <span class="co"># démarre le processus</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    process.join() <span class="co"># l'attends --&gt; rend le lancement de run_in_process bloquant, i.e. vous ne pouvez pas en lancer plusieurs à la fois</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>run_in_process()</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>run_in_process()</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>run_in_process()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>enter test - waiting 2
+enter test - waiting 1
+3
+enter test - waiting 2
+enter test - waiting 1
+3
+enter test - waiting 2
+enter test - waiting 1
+3
+CPU times: user 14.6 ms, sys: 18.3 ms, total: 32.9 ms
+Wall time: 9.07 s</code></pre>
+</div>
+</div>
+</section>
+<section id="en-enlevant-le-join-des-process-on-attend-plus-les-process-et-lon-execute-les-3-boucles-devenement-en-même-temps" class="level4">
+<h4 class="anchored" data-anchor-id="en-enlevant-le-join-des-process-on-attend-plus-les-process-et-lon-execute-les-3-boucles-devenement-en-même-temps">En enlevant le join des process on attend plus les process et l’on execute les 3 boucles d’evenement en même temps</h4>
+<div id="1e516d01-dfee-48ba-af7b-90b759d0951a" class="cell" data-execution_count="60">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_in_process():</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> run():</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        loop <span class="op">=</span> asyncio.new_event_loop()</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        asyncio.run(main())</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    process <span class="op">=</span> multiprocessing.Process(target<span class="op">=</span>run)  </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    process.start() </span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">#process.join() # Ici l'on attend pas la fin du process</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>run_in_process()</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>run_in_process()</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>run_in_process()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>enter test - waiting 2CPU times: user 3.4 ms, sys: 12 ms, total: 15.4 ms
+Wall time: 13.4 ms
+
+
+enter test - waiting 2enter test - waiting 2
+enter test - waiting enter test - waiting1 
+1
+enter test - waiting 1
+33
+
+3</code></pre>
+</div>
+</div>
+</section>
+<section id="mais-lon-voit-que-time-naffiche-presque-rien-en-effet-on-ne-verifie-pas-que-les-processus-soit-terminé-avant-de-passer-à-la-suite-on-peut-faire-cela-comme-suit" class="level4">
+<h4 class="anchored" data-anchor-id="mais-lon-voit-que-time-naffiche-presque-rien-en-effet-on-ne-verifie-pas-que-les-processus-soit-terminé-avant-de-passer-à-la-suite-on-peut-faire-cela-comme-suit">Mais l’on voit que %%time n’affiche presque rien, en effet on ne verifie pas que les processus soit terminé avant de passer à la suite, on peut faire cela comme suit:</h4>
+<div id="dc604f5f-fc72-4ac4-a9c1-e90e1ebc42b5" class="cell" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_in_process():</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> run():</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        loop <span class="op">=</span> asyncio.new_event_loop()</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        asyncio.run(main())</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    process <span class="op">=</span> multiprocessing.Process(target<span class="op">=</span>run)  </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    process.start() </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">#process.join() # Ici l'on attend pas la fin du process</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> process</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>list_processes <span class="op">=</span> []</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>list_processes.append(run_in_process())</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>list_processes.append(run_in_process())</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>list_processes.append(run_in_process())</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> list_processes:</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>    p.join()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>enter test - waiting 2enter test - waiting
+ 2
+enter test - waiting 2
+enter test - waiting 1enter test - waiting 
+1
+enter test - waiting 1
+3
+3
+3
+CPU times: user 5.22 ms, sys: 19.8 ms, total: 25.1 ms
+Wall time: 3.02 s</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="cest-peu-ou-prou-la-meme-chose-avec-lasync---il-faut-bien-penser-à-lendroit-où-lon-va-synchroniser-les-différents-evenement" class="level2">
+<h2 class="anchored" data-anchor-id="cest-peu-ou-prou-la-meme-chose-avec-lasync---il-faut-bien-penser-à-lendroit-où-lon-va-synchroniser-les-différents-evenement">C’est peu ou prou la meme chose avec l’async - il faut bien penser à l’endroit où l’on va synchroniser les différents evenement</h2>
+<section id="petite-note-time-empeche-dutiliser-normalement-await-dans-une-cellule" class="level3">
+<h3 class="anchored" data-anchor-id="petite-note-time-empeche-dutiliser-normalement-await-dans-une-cellule">Petite note : %%time empeche d’utiliser normalement await dans une cellule</h3>
+<div id="05d8eb07-48f9-436e-ae94-53059ae58920" class="cell" data-execution_count="73">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> test(x):</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'enter test - waiting'</span>, x)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> asyncio.sleep(x)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> main():</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">await</span> test(k)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="cf">await</span> main()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>SyntaxError: 'await' outside function (&lt;timed exec&gt;, line 12)</code></pre>
+</div>
+</div>
+<div id="14ab91b9-66da-4194-9b4b-d61319aeca39" class="cell" data-execution_count="92">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Petit cadeau, voici un petit décorateur permettant de lancer dans un process la fonction async selectionné, permettant ainsi d'utiliser %%time de facon simple</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="c124ccf4-1c18-4430-b2db-eae37a73cfbd" class="cell" data-execution_count="88">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_in_process(async_func):</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> wrapper(<span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>        <span class="kw">def</span> run():</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>            loop <span class="op">=</span> asyncio.new_event_loop()</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>            asyncio.run(async_func(<span class="op">*</span>args, <span class="op">**</span>kwargs))</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>        process <span class="op">=</span> multiprocessing.Process(target<span class="op">=</span>run)  </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>        process.start() </span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>        process.join()    </span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> wrapper</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="1e1ba0d7-a0ca-4b4a-ad79-13ae58d1b0d4" class="cell" data-execution_count="91">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> test(x):</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'enter test - waiting'</span>, x)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> asyncio.sleep(x)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="at">@run_in_process</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> main(k_max<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(k_max):</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">await</span> test(k)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>main(k_max<span class="op">=</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>enter test - waiting 0
+enter test - waiting 1
+enter test - waiting 2
+enter test - waiting 3
+CPU times: user 8.45 ms, sys: 8.05 ms, total: 16.5 ms
+Wall time: 6.03 s</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="on-voit-cependant-au-dessus-que-lon-a-attendu-123-second---pas-top" class="level2">
+<h2 class="anchored" data-anchor-id="on-voit-cependant-au-dessus-que-lon-a-attendu-123-second---pas-top">On voit cependant au dessus que l’on a attendu 1+2+3 second - pas TOP</h2>
+<section id="il-faut-en-fait-utiliser-gather-par-exemple-pour-pouvoir-executer-plusieurs-coroutine-en-meme-temps-et-les-attendre" class="level3">
+<h3 class="anchored" data-anchor-id="il-faut-en-fait-utiliser-gather-par-exemple-pour-pouvoir-executer-plusieurs-coroutine-en-meme-temps-et-les-attendre">Il faut en fait utiliser gather par exemple pour pouvoir executer plusieurs coroutine en meme temps et les attendre</h3>
+<div id="57155a4a-1dcd-417f-8247-fa28fb2aeba1" class="cell" data-execution_count="96">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> test(x):</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'enter test - waiting'</span>, x)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> asyncio.sleep(x)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="at">@run_in_process</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> main(k_max<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    coros <span class="op">=</span> []</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(k_max):</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>        coros.append(test(k))</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> asyncio.gather(<span class="op">*</span>coros)</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>main(k_max<span class="op">=</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>enter test - waiting 0
+enter test - waiting 1
+enter test - waiting 2
+enter test - waiting 3
+CPU times: user 0 ns, sys: 13.2 ms, total: 13.2 ms
+Wall time: 3.03 s</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="enfin-regardons-pourquoi-lon-utilisait-asyncio.sleep-à-la-place-de-time.sleep" class="level2">
+<h2 class="anchored" data-anchor-id="enfin-regardons-pourquoi-lon-utilisait-asyncio.sleep-à-la-place-de-time.sleep">Enfin, regardons pourquoi l’on utilisait asyncio.sleep à la place de time.sleep</h2>
+<div id="134c81eb-9fc8-4368-8560-0359f7b210c1" class="cell" data-execution_count="97">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> test(x):</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'enter test - waiting'</span>, x)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    time.sleep(x)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="at">@run_in_process</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> main(k_max<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    coros <span class="op">=</span> []</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(k_max):</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>        coros.append(test(k))</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> asyncio.gather(<span class="op">*</span>coros)</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>main(k_max<span class="op">=</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>enter test - waiting 0
+enter test - waiting 1
+enter test - waiting 2
+enter test - waiting 3
+CPU times: user 0 ns, sys: 13.9 ms, total: 13.9 ms
+Wall time: 6.02 s</code></pre>
+</div>
+</div>
+<section id="time.sleep-est-une-fonction-bloquante-cela-veut-dire-que-lon-ne-peux-pas-effectuer-dautre-coroutine-en-attendant-que-time.sleep-sexecute" class="level3">
+<h3 class="anchored" data-anchor-id="time.sleep-est-une-fonction-bloquante-cela-veut-dire-que-lon-ne-peux-pas-effectuer-dautre-coroutine-en-attendant-que-time.sleep-sexecute">time.sleep est une fonction bloquante, cela veut dire que l’on ne peux pas effectuer d’autre coroutine en attendant que time.sleep s’execute !</h3>
+</section>
+<section id="cest-le-cas-pour-toute-fonction-bloquante" class="level3">
+<h3 class="anchored" data-anchor-id="cest-le-cas-pour-toute-fonction-bloquante">C’est le cas pour toute fonction bloquante !</h3>
+</section>
+<section id="cependant-il-est-possible-de-deleguer-une-fonction-bloquante-à-un-executor-qui-est-simplement-un-autre-thread-qui-va-se-charger-dexecuter-le-code-de-la-fonction" class="level3">
+<h3 class="anchored" data-anchor-id="cependant-il-est-possible-de-deleguer-une-fonction-bloquante-à-un-executor-qui-est-simplement-un-autre-thread-qui-va-se-charger-dexecuter-le-code-de-la-fonction">Cependant il est possible de deleguer une fonction bloquante à un executor (qui est simplement un autre thread qui va se charger d’executer le code de la fonction)</h3>
+<p>Avec cette option n’importe quel code peut être rendu asynchrone Toutefois si le code est CPU bound - c’est à dire que contrairement à sleep il demande au thread d’effectuer des taches - alors cela aura peut d’interet !</p>
+<div id="b48798e0-6195-4526-bf78-96fb221c1cd9" class="cell" data-execution_count="114">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test(x):</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'enter test - waiting'</span>, x)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    time.sleep(x)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> atest(x):</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    loop <span class="op">=</span> asyncio.get_event_loop()</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    f <span class="op">=</span> <span class="kw">lambda</span> : test(x)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> loop.run_in_executor(<span class="va">None</span>, f)</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="at">@run_in_process</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> main(k_max<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    coros <span class="op">=</span> []</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    loop <span class="op">=</span> asyncio.get_event_loop()</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(k_max):</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>        coros.append(atest(k))</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> asyncio.gather(<span class="op">*</span>coros)</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>main(k_max<span class="op">=</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>enter test - waitingenter test - waitingenter test - waitingenter test - waiting    203
+1
+
+
+CPU times: user 1.69 ms, sys: 11.7 ms, total: 13.4 ms
+Wall time: 3.02 s</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/Cours_4/3-TournonsAutourduGIL.html" class="pagination-link  aria-label=" asynchronie="" et="" multiprocessing"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Asynchronie et Multiprocessing</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Introduction à Python, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
