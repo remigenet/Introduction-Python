@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Remi Genet">
-<meta name="dcterms.date" content="2024-01-29">
+<meta name="dcterms.date" content="2024-02-04">
 <meta name="description" content="Ce chapitre se concentre sur les fonctions et les modules en Python, deux composants clés pour écrire un code propre et réutilisable. Il aborde la création de fonctions, la manipulation des arguments, l’utilisation des expressions lambda, ainsi que l’importation et l’organisation des modules. Des exemples pratiques illustrent comment ces éléments peuvent être utilisés pour structurer efficacement un projet Python et simplifier la gestion des dépendances.">
 
 <title>Introduction à Python - Fonctions et Modules</title>
@@ -121,10 +121,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta property="og:image:width" content="1024">
 <meta name="citation_title" content="Fonctions et Modules">
 <meta name="citation_author" content="Remi Genet">
-<meta name="citation_publication_date" content="2024-01-29">
-<meta name="citation_cover_date" content="2024-01-29">
+<meta name="citation_publication_date" content="2024-02-04">
+<meta name="citation_cover_date" content="2024-02-04">
 <meta name="citation_year" content="2024">
-<meta name="citation_online_date" content="2024-01-29">
+<meta name="citation_online_date" content="2024-02-04">
 <meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Introduction-Python//content/Cours_2/2-FonctionsEtModules.html">
 <meta name="citation_language" content="en">
 </head>
@@ -366,6 +366,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Sujets de Projets possibles</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+        <li>
+    <a class="dropdown-item" href="../../content/Projets/index.html">
+ <span class="dropdown-text">Projets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Projets/L3_EIF_2024.html">
+ <span class="dropdown-text">Projets Introduction à Python - Millésime 2024</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -547,7 +555,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-01-29</p>
+      <p class="date">2024-02-04</p>
     </div>
   </div>
   
@@ -570,7 +578,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Pour définir une fonction en Python, utilisez le mot-clé <code>def</code>, suivi du nom de la fonction, des parenthèses et des paramètres.</li>
 </ul>
-<div id="d4a479c3" class="cell" data-execution_count="1">
+<div id="471b5fd7" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> ma_fonction(param1, param2):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Corps de la fonction</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> param1 <span class="op">+</span> param2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -581,7 +589,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Appelez une fonction en utilisant son nom suivi des arguments entre parenthèses.</li>
 </ul>
-<div id="2eb1ee7a" class="cell" data-execution_count="2">
+<div id="f2b07e58" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    resultat <span class="op">=</span> ma_fonction(<span class="dv">5</span>, <span class="dv">3</span>)  <span class="co"># Appel de la fonction avec 5 et 3 comme arguments</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -594,7 +602,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Les fonctions peuvent avoir des arguments par défaut, qui prennent une valeur spécifiée si aucun argument n’est fourni.</li>
 <li>Les arguments nommés permettent de passer des arguments dans n’importe quel ordre en spécifiant leur nom.</li>
 </ul>
-<div id="d0393a9f" class="cell" data-execution_count="3">
+<div id="e88d5487" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> saluer(nom, message<span class="op">=</span><span class="st">"Bonjour"</span>):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>message<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>nom<span class="sc">}</span><span class="ss">"</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -611,7 +619,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Les variables définies dans une fonction ont une portée locale à cette fonction. Les variables définies en dehors ont une portée globale.</li>
 </ul>
-<div id="8f159bd6" class="cell" data-execution_count="4">
+<div id="3c273e4d" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="st">"global"</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> exemple_scope():</span>
@@ -635,7 +643,7 @@ local</code></pre>
 <ul>
 <li>Un module est un fichier Python contenant des fonctions, des classes et des variables, ainsi que du code exécutable.</li>
 </ul>
-<div id="dbe81800" class="cell" data-execution_count="5">
+<div id="c2cd403b" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  <span class="im">import</span> math</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(math.sqrt(<span class="dv">16</span>))  <span class="co"># Utilise la fonction s²qrt du module math</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -663,7 +671,7 @@ local</code></pre>
 <ul>
 <li>Les expressions lambda sont de petites fonctions anonymes.</li>
 </ul>
-<div id="ac1a3d77" class="cell" data-execution_count="6">
+<div id="2a49e8ea" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>  doubler <span class="op">=</span> <span class="kw">lambda</span> x: x <span class="op">*</span> <span class="dv">2</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(doubler(<span class="dv">5</span>))  <span class="co"># Affiche 10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -698,7 +706,7 @@ local</code></pre>
 <ul>
 <li><code>*args</code> est utilisé pour passer une liste variable d’arguments non-nommés à une fonction. Les arguments sont accessibles comme une tuple.</li>
 </ul>
-<div id="d47d30f7" class="cell" data-execution_count="7">
+<div id="57f8f3e7" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fonction_avec_args(<span class="op">*</span>args):</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> arg <span class="kw">in</span> args:</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(arg)</span>
@@ -716,7 +724,7 @@ génial</code></pre>
 <ul>
 <li><code>kwargs</code> permet de passer une liste variable d’arguments nommés. Les arguments sont accessibles comme un dictionnaire.</li>
 </ul>
-<div id="c9c7121c" class="cell" data-execution_count="8">
+<div id="606bda36" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fonction_avec_kwargs(<span class="op">**</span>kwargs):</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> cle, valeur <span class="kw">in</span> kwargs.items():</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>cle<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>valeur<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -738,7 +746,7 @@ troisieme: génial</code></pre>
 <ul>
 <li>Les expressions lambda sont souvent utilisées pour des fonctions courtes et simples, comme des arguments pour des fonctions comme <code>map</code>, <code>filter</code>, et <code>sorted</code>.</li>
 </ul>
-<div id="56a16f28" class="cell" data-execution_count="9">
+<div id="30b12e84" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tri d'une liste de tuples basé sur le deuxième élément</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>liste <span class="op">=</span> [(<span class="dv">1</span>, <span class="st">'d'</span>), (<span class="dv">2</span>, <span class="st">'b'</span>), (<span class="dv">3</span>, <span class="st">'c'</span>), (<span class="dv">4</span>, <span class="st">'a'</span>)]</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>liste.sort(key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">1</span>])</span>
@@ -783,7 +791,7 @@ troisieme: génial</code></pre>
 <ul>
 <li>Lorsque vous importez un module, Python recherche d’abord dans le répertoire courant, puis dans les répertoires listés dans la variable d’environnement <code>PYTHONPATH</code>, et enfin dans les emplacements par défaut.</li>
 </ul>
-<div id="6587be8d" class="cell" data-execution_count="10">
+<div id="ca0c594c" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sys.path)  <span class="co"># Affiche les chemins où Python recherche les modules</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -823,7 +831,7 @@ troisieme: génial</code></pre>
 <li>Évitez les importations génériques (<code>from module import *</code>) car elles peuvent polluer l’espace de noms.</li>
 <li>Utilisez des alias pour clarifier l’origine des modules ou pour éviter des conflits de noms.</li>
 </ul>
-<div id="01339cc8" class="cell" data-execution_count="11">
+<div id="f8a036a6" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np  <span class="co"># Utilisation d'un alias pour numpy</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -836,7 +844,7 @@ troisieme: génial</code></pre>
 <ul>
 <li>En Python, importer plusieurs fois le même module ne pénalise pas les performances de manière significative. Lorsqu’un module est importé pour la première fois, il est compilé en bytecode et stocké en mémoire. Les importations suivantes du même module font simplement référence à la version en mémoire.</li>
 </ul>
-<div id="e35ce198" class="cell" data-execution_count="12">
+<div id="3c46c529" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math  <span class="co"># Le module est chargé en mémoire</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math  <span class="co"># Référence le module déjà chargé, sans coût supplémentaire</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

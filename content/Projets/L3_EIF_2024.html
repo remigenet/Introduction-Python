@@ -8,9 +8,8 @@
 
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2024-02-04">
-<meta name="description" content="Découvrir les design paterns, et connaitre les plus standards">
 
-<title>Introduction à Python - Python Orienté Objet - les Design Patterns</title>
+<title>Introduction à Python - Projets Introduction à Python - Millésime 2024</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -67,8 +32,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Cours_5/TP5.html" rel="next">
-<link href="../../content/Cours_5/2-POO_le_retour.html" rel="prev">
+<link href="../../content/Projets/index.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -113,17 +77,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction à Python - Python Orienté Objet - les Design Patterns">
-<meta property="og:description" content="Découvrir les design paterns, et connaitre les plus standards">
-<meta property="og:image" content="https://remigenet.github.io/Introduction-Python/content/Cours_5/.img/dunder_poo2.webp">
+<meta property="og:title" content="Introduction à Python - Projets Introduction à Python - Millésime 2024">
+<meta property="og:image" content="https://remigenet.github.io/Introduction-Python/content/Projets/.img/projet.webp">
 <meta property="og:site_name" content="Introduction à Python">
-<meta name="citation_title" content="Python Orienté Objet - les Design Patterns">
+<meta name="citation_title" content="Projets Introduction à Python - Millésime 2024">
 <meta name="citation_author" content="Remi Genet">
 <meta name="citation_publication_date" content="2024-02-04">
 <meta name="citation_cover_date" content="2024-02-04">
 <meta name="citation_year" content="2024">
 <meta name="citation_online_date" content="2024-02-04">
-<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Introduction-Python//content/Cours_5/3-patterndesign.html">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Introduction-Python//content/Projets/L3_EIF_2024.html">
 <meta name="citation_language" content="en">
 </head>
 
@@ -401,7 +364,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_5/3-patterndesign.html">Python Orienté Objet - les Design Patterns</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Projets/L3_EIF_2024.html">Projets Introduction à Python - Millésime 2024</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -415,45 +378,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_5/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Concepts avancés</span></a>
+  <a href="../../content/Projets/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projets</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_5/1-AST.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">L’arbre Syntaxique Abstrait ou AST</span></a>
+  <a href="../../content/Projets/L3_EIF_2024.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Projets Introduction à Python - Millésime 2024</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_5/2-POO_le_retour.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Python Orienté Objet - Les Dunders</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_5/3-patterndesign.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Python Orienté Objet - les Design Patterns</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Travaux Pratiques</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_5/TP5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TP-5</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -464,13 +398,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#python-orienté-objet---les-design-patterns" id="toc-python-orienté-objet---les-design-patterns" class="nav-link active" data-scroll-target="#python-orienté-objet---les-design-patterns">Python Orienté Objet - les Design Patterns</a>
+  <li><a href="#introduction-à-python---millésime-2024" id="toc-introduction-à-python---millésime-2024" class="nav-link active" data-scroll-target="#introduction-à-python---millésime-2024">Introduction à Python - Millésime 2024</a>
   <ul class="collapse">
-  <li><a href="#introduction-aux-design-patterns" id="toc-introduction-aux-design-patterns" class="nav-link" data-scroll-target="#introduction-aux-design-patterns">Introduction aux Design Patterns</a></li>
-  <li><a href="#a---design-patterns-de-création" id="toc-a---design-patterns-de-création" class="nav-link" data-scroll-target="#a---design-patterns-de-création">A - Design Patterns de Création</a></li>
-  <li><a href="#b---design-patterns-structurels" id="toc-b---design-patterns-structurels" class="nav-link" data-scroll-target="#b---design-patterns-structurels">B - Design Patterns Structurels</a></li>
-  <li><a href="#c---design-patterns-comportementaux" id="toc-c---design-patterns-comportementaux" class="nav-link" data-scroll-target="#c---design-patterns-comportementaux">C - Design Patterns Comportementaux</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#sujet-a-analyse-de-contrat-perpétuel-vs-spot-pour-position-longue" id="toc-sujet-a-analyse-de-contrat-perpétuel-vs-spot-pour-position-longue" class="nav-link" data-scroll-target="#sujet-a-analyse-de-contrat-perpétuel-vs-spot-pour-position-longue">Sujet A : Analyse de Contrat Perpétuel vs Spot pour Position Longue</a>
+  <ul class="collapse">
+  <li><a href="#contexte-et-concepts-clés" id="toc-contexte-et-concepts-clés" class="nav-link" data-scroll-target="#contexte-et-concepts-clés">Contexte et Concepts Clés</a></li>
+  <li><a href="#objectifs-et-applications-du-projet" id="toc-objectifs-et-applications-du-projet" class="nav-link" data-scroll-target="#objectifs-et-applications-du-projet">Objectifs et Applications du Projet</a></li>
+  </ul></li>
+  <li><a href="#sujet-b-introduction-aux-concepts-clés-du-projet-de-backtester-pour-stratégies-dinvestissement" id="toc-sujet-b-introduction-aux-concepts-clés-du-projet-de-backtester-pour-stratégies-dinvestissement" class="nav-link" data-scroll-target="#sujet-b-introduction-aux-concepts-clés-du-projet-de-backtester-pour-stratégies-dinvestissement">Sujet B: Introduction aux Concepts Clés du Projet de Backtester pour Stratégies d’Investissement</a>
+  <ul class="collapse">
+  <li><a href="#quest-ce-quun-backtest" id="toc-quest-ce-quun-backtest" class="nav-link" data-scroll-target="#quest-ce-quun-backtest">Qu’est-ce qu’un Backtest ?</a></li>
+  <li><a href="#objectifs-et-applications-du-projet-1" id="toc-objectifs-et-applications-du-projet-1" class="nav-link" data-scroll-target="#objectifs-et-applications-du-projet-1">Objectifs et Applications du Projet</a></li>
+  </ul></li>
+  <li><a href="#sujet-c-création-dun-simulateur-de-carnet-dordres" id="toc-sujet-c-création-dun-simulateur-de-carnet-dordres" class="nav-link" data-scroll-target="#sujet-c-création-dun-simulateur-de-carnet-dordres">Sujet C : Création d’un Simulateur de Carnet d’Ordres</a></li>
+  </ul></li>
+  <li><a href="#introduction-aux-concepts-clés-du-projet-de-simulateur-de-carnet-dordres" id="toc-introduction-aux-concepts-clés-du-projet-de-simulateur-de-carnet-dordres" class="nav-link" data-scroll-target="#introduction-aux-concepts-clés-du-projet-de-simulateur-de-carnet-dordres">Introduction aux Concepts Clés du Projet de Simulateur de Carnet d’Ordres</a>
+  <ul class="collapse">
+  <li><a href="#quest-ce-quun-carnet-dordres" id="toc-quest-ce-quun-carnet-dordres" class="nav-link" data-scroll-target="#quest-ce-quun-carnet-dordres">Qu’est-ce qu’un Carnet d’Ordres ?</a>
+  <ul class="collapse">
+  <li><a href="#importance-du-carnet-dordres" id="toc-importance-du-carnet-dordres" class="nav-link" data-scroll-target="#importance-du-carnet-dordres">Importance du Carnet d’Ordres</a></li>
+  <li><a href="#marchés-électroniques" id="toc-marchés-électroniques" class="nav-link" data-scroll-target="#marchés-électroniques">Marchés Électroniques</a></li>
+  <li><a href="#le-fixing" id="toc-le-fixing" class="nav-link" data-scroll-target="#le-fixing">Le Fixing</a></li>
+  <li><a href="#concepts-clés-à-explorer-dans-le-projet" id="toc-concepts-clés-à-explorer-dans-le-projet" class="nav-link" data-scroll-target="#concepts-clés-à-explorer-dans-le-projet">Concepts Clés à Explorer dans le Projet</a></li>
+  <li><a href="#objectifs-et-applications-du-projet-2" id="toc-objectifs-et-applications-du-projet-2" class="nav-link" data-scroll-target="#objectifs-et-applications-du-projet-2">Objectifs et Applications du Projet</a></li>
+  </ul></li>
+  <li><a href="#sujet-d-option-et-volatilité-sur-les-crypto-monnaies" id="toc-sujet-d-option-et-volatilité-sur-les-crypto-monnaies" class="nav-link" data-scroll-target="#sujet-d-option-et-volatilité-sur-les-crypto-monnaies">Sujet D : Option et Volatilité sur les Crypto-monnaies</a></li>
+  <li><a href="#concepts-clés-à-explorer-dans-le-projet-sur-les" id="toc-concepts-clés-à-explorer-dans-le-projet-sur-les" class="nav-link" data-scroll-target="#concepts-clés-à-explorer-dans-le-projet-sur-les">Concepts Clés à Explorer dans le Projet sur les</a>
+  <ul class="collapse">
+  <li><a href="#volatilité-implicite" id="toc-volatilité-implicite" class="nav-link" data-scroll-target="#volatilité-implicite">1. Volatilité Implicite</a></li>
+  <li><a href="#stratégie-de-vente-doptions" id="toc-stratégie-de-vente-doptions" class="nav-link" data-scroll-target="#stratégie-de-vente-doptions">2. Stratégie de Vente d’Options</a></li>
+  <li><a href="#modèle-de-black-scholes-et-simulations-de-monte-carlo" id="toc-modèle-de-black-scholes-et-simulations-de-monte-carlo" class="nav-link" data-scroll-target="#modèle-de-black-scholes-et-simulations-de-monte-carlo">3. Modèle de Black-Scholes et Simulations de Monte Carlo</a></li>
+  <li><a href="#objectifs-et-applications-du-projet-3" id="toc-objectifs-et-applications-du-projet-3" class="nav-link" data-scroll-target="#objectifs-et-applications-du-projet-3">Objectifs et Applications du Projet</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Introduction-Python/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
@@ -480,18 +440,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Python Orienté Objet - les Design Patterns</h1>
+<h1 class="title">Projets Introduction à Python - Millésime 2024</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Cours</div>
     <div class="quarto-category">Fondamentaux</div>
   </div>
   </div>
 
-<div>
-  <div class="description">
-    Découvrir les design paterns, et connaitre les plus standards
-  </div>
-</div>
 
 
 <div class="quarto-title-meta column-body">
@@ -518,186 +473,270 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="python-orienté-objet---les-design-patterns" class="level1">
-<h1>Python Orienté Objet - les Design Patterns</h1>
+<section id="introduction-à-python---millésime-2024" class="level1">
+<h1>Introduction à Python - Millésime 2024</h1>
 <hr>
-<section id="introduction-aux-design-patterns" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-aux-design-patterns">Introduction aux Design Patterns</h2>
-<ol type="1">
-<li><strong>Définition et Importance des Design Patterns</strong>:
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Dans le cadre de votre formation en L3 Économie et Ingénierie Financière, une série de sujets de projets vous sont proposés. Ces projets visent à consolider vos connaissances théoriques et à développer vos compétences pratiques. Ces projets sont conçus pour renforcer vos connaissances théoriques tout en développant vos compétences pratiques. Ils représentent une occasion précieuse de vous préparer aux défis réels que vous rencontrerez dans votre future carrière professionnelle.</p>
+<p>Vous êtes encouragés à choisir un sujet qui correspond à vos intérêts personnels et à vos aspirations professionnelles. Les thèmes proposés couvrent une variété de domaines, reflétant ainsi les diverses opportunités qui pourraient se présenter à vous dans le futur. Ils ont été soigneusement sélectionnés pour leur pertinence pratique et leur valeur pédagogique.</p>
+<p>Néanmoins, cette liste de sujets n’est pas exhaustive. Vous êtes libres et même encouragés à proposer vos propres idées de projets. Vos suggestions peuvent être envoyées par mail pour validation, afin de s’assurer de leur faisabilité et de leur adéquation avec les objectifs du cours. Bien que ce soit principalement un cours de programmation, les projets qui s’éloignent du domaine financier tout en intégrant les concepts abordés en cours sont également bienvenus.</p>
+<p>La date limite de soumission des projets est fixée au <strong>28 avril</strong>. Veuillez noter qu’un malus pour retard de soumission sera appliqué selon la formule suivante : (((x/25) - 1) %), où (x) représente le nombre de jours de retard.</p>
+<p>Les projets doivent être soumis par mail à remi.gnt@gmail.com. Il est préférable d’envoyer votre travail sous forme de fichier zip, mais un lien vers un Google Drive est également acceptable. Veuillez éviter les plateformes d’envoi telles que WeTransfer, qui ont une durée de téléchargement limitée.</p>
+<p>De plus, il est vivement conseillé de soumettre votre projet via GitHub. Envoyer un simple mail avec un lien vers votre projet GitHub ou m’inviter à rejoindre votre dépôt (username GitHub : remigenet) peut vous faire bénéficier de points bonus. Un point bonus sera attribué à chaque groupe soumettant sur GitHub, et deux points supplémentaires si l’utilisation de GitHub montre un travail d’équipe effectif tout au long du projet. Pour faciliter l’organisation, j’ai créé un espace sur GitHub pour regrouper les projets : <a href="https://github.com/L3-EIF-2023">https://github.com/L3-EIF-2023</a>. Vous pouvez demander à être ajouté à cette organisation et y déposer votre projet.</p>
+<p>Ce projet est également une excellente opportunité d’enrichir votre CV. Un travail de qualité, rendu public sur votre compte GitHub, démontre non seulement vos compétences en programmation, mais aussi votre capacité à travailler en équipe. Pour ceux qui cherchent bientôt une alternance, c’est un avantage considérable.</p>
+<p>Enfin, le poids du projets dans la note finale sera de 75% à 100%, en effet le QCM de cours ne sera pris en compte que si la note est supérieure à la note du projet.</p>
+</section>
+<section id="sujet-a-analyse-de-contrat-perpétuel-vs-spot-pour-position-longue" class="level2">
+<h2 class="anchored" data-anchor-id="sujet-a-analyse-de-contrat-perpétuel-vs-spot-pour-position-longue">Sujet A : Analyse de Contrat Perpétuel vs Spot pour Position Longue</h2>
+<section id="contexte-et-concepts-clés" class="level3">
+<h3 class="anchored" data-anchor-id="contexte-et-concepts-clés">Contexte et Concepts Clés</h3>
+<p>Dans le domaine des contrats dérivés, il est essentiel de comprendre que chaque contrat, qu’il s’agisse d’un future, d’un perpétuel, d’une option ou de toute autre structure plus exotique, représente un engagement entre deux parties. La valeur et, par conséquent, le prix d’échange de ces contrats sont déterminés par les termes et conditions spécifiques qu’ils contiennent.</p>
 <ul>
-<li><strong>Définition</strong>: Un design pattern en programmation orientée objet est une solution réutilisable à un problème couramment rencontré dans la conception logicielle.</li>
-<li><strong>Rôle des Design Patterns</strong>: Ils fournissent un cadre de référence pour résoudre des problèmes de conception similaires et améliorent la lisibilité et la maintenabilité du code.</li>
+<li><p><strong>Contrat Perpétuel vs Spot :</strong></p>
+<ul>
+<li><strong>Contrat Perpétuel :</strong> Ce type de contrat à terme, couramment utilisé dans les marchés de dérivés et en particulier dans les crypto-monnaies, se distingue des contrats à terme traditionnels par l’absence de date d’expiration. Son objectif principal est de suivre le prix du marché au comptant (spot). Pour ce faire, il utilise des taux de financement qui ajustent régulièrement son prix afin de le maintenir aligné avec le marché spot.</li>
+<li><strong>Taux de Financement :</strong> Ces taux jouent un rôle crucial dans la garantie que le prix du contrat perpétuel reste en adéquation avec le marché au comptant. Leur valeur peut varier, devenant positive ou négative en fonction de la dynamique du marché, notamment en situations de contango ou de backwardation.</li>
+<li><strong>Marché Spot :</strong> Il s’agit du marché où les actifs, comme le Bitcoin, sont échangés pour une livraison immédiate. La fongibilité de ce marché entre les différentes plateformes d’échange permet une grande flexibilité dans l’achat et la vente d’actifs.</li>
 </ul></li>
-<li><strong>Catégories des Design Patterns</strong>:
+<li><p><strong>Position Longue sur Contrat Dérivé :</strong> Prendre une position longue dans un contrat dérivé signifie s’engager à acheter un actif, basé sur la spéculation que la valeur de l’actif sous-jacent augmentera. Cette position est différente de l’achat direct d’actifs sur le marché spot.</p></li>
+<li><p><strong>Collatéral et Haircut :</strong></p>
 <ul>
-<li><strong>Patterns de Création</strong>: Concernent la manière de créer des objets tout en séparant la logique de construction de leur représentation.</li>
-<li><strong>Patterns Structurels</strong>: Se concentrent sur la composition des classes ou objets pour former des structures plus grandes.</li>
-<li><strong>Patterns Comportementaux</strong>: Traitent de la communication entre les objets et la répartition des responsabilités.</li>
+<li>Le collatéral est un élément clé dans la sécurisation des positions prises dans les contrats dérivés. Sa proportion requise peut varier selon la taille et le risque de la position.</li>
+<li>Le terme “haircut” appliqué au collatéral non-USD fait référence à la réduction de la valeur du collatéral pour compenser le risque de change associé.</li>
+</ul></li>
+</ul>
+<p>En résumé, la valeur intrinsèque d’un contrat dérivé découle des conditions spécifiques qu’il impose, avec le contrat perpétuel servant d’exemple principal où les taux de financement sont les clauses permettant de synchroniser son prix avec celui du marché spot.</p>
+</section>
+<section id="objectifs-et-applications-du-projet" class="level3">
+<h3 class="anchored" data-anchor-id="objectifs-et-applications-du-projet">Objectifs et Applications du Projet</h3>
+<p>L’objectif principal est de comparer les coûts d’une position longue sur un contrat perpétuel avec ceux de l’achat direct de l’actif sur le marché spot. Les aspects suivants seront pris en compte :</p>
+<ol type="1">
+<li><strong>Pour 2 Personnes :</strong>
+<ul>
+<li>Calcul sous l’hypothèse d’un besoin en liquidité équivalent à 25% en tant que collatéral (marge initiale). La comparaison inclura les éventuelles différences de prix entre le contrat perpétuel et le marché spot lors de l’ouverture et de la fermeture de la position, en tenant compte des taux de financement historiques.</li>
+</ul></li>
+<li><strong>Pour 3 Personnes :</strong>
+<ul>
+<li>Intégration des contraintes de couverture (en se basant sur celles d’une plateforme d’échange spécifique), avec une analyse des variations des exigences en collatéral en fonction de la taille de la position. Il sera également pris en compte le fait que la position sur le marché spot ne peut pas couvrir la position future, ainsi que les coûts de financement pour les USD engagés.</li>
+</ul></li>
+<li><strong>Pour 4 Personnes :</strong>
+<ul>
+<li>La récupération des données doit être intégrée dans les classes développées, avec la mise en œuvre d’un système de cache pour optimiser l’efficacité du traitement des données. L’objectif est de rendre l’utilisation de la classe aussi simple que possible pour l’utilisateur.</li>
+</ul></li>
+<li><strong>Pour 5 Personnes :</strong>
+<ul>
+<li>Analyse de la stratégie de cash and carry en utilisant un contrat perpétuel.</li>
+<li><strong>Stratégie de Cash and Carry avec Contrat Perpétuel :</strong> Cette approche implique la comparaison entre l’achat d’un actif sur le marché spot et sa vente simultanée via un contrat perpétuel, en comprenant les risques potentiels associés à cette stratégie.</li>
+</ul></li>
+<li><strong>Pour 6-7 Personnes :</strong>
+<ul>
+<li>En tenant compte de tous les éléments mentionnés précédemment, y compris les contraintes de collatéral imposées par l’exchange et un montant initial en dollars qui ne peut être augmenté, réaliser un backtest de la stratégie de cash and carry. Ce test prendra en compte la taille initiale de la position, qui dépendra du levier choisi initialement. En cas de rapprochement de la position courte sur le contrat perpétuel de sa marge de maintenance, simuler une réduction des positions par vente partielle sur le marché spot (réalisation des plus-values) et un rachat partiel sur le contrat dérivé (réalisation des moins-values), en utilisant un prix de clôture pour les deux positions basé sur le VWAP (Volume Weighted Average Price) sur une période où la participation au volume ne dépasse pas 10% du volume total.</li>
 </ul></li>
 </ol>
-<hr>
 </section>
-<section id="a---design-patterns-de-création" class="level2">
-<h2 class="anchored" data-anchor-id="a---design-patterns-de-création">A - Design Patterns de Création</h2>
-<ol type="1">
-<li><strong>Singleton</strong>:
-<ul>
-<li><strong>Principe</strong>: Assure qu’une classe n’a qu’une seule instance et fournit un point d’accès global à celle-ci.</li>
-<li><strong>Application en Python</strong>:</li>
-</ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Singleton:</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    _instance <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__new__</span>(cls):</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> cls._instance <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>            cls._instance <span class="op">=</span> <span class="bu">super</span>(Singleton, cls).<span class="fu">__new__</span>(cls)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> cls._instance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><strong>Factory Method</strong>:
-<ul>
-<li><strong>Principe</strong>: Définit une interface pour créer un objet, mais laisse les sous-classes décider quelle classe instancier.</li>
-<li><strong>Application en Python</strong>:</li>
-</ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Animal:</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> speak(<span class="va">self</span>):</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Dog(Animal):</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> speak(<span class="va">self</span>):</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Bark"</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Cat(Animal):</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> speak(<span class="va">self</span>):</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Meow"</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> AnimalFactory:</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_animal(<span class="va">self</span>, animal_type):</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> animal_type <span class="op">==</span> <span class="st">"dog"</span>:</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> Dog()</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> animal_type <span class="op">==</span> <span class="st">"cat"</span>:</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> Cat()</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>factory <span class="op">=</span> AnimalFactory()</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>dog <span class="op">=</span> factory.get_animal(<span class="st">"dog"</span>)</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dog.speak())  <span class="co"># Affiche "Bark"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ol>
-<hr>
 </section>
-<section id="b---design-patterns-structurels" class="level2">
-<h2 class="anchored" data-anchor-id="b---design-patterns-structurels">B - Design Patterns Structurels</h2>
-<ol type="1">
-<li><strong>Adapter</strong>:
+<section id="sujet-b-introduction-aux-concepts-clés-du-projet-de-backtester-pour-stratégies-dinvestissement" class="level2">
+<h2 class="anchored" data-anchor-id="sujet-b-introduction-aux-concepts-clés-du-projet-de-backtester-pour-stratégies-dinvestissement">Sujet B: Introduction aux Concepts Clés du Projet de Backtester pour Stratégies d’Investissement</h2>
+<section id="quest-ce-quun-backtest" class="level3">
+<h3 class="anchored" data-anchor-id="quest-ce-quun-backtest">Qu’est-ce qu’un Backtest ?</h3>
+<p>Un backtest est une méthode utilisée dans le domaine de la finance pour évaluer la viabilité et la performance d’une stratégie d’investissement. Cette technique implique de simuler la manière dont une stratégie aurait performé en utilisant des données historiques. Le but est de fournir un aperçu de la façon dont une stratégie aurait réagi dans différentes conditions de marché passées.</p>
+<section id="importance-du-backtest" class="level4">
+<h4 class="anchored" data-anchor-id="importance-du-backtest">Importance du Backtest</h4>
 <ul>
-<li><strong>Principe</strong>: Permet à des interfaces incompatibles de travailler ensemble. Il agit comme un intermédiaire entre deux classes non compatibles.</li>
-<li><strong>Application en Python</strong>:</li>
+<li><strong>Évaluation des Stratégies :</strong> Le backtest permet aux traders et aux investisseurs de tester leurs stratégies sur des données passées avant de les appliquer dans des conditions réelles de marché. C’est un outil essentiel pour identifier les forces et les faiblesses d’une stratégie avant son déploiement.</li>
+<li><strong>Réduction des Risques :</strong> En testant une stratégie sur des données historiques, les investisseurs peuvent mieux comprendre et gérer les risques potentiels.</li>
+<li><strong>Optimisation des Stratégies :</strong> Les résultats d’un backtest peuvent être utilisés pour affiner et améliorer une stratégie, en ajustant ses paramètres pour maximiser les rendements potentiels.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FrenchSpeaker:</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> greet(<span class="va">self</span>):</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Bonjour"</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> EnglishSpeaker:</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> greet(<span class="va">self</span>):</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Hello"</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TranslatorAdapter:</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, speaker):</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.speaker <span class="op">=</span> speaker</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> greet(<span class="va">self</span>):</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">isinstance</span>(<span class="va">self</span>.speaker, FrenchSpeaker):</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">self</span>.speaker.greet()</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="bu">isinstance</span>(<span class="va">self</span>.speaker, EnglishSpeaker):</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">self</span>.speaker.greet().replace(<span class="st">"Hello"</span>, <span class="st">"Bonjour"</span>)</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>french_speaker <span class="op">=</span> FrenchSpeaker()</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>english_speaker <span class="op">=</span> EnglishSpeaker()</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>translator <span class="op">=</span> TranslatorAdapter(english_speaker)</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(translator.greet())  <span class="co"># Affiche "Bonjour", traduit de "Hello"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><strong>Decorator</strong>:
-<ul>
-<li><strong>Principe</strong>: Permet d’ajouter dynamiquement de nouvelles fonctionnalités à un objet sans modifier sa structure.</li>
-<li><strong>Application en Python</strong>:</li>
-</ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bold_decorator(func):</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> wrapper():</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"&lt;b&gt;"</span> <span class="op">+</span> func() <span class="op">+</span> <span class="st">"&lt;/b&gt;"</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> wrapper</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">@bold_decorator</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> say_hello():</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"Hello"</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(say_hello())  <span class="co"># Affiche "&lt;b&gt;Hello&lt;/b&gt;"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ol>
-<hr>
 </section>
-<section id="c---design-patterns-comportementaux" class="level2">
-<h2 class="anchored" data-anchor-id="c---design-patterns-comportementaux">C - Design Patterns Comportementaux</h2>
+<section id="limites-du-backtest" class="level4">
+<h4 class="anchored" data-anchor-id="limites-du-backtest">Limites du Backtest</h4>
+<p>Bien que le backtest soit un outil puissant, il est important de reconnaître ses limites. Les résultats d’un backtest sont toujours basés sur des hypothèses et des simulations, et ne peuvent garantir des performances futures. Les limitations clés incluent :</p>
+<ul>
+<li><strong>Hypothèses de Simulation :</strong> Un backtest repose sur des hypothèses qui peuvent ne pas être entièrement représentatives des conditions réelles du marché.</li>
+<li><strong>Biais de Survie :</strong> Les données historiques peuvent exclure les actifs ou stratégies qui ont échoué dans le passé, conduisant à une perception faussée de la performance.</li>
+<li><strong>Changements du Marché :</strong> Les conditions de marché évoluent constamment, et une stratégie qui a réussi dans le passé pourrait ne pas être aussi efficace dans le futur en raison de changements dans les dynamiques du marché.</li>
+</ul>
+</section>
+<section id="objectif-du-projet" class="level4">
+<h4 class="anchored" data-anchor-id="objectif-du-projet">Objectif du Projet</h4>
+<p>Développer un backtester sous forme de classe, qui utilise une fonction prenant en entrée un historique de barres OHLCV (Open, High, Low, Close, Volume) et renvoyant la position d’une stratégie d’investissement.</p>
+</section>
+</section>
+<section id="objectifs-et-applications-du-projet-1" class="level3">
+<h3 class="anchored" data-anchor-id="objectifs-et-applications-du-projet-1">Objectifs et Applications du Projet</h3>
 <ol type="1">
-<li><strong>Observer</strong>:
+<li><p><strong>Pour 2 Personnes :</strong></p>
 <ul>
-<li><strong>Principe</strong>: Définit une dépendance entre objets de manière à ce que lorsque l’un change d’état, tous ses dépendants sont notifiés et mis à jour automatiquement.</li>
-<li><strong>Application en Python</strong>:</li>
-</ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Subject:</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._observers <span class="op">=</span> []</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> register_observer(<span class="va">self</span>, observer):</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._observers.append(observer)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> notify_observers(<span class="va">self</span>, message):</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> observer <span class="kw">in</span> <span class="va">self</span>._observers:</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            observer.notify(message)</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Observer:</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> notify(<span class="va">self</span>, message):</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(message)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>subject <span class="op">=</span> Subject()</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>observer <span class="op">=</span> Observer()</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>subject.register_observer(observer)</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>subject.notify_observers(<span class="st">"Notification"</span>)  <span class="co"># Affiche "Notification"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><strong>Strategy</strong>:
+<li><strong>Stockage Local des Données :</strong> Les données seront stockées localement et incluses dans le projet pour faciliter les tests.</li>
+<li><strong>Analyse d’Un Actif :</strong> Le backtester se concentrera sur un seul actif avec des positions variant entre -100% et 100%.</li>
+<li><strong>Résultats :</strong> Génération d’un graphique représentant la performance de la stratégie sur la période choisie, accompagné de statistiques de base telles que le rendement moyen, la variance, et le bêta.</li>
+</ul></li>
+<li><p><strong>Pour 3 Personnes (Option A) :</strong></p>
 <ul>
-<li><strong>Principe</strong>: Permet de définir une famille d’algorithmes, encapsule chacun d’eux et les rend interchangeables. La stratégie laisse l’algorithme varier indépendamment des clients qui l’utilisent.</li>
-<li><strong>Application en Python</strong>:</li>
+<li><strong>Stratégie sur Plusieurs Actifs :</strong> Extension du backtester pour accepter une fonction de stratégie applicable à plusieurs actifs.</li>
+<li><strong>Statistiques Avancées :</strong> Calcul de statistiques plus élaborées comme le bêta en hausse et en baisse, le drawdown maximal, s’inspirant de sources telles que Quantalys ou Morningstar.</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SortingStrategy:</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> sort(<span class="va">self</span>, data):</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">NotImplementedError</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> QuickSort(SortingStrategy):</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> sort(<span class="va">self</span>, data):</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Implémentation de QuickSort</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">sorted</span>(data)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BubbleSort(SortingStrategy):</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> sort(<span class="va">self</span>, data):</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Implémentation de BubbleSort</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">sorted</span>(data)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Context:</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, strategy):</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._strategy <span class="op">=</span> strategy</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> arrange(<span class="va">self</span>, data):</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._strategy.sort(data)</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>]</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>context <span class="op">=</span> Context(QuickSort())</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(context.arrange(data))  <span class="co"># Affiche la liste triée</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<p><strong>OU</strong></p>
+<p><strong>Pour 3 Personnes (Option B) :</strong></p>
+<ul>
+<li><strong>Téléchargement et Cache Asynchrone :</strong> Mise en place d’un système pour le téléchargement et le stockage en cache des données de manière asynchrone.</li>
+</ul></li>
+<li><p><strong>Pour 4 Personnes :</strong></p>
+<ul>
+<li>Combinaison des points mentionnés dans les options pour 3 personnes (Option A et B).</li>
+</ul></li>
+<li><p><strong>Pour 5 Personnes :</strong></p>
+<ul>
+<li><strong>Intégration des Crypto-monnaies :</strong> Ajout de la capacité à analyser les stratégies impliquant des contrats dérivés perpétuels ou futurs.</li>
+<li><strong>Spécificités des Dérivés :</strong>
+<ul>
+<li>Pour les contrats perpétuels, le calcul inclura le coût du taux de financement.</li>
+<li>Pour les contrats futurs, le calcul se basera sur le rollover, en utilisant le VWAP (Volume Weighted Average Price) sur une journée comme prix de rollover.</li>
+</ul></li>
+</ul></li>
 </ol>
 </section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Les design patterns en POO en Python jouent un rôle crucial dans la conception de logiciels efficaces, maintenables et évolutifs. Ils permettent aux développeurs de suivre des modèles éprouvés pour résoudre des problèmes communs de conception logicielle. Cette approche ne remplace pas la créativité dans la conception logicielle, mais fournit un langage commun et des solutions éprouvées pour des problèmes de conception courants.</p>
+</section>
+<section id="sujet-c-création-dun-simulateur-de-carnet-dordres" class="level2">
+<h2 class="anchored" data-anchor-id="sujet-c-création-dun-simulateur-de-carnet-dordres">Sujet C : Création d’un Simulateur de Carnet d’Ordres</h2>
+</section>
+</section>
+<section id="introduction-aux-concepts-clés-du-projet-de-simulateur-de-carnet-dordres" class="level1">
+<h1>Introduction aux Concepts Clés du Projet de Simulateur de Carnet d’Ordres</h1>
+<section id="quest-ce-quun-carnet-dordres" class="level2">
+<h2 class="anchored" data-anchor-id="quest-ce-quun-carnet-dordres">Qu’est-ce qu’un Carnet d’Ordres ?</h2>
+<p>Un carnet d’ordres est un outil essentiel dans le fonctionnement des marchés financiers, particulièrement dans les marchés électroniques. Il représente une liste organisée d’ordres d’achat et de vente pour un actif spécifique, montrant la profondeur de marché et les niveaux de prix auxquels les participants sont prêts à acheter ou vendre.</p>
+<section id="importance-du-carnet-dordres" class="level3">
+<h3 class="anchored" data-anchor-id="importance-du-carnet-dordres">Importance du Carnet d’Ordres</h3>
+<ul>
+<li><strong>Transparence du Marché :</strong> Le carnet d’ordres offre une vue transparente sur la liquidité du marché, les intérêts d’achat et de vente, et aide à déterminer le prix de marché actuel d’un actif.</li>
+<li><strong>Décisions de Trading :</strong> Les traders utilisent les informations du carnet d’ordres pour prendre des décisions éclairées, en analysant la profondeur du marché et les tendances des ordres.</li>
+</ul>
+</section>
+<section id="marchés-électroniques" class="level3">
+<h3 class="anchored" data-anchor-id="marchés-électroniques">Marchés Électroniques</h3>
+<p>Dans les marchés électroniques modernes, les carnets d’ordres sont entièrement numérisés. Ils permettent un traitement rapide des ordres et une mise à jour en temps réel, ce qui est crucial pour la dynamique rapide des marchés financiers actuels.</p>
+</section>
+<section id="le-fixing" class="level3">
+<h3 class="anchored" data-anchor-id="le-fixing">Le Fixing</h3>
+<p>Le fixing est un processus utilisé pour déterminer les prix d’ouverture et de fermeture des actifs sur les marchés financiers. Il est particulièrement important dans les marchés où le trading n’est pas continu, comme certains marchés européens. Le fixing garantit un prix équitable basé sur l’ensemble des ordres disponibles à un moment donné.</p>
+</section>
+<section id="concepts-clés-à-explorer-dans-le-projet" class="level3">
+<h3 class="anchored" data-anchor-id="concepts-clés-à-explorer-dans-le-projet">Concepts Clés à Explorer dans le Projet</h3>
+<ul>
+<li><strong>Tick et Lot :</strong>
+<ul>
+<li><strong>Tick :</strong> C’est le plus petit mouvement de prix possible pour un actif. Il joue un rôle crucial dans la détermination des variations de prix dans le carnet d’ordres.</li>
+<li><strong>Lot :</strong> Représente la quantité minimale ou un multiple d’un actif pouvant être échangé. Cela affecte la façon dont les ordres sont placés et exécutés dans le carnet d’ordres.</li>
+</ul></li>
+<li><strong>Rôles de Maker et Taker :</strong>
+<ul>
+<li><strong>Maker :</strong> Un participant du marché qui fournit de la liquidité en plaçant des ordres qui ne sont pas immédiatement exécutés (ordres limites).</li>
+<li><strong>Taker :</strong> Un participant qui retire de la liquidité en exécutant immédiatement contre des ordres existants (ordres au marché).</li>
+</ul></li>
+</ul>
+</section>
+<section id="objectifs-et-applications-du-projet-2" class="level3">
+<h3 class="anchored" data-anchor-id="objectifs-et-applications-du-projet-2">Objectifs et Applications du Projet</h3>
+<ol type="1">
+<li><strong>Pour 2 Personnes :</strong>
+<ul>
+<li><strong>Développement d’une Classe :</strong> Création d’une classe en programmation permettant l’ajout et l’annulation d’ordres par participant, respectant les principes d’un carnet d’ordres continu.</li>
+<li><strong>Exemple d’Utilisation :</strong> Fournir un exemple concret d’utilisation de la classe.</li>
+</ul></li>
+<li><strong>Pour 3 Personnes :</strong>
+<ul>
+<li><strong>Système de Fixing :</strong> Ajout d’un mécanisme de fixing efficace pour simuler les fixings d’ouverture et de fermeture, comme cela se fait sur les marchés européens.</li>
+</ul></li>
+<li><strong>Pour 4 Personnes :</strong>
+<ul>
+<li><strong>Récupération de Snapshot :</strong> Intégration d’une fonctionnalité pour récupérer automatiquement un instantané (snapshot) du carnet d’ordres de Binance et utiliser cet état comme point de départ dans la classe.</li>
+</ul></li>
+<li><strong>Pour 5 Personnes :</strong>
+<ul>
+<li><strong>Simulation du Carnet d’Ordres :</strong> Création de simulations basées sur des distributions de probabilité pour prédire l’évolution du carnet d’ordres dans les secondes ou minutes suivantes.</li>
+</ul></li>
+<li><strong>Pour 6 Personnes :</strong>
+<ul>
+<li><strong>Optimisation du Placement des Ordres :</strong> Utilisation de la classe développée pour déterminer le meilleur prix pour un ordre en tenant compte des frais de transaction pour les positions maker et taker.</li>
+</ul></li>
+<li><strong>Pour 7 Personnes :</strong>
+<ul>
+<li><strong>Analyse de l’Impact du Spread et des Frais :</strong> Étude de l’effet du spread et des frais sur le placement optimal des ordres.</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="sujet-d-option-et-volatilité-sur-les-crypto-monnaies" class="level2">
+<h2 class="anchored" data-anchor-id="sujet-d-option-et-volatilité-sur-les-crypto-monnaies">Sujet D : Option et Volatilité sur les Crypto-monnaies</h2>
+</section>
+<section id="concepts-clés-à-explorer-dans-le-projet-sur-les" class="level2">
+<h2 class="anchored" data-anchor-id="concepts-clés-à-explorer-dans-le-projet-sur-les">Concepts Clés à Explorer dans le Projet sur les</h2>
+<section id="volatilité-implicite" class="level3">
+<h3 class="anchored" data-anchor-id="volatilité-implicite">1. Volatilité Implicite</h3>
+<p>La volatilité implicite est un concept fondamental dans le monde des options. Elle représente les attentes du marché concernant la volatilité future de l’actif sous-jacent à l’option. Crucialement, la volatilité implicite n’est pas directement observable ; elle est plutôt déduite du prix actuel de l’option en utilisant des modèles de tarification. Cela la rend distincte de la volatilité historique, qui est basée sur les variations passées du prix de l’actif. Comprendre la volatilité implicite est vital pour évaluer correctement le prix d’une option et anticiper les mouvements potentiels du marché.</p>
+</section>
+<section id="stratégie-de-vente-doptions" class="level3">
+<h3 class="anchored" data-anchor-id="stratégie-de-vente-doptions">2. Stratégie de Vente d’Options</h3>
+<p>La vente d’options implique une série de décisions stratégiques basées sur la volatilité et les attentes du marché. En vendant une option, le vendeur assume l’obligation de vendre (dans le cas d’un call) ou d’acheter (dans le cas d’un put) l’actif sous-jacent à un prix déterminé (strike price), si l’acheteur de l’option choisit de l’exercer. Les vendeurs d’options doivent évaluer soigneusement le niveau approprié de volatilité implicite et le prix de l’option pour gérer le risque et maximiser le profit. Ils doivent également tenir compte de la probabilité que l’option soit exercée et des conséquences potentielles sur leur portefeuille d’investissement.</p>
+</section>
+<section id="modèle-de-black-scholes-et-simulations-de-monte-carlo" class="level3">
+<h3 class="anchored" data-anchor-id="modèle-de-black-scholes-et-simulations-de-monte-carlo">3. Modèle de Black-Scholes et Simulations de Monte Carlo</h3>
+<p>Le modèle de Black-Scholes est une formule mathématique célèbre pour déterminer le prix théorique des options d’achat et de vente. Ce modèle prend en compte divers facteurs, notamment le prix actuel de l’actif sous-jacent, le prix d’exercice de l’option (strike price), le temps restant jusqu’à l’échéance, la volatilité de l’actif sous-jacent et le taux d’intérêt sans risque. En parallèle, les simulations de Monte Carlo sont des techniques utilisées pour modéliser et comprendre le comportement des options dans divers scénarios de marché. Ces simulations permettent de générer une gamme de résultats potentiels en variant les entrées (comme la volatilité et les taux de mouvement des prix) pour évaluer la probabilité de différents résultats et mieux comprendre les risques et opportunités associés à une option donnée.</p>
+</section>
+<section id="objectifs-et-applications-du-projet-3" class="level3">
+<h3 class="anchored" data-anchor-id="objectifs-et-applications-du-projet-3">Objectifs et Applications du Projet</h3>
+<ol type="1">
+<li><strong>Pour 2 Personnes :</strong></li>
+</ol>
+<ul>
+<li><strong>Création d’une Classe pour le Calcul du Prix d’Option :</strong>
+<ul>
+<li>Objectif : Développer une classe capable de calculer le prix d’une option en fonction de sa volatilité implicite, du strike price, du dernier prix, et de l’échéance. Le taux sans risque sera considéré comme étant de 0%.</li>
+<li>Méthodes d’Implémentation : Intégrer la méthode de Black-Scholes pour la tarification des options et effectuer des simulations de Monte Carlo pour analyser divers scénarios de marché.</li>
+</ul></li>
+</ul>
+<ol start="2" type="1">
+<li><strong>Pour 3 Personnes :</strong></li>
+</ol>
+<ul>
+<li><strong>Simulation du PnL d’un Vendeur d’Options :</strong>
+<ul>
+<li>Utiliser des données historiques d’au moins un an pour simuler le PnL (Profit and Loss) d’un participant vendant des calls et des puts. Explorer différentes approches de volatilité, incluant la volatilité historique constante, la volatilité sur une fenêtre glissante, et la valeur absolue du rendement sur la période précédente.</li>
+<li>Hypothèses de Backtest : Consistera à vendre ou acheter le même montant notionnel tous les jours, en fixant les strike prices à un pourcentage spécifique du prix courant de l’actif.</li>
+</ul></li>
+</ul>
+<ol start="3" type="1">
+<li><strong>Pour 4 Personnes :</strong></li>
+</ol>
+<ul>
+<li><strong>Meilleur Prix et Performance :</strong>
+<ul>
+<li>Répéter la simulation de PnL en ajoutant un élément de compétition pour déterminer qui offre le meilleur prix chaque jour. Analyser et comparer les performances en fonction des prix proposés.</li>
+</ul></li>
+</ul>
+<ol start="4" type="1">
+<li><strong>Pour 5 Personnes :</strong></li>
+</ol>
+<ul>
+<li><strong>Analyse Avancée de la Volatilité :</strong>
+<ul>
+<li>Réaliser une analyse approfondie de la volatilité, en utilisant des méthodes statistiques, économétriques ou de machine learning. Examiner des facteurs tels que la saisonnalité hebdomadaire, l’autorégressivité, et effectuer des régressions linéaires en corrélation avec d’autres actifs financiers.</li>
+</ul></li>
+</ul>
+<ol start="5" type="1">
+<li><strong>Pour 6 Personnes :</strong></li>
+</ol>
+<ul>
+<li><strong>Performance dans un Environnement Concurrentiel :</strong>
+<ul>
+<li>Appliquer et tester la stratégie développée dans un contexte de marché simulé avec d’autres participants fictifs. Analyser la performance de la stratégie en considérant soit un investissement fixe de 10 000 $, soit en utilisant une approche d’intérêts composés avec réinvestissement des gains ou des pertes.</li>
+</ul></li>
+</ul>
 
 
+</section>
 </section>
 </section>
 
@@ -1230,14 +1269,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../../content/Cours_5/2-POO_le_retour.html" class="pagination-link  aria-label=" python="" orienté="" objet="" -="" les="" dunders"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Python Orienté Objet - Les Dunders</span>
+      <a href="../../content/Projets/index.html" class="pagination-link  aria-label=" projets"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Projets</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../content/Cours_5/TP5.html" class="pagination-link" aria-label="TP-5">
-        <span class="nav-page-text">TP-5</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
