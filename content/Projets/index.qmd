@@ -1,4 +1,5 @@
 ---
+title: "Projets"
 toc: false
 sidebar: false
 title-block-style: none
@@ -12,5 +13,4 @@ categories:
   - WebSiteArchitecture
 ---
 
-
-# {{< animate backInDown Projets >}} 
+# {{< animate backInDown "Les cours de cette partie sont:" >}} 

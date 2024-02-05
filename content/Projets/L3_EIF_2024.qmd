@@ -1,0 +1,225 @@
+---
+title: "Projets Introduction à Python - Millésime 2024"
+weight: 10
+tags:
+  - Pandas
+  - Bases
+  - Libraries
+  - Cours
+categories:
+  - Cours
+  - Fondamentaux
+type: book
+description: ""
+image: .img/projet.webp
+code-links: binder
+---
+
+# Introduction à Python - Millésime 2024
+
+---
+
+
+## Introduction
+
+Dans le cadre de votre formation en L3 Économie et Ingénierie Financière, une série de sujets de projets vous sont proposés. Ces projets visent à consolider vos connaissances théoriques et à développer vos compétences pratiques. Ces projets sont conçus pour renforcer vos connaissances théoriques tout en développant vos compétences pratiques. Ils représentent une occasion précieuse de vous préparer aux défis réels que vous rencontrerez dans votre future carrière professionnelle.
+
+Vous êtes encouragés à choisir un sujet qui correspond à vos intérêts personnels et à vos aspirations professionnelles. Les thèmes proposés couvrent une variété de domaines, reflétant ainsi les diverses opportunités qui pourraient se présenter à vous dans le futur. Ils ont été soigneusement sélectionnés pour leur pertinence pratique et leur valeur pédagogique.
+
+Néanmoins, cette liste de sujets n'est pas exhaustive. Vous êtes libres et même encouragés à proposer vos propres idées de projets. Vos suggestions peuvent être envoyées par mail pour validation, afin de s'assurer de leur faisabilité et de leur adéquation avec les objectifs du cours. Bien que ce soit principalement un cours de programmation, les projets qui s'éloignent du domaine financier tout en intégrant les concepts abordés en cours sont également bienvenus.
+
+La date limite de soumission des projets est fixée au **28 avril**. Veuillez noter qu'un malus pour retard de soumission sera appliqué selon la formule suivante : \((\exp(x/25) - 1) \times 100\%\), où \(x\) représente le nombre de jours de retard.
+
+Les projets doivent être soumis par mail à remi.gnt@gmail.com. Il est préférable d'envoyer votre travail sous forme de fichier zip, mais un lien vers un Google Drive est également acceptable. Veuillez éviter les plateformes d'envoi telles que WeTransfer, qui ont une durée de téléchargement limitée.
+
+De plus, il est vivement conseillé de soumettre votre projet via GitHub. Envoyer un simple mail avec un lien vers votre projet GitHub ou m'inviter à rejoindre votre dépôt (username GitHub : remigenet) peut vous faire bénéficier de points bonus. Un point bonus sera attribué à chaque groupe soumettant sur GitHub, et deux points supplémentaires si l'utilisation de GitHub montre un travail d'équipe effectif tout au long du projet. Pour faciliter l'organisation, j'ai créé un espace sur GitHub pour regrouper les projets : [https://github.com/L3-EIF-2023](https://github.com/L3-EIF-2023). Vous pouvez demander à être ajouté à cette organisation et y déposer votre projet.
+
+Ce projet est également une excellente opportunité d'enrichir votre CV. Un travail de qualité, rendu public sur votre compte GitHub, démontre non seulement vos compétences en programmation, mais aussi votre capacité à travailler en équipe. Pour ceux qui cherchent bientôt une alternance, c'est un avantage considérable.
+
+Enfin, le poids du projets dans la note finale sera de 75% à 100%, en effet le QCM de cours ne sera pris en compte que si la note est supérieure à la note du projet. 
+
+## Sujet A : Analyse de Contrat Perpétuel vs Spot pour Position Longue
+
+### Contexte et Concepts Clés
+
+Dans le domaine des contrats dérivés, il est essentiel de comprendre que chaque contrat, qu'il s'agisse d'un future, d'un perpétuel, d'une option ou de toute autre structure plus exotique, représente un engagement entre deux parties. La valeur et, par conséquent, le prix d'échange de ces contrats sont déterminés par les termes et conditions spécifiques qu'ils contiennent.
+
+- **Contrat Perpétuel vs Spot :** 
+  - **Contrat Perpétuel :** Ce type de contrat à terme, couramment utilisé dans les marchés de dérivés et en particulier dans les crypto-monnaies, se distingue des contrats à terme traditionnels par l'absence de date d'expiration. Son objectif principal est de suivre le prix du marché au comptant (spot). Pour ce faire, il utilise des taux de financement qui ajustent régulièrement son prix afin de le maintenir aligné avec le marché spot.
+  - **Taux de Financement :** Ces taux jouent un rôle crucial dans la garantie que le prix du contrat perpétuel reste en adéquation avec le marché au comptant. Leur valeur peut varier, devenant positive ou négative en fonction de la dynamique du marché, notamment en situations de contango ou de backwardation.
+  - **Marché Spot :** Il s'agit du marché où les actifs, comme le Bitcoin, sont échangés pour une livraison immédiate. La fongibilité de ce marché entre les différentes plateformes d'échange permet une grande flexibilité dans l'achat et la vente d'actifs.
+
+- **Position Longue sur Contrat Dérivé :** 
+  Prendre une position longue dans un contrat dérivé signifie s'engager à acheter un actif, basé sur la spéculation que la valeur de l'actif sous-jacent augmentera. Cette position est différente de l'achat direct d'actifs sur le marché spot.
+
+- **Collatéral et Haircut :**
+  - Le collatéral est un élément clé dans la sécurisation des positions prises dans les contrats dérivés. Sa proportion requise peut varier selon la taille et le risque de la position.
+  - Le terme "haircut" appliqué au collatéral non-USD fait référence à la réduction de la valeur du collatéral pour compenser le risque de change associé.
+
+En résumé, la valeur intrinsèque d'un contrat dérivé découle des conditions spécifiques qu'il impose, avec le contrat perpétuel servant d'exemple principal où les taux de financement sont les clauses permettant de synchroniser son prix avec celui du marché spot.
+
+
+### Objectifs et Applications du Projet
+
+L'objectif principal est de comparer les coûts d'une position longue sur un contrat perpétuel avec ceux de l'achat direct de l'actif sur le marché spot. Les aspects suivants seront pris en compte :
+
+1. **Pour 2 Personnes :**
+   - Calcul sous l'hypothèse d'un besoin en liquidité équivalent à 25% en tant que collatéral (marge initiale). La comparaison inclura les éventuelles différences de prix entre le contrat perpétuel et le marché spot lors de l'ouverture et de la fermeture de la position, en tenant compte des taux de financement historiques.
+
+2. **Pour 3 Personnes :**
+   - Intégration des contraintes de couverture (en se basant sur celles d'une plateforme d'échange spécifique), avec une analyse des variations des exigences en collatéral en fonction de la taille de la position. Il sera également pris en compte le fait que la position sur le marché spot ne peut pas couvrir la position future, ainsi que les coûts de financement pour les USD engagés.
+
+3. **Pour 4 Personnes :**
+   - La récupération des données doit être intégrée dans les classes développées, avec la mise en œuvre d'un système de cache pour optimiser l'efficacité du traitement des données. L'objectif est de rendre l'utilisation de la classe aussi simple que possible pour l'utilisateur.
+
+4. **Pour 5 Personnes :**
+   - Analyse de la stratégie de cash and carry en utilisant un contrat perpétuel.
+   - **Stratégie de Cash and Carry avec Contrat Perpétuel :** Cette approche implique la comparaison entre l'achat d'un actif sur le marché spot et sa vente simultanée via un contrat perpétuel, en comprenant les risques potentiels associés à cette stratégie.
+
+5. **Pour 6-7 Personnes :**
+   - En tenant compte de tous les éléments mentionnés précédemment, y compris les contraintes de collatéral imposées par l'exchange et un montant initial en dollars qui ne peut être augmenté, réaliser un backtest de la stratégie de cash and carry. Ce test prendra en compte la taille initiale de la position, qui dépendra du levier choisi initialement. En cas de rapprochement de la position courte sur le contrat perpétuel de sa marge de maintenance, simuler une réduction des positions par vente partielle sur le marché spot (réalisation des plus-values) et un rachat partiel sur le contrat dérivé (réalisation des moins-values), en utilisant un prix de clôture pour les deux positions basé sur le VWAP (Volume Weighted Average Price) sur une période où la participation au volume ne dépasse pas 10% du volume total.
+
+
+## Sujet B: Introduction aux Concepts Clés du Projet de Backtester pour Stratégies d'Investissement
+
+### Qu'est-ce qu'un Backtest ?
+
+Un backtest est une méthode utilisée dans le domaine de la finance pour évaluer la viabilité et la performance d'une stratégie d'investissement. Cette technique implique de simuler la manière dont une stratégie aurait performé en utilisant des données historiques. Le but est de fournir un aperçu de la façon dont une stratégie aurait réagi dans différentes conditions de marché passées.
+
+#### Importance du Backtest
+
+- **Évaluation des Stratégies :** Le backtest permet aux traders et aux investisseurs de tester leurs stratégies sur des données passées avant de les appliquer dans des conditions réelles de marché. C'est un outil essentiel pour identifier les forces et les faiblesses d'une stratégie avant son déploiement.
+- **Réduction des Risques :** En testant une stratégie sur des données historiques, les investisseurs peuvent mieux comprendre et gérer les risques potentiels.
+- **Optimisation des Stratégies :** Les résultats d'un backtest peuvent être utilisés pour affiner et améliorer une stratégie, en ajustant ses paramètres pour maximiser les rendements potentiels.
+
+#### Limites du Backtest
+
+Bien que le backtest soit un outil puissant, il est important de reconnaître ses limites. Les résultats d'un backtest sont toujours basés sur des hypothèses et des simulations, et ne peuvent garantir des performances futures. Les limitations clés incluent :
+
+- **Hypothèses de Simulation :** Un backtest repose sur des hypothèses qui peuvent ne pas être entièrement représentatives des conditions réelles du marché.
+- **Biais de Survie :** Les données historiques peuvent exclure les actifs ou stratégies qui ont échoué dans le passé, conduisant à une perception faussée de la performance.
+- **Changements du Marché :** Les conditions de marché évoluent constamment, et une stratégie qui a réussi dans le passé pourrait ne pas être aussi efficace dans le futur en raison de changements dans les dynamiques du marché.
+
+#### Objectif du Projet
+
+Développer un backtester sous forme de classe, qui utilise une fonction prenant en entrée un historique de barres OHLCV (Open, High, Low, Close, Volume) et renvoyant la position d'une stratégie d'investissement.
+
+### Objectifs et Applications du Projet
+
+1. **Pour 2 Personnes :**
+   - **Stockage Local des Données :** Les données seront stockées localement et incluses dans le projet pour faciliter les tests.
+   - **Analyse d'Un Actif :** Le backtester se concentrera sur un seul actif avec des positions variant entre -100% et 100%.
+   - **Résultats :** Génération d'un graphique représentant la performance de la stratégie sur la période choisie, accompagné de statistiques de base telles que le rendement moyen, la variance, et le bêta.
+
+2. **Pour 3 Personnes (Option A) :**
+   - **Stratégie sur Plusieurs Actifs :** Extension du backtester pour accepter une fonction de stratégie applicable à plusieurs actifs.
+   - **Statistiques Avancées :** Calcul de statistiques plus élaborées comme le bêta en hausse et en baisse, le drawdown maximal, s'inspirant de sources telles que Quantalys ou Morningstar.
+
+   **OU**
+
+   **Pour 3 Personnes (Option B) :**
+   - **Téléchargement et Cache Asynchrone :** Mise en place d'un système pour le téléchargement et le stockage en cache des données de manière asynchrone.
+
+3. **Pour 4 Personnes :**
+   - Combinaison des points mentionnés dans les options pour 3 personnes (Option A et B).
+
+4. **Pour 5 Personnes :**
+   - **Intégration des Crypto-monnaies :** Ajout de la capacité à analyser les stratégies impliquant des contrats dérivés perpétuels ou futurs.
+   - **Spécificités des Dérivés :**
+     - Pour les contrats perpétuels, le calcul inclura le coût du taux de financement.
+     - Pour les contrats futurs, le calcul se basera sur le rollover, en utilisant le VWAP (Volume Weighted Average Price) sur une journée comme prix de rollover.
+
+
+
+## Sujet C : Création d'un Simulateur de Carnet d'Ordres
+
+# Introduction aux Concepts Clés du Projet de Simulateur de Carnet d'Ordres
+
+## Qu'est-ce qu'un Carnet d'Ordres ?
+
+Un carnet d'ordres est un outil essentiel dans le fonctionnement des marchés financiers, particulièrement dans les marchés électroniques. Il représente une liste organisée d'ordres d'achat et de vente pour un actif spécifique, montrant la profondeur de marché et les niveaux de prix auxquels les participants sont prêts à acheter ou vendre.
+
+### Importance du Carnet d'Ordres
+
+- **Transparence du Marché :** Le carnet d'ordres offre une vue transparente sur la liquidité du marché, les intérêts d'achat et de vente, et aide à déterminer le prix de marché actuel d'un actif.
+- **Décisions de Trading :** Les traders utilisent les informations du carnet d'ordres pour prendre des décisions éclairées, en analysant la profondeur du marché et les tendances des ordres.
+
+### Marchés Électroniques
+
+Dans les marchés électroniques modernes, les carnets d'ordres sont entièrement numérisés. Ils permettent un traitement rapide des ordres et une mise à jour en temps réel, ce qui est crucial pour la dynamique rapide des marchés financiers actuels.
+
+### Le Fixing
+
+Le fixing est un processus utilisé pour déterminer les prix d'ouverture et de fermeture des actifs sur les marchés financiers. Il est particulièrement important dans les marchés où le trading n'est pas continu, comme certains marchés européens. Le fixing garantit un prix équitable basé sur l'ensemble des ordres disponibles à un moment donné.
+
+### Concepts Clés à Explorer dans le Projet
+
+- **Tick et Lot :** 
+  - **Tick :** C'est le plus petit mouvement de prix possible pour un actif. Il joue un rôle crucial dans la détermination des variations de prix dans le carnet d'ordres.
+  - **Lot :** Représente la quantité minimale ou un multiple d'un actif pouvant être échangé. Cela affecte la façon dont les ordres sont placés et exécutés dans le carnet d'ordres.
+
+- **Rôles de Maker et Taker :** 
+  - **Maker :** Un participant du marché qui fournit de la liquidité en plaçant des ordres qui ne sont pas immédiatement exécutés (ordres limites).
+  - **Taker :** Un participant qui retire de la liquidité en exécutant immédiatement contre des ordres existants (ordres au marché).
+
+
+### Objectifs et Applications du Projet
+
+1. **Pour 2 Personnes :**
+   - **Développement d'une Classe :** Création d'une classe en programmation permettant l'ajout et l'annulation d'ordres par participant, respectant les principes d'un carnet d'ordres continu.
+   - **Exemple d'Utilisation :** Fournir un exemple concret d'utilisation de la classe.
+
+2. **Pour 3 Personnes :**
+   - **Système de Fixing :** Ajout d'un mécanisme de fixing efficace pour simuler les fixings d'ouverture et de fermeture, comme cela se fait sur les marchés européens.
+
+3. **Pour 4 Personnes :**
+   - **Récupération de Snapshot :** Intégration d'une fonctionnalité pour récupérer automatiquement un instantané (snapshot) du carnet d'ordres de Binance et utiliser cet état comme point de départ dans la classe.
+
+4. **Pour 5 Personnes :**
+   - **Simulation du Carnet d'Ordres :** Création de simulations basées sur des distributions de probabilité pour prédire l'évolution du carnet d'ordres dans les secondes ou minutes suivantes.
+
+5. **Pour 6 Personnes :**
+   - **Optimisation du Placement des Ordres :** Utilisation de la classe développée pour déterminer le meilleur prix pour un ordre en tenant compte des frais de transaction pour les positions maker et taker.
+
+6. **Pour 7 Personnes :**
+   - **Analyse de l'Impact du Spread et des Frais :** Étude de l'effet du spread et des frais sur le placement optimal des ordres.
+  
+
+## Sujet D : Option et Volatilité sur les Crypto-monnaies 
+
+
+## Concepts Clés à Explorer dans le Projet sur les 
+
+### 1. Volatilité Implicite
+La volatilité implicite est un concept fondamental dans le monde des options. Elle représente les attentes du marché concernant la volatilité future de l'actif sous-jacent à l'option. Crucialement, la volatilité implicite n'est pas directement observable ; elle est plutôt déduite du prix actuel de l'option en utilisant des modèles de tarification. Cela la rend distincte de la volatilité historique, qui est basée sur les variations passées du prix de l'actif. Comprendre la volatilité implicite est vital pour évaluer correctement le prix d'une option et anticiper les mouvements potentiels du marché.
+
+### 2. Stratégie de Vente d'Options
+La vente d'options implique une série de décisions stratégiques basées sur la volatilité et les attentes du marché. En vendant une option, le vendeur assume l'obligation de vendre (dans le cas d'un call) ou d'acheter (dans le cas d'un put) l'actif sous-jacent à un prix déterminé (strike price), si l'acheteur de l'option choisit de l'exercer. Les vendeurs d'options doivent évaluer soigneusement le niveau approprié de volatilité implicite et le prix de l'option pour gérer le risque et maximiser le profit. Ils doivent également tenir compte de la probabilité que l'option soit exercée et des conséquences potentielles sur leur portefeuille d'investissement.
+
+### 3. Modèle de Black-Scholes et Simulations de Monte Carlo
+Le modèle de Black-Scholes est une formule mathématique célèbre pour déterminer le prix théorique des options d'achat et de vente. Ce modèle prend en compte divers facteurs, notamment le prix actuel de l'actif sous-jacent, le prix d'exercice de l'option (strike price), le temps restant jusqu'à l'échéance, la volatilité de l'actif sous-jacent et le taux d'intérêt sans risque. En parallèle, les simulations de Monte Carlo sont des techniques utilisées pour modéliser et comprendre le comportement des options dans divers scénarios de marché. Ces simulations permettent de générer une gamme de résultats potentiels en variant les entrées (comme la volatilité et les taux de mouvement des prix) pour évaluer la probabilité de différents résultats et mieux comprendre les risques et opportunités associés à une option donnée.
+
+### Objectifs et Applications du Projet
+
+1. **Pour 2 Personnes :**
+- **Création d'une Classe pour le Calcul du Prix d'Option :**
+  - Objectif : Développer une classe capable de calculer le prix d'une option en fonction de sa volatilité implicite, du strike price, du dernier prix, et de l'échéance. Le taux sans risque sera considéré comme étant de 0%.
+  - Méthodes d'Implémentation : Intégrer la méthode de Black-Scholes pour la tarification des options et effectuer des simulations de Monte Carlo pour analyser divers scénarios de marché.
+
+2. **Pour 3 Personnes :**
+- **Simulation du PnL d'un Vendeur d'Options :**
+  - Utiliser des données historiques d'au moins un an pour simuler le PnL (Profit and Loss) d'un participant vendant des calls et des puts. Explorer différentes approches de volatilité, incluant la volatilité historique constante, la volatilité sur une fenêtre glissante, et la valeur absolue du rendement sur la période précédente.
+  - Hypothèses de Backtest : Consistera à vendre ou acheter le même montant notionnel tous les jours, en fixant les strike prices à un pourcentage spécifique du prix courant de l'actif.
+
+3. **Pour 4 Personnes :**
+- **Meilleur Prix et Performance :**
+  - Répéter la simulation de PnL en ajoutant un élément de compétition pour déterminer qui offre le meilleur prix chaque jour. Analyser et comparer les performances en fonction des prix proposés.
+
+4. **Pour 5 Personnes :**
+- **Analyse Avancée de la Volatilité :**
+  - Réaliser une analyse approfondie de la volatilité, en utilisant des méthodes statistiques, économétriques ou de machine learning. Examiner des facteurs tels que la saisonnalité hebdomadaire, l'autorégressivité, et effectuer des régressions linéaires en corrélation avec d'autres actifs financiers.
+
+5. **Pour 6 Personnes :**
+- **Performance dans un Environnement Concurrentiel :**
+  - Appliquer et tester la stratégie développée dans un contexte de marché simulé avec d'autres participants fictifs. Analyser la performance de la stratégie en considérant soit un investissement fixe de 10 000 $, soit en utilisant une approche d'intérêts composés avec réinvestissement des gains ou des pertes.
+

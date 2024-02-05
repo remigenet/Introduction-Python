@@ -109,8 +109,11 @@ website:
          expanded: false
          contents:
          - content/Cours_5/TP5.qmd
-    - id: projects 
+    - id: projects
       title: "Sujets de Projets possibles"
+      contents: 
+       - content/Projets/index.qmd
+       - content/Projets/L3_EIF_2024.qmd
 
         
   repo-url: https://github.com/remigenet/Introduction-Python
