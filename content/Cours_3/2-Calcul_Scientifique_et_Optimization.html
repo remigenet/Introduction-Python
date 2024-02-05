@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Remi Genet">
-<meta name="dcterms.date" content="2024-02-04">
+<meta name="dcterms.date" content="2024-02-05">
 <meta name="description" content="Numpy, Scipy, pour ne cité qu’eux">
 
 <title>Introduction à Python - Calcul Scientifique et Optimization</title>
@@ -121,10 +121,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta property="og:image:width" content="303">
 <meta name="citation_title" content="Calcul Scientifique et Optimization">
 <meta name="citation_author" content="Remi Genet">
-<meta name="citation_publication_date" content="2024-02-04">
-<meta name="citation_cover_date" content="2024-02-04">
+<meta name="citation_publication_date" content="2024-02-05">
+<meta name="citation_cover_date" content="2024-02-05">
 <meta name="citation_year" content="2024">
-<meta name="citation_online_date" content="2024-02-04">
+<meta name="citation_online_date" content="2024-02-05">
 <meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Introduction-Python//content/Cours_3/2-Calcul_Scientifique_et_Optimization.html">
 <meta name="citation_language" content="en">
 </head>
@@ -549,7 +549,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-02-04</p>
+      <p class="date">2024-02-05</p>
     </div>
   </div>
   
@@ -576,26 +576,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li><strong>Tableaux Multidimensionnels</strong>: Les ndarray de NumPy sont plus performants que les listes Python pour les opérations mathématiques.</li>
 </ol>
-<div id="6db101ed" class="cell" data-execution_count="1">
+<div id="0d859984" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li><strong>Opérations Mathématiques Rapides et Efficaces</strong>: NumPy permet des calculs vectorisés, ce qui est plus rapide que les boucles traditionnelles.</li>
 </ol>
-<div id="5dece892" class="cell" data-execution_count="2">
+<div id="d844a2c0" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> arr <span class="op">+</span> <span class="dv">1</span>  <span class="co"># Ajoute 1 à chaque élément</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li><strong>Fonctions Mathématiques Avancées</strong>: NumPy inclut des fonctions pour l’algèbre linéaire, la transformée de Fourier, et plus.</li>
 </ol>
-<div id="88779b5a" class="cell" data-execution_count="3">
+<div id="6362d11e" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">=</span> np.random.rand(<span class="dv">3</span>, <span class="dv">3</span>)  <span class="co"># Crée une matrice 3x3 de nombres aléatoires</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>np.linalg.inv(matrix)  <span class="co"># Inversion d'une matrice</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>array([[ 1.39728481, -0.33735514, -1.13986365],
-       [-0.09769319, -0.28255881,  1.41856967],
-       [-0.35372258,  1.37130208, -0.36233487]])</code></pre>
+<pre><code>array([[-12.37976391, -19.13959829,  25.85826234],
+       [  3.53131993,   9.67397647, -10.46831032],
+       [  6.08207227,   6.99415501,  -9.79348825]])</code></pre>
 </div>
 </div>
 </section>
@@ -610,7 +610,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>Optimisation</strong>: Trouver le minimum ou le maximum d’une fonction.</li>
 </ul>
-<div id="b42b8168" class="cell" data-execution_count="4">
+<div id="71876c5f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> func(x):</span>
@@ -626,7 +626,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Énoncé</strong>: Définissez une fonction mathématique simple (par exemple, un polynôme) et utilisez SciPy pour trouver son minimum.</li>
 <li><strong>Solution</strong>:</li>
 </ol>
-<div id="29fd3130" class="cell" data-execution_count="5">
+<div id="77c5d98c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> poly(x):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">4</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -676,7 +676,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Énoncé</strong>: Créez un tableau 2D avec NumPy et utilisez l’indexation fantaisie pour sélectionner des éléments spécifiques. Ensuite, définissez une fonction multivariable et utilisez SciPy pour la minimiser avec des contraintes.</li>
 <li><strong>Solution</strong>:</li>
 </ol>
-<div id="e933c4e8" class="cell" data-execution_count="6">
+<div id="d45f1ce4" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
