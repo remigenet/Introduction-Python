@@ -1,1 +1,0 @@
-Sitemap: https://remigenet.github.io/Introduction-Python/sitemap.xml
