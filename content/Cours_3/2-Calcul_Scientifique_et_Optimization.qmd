@@ -12,7 +12,8 @@ categories:
 type: book
 description: "Numpy, Scipy, pour ne cité qu'eux"
 image: .img/numpy.png
-code-links: binder
+filters:
+  - pyodide
 ---
 
 # Calcul Scientifique et Optimization
@@ -28,18 +29,18 @@ Le calcul scientifique est une discipline essentielle dans de nombreux domaines 
 
 ## Fonctionnalités Clés de NumPy
 1. **Tableaux Multidimensionnels**: Les ndarray de NumPy sont plus performants que les listes Python pour les opérations mathématiques.
-```{python}
+```{pyodide-python}
 import numpy as np
 arr = np.array([1, 2, 3, 4, 5])
 ```
 
 2. **Opérations Mathématiques Rapides et Efficaces**: NumPy permet des calculs vectorisés, ce qui est plus rapide que les boucles traditionnelles.
-```{python}
+```{pyodide-python}
 arr = arr + 1  # Ajoute 1 à chaque élément
 ```
 
 3. **Fonctions Mathématiques Avancées**: NumPy inclut des fonctions pour l'algèbre linéaire, la transformée de Fourier, et plus.
-```{python}
+```{pyodide-python}
 matrix = np.random.rand(3, 3)  # Crée une matrice 3x3 de nombres aléatoires
 np.linalg.inv(matrix)  # Inversion d'une matrice
 ```
@@ -49,7 +50,7 @@ np.linalg.inv(matrix)  # Inversion d'une matrice
 
 ## Exemple d'Utilisation de SciPy pour l'Optimisation
 - **Optimisation**: Trouver le minimum ou le maximum d'une fonction.
-```{python}
+```{pyodide-python}
 from scipy.optimize import minimize
 
 def func(x):
@@ -62,7 +63,7 @@ result = minimize(func, 0)  # Trouve le minimum de la fonction
 1. **Objectif**: Utiliser NumPy et SciPy pour résoudre un problème d'optimisation.
 2. **Énoncé**: Définissez une fonction mathématique simple (par exemple, un polynôme) et utilisez SciPy pour trouver son minimum.
 3. **Solution**:
-```{python}
+```{pyodide-python}
 def poly(x):
     return x**2 - 5*x + 4
 
@@ -78,28 +79,28 @@ Le calcul scientifique en Python, grâce à des bibliothèques comme NumPy et Sc
 
 1. **Indexation Sophistiquée**: NumPy offre des méthodes d'indexation avancées qui permettent de manipuler et d'accéder aux données de manière très flexible.
    - **Indexation Booléenne**: Sélectionner des éléments basés sur des conditions.
-     ```python
+     ```{pyodide-python}
      arr[arr > 2]  # Sélectionne les éléments supérieurs à 2
      ```
    - **Indexation Fantaisie**: Sélectionner des éléments en utilisant des listes d'indices.
-     ```python
+     ```{pyodide-python}
      arr[[1, 3, 4]]  # Sélectionne les éléments aux positions 1, 3, et 4
      ```
 
 2. **Broadcasting**: Une méthode puissante pour effectuer des opérations arithmétiques sur des tableaux de formes différentes.
-   ```python
+   ```{pyodide-python}
    arr + np.array([1, 2, 3])  # Ajoute [1, 2, 3] à chaque ligne de 'arr'
    ```
 
 3. **Manipulation de Formes**: Reshaper les tableaux pour les adapter aux besoins de vos calculs.
-   ```python
+   ```{pyodide-python}
    arr.reshape(3, 2)  # Remodeler le tableau en 3 lignes et 2 colonnes
    ```
 
 #### Optimisation avec SciPy
 
 1. **Optimisation Multivariable**: SciPy n'est pas limité à l'optimisation de fonctions à une seule variable. Il peut également optimiser des fonctions avec plusieurs variables.
-   ```python
+   ```{pyodide-python}
    def func(x):
        return x[0]**2 + x[1]**2 + x[2]**2  # Fonction à 3 variables
 
@@ -107,7 +108,7 @@ Le calcul scientifique en Python, grâce à des bibliothèques comme NumPy et Sc
    ```
 
 2. **Contraintes et Bornes**: Vous pouvez ajouter des contraintes et des bornes à votre problème d'optimisation pour le rendre plus réaliste.
-   ```python
+   ```{pyodide-python}
    cons = ({'type': 'eq', 'fun': lambda x: x[0] + x[1] - 1})  # Contrainte d'égalité
    bnds = ((0, None), (0, None))  # Bornes pour x[0] et x[1]
 
@@ -119,7 +120,7 @@ Le calcul scientifique en Python, grâce à des bibliothèques comme NumPy et Sc
 1. **Objectif**: Approfondir l'utilisation de NumPy et SciPy pour des calculs complexes.
 2. **Énoncé**: Créez un tableau 2D avec NumPy et utilisez l'indexation fantaisie pour sélectionner des éléments spécifiques. Ensuite, définissez une fonction multivariable et utilisez SciPy pour la minimiser avec des contraintes.
 3. **Solution**:
-```{python}
+```{pyodide-python}
 import numpy as np
 from scipy.optimize import minimize
 

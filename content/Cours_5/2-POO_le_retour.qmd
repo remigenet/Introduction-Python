@@ -12,7 +12,8 @@ categories:
 type: book
 description: "Comprendre la base des objets en python avec les dunder"
 image: .img/dunder_poo.webp
-code-links: binder
+filters:
+  - pyodide
 ---
 
 # POO - Python Orienté Objet - Introduction aux dunder
@@ -69,7 +70,7 @@ code-links: binder
 
 3. **Code d'Exemple**:
 
-```python
+```{pyodide-python}
 class ComplexNumber:
     def __init__(self, real, imag):
         self.real = real

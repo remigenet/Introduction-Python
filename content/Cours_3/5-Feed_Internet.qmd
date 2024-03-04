@@ -12,7 +12,8 @@ categories:
 type: book
 description: "Django, FastAPI, Flask, Bottle, Pyramid, Falcon, Sanic, Tornado, AIOHTTP, Starlette,... La liste est longue"
 image: .img/api.png
-code-links: binder
+filters:
+  - pyodide
 ---
 
 # Python - Aussi un language pour le Développement Web Backend
@@ -49,7 +50,7 @@ Python est une langue de choix pour le développement web backend en raison de s
 1. **Objectif**: Créer une simple API avec Flask.
 2. **Énoncé**: Développez une API RESTful qui renvoie "Hello, World!" à chaque requête GET sur le chemin racine.
 3. **Solution**:
-```python
+```{pyodide-python}
 from flask import Flask
 
 app = Flask(__name__)
@@ -82,7 +83,7 @@ FastAPI est un framework moderne et rapide pour la construction d'APIs avec Pyth
 1. **Création d'une API CRUD (Create, Read, Update, Delete)**:
    - FastAPI simplifie la création d'APIs CRUD, qui sont essentielles dans de nombreuses applications web pour gérer les données.
    - Exemple de base :
-```python
+```{pyodide-python}
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -106,7 +107,7 @@ async def read_item(item_id: int):
 2. **Intégration avec des Bases de Données**:
    - FastAPI peut être facilement intégré avec des bases de données comme PostgreSQL, MySQL, ou MongoDB.
    - Utilisation avec SQLAlchemy (pour les bases de données SQL) :
-     ```python
+     ```{pyodide-python}
      from fastapi import FastAPI
      from sqlalchemy import create_engine
 
@@ -124,7 +125,7 @@ async def read_item(item_id: int):
 3. **Validation et Sérialisation des Données**:
    - FastAPI utilise Pydantic pour la validation des données entrantes et la sérialisation des données sortantes.
    - Exemple avec un modèle Pydantic :
-     ```python
+     ```{pyodide-python}
      from pydantic import BaseModel
 
      class User(BaseModel):
@@ -139,7 +140,7 @@ async def read_item(item_id: int):
 4. **Authentification et Sécurité**:
    - FastAPI fournit plusieurs outils pour l'authentification et la gestion de la sécurité, y compris OAuth2.
    - Exemple d'authentification basique :
-     ```python
+     ```{pyodide-python}
      from fastapi import Depends, FastAPI, HTTPException, status
      from fastapi.security import OAuth2PasswordBearer
 
@@ -161,7 +162,7 @@ La mise en cache est une technique cruciale pour améliorer les performances des
 1. **Mise en Cache avec Redis**:
    - Redis, en tant que magasin de données en mémoire, est souvent utilisé pour le cache dans les applications web.
    - Utilisation avec FastAPI :
-     ```python
+     ```{pyodide-python}
      import redis
      from fastapi import FastAPI
 
@@ -182,7 +183,7 @@ Le traitement asynchrone est essentiel pour gérer les opérations I/O sans bloq
 1. **Utilisation de `async` et `await` avec FastAPI**:
    - FastAPI prend en charge la programmation asynchrone native, ce qui permet de gérer facilement les requêtes asynchrones.
    - Exemple de requête asynchrone :
-     ```python
+     ```{pyodide-python}
      @app.get("/items/{item_id}")
      async def read_item(item_id: int):
          # Opération asynchrone, comme une requête de base de données

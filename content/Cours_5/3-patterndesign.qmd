@@ -12,7 +12,8 @@ categories:
 type: book
 description: "Découvrir les design paterns, et connaitre les plus standards"
 image: .img/dunder_poo2.webp
-code-links: binder
+filters:
+  - pyodide
 ---
 
 # Python Orienté Objet - les Design Patterns
@@ -38,7 +39,7 @@ code-links: binder
     - **Principe**: Assure qu'une classe n'a qu'une seule instance et fournit un point d'accès global à celle-ci.
     - **Application en Python**:
 
-    ```python
+    ```{pyodide-python}
     class Singleton:
         _instance = None
 
@@ -52,7 +53,7 @@ code-links: binder
     - **Principe**: Définit une interface pour créer un objet, mais laisse les sous-classes décider quelle classe instancier.
     - **Application en Python**:
 
-    ```python
+    ```{pyodide-python}
     class Animal:
         def speak(self):
             pass
@@ -86,7 +87,7 @@ code-links: binder
     - **Principe**: Permet à des interfaces incompatibles de travailler ensemble. Il agit comme un intermédiaire entre deux classes non compatibles.
     - **Application en Python**:
 
-    ```python
+    ```{pyodide-python}
     class FrenchSpeaker:
         def greet(self):
             return "Bonjour"
@@ -116,7 +117,7 @@ code-links: binder
     - **Principe**: Permet d'ajouter dynamiquement de nouvelles fonctionnalités à un objet sans modifier sa structure.
     - **Application en Python**:
 
-    ```python
+    ```{pyodide-python}
     def bold_decorator(func):
         def wrapper():
             return "<b>" + func() + "</b>"
@@ -137,7 +138,7 @@ code-links: binder
     - **Principe**: Définit une dépendance entre objets de manière à ce que lorsque l'un change d'état, tous ses dépendants sont notifiés et mis à jour automatiquement.
     - **Application en Python**:
 
-    ```python
+    ```{pyodide-python}
     class Subject:
         def __init__(self):
             self._observers = []
@@ -164,7 +165,7 @@ code-links: binder
     - **Principe**: Permet de définir une famille d'algorithmes, encapsule chacun d'eux et les rend interchangeables. La stratégie laisse l'algorithme varier indépendamment des clients qui l'utilisent.
     - **Application en Python**:
 
-    ```python
+    ```{pyodide-python}
     class SortingStrategy:
         def sort(self, data):
             raise NotImplementedError

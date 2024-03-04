@@ -12,7 +12,8 @@ categories:
 type: book
 description: "Requête HTTP, Webscrapping, websockets, API, JSON, XML, CSV, HTML, SQL, NoSQL, FTP, SSH, ..."
 image: .img/EventLoopPythonAsyncio-5.png
-code-links: binder
+filters:
+  - pyodide
 ---
 
 # Recupérer des données du net
@@ -28,7 +29,7 @@ Python fournit plusieurs bibliothèques pour interagir avec le Web, permettant d
 
 1. **Requests**: Une bibliothèque Python simplifiée pour envoyer des requêtes HTTP. Elle est idéale pour interagir avec des API RESTful.
    - Exemple d'utilisation :
-     ```python
+     ```{pyodide-python}
      import requests
      response = requests.get('https://api.exemple.com/data')
      data = response.json()
@@ -36,7 +37,7 @@ Python fournit plusieurs bibliothèques pour interagir avec le Web, permettant d
 
 2. **Beautiful Soup**: Utilisée pour le web scraping, Beautiful Soup permet d'analyser le contenu HTML et d'extraire les données nécessaires.
    - Exemple de scraping :
-     ```python
+     ```{pyodide-python}
      from bs4 import BeautifulSoup
      soup = BeautifulSoup(html_content, 'html.parser')
      titles = soup.find_all('h1')
@@ -44,7 +45,7 @@ Python fournit plusieurs bibliothèques pour interagir avec le Web, permettant d
 
 3. **Scrapy**: Un framework puissant pour créer des crawlers Web. Il est utilisé pour des scrapings plus complexes et des bots d'indexation.
    - Utilisation typique :
-     ```python
+     ```{pyodide-python}
      import scrapy
 
      class MySpider(scrapy.Spider):
@@ -60,7 +61,7 @@ Python fournit plusieurs bibliothèques pour interagir avec le Web, permettant d
 1. **Objectif**: Se familiariser avec les requêtes Web et le scraping en Python.
 2. **Énoncé**: Écrivez un script qui récupère les titres des dernières nouvelles d'un site d'actualités et les affiche.
 3. **Solution**:
-   ```python
+   ```{pyodide-python}
    import requests
    from bs4 import BeautifulSoup
 

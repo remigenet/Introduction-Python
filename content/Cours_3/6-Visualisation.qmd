@@ -12,7 +12,8 @@ categories:
 type: book
 description: "Matplotlib, Plotly ou Seaborn ? Peut être Altair !"
 image: .img/Untitled.png
-code-links: binder
+filters:
+  - pyodide
 ---
 
 # Visualisation de données avec Python
@@ -27,7 +28,7 @@ La visualisation est un aspect crucial de l'analyse de données, aidant à compr
 #### Matplotlib: Le Fondement de la Visualisation en Python
 - **Matplotlib** est la bibliothèque de visualisation la plus connue et la plus utilisée en Python. Elle offre une grande flexibilité pour créer une large gamme de graphiques statiques, animés et interactifs.
 - Exemple d'utilisation :
-  ```python
+  ```{pyodide-python}
   import matplotlib.pyplot as plt
 
   plt.plot([1, 2, 3, 4])
@@ -38,7 +39,7 @@ La visualisation est un aspect crucial de l'analyse de données, aidant à compr
 #### Seaborn: Visualisation Statistique Facilitée
 - **Seaborn** est basé sur Matplotlib et fournit une interface de haut niveau pour dessiner des graphiques statistiques attractifs et informatifs.
 - Exemple de visualisation des relations entre variables :
-  ```python
+  ```{pyodide-python}
   import seaborn as sns
   iris = sns.load_dataset('iris')
   sns.pairplot(iris, hue='species')
@@ -47,7 +48,7 @@ La visualisation est un aspect crucial de l'analyse de données, aidant à compr
 #### Altair: Déclaration Declarative pour la Visualisation
 - **Altair** offre une API déclarative puissante pour construire des visualisations complexes de manière concise et intuitive.
 - Exemple simple d'un graphique à barres :
-  ```python
+  ```{pyodide-python}
   import altair as alt
   from vega_datasets import data
 
@@ -63,7 +64,7 @@ La visualisation est un aspect crucial de l'analyse de données, aidant à compr
 #### Plotly: Visualisation Interactive et Avancée
 - **Plotly** est remarquable pour ses graphiques interactifs et ses capacités de visualisation avancées, permettant des visualisations complexes et multi-dimensionnelles.
 - Exemple d'intégration avec Pandas pour une visualisation interactive :
-  ```python
+  ```{pyodide-python}
   import plotly
   import pandas as pd
 
@@ -94,7 +95,7 @@ La capacité de créer des tableaux de bord interactifs permet une exploration e
 1. **Dash**: Un framework Python pour créer des applications web analytiques.
    - Permet de construire des tableaux de bord interactifs en utilisant uniquement Python.
    - Exemple :
-     ```python
+     ```{pyodide-python}
      import dash
      import dash_core_components as dcc
      import dash_html_components as html
@@ -126,7 +127,7 @@ Les animations peuvent aider à comprendre les tendances et les modèles au fil 
 1. **Matplotlib pour les Animations**:
    - Matplotlib peut être utilisé pour créer des animations de base.
    - Exemple d'animation d'un graphique linéaire :
-     ```python
+     ```{pyodide-python}
      import matplotlib.pyplot as plt
      import matplotlib.animation as animation
 
@@ -153,7 +154,7 @@ L'intégration de graphiques dans des applications web rend les analyses de donn
 1. **Plotly avec Flask ou Django**:
    - Les graphiques Plotly peuvent être intégrés dans des applications web Python utilisant Flask ou Django.
    - Exemple d'intégration Plotly avec Flask :
-     ```python
+     ```{pyodide-python}
      from flask import Flask, render_template
      import plotly.graph_objs as go
      import plotly.offline as pyo
@@ -185,7 +186,7 @@ La visualisation de données géospatiales implique la représentation de donné
    - Extension de Pandas pour faciliter le travail avec des données spatiales.
    - Permet de lire, écrire et manipuler des données dans des formats géospatiaux variés.
    - Exemple d'utilisation de Geopandas :
-     ```python
+     ```{pyodide-python}
      import geopandas as gpd
      world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
      world.plot()
@@ -195,7 +196,7 @@ La visualisation de données géospatiales implique la représentation de donné
    - Bibliothèque qui crée des cartes interactives à l'aide de la plateforme Leaflet.js.
    - Idéal pour les visualisations géospatiales interactives dans les notebooks Jupyter.
    - Exemple simple avec Folium :
-     ```python
+     ```{pyodide-python}
      import folium
 
      m = folium.Map(location=[45.5236, -122.6750])
@@ -210,7 +211,7 @@ La visualisation de données géospatiales implique la représentation de donné
 1. **Matplotlib**:
    - Matplotlib propose également des fonctionnalités de base pour la visualisation 3D.
    - Exemple de graphique en 3D :
-     ```python
+     ```{pyodide-python}
      from mpl_toolkits.mplot3d import Axes3D
      import matplotlib.pyplot as plt
 
@@ -223,7 +224,7 @@ La visualisation de données géospatiales implique la représentation de donné
 2. **Plotly**:
    - Plotly excelle également dans la création de visualisations 3D interactives.
    - Exemple de surface 3D avec Plotly :
-     ```python
+     ```{pyodide-python}
      import plotly.graph_objects as go
      import numpy as np
 

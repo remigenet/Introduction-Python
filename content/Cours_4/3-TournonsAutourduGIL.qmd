@@ -12,7 +12,8 @@ categories:
 type: book
 description: ""
 image: .img/reqandgraph.webp
-code-links: binder
+filters:
+  - pyodide
 ---
 
 # Asynchronie et Multiprocessing - Quels solutions sous le joug du GIL ?

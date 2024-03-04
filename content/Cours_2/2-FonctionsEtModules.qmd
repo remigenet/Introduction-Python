@@ -15,7 +15,8 @@ categories:
 type: book
 description: "Ce chapitre se concentre sur les fonctions et les modules en Python, deux composants clés pour écrire un code propre et réutilisable. Il aborde la création de fonctions, la manipulation des arguments, l'utilisation des expressions lambda, ainsi que l'importation et l'organisation des modules. Des exemples pratiques illustrent comment ces éléments peuvent être utilisés pour structurer efficacement un projet Python et simplifier la gestion des dépendances."
 image: .img/functionsandmodules.png
-code-links: binder
+filters:
+  - pyodide
 ---
 
 
@@ -32,7 +33,7 @@ Les fonctions en Python sont des blocs de code réutilisables conçus pour effec
 
 - Pour définir une fonction en Python, utilisez le mot-clé `def`, suivi du nom de la fonction, des parenthèses et des paramètres.
 
-```{python}
+```{pyodide-python}
   def ma_fonction(param1, param2):
       # Corps de la fonction
       return param1 + param2
@@ -41,7 +42,7 @@ Les fonctions en Python sont des blocs de code réutilisables conçus pour effec
 ### Appel de Fonctions :
   - Appelez une fonction en utilisant son nom suivi des arguments entre parenthèses.
 
-```{python}
+```{pyodide-python}
     resultat = ma_fonction(5, 3)  # Appel de la fonction avec 5 et 3 comme arguments
 ```
 
@@ -51,7 +52,7 @@ Les fonctions en Python sont des blocs de code réutilisables conçus pour effec
   - Les fonctions peuvent avoir des arguments par défaut, qui prennent une valeur spécifiée si aucun argument n'est fourni.
   - Les arguments nommés permettent de passer des arguments dans n'importe quel ordre en spécifiant leur nom.
 
-```{python}
+```{pyodide-python}
     def saluer(nom, message="Bonjour"):
         return f"{message}, {nom}"
 
@@ -63,7 +64,7 @@ Les fonctions en Python sont des blocs de code réutilisables conçus pour effec
 ### Portée des Variables :
   - Les variables définies dans une fonction ont une portée locale à cette fonction. Les variables définies en dehors ont une portée globale.
 
-```{python}
+```{pyodide-python}
     x = "global"
 
     def exemple_scope():
@@ -83,7 +84,7 @@ Les modules et packages en Python permettent de structurer et d'organiser le cod
 
 - Un module est un fichier Python contenant des fonctions, des classes et des variables, ainsi que du code exécutable.
 
-```{python}
+```{pyodide-python}
   import math
   print(math.sqrt(16))  # Utilise la fonction s²qrt du module math
 ```
@@ -96,7 +97,7 @@ Les modules et packages en Python permettent de structurer et d'organiser le cod
 
   - Importez des modules spécifiques du package :
 
-```python
+```{pyodide-python}
     from monpackage import monmodule
 ```
 
@@ -109,7 +110,7 @@ Python propose des fonctions intégrées et des expressions lambda pour effectue
 
 - Les expressions lambda sont de petites fonctions anonymes.
 
-```{python}
+```{pyodide-python}
   doubler = lambda x: x * 2
   print(doubler(5))  # Affiche 10
 ```
@@ -120,7 +121,7 @@ Python propose des fonctions intégrées et des expressions lambda pour effectue
 - `filter()` crée une liste de tous les éléments pour lesquels une fonction renvoie True.
 - `reduce()` applique une fonction cumulativement aux éléments d'une séquence, de gauche à droite, pour réduire la séquence à une seule valeur.
 
-```python
+```{pyodide-python}
   # Exemple d'utilisation de map et filter
   nombres = [1, 2, 3, 4, 5]
 
@@ -143,7 +144,7 @@ En Python, `*args` et `kwargs` permettent de gérer de manière flexible un nomb
 
 - `*args` est utilisé pour passer une liste variable d'arguments non-nommés à une fonction. Les arguments sont accessibles comme une tuple.
 
-```{python}
+```{pyodide-python}
 def fonction_avec_args(*args):
     for arg in args:
         print(arg)
@@ -155,7 +156,7 @@ fonction_avec_args('Python', 'est', 'génial')
 
 - `kwargs` permet de passer une liste variable d'arguments nommés. Les arguments sont accessibles comme un dictionnaire.
 
-```{python}
+```{pyodide-python}
 def fonction_avec_kwargs(**kwargs):
     for cle, valeur in kwargs.items():
         print(f"{cle}: {valeur}")
@@ -172,7 +173,7 @@ Les expressions lambda en Python offrent un moyen compact de créer des fonction
 
 - Les expressions lambda sont souvent utilisées pour des fonctions courtes et simples, comme des arguments pour des fonctions comme `map`, `filter`, et `sorted`.
 
-```{python}
+```{pyodide-python}
 # Tri d'une liste de tuples basé sur le deuxième élément
 liste = [(1, 'd'), (2, 'b'), (3, 'c'), (4, 'a')]
 liste.sort(key=lambda x: x[1])
@@ -193,7 +194,7 @@ L'organisation des projets en modules et packages est essentielle pour maintenir
 
 - Utilisez `import` pour accéder aux fonctions, classes et variables d'un module ou package. Les alias peuvent être utilisés pour simplifier les noms.
 
-```python
+```{pyodide-python}
 import mon_module as mm
 from mon_package import mon_module
 ```
@@ -213,7 +214,7 @@ La compréhension de la façon dont Python importe des modules et gère les chem
 
 - Lorsque vous importez un module, Python recherche d'abord dans le répertoire courant, puis dans les répertoires listés dans la variable d'environnement `PYTHONPATH`, et enfin dans les emplacements par défaut.
 
-```{python}
+```{pyodide-python}
 import sys
 print(sys.path)  # Affiche les chemins où Python recherche les modules
 ```
@@ -224,7 +225,7 @@ print(sys.path)  # Affiche les chemins où Python recherche les modules
 
 - Lorsque vous utilisez `from X import Y`, Python exécute tout le code à la racine du module `X`. Cela signifie que tout code au niveau du module, y compris les importations, sera exécuté lors de l'importation.
 
-```python
+```{pyodide-python}
 # Dans le module X.py
 print("Module X importé")
 def fonction_Y():
@@ -246,7 +247,7 @@ from X import fonction_Y  # Affiche "Module X importé" lors de l'exécution
 - Évitez les importations génériques (`from module import *`) car elles peuvent polluer l'espace de noms.
 - Utilisez des alias pour clarifier l'origine des modules ou pour éviter des conflits de noms.
 
-```{python}
+```{pyodide-python}
 import numpy as np  # Utilisation d'un alias pour numpy
 ```
 
@@ -260,7 +261,7 @@ Comprendre les subtilités des importations en Python, y compris leur coût et l
 
 - En Python, importer plusieurs fois le même module ne pénalise pas les performances de manière significative. Lorsqu'un module est importé pour la première fois, il est compilé en bytecode et stocké en mémoire. Les importations suivantes du même module font simplement référence à la version en mémoire.
 
-```{python}
+```{pyodide-python}
 import math  # Le module est chargé en mémoire
 import math  # Référence le module déjà chargé, sans coût supplémentaire
 ```
@@ -290,7 +291,7 @@ import math  # Référence le module déjà chargé, sans coût supplémentaire
 - En plus d'utiliser des abréviations standard, il est également conseillé de regrouper les importations en haut du fichier.
 - Séparez les importations standard, tierces et locales par des lignes vides pour une meilleure lisibilité.
 
-```python
+```{pyodide-python}
   # Importations standard
 import os
 import sys

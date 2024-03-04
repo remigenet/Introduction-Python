@@ -12,7 +12,8 @@ categories:
 type: book
 description: "Python, où le ML à deux cliques de souris"
 image: .img/sklearn.png
-code-links: binder
+filters:
+  - pyodide
 ---
 
 # Machine Learning
@@ -32,7 +33,7 @@ Python est devenu la langue de prédilection pour le machine learning (ML) en ra
 
 ## Exemple d'Utilisation de Scikit-learn
 - **Classification avec Scikit-learn**:
-```{python}
+```{pyodide-python}
 from sklearn.datasets import load_iris
 from sklearn.ensemble import RandomForestClassifier
 
@@ -56,7 +57,7 @@ clf.fit(X, y)
 1. **Objectif**: Se familiariser avec le processus de base du machine learning en utilisant Scikit-learn.
 2. **Énoncé**: Utilisez Scikit-learn pour construire un classificateur simple sur un jeu de données standard, évaluez ses performances, et essayez d'améliorer ses résultats en ajustant les paramètres.
 3. **Solution**:
-```{python}
+```{pyodide-python}
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
@@ -101,7 +102,7 @@ Le machine learning en Python offre un éventail impressionnant d'outils et de t
 1. **Objectif**: Se familiariser avec l'apprentissage profond en utilisant PyTorch ou TensorFlow.
 2. **Énoncé**: Construisez et entraînez un réseau de neurones simple pour classifier des images à partir d'un jeu de données standard comme MNIST.
 3. **Solution** (avec PyTorch) :
-```{python}
+```{pyodide-python}
 import torch
 import torch.nn as nn
 import torch.optim as optim

@@ -12,7 +12,8 @@ categories:
 type: book
 description: ""
 image: .img/AST2.webp
-code-links: binder
+filters:
+  - pyodide
 ---
 
 # TP 5 : POO et Gestion de Portefeuille
@@ -21,7 +22,7 @@ code-links: binder
 
 En reprenant le code du TP précédent pour obtenir des données:
   
-```python
+```{pyodide-python}
 from typing import List, Any, Union
 import time
 import json

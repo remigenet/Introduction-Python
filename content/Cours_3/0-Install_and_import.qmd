@@ -12,6 +12,8 @@ categories:
 type: book
 description: "Rappel sur les bibliothèques Python, la gestion des paquets et les environnements virtuels"
 image: .img/libraries.webp
+filters:
+  - pyodide
 ---
 
 
@@ -23,13 +25,13 @@ Une bibliothèque Python est un ensemble de modules et de fonctions pré-écrits
 
 **Exemples Pratiques :**
 - **Importation et Utilisation de la Bibliothèque Mathématique (math) :**
-  ```python
+  ```{pyodide-python}
   import math
   print(math.sqrt(16))  # Affiche 4.0, la racine carrée de 16
   ```
 
 - **Manipulation de Données avec Pandas :**
-  ```python
+  ```{pyodide-python}
   import pandas as pd
   data = pd.read_csv('chemin/vers/fichier.csv')  # Lit un fichier CSV
   print(data.head())  # Affiche les premières lignes du DataFrame
@@ -215,7 +217,7 @@ Après avoir installé une bibliothèque, elle doit être importée dans votre s
 
 **Exemples Pratiques d'Importation et d'Utilisation de Bibliothèques :**
 - **Utilisation de la Bibliothèque Requests :**
-  ```python
+  ```{pyodide-python}
   import requests
   response = requests.get('https://www.example.com')
   print(response.text)
@@ -223,7 +225,7 @@ Après avoir installé une bibliothèque, elle doit être importée dans votre s
   Dans cet exemple, `requests` est utilisée pour effectuer une requête HTTP vers un site web, et le contenu de la réponse est affiché.
 
 - **Travail avec Pandas :**
-  ```python
+  ```{pyodide-python}
   import pandas as pd
   df = pd.read_csv('data.csv')
   print(df.head())

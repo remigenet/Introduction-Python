@@ -12,7 +12,8 @@ categories:
 type: book
 description: "Typage en Python - Utile ou pas ?"
 image: .img/typehinting.webp
-code-links: binder
+filters:
+  - pyodide
 ---
 
 # Typage en Python - Utile ou pas ?
@@ -24,7 +25,7 @@ code-links: binder
 #### Typage Dynamique en Python
 Python est un langage à typage dynamique, ce qui signifie que le type d'une variable est déterminé à l'exécution et peut changer au cours du temps.
 
-```{python}
+```{pyodide-python}
 x = 5        # x est un entier
 x = "Hello"  # x est maintenant une chaîne de caractères
 ```
@@ -41,7 +42,7 @@ Introduction au Type Hinting
 Le Type Hinting en Python permet de spécifier les types attendus des variables. Bien qu'il ne soit pas strictement appliqué à l'exécution, il facilite la compréhension et la vérification du code.
 Utiliser le Type Hinting
 
-```{python}
+```{pyodide-python}
 def add_numbers(a: int, b: int) -> int:
     return a + b
 ```
@@ -56,7 +57,7 @@ Conventions et Documentation
 
 Les annotations de type peuvent être complétées par des Docstrings pour fournir des explications plus détaillées sur le comportement d'une fonction.
 
-```{python}
+```{pyodide-python}
 def add_numbers(a: int, b: int) -> int:
     """
     Add two integers and return the result.
@@ -77,7 +78,7 @@ Python est un langage à typage dynamique, ce qui signifie que le type d'une var
 
 #### Exemple de Typage Dynamique
 
-```{python}
+```{pyodide-python}
 x = 5        #Ici, x est un entier
 x = "Hello"  #Maintenant, x est une chaîne de caractères
 ```
@@ -94,7 +95,7 @@ x = "Hello"  #Maintenant, x est une chaîne de caractères
 Les classes abstraites en Python, utilisées via le module `abc`, servent à définir une interface pour d'autres classes à suivre, imposant ainsi une certaine structure dans le code.
 
 #### Exemple de Classe Abstraite
-```{python}
+```{pyodide-python}
 from abc import ABC, abstractmethod
 
 class Shape(ABC):

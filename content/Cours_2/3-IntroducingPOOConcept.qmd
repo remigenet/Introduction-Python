@@ -15,7 +15,8 @@ categories:
 type: book
 description: "Dans ce chapitre, nous explorons les principes fondamentaux de la Programmation Orientée Objet (POO) en Python. Les étudiants découvriront comment Python applique les concepts de la POO tels que l'encapsulation, l'héritage et le polymorphisme pour créer des modèles financiers complexes. Avec une emphase sur les applications pratiques en finance de marché, ce chapitre vise à doter les étudiants d'une compréhension robuste de la POO pour le développement de solutions logicielles sophistiquées et efficaces en Python."
 image: .img/poo.png
-code-links: binder
+filters:
+  - pyodide
 ---
 
 # Introduction à la notion de Programmation Orientée Objet (POO) en Python
@@ -41,7 +42,7 @@ La Programmation Orientée Objet (POO) est un paradigme de programmation basé s
 
 - Contrairement à d'autres langages où les objets et les types de base sont distincts, en Python, tout est un objet. Cela inclut les types de base comme les nombres, les chaînes et les listes. Cette uniformité rend le langage cohérent et élégant.
 
-```{python}
+```{pyodide-python}
   a = 10
   print(a.__class__)  # Affiche <class 'int'>
 ```
@@ -83,7 +84,7 @@ Les classes sont au cœur de la POO en Python. Elles servent de modèle pour cr�
 
 - Une classe en Python est définie en utilisant le mot-clé `class`. Elle peut contenir des attributs (variables) et des méthodes (fonctions).
 
-```{python}
+```{pyodide-python}
 class Voiture:
     def __init__(self, marque, modele):
         self.marque = marque
@@ -103,7 +104,7 @@ ma_voiture.afficher_info()  # Affiche "Marque: Toyota, Modèle: Corolla"
 
 - Après avoir défini une classe, vous pouvez créer des instances (objets) et accéder à leurs attributs et méthodes.
 
-```{python}
+```{pyodide-python}
 # Création d'une autre instance de Voiture
 autre_voiture = Voiture("Honda", "Civic")
 autre_voiture.afficher_info()  # Affiche "Marque: Honda, Modèle: Civic"
@@ -118,7 +119,7 @@ L'héritage permet à une classe de hériter des attributs et méthodes d'une au
 
 - En Python, une classe peut hériter d'une autre classe, ce qui lui permet de reprendre ses attributs et méthodes.
 
-```{python}
+```{pyodide-python}
 class VehiculeElectrique(Voiture):
     def __init__(self, marque, modele, autonomie):
         super().__init__(marque, modele)
@@ -143,7 +144,7 @@ Le polymorphisme permet d'utiliser des objets de différentes classes de manièr
 
 - Le polymorphisme se manifeste lorsqu'une interface commune (comme une méthode) est implémentée de différentes manières par différentes classes.
 
-```{python}
+```{pyodide-python}
 def afficher_details_vehicule(vehicule):
     vehicule.afficher_info()
     if isinstance(vehicule, VehiculeElectrique):
@@ -166,7 +167,7 @@ L'encapsulation et l'abstraction sont des principes de POO essentiels pour crée
 
 - L'encapsulation consiste à regrouper les données et les méthodes qui les manipulent, et à restreindre l'accès direct aux données d'une classe. Cela est crucial pour la sécurité et l'intégrité des modèles financiers.
 
-```{python}
+```{pyodide-python}
 class Obligation:
     def __init__(self, principal, taux_interet, maturite):
         self.__principal = principal          # Encapsulé (attribut privé)
@@ -199,7 +200,7 @@ Utilisons la POO pour modéliser un scénario financier concret, comme le pricin
 
 - Imaginons que nous devons calculer le prix de différentes obligations avec des caractéristiques variées. Nous pouvons utiliser des classes pour modéliser ces obligations et effectuer les calculs nécessaires.
 
-```{python}
+```{pyodide-python}
 class Obligation:
     def __init__(self, nominal, coupon, maturite):
         self.nominal = nominal

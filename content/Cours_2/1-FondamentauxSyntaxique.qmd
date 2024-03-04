@@ -12,7 +12,8 @@ categories:
 type: book
 description: "Ce chapitre offre une plongée approfondie dans la syntaxe et les objets de base de Python. Il vise à fournir une compréhension solide des fondements du langage, couvrant tout, des variables et opérateurs aux structures de données essentielles comme les listes, les dictionnaires, et les tuples. Chaque section est enrichie d'exemples concrets et d'explications détaillées pour faciliter la compréhension et l'application pratique des concepts."
 image: .img/basesyntax.png
-code-links: binder
+filters:
+  - pyodide
 ---
 
 # Syntaxe de Base et Concepts Fondamentaux en Python
@@ -33,7 +34,7 @@ La syntaxe de Python est conçue pour être lisible et concise. Comprendre ses p
   Python utilise l'indentation pour définir des blocs de code. Contrairement à d'autres langages qui utilisent des accolades, l'indentation en Python n'est pas seulement pour la lisibilité mais est syntaxiquement significative.
 
 
-```{python}
+```{pyodide-python}
 a=10
 if a > 5:
     print("a est supérieur à 5")
@@ -43,7 +44,7 @@ if a > 5:
 
 - En Python, les commentaires commencent par `#`. Tout ce qui suit `#` sur la ligne est ignoré par l'interpréteur.
 
-```{python}
+```{pyodide-python}
 # Ceci est un commentaire
 print("Hello, World!")  # Ceci est un commentaire en fin de ligne
 ```
@@ -68,7 +69,7 @@ Les variables en Python sont des identificateurs liés à des valeurs. Elles ne 
 - Les noms de variables doivent commencer par une lettre ou un underscore `_`, suivis de lettres, chiffres, ou underscores.
 - Les conventions de nommage courantes incluent `snake_case` pour les variables et fonctions, `CamelCase` pour les classes.
 
-  ```{python}
+  ```{pyodide-python}
   ma_variable = 10
   uneAutreVariable = "Bonjour"
   ```
@@ -97,7 +98,7 @@ Les structures de contrôle en Python permettent d'exécuter conditionnellement 
 
 - `if`, `else`, `elif` permettent d'exécuter des blocs de code basés sur des conditions.
 
-  ```python
+  ```{pyodide-python}
   if condition:
       # code si condition est vraie
   elif autre_condition:
@@ -110,14 +111,14 @@ Les structures de contrôle en Python permettent d'exécuter conditionnellement 
 
 - **Boucle For** : Itère sur une séquence (comme une liste, un tuple, un dictionnaire, un ensemble, ou une chaîne de caractères).
 
-  ```python
+  ```{pyodide-python}
   for element in sequence:
       # code exécuté pour chaque élément
   ```
 
 - **Boucle While** : Continue à exécuter un bloc de code tant qu'une condition est vraie.
 
-  ```python
+  ```{pyodide-python}
   while condition:
       # code exécuté tant que la condition est vraie
   ```
@@ -138,7 +139,7 @@ La gestion des erreurs est cruciale pour écrire des applications robustes. Pyth
 
 - Un bloc `try` permet de tester un bloc de code pour les erreurs, et le bloc `except` permet de gérer l'erreur.
 
-  ```{python}
+  ```{pyodide-python}
   try:
       # Code à essayer d'exécuter
       resultat = 10 / 0
@@ -150,7 +151,7 @@ La gestion des erreurs est cruciale pour écrire des applications robustes. Pyth
 ### Gestion de Plusieurs Exceptions :
   Vous pouvez spécifier plusieurs blocs `except` pour gérer différentes exceptions.
 
-  ```python
+  ```{pyodide-python}
   try:
       # Tentative d'exécution de code
   except TypeError:
@@ -162,7 +163,7 @@ La gestion des erreurs est cruciale pour écrire des applications robustes. Pyth
 ### Bloc Finally :
   Le bloc `finally` est facultatif et exécuté quel que soit le résultat des blocs `try` et `except`.
 
-  ```python
+  ```{pyodide-python}
   try:
       # Code à essayer
   except:
@@ -179,7 +180,7 @@ Voyons comment on peut combiner les concepts abordés précédemment dans un exe
 
 Imaginons un scénario où nous avons deux variables `x` et `y`. Nous voulons exécuter une boucle qui continue tant que la somme de `x` et `y` est supérieure à 8. Dans la boucle, nous effectuons une opération qui peut potentiellement lever une exception.
 
-  ```python
+  ```{pyodide-python}
   x = 10
   y = 1
 
@@ -213,7 +214,7 @@ Python offre plusieurs structures de données intégrées, comme les listes et l
 
 - Les listes en Python sont des collections ordonnées et modifiables. Elles peuvent contenir des éléments de différents types.
 
-  ```{python}
+  ```{pyodide-python}
   ma_liste = [1, 2, 3, "Python", True]
   ```
 
@@ -226,7 +227,7 @@ Python offre plusieurs structures de données intégrées, comme les listes et l
 
 - Les tuples sont similaires aux listes, mais ils sont immuables (leurs valeurs ne peuvent pas être modifiées après leur création).
 
-  ```{python}
+  ```{pyodide-python}
   mon_tuple = (1, 2, 3, "Python")
   ```
 
@@ -242,7 +243,7 @@ Les dictionnaires et les ensembles sont des structures de données puissantes po
 
 - Les dictionnaires stockent des paires clé-valeur. Ils sont mutables et non ordonnés.
 
-  ```{python}
+  ```{pyodide-python}
   mon_dictionnaire = {"nom": "Alice", "age": 30, "langage": "Python"}
   ```
 
@@ -255,7 +256,7 @@ Les dictionnaires et les ensembles sont des structures de données puissantes po
 
 - Les ensembles sont des collections non ordonnées de valeurs uniques. Utiles pour les opérations mathématiques comme les unions, intersections, et différences.
 
-  ```{python}
+  ```{pyodide-python}
   mon_ensemble = {1, 2, 3, 4, 5}
   ```
 
@@ -273,7 +274,7 @@ Voyons comment combiner listes, tuples, dictionnaires et ensembles dans un exemp
 
 Supposons que nous avons une liste de tuples, chaque tuple contenant le nom d'un étudiant et son score. Nous voulons créer un dictionnaire où chaque clé est un score unique, et la valeur est la liste des noms d'étudiants ayant ce score.
 
-  ```{python}
+  ```{pyodide-python}
   etudiants = [("Alice", 85), ("Bob", 90), ("Eve", 85), ("Dave", 90), ("Carol", 75)]
   scores = {}
 
@@ -299,7 +300,7 @@ Les compréhensions en Python sont un moyen concis et puissant de créer de nouv
 
 - Les compréhensions de liste fournissent une façon concise de créer des listes. Elles consistent en une expression suivie par une clause `for`, puis zéro ou plusieurs clauses `for` ou `if`.
 
-  ```{python}
+  ```{pyodide-python}
   # Création d'une liste des carrés des nombres de 0 à 9
   carres = [x**2 for x in range(10)]
   ```
@@ -308,7 +309,7 @@ Les compréhensions en Python sont un moyen concis et puissant de créer de nouv
 
 - Semblables aux compréhensions de liste, mais créent des dictionnaires. Elles sont entourées de `{}` avec une paire clé-valeur suivie d'une clause `for`.
 
-  ```{python}
+  ```{pyodide-python}
   # Création d'un dictionnaire avec des nombres et leurs carrés
   carres_dict = {x: x**2 for x in range(5)}
   ```
@@ -317,7 +318,7 @@ Les compréhensions en Python sont un moyen concis et puissant de créer de nouv
 
 - Utilisées pour créer des ensembles de manière similaire aux compréhensions de liste, mais avec des éléments uniques.
 
-  ```{python}
+  ```{pyodide-python}
   # Création d'un ensemble de carrés des nombres impairs
   carres_impairs = {x**2 for x in range(10) if x % 2 != 0}
   ```
@@ -331,7 +332,7 @@ Les compréhensions peuvent être particulièrement utiles pour transformer et f
 
 Imaginons que nous avons une liste de mots et que nous voulons créer un dictionnaire qui associe chaque mot à sa longueur, mais seulement pour les mots de plus de trois lettres.
 
-  ```{python}
+  ```{pyodide-python}
   mots = ["python", "est", "un", "langage", "puissant"]
   longueur_mots = {mot: len(mot) for mot in mots if len(mot) > 3}
 
@@ -350,7 +351,7 @@ Les opérateurs ternaires et les expressions lambda en Python offrent des moyens
 
 - Les opérateurs ternaires permettent d'écrire des instructions conditionnelles en une seule ligne. La syntaxe est : `[valeur_si_vrai] if [condition] else [valeur_si_faux]`.
 
-  ```{python}
+  ```{pyodide-python}
   # Exemple d'opérateur ternaire
   age = 20
   statut = "majeur" if age >= 18 else "mineur"
@@ -359,7 +360,7 @@ Les opérateurs ternaires et les expressions lambda en Python offrent des moyens
 ### Expressions Lambda
 - Les expressions lambda permettent de créer de petites fonctions anonymes. Elles sont utiles pour des opérations simples nécessitant une fonction.
 
-  ```{python}
+  ```{pyodide-python}
   # Exemple d'expression lambda
   additionner = lambda x, y: x + y
   print(additionner(5, 3))  # Affiche 8
@@ -374,7 +375,7 @@ Python fournit des outils puissants pour manipuler des listes, des tuples et d'a
 
 - Le slicing permet de sélectionner des sous-parties d'une séquence. En plus des bases, Python permet des slicings plus complexes.
 
-  ```{python}
+  ```{pyodide-python}
   ma_liste = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   sous_liste = ma_liste[::2]  # Sélectionne chaque élément pair
   ```
@@ -383,7 +384,7 @@ Python fournit des outils puissants pour manipuler des listes, des tuples et d'a
 
 - Les listes et dictionnaires peuvent être imbriqués pour créer des structures de données complexes.
 
-  ```{python}
+  ```{pyodide-python}
   # Exemple de dictionnaire contenant des listes
   informations = {
       "nom": "Alice",
@@ -400,7 +401,7 @@ Pour conclure ce chapitre, combinons plusieurs des concepts abordés dans un exe
 
 Supposons que nous avons une liste de dictionnaires représentant des livres, et nous voulons extraire les titres des livres publiés après 2000.
 
-  ```{python}
+  ```{pyodide-python}
   livres = [
       {"titre": "Python 101", "année": 1999},
       {"titre": "Le Guide du Voyageur Galactique", "année": 1979},

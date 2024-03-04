@@ -12,7 +12,8 @@ categories:
 type: book
 description: ""
 image: .img/projet.webp
-code-links: binder
+filters:
+  - pyodide
 ---
 
 # Introduction à Python - Millésime 2024

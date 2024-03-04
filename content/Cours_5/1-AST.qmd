@@ -12,7 +12,8 @@ categories:
 type: book
 description: ""
 image: .img/AST.webp
-code-links: binder
+filters:
+  - pyodide
 ---
 
 # L'arbre Syntaxique Abstrait - Comment revoir ses bases en Python
@@ -53,7 +54,7 @@ En plus des modules de base, la bibliothèque standard Python offre des outils a
 
 Exemple d'Utilisation de functools.cache
 
-```{python}
+```{pyodide-python}
 from functools import cache
 import time
 

@@ -12,7 +12,8 @@ categories:
 type: book
 description: "Les DataFrames"
 image: .img/pandas.jpg
-code-links: binder
+filters:
+  - pyodide
 ---
 
 # Dataframes en Python
@@ -34,7 +35,7 @@ Un **dataframe** est une structure de données bidimensionnelle, similaire à un
 pip install pandas
 ```
 2. **Importation et Création d'un Dataframe**:
-```{python}
+```{pyodide-python}
 import pandas as pd
 data = {'Nom': ['Anna', 'Bob', 'Charles'], 'Age': [28, 34, 29]}
 df = pd.DataFrame(data)
@@ -49,7 +50,7 @@ df
 1. **Objectif**: Créer un dataframe, ajouter des données, puis les filtrer.
 2. **Énoncé**: Vous avez une liste de noms et d'âges. Créez un dataframe, ajoutez une colonne 'Profession', puis filtrez pour afficher seulement les personnes de plus de 30 ans.
 3. **Solution**:
-```python
+```{pyodide-python}
 # Création du dataframe
 df['Profession'] = ['Ingénieur', 'Artiste', 'Médecin']
 
@@ -66,14 +67,14 @@ Les dataframes, via la bibliothèque Pandas, sont des outils essentiels en Pytho
 Quand on travaille avec de grands ensembles de données, il est crucial de savoir comment gérer efficacement la mémoire et le temps de traitement.
 
 - **Lecture par morceaux**: Pandas permet de lire de grandes données par morceaux, ce qui réduit la consommation de mémoire.
-```python
+```{pyodide-python}
 chunk_size = 1000
 for chunk in pd.read_csv('large_file.csv', chunksize=chunk_size):
     # Traitement de chaque morceau
 ```
 
 - **Optimisation des types de données**: Parfois, changer le type de données d'une colonne peut réduire significativement l'utilisation de la mémoire.
-```python
+```{pyodide-python}
 df['Colonne'] = df['Colonne'].astype('category')
 ```
 
@@ -88,7 +89,7 @@ df['Colonne'] = df['Colonne'].astype('category')
 1. **Objectif**: Manipuler un grand fichier CSV et effectuer des opérations sur les colonnes.
 2. **Énoncé**: Lisez un grand fichier CSV par morceaux. Pour chaque morceau, ajoutez une colonne 'AgeDoubled' qui est le double de la colonne 'Age', puis enregistrez chaque morceau modifié dans un nouveau fichier.
 3. **Solution**:
-   ```python
+   ```{pyodide-python}
    chunk_size = 1000
    for i, chunk in enumerate(pd.read_csv('large_file.csv', chunksize=chunk_size)):
        chunk['AgeDoubled'] = chunk['Age'] * 2
@@ -125,7 +126,7 @@ La maîtrise des opérations avancées sur les dataframes est essentielle pour t
 1. **Objectif**: Combiner plusieurs fichiers de données, effectuer une analyse simple, et visualiser les résultats.
 2. **Énoncé**: Vous avez plusieurs fichiers CSV représentant les ventes mensuelles d'une entreprise. Fusionnez-les, calculez le total des ventes par mois, puis créez un graphique linéaire des ventes.
 3. **Solution**:
-```python
+```{pyodide-python}
 import matplotlib.pyplot as plt
 
 # Fusion des fichiers CSV
@@ -151,7 +152,7 @@ Après avoir abordé les bases, les aspects avancés et des exemples concrets d'
 ## Astuces pour la Manipulation de Dataframes
 
 1. **Chainage de Méthodes**: Pandas permet de chaîner les méthodes, ce qui rend le code plus lisible et concis.
-```python
+```{pyodide-python}
 df = (pd.read_csv('data.csv')
       .dropna()
       .rename(columns={'old_name': 'new_name'})
@@ -160,12 +161,12 @@ df = (pd.read_csv('data.csv')
 On parle aussi pour décrire ce genre d'API, de fluent API. Le terme API fait ici référence à l'API utilisateur, c'est à dire l'ensemble des fonctions et méthodes que l'on peut utiliser pour interagir avec une bibliothèque. Une API est dite fluide lorsqu'elle permet d'enchaîner les appels de méthodes, comme dans l'exemple ci-dessus.
 
 2. **Utilisation de `query` pour le Filtrage**: La méthode `query` permet un filtrage plus lisible et souvent plus rapide.
-```python
+```{pyodide-python}
 df_filtered = df.query('age > 30 & city == "Paris"')
 ```
 
 3. **Assignation Conditionnelle avec `np.where`**: Pour créer de nouvelles colonnes basées sur des conditions.
-```python
+```{pyodide-python}
 import numpy as np
 df['status'] = np.where(df['age'] > 18, 'adult', 'minor')
 ```
