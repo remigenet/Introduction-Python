@@ -23,40 +23,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -273,7 +239,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"a=10\nif a > 5:\n    print(\"a est supérieur à 5\")","id":1,"options":{"read-only":"false","fig-height":5,"results":"markup","fig-width":7,"comment":"","context":"interactive","warning":"true","autorun":"","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","out-height":"","out-width":"700px","label":""}},{"code":"# Ceci est un commentaire\nprint(\"Hello, World!\")  # Ceci est un commentaire en fin de ligne","id":2,"options":{"read-only":"false","fig-height":5,"results":"markup","fig-width":7,"comment":"","context":"interactive","warning":"true","autorun":"","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","out-height":"","out-width":"700px","label":""}},{"code":"ma_variable = 10\nuneAutreVariable = \"Bonjour\"","id":3,"options":{"read-only":"false","fig-height":5,"results":"markup","fig-width":7,"comment":"","context":"interactive","warning":"true","autorun":"","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","out-height":"","out-width":"700px","label":""}},{"code":"try:\n    # Code à essayer d'exécuter\n    resultat = 10 / 0\nexcept ZeroDivisionError:\n    # Code exécuté en cas de ZeroDivisionError\n    print(\"Division par zéro!\")","id":4,"options":{"read-only":"false","fig-height":5,"results":"markup","fig-width":7,"comment":"","context":"interactive","warning":"true","autorun":"","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","out-height":"","out-width":"700px","label":""}},{"code":"ma_liste = [1, 2, 3, \"Python\", True]","id":5,"options":{"read-only":"false","fig-height":5,"results":"markup","fig-width":7,"comment":"","context":"interactive","warning":"true","autorun":"","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","out-height":"","out-width":"700px","label":""}},{"code":"mon_tuple = (1, 2, 3, \"Python\")","id":6,"options":{"read-only":"false","fig-height":5,"results":"markup","fig-width":7,"comment":"","context":"interactive","warning":"true","autorun":"","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","out-height":"","out-width":"700px","label":""}},{"code":"mon_dictionnaire = {\"nom\": \"Alice\", \"age\": 30, \"langage\": \"Python\"}","id":7,"options":{"read-only":"false","fig-height":5,"results":"markup","fig-width":7,"comment":"","context":"interactive","warning":"true","autorun":"","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","out-height":"","out-width":"700px","label":""}},{"code":"mon_ensemble = {1, 2, 3, 4, 5}","id":8,"options":{"read-only":"false","fig-height":5,"results":"markup","fig-width":7,"comment":"","context":"interactive","warning":"true","autorun":"","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","out-height":"","out-width":"700px","label":""}},{"code":"etudiants = [(\"Alice\", 85), (\"Bob\", 90), (\"Eve\", 85), (\"Dave\", 90), (\"Carol\", 75)]\nscores = {}\n\nfor nom, score in etudiants:\n    if score not in scores:\n        scores[score] = [nom]\n    else:\n        scores[score].append(nom)\n\nprint(scores)  # {85: ['Alice', 'Eve'], 90: ['Bob', 'Dave'], 75: ['Carol']}","id":9,"options":{"read-only":"false","fig-height":5,"results":"markup","fig-width":7,"comment":"","context":"interactive","warning":"true","autorun":"","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","out-height":"","out-width":"700px","label":""}},{"code":"# Création d'une liste des carrés des nombres de 0 à 9\ncarres = [x**2 for x in range(10)]","id":10,"options":{"read-only":"false","fig-height":5,"results":"markup","fig-width":7,"comment":"","context":"interactive","warning":"true","autorun":"","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","out-height":"","out-width":"700px","label":""}},{"code":"# Création d'un dictionnaire avec des nombres et leurs carrés\ncarres_dict = {x: x**2 for x in range(5)}","id":11,"options":{"read-only":"false","fig-height":5,"results":"markup","fig-width":7,"comment":"","context":"interactive","warning":"true","autorun":"","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","out-height":"","out-width":"700px","label":""}},{"code":"# Création d'un ensemble de carrés des nombres impairs\ncarres_impairs = {x**2 for x in range(10) if x % 2 != 0}","id":12,"options":{"read-only":"false","fig-height":5,"results":"markup","fig-width":7,"comment":"","context":"interactive","warning":"true","autorun":"","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","out-height":"","out-width":"700px","label":""}},{"code":"mots = [\"python\", \"est\", \"un\", \"langage\", \"puissant\"]\nlongueur_mots = {mot: len(mot) for mot in mots if len(mot) > 3}\n\nprint(longueur_mots)  # {'python': 6, 'langage': 7, 'puissant': 8}","id":13,"options":{"read-only":"false","fig-height":5,"results":"markup","fig-width":7,"comment":"","context":"interactive","warning":"true","autorun":"","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","out-height":"","out-width":"700px","label":""}},{"code":"# Exemple d'opérateur ternaire\nage = 20\nstatut = \"majeur\" if age >= 18 else \"mineur\"","id":14,"options":{"read-only":"false","fig-height":5,"results":"markup","fig-width":7,"comment":"","context":"interactive","warning":"true","autorun":"","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","out-height":"","out-width":"700px","label":""}},{"code":"# Exemple d'expression lambda\nadditionner = lambda x, y: x + y\nprint(additionner(5, 3))  # Affiche 8","id":15,"options":{"read-only":"false","fig-height":5,"results":"markup","fig-width":7,"comment":"","context":"interactive","warning":"true","autorun":"","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","out-height":"","out-width":"700px","label":""}},{"code":"ma_liste = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\nsous_liste = ma_liste[::2]  # Sélectionne chaque élément pair","id":16,"options":{"read-only":"false","fig-height":5,"results":"markup","fig-width":7,"comment":"","context":"interactive","warning":"true","autorun":"","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","out-height":"","out-width":"700px","label":""}},{"code":"# Exemple de dictionnaire contenant des listes\ninformations = {\n    \"nom\": \"Alice\",\n    \"hobbies\": [\"programmation\", \"jeux vidéo\", \"lecture\"]\n}","id":17,"options":{"read-only":"false","fig-height":5,"results":"markup","fig-width":7,"comment":"","context":"interactive","warning":"true","autorun":"","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","out-height":"","out-width":"700px","label":""}},{"code":"livres = [\n    {\"titre\": \"Python 101\", \"année\": 1999},\n    {\"titre\": \"Le Guide du Voyageur Galactique\", \"année\": 1979},\n    {\"titre\": \"Apprendre la Programmation\", \"année\": 2015}\n]\n\ntitres_recent = [livre[\"titre\"] for livre in livres if livre[\"année\"] > 2000]\nprint(titres_recent)  # Affiche ['Apprendre la Programmation']","id":18,"options":{"read-only":"false","fig-height":5,"results":"markup","fig-width":7,"comment":"","context":"interactive","warning":"true","autorun":"","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","out-height":"","out-width":"700px","label":""}}];
+globalThis.qpyodideCellDetails = [{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"a=10\nif a > 5:\n    print(\"a est supérieur à 5\")","id":1},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"# Ceci est un commentaire\nprint(\"Hello, World!\")  # Ceci est un commentaire en fin de ligne","id":2},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"ma_variable = 10\nuneAutreVariable = \"Bonjour\"","id":3},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"if condition:\n    # code si condition est vraie\nelif autre_condition:\n    # code si autre_condition est vraie\nelse:\n    # code si aucune des conditions précédentes n'est vraie","id":4},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"for element in sequence:\n    # code exécuté pour chaque élément","id":5},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"while condition:\n    # code exécuté tant que la condition est vraie","id":6},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"try:\n    # Code à essayer d'exécuter\n    resultat = 10 / 0\nexcept ZeroDivisionError:\n    # Code exécuté en cas de ZeroDivisionError\n    print(\"Division par zéro!\")","id":7},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"try:\n    # Tentative d'exécution de code\nexcept TypeError:\n    # Gestion d'une TypeError\nexcept ValueError:\n    # Gestion d'une ValueError","id":8},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"try:\n    # Code à essayer\nexcept:\n    # Gestion d'une exception\nfinally:\n    # Code exécuté après les blocs try et except","id":9},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"x = 10\ny = 1\n\nwhile x + y > 8:\n    try:\n        # Si x est impair, essayez de diviser par zéro (pour générer une exception)\n        if x % 2 != 0:\n            resultat = x / 0\n        # Autrement, décrémentez x\n        else:\n            x -= 1\n    except ZeroDivisionError:\n        print(\"Tentative de division par zéro. 'x' était impair.\")\n        break\n    finally:\n        # Décrémentez y à chaque itération\n        y -= 1\n\nprint(f\"Fin de la boucle avec x = {x} et y = {y}\")","id":10},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"ma_liste = [1, 2, 3, \"Python\", True]","id":11},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"mon_tuple = (1, 2, 3, \"Python\")","id":12},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"mon_dictionnaire = {\"nom\": \"Alice\", \"age\": 30, \"langage\": \"Python\"}","id":13},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"mon_ensemble = {1, 2, 3, 4, 5}","id":14},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"etudiants = [(\"Alice\", 85), (\"Bob\", 90), (\"Eve\", 85), (\"Dave\", 90), (\"Carol\", 75)]\nscores = {}\n\nfor nom, score in etudiants:\n    if score not in scores:\n        scores[score] = [nom]\n    else:\n        scores[score].append(nom)\n\nprint(scores)  # {85: ['Alice', 'Eve'], 90: ['Bob', 'Dave'], 75: ['Carol']}","id":15},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"# Création d'une liste des carrés des nombres de 0 à 9\ncarres = [x**2 for x in range(10)]","id":16},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"# Création d'un dictionnaire avec des nombres et leurs carrés\ncarres_dict = {x: x**2 for x in range(5)}","id":17},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"# Création d'un ensemble de carrés des nombres impairs\ncarres_impairs = {x**2 for x in range(10) if x % 2 != 0}","id":18},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"mots = [\"python\", \"est\", \"un\", \"langage\", \"puissant\"]\nlongueur_mots = {mot: len(mot) for mot in mots if len(mot) > 3}\n\nprint(longueur_mots)  # {'python': 6, 'langage': 7, 'puissant': 8}","id":19},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"# Exemple d'opérateur ternaire\nage = 20\nstatut = \"majeur\" if age >= 18 else \"mineur\"","id":20},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"# Exemple d'expression lambda\nadditionner = lambda x, y: x + y\nprint(additionner(5, 3))  # Affiche 8","id":21},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"ma_liste = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\nsous_liste = ma_liste[::2]  # Sélectionne chaque élément pair","id":22},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"# Exemple de dictionnaire contenant des listes\ninformations = {\n    \"nom\": \"Alice\",\n    \"hobbies\": [\"programmation\", \"jeux vidéo\", \"lecture\"]\n}","id":23},{"options":{"comment":"","output":"true","context":"interactive","fig-cap":"","read-only":"false","message":"true","fig-width":7,"autorun":"","warning":"true","out-height":"","label":"","fig-height":5,"out-width":"700px","dpi":72,"classes":"","results":"markup"},"code":"livres = [\n    {\"titre\": \"Python 101\", \"année\": 1999},\n    {\"titre\": \"Le Guide du Voyageur Galactique\", \"année\": 1979},\n    {\"titre\": \"Apprendre la Programmation\", \"année\": 2015}\n]\n\ntitres_recent = [livre[\"titre\"] for livre in livres if livre[\"année\"] > 2000]\nprint(titres_recent)  # Affiche ['Apprendre la Programmation']","id":24}];
 
 
 </script>
@@ -1024,23 +990,19 @@ globalThis._qpyodideGetInstance = function() {
 <h3 class="anchored" data-anchor-id="instructions-conditionnelles">Instructions Conditionnelles</h3>
 <ul>
 <li><p><code>if</code>, <code>else</code>, <code>elif</code> permettent d’exécuter des blocs de code basés sur des conditions.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> condition:</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># code si condition est vraie</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> autre_condition:</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># code si autre_condition est vraie</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># code si aucune des conditions précédentes n'est vraie</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div id="qpyodide-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
 </ul>
 </section>
 <section id="boucles" class="level3">
 <h3 class="anchored" data-anchor-id="boucles">Boucles</h3>
 <ul>
 <li><p><strong>Boucle For</strong> : Itère sur une séquence (comme une liste, un tuple, un dictionnaire, un ensemble, ou une chaîne de caractères).</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> element <span class="kw">in</span> sequence:</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># code exécuté pour chaque élément</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div id="qpyodide-insertion-location-5"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
 <li><p><strong>Boucle While</strong> : Continue à exécuter un bloc de code tant qu’une condition est vraie.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> condition:</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># code exécuté tant que la condition est vraie</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div id="qpyodide-insertion-location-6"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
 </ul>
 <p><strong>Compréhensions de Liste</strong></p>
 <ul>
@@ -1056,29 +1018,21 @@ globalThis._qpyodideGetInstance = function() {
 <h3 class="anchored" data-anchor-id="try-except-blocks">Try-Except Blocks</h3>
 <ul>
 <li><p>Un bloc <code>try</code> permet de tester un bloc de code pour les erreurs, et le bloc <code>except</code> permet de gérer l’erreur.</p>
-<div id="qpyodide-insertion-location-4"></div>
+<div id="qpyodide-insertion-location-7"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
 </ul>
 </section>
 <section id="gestion-de-plusieurs-exceptions" class="level3">
 <h3 class="anchored" data-anchor-id="gestion-de-plusieurs-exceptions">Gestion de Plusieurs Exceptions :</h3>
 <p>Vous pouvez spécifier plusieurs blocs <code>except</code> pour gérer différentes exceptions.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tentative d'exécution de code</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">TypeError</span>:</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gestion d'une TypeError</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ValueError</span>:</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gestion d'une ValueError</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="qpyodide-insertion-location-8"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 <section id="bloc-finally" class="level3">
 <h3 class="anchored" data-anchor-id="bloc-finally">Bloc Finally :</h3>
 <p>Le bloc <code>finally</code> est facultatif et exécuté quel que soit le résultat des blocs <code>try</code> et <code>except</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code à essayer</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gestion d'une exception</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">finally</span>:</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code exécuté après les blocs try et except</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="qpyodide-insertion-location-9"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 </section>
 <section id="section-1.5-exemple-concret-mélangeant-les-concepts" class="level2">
@@ -1087,25 +1041,8 @@ globalThis._qpyodideGetInstance = function() {
 <section id="exemple-pratique-boucle-et-conditions" class="level3">
 <h3 class="anchored" data-anchor-id="exemple-pratique-boucle-et-conditions">Exemple Pratique : Boucle et Conditions</h3>
 <p>Imaginons un scénario où nous avons deux variables <code>x</code> et <code>y</code>. Nous voulons exécuter une boucle qui continue tant que la somme de <code>x</code> et <code>y</code> est supérieure à 8. Dans la boucle, nous effectuons une opération qui peut potentiellement lever une exception.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> x <span class="op">+</span> y <span class="op">&gt;</span> <span class="dv">8</span>:</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Si x est impair, essayez de diviser par zéro (pour générer une exception)</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span>:</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>            resultat <span class="op">=</span> x <span class="op">/</span> <span class="dv">0</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Autrement, décrémentez x</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>            x <span class="op">-=</span> <span class="dv">1</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ZeroDivisionError</span>:</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Tentative de division par zéro. 'x' était impair."</span>)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">finally</span>:</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Décrémentez y à chaque itération</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        y <span class="op">-=</span> <span class="dv">1</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Fin de la boucle avec x = </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> et y = </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="qpyodide-insertion-location-10"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Dans cet exemple, la boucle <code>while</code> continue de s’exécuter tant que la condition <code>x + y &gt; 8</code> est vraie. Si <code>x</code> est impair, le code essaie de diviser par zéro, ce qui lève une <code>ZeroDivisionError</code>. Dans ce cas, le message d’erreur est imprimé, et le mot-clé <code>break</code> interrompt la boucle. Le bloc <code>finally</code> est exécuté après chaque itération, peu importe les erreurs.</p>
 </section>
 </section>
@@ -1116,7 +1053,7 @@ globalThis._qpyodideGetInstance = function() {
 <h3 class="anchored" data-anchor-id="listes">Listes</h3>
 <ul>
 <li><p>Les listes en Python sont des collections ordonnées et modifiables. Elles peuvent contenir des éléments de différents types.</p>
-<div id="qpyodide-insertion-location-5"></div>
+<div id="qpyodide-insertion-location-11"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
 <li><p><strong>Opérations de Base sur les Listes</strong> :</p>
 <ul>
@@ -1130,7 +1067,7 @@ globalThis._qpyodideGetInstance = function() {
 <h3 class="anchored" data-anchor-id="tuples">Tuples</h3>
 <ul>
 <li><p>Les tuples sont similaires aux listes, mais ils sont immuables (leurs valeurs ne peuvent pas être modifiées après leur création).</p>
-<div id="qpyodide-insertion-location-6"></div>
+<div id="qpyodide-insertion-location-12"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
 <li><p>Utilisés pour des données qui ne doivent pas être modifiées, comme les clés dans les dictionnaires.</p></li>
 </ul>
@@ -1143,7 +1080,7 @@ globalThis._qpyodideGetInstance = function() {
 <h3 class="anchored" data-anchor-id="dictionnaires">Dictionnaires</h3>
 <ul>
 <li><p>Les dictionnaires stockent des paires clé-valeur. Ils sont mutables et non ordonnés.</p>
-<div id="qpyodide-insertion-location-7"></div>
+<div id="qpyodide-insertion-location-13"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
 <li><p><strong>Manipulation de Dictionnaires</strong> :</p>
 <ul>
@@ -1157,7 +1094,7 @@ globalThis._qpyodideGetInstance = function() {
 <h3 class="anchored" data-anchor-id="ensembles">Ensembles</h3>
 <ul>
 <li><p>Les ensembles sont des collections non ordonnées de valeurs uniques. Utiles pour les opérations mathématiques comme les unions, intersections, et différences.</p>
-<div id="qpyodide-insertion-location-8"></div>
+<div id="qpyodide-insertion-location-14"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
 <li><p><strong>Opérations sur les Ensembles</strong> :</p>
 <ul>
@@ -1173,7 +1110,7 @@ globalThis._qpyodideGetInstance = function() {
 <section id="exemple-de-manipulation-de-structures-de-données" class="level3">
 <h3 class="anchored" data-anchor-id="exemple-de-manipulation-de-structures-de-données">Exemple de Manipulation de Structures de Données</h3>
 <p>Supposons que nous avons une liste de tuples, chaque tuple contenant le nom d’un étudiant et son score. Nous voulons créer un dictionnaire où chaque clé est un score unique, et la valeur est la liste des noms d’étudiants ayant ce score.</p>
-<div id="qpyodide-insertion-location-9"></div>
+<div id="qpyodide-insertion-location-15"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Dans cet exemple, nous parcourons la liste <code>etudiants</code>. Pour chaque tuple, nous vérifions si le score est déjà une clé dans le dictionnaire <code>scores</code>. Si ce n’est pas le cas, nous ajoutons une nouvelle clé avec le score et initialisons sa valeur avec une liste contenant le nom de l’étudiant. Si le score existe déjà, nous ajoutons simplement le nom de l’étudiant à la liste correspondante.</p>
 <hr>
@@ -1186,7 +1123,7 @@ globalThis._qpyodideGetInstance = function() {
 <h3 class="anchored" data-anchor-id="compréhensions-de-liste">Compréhensions de Liste</h3>
 <ul>
 <li><p>Les compréhensions de liste fournissent une façon concise de créer des listes. Elles consistent en une expression suivie par une clause <code>for</code>, puis zéro ou plusieurs clauses <code>for</code> ou <code>if</code>.</p>
-<div id="qpyodide-insertion-location-10"></div>
+<div id="qpyodide-insertion-location-16"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
 </ul>
 </section>
@@ -1194,7 +1131,7 @@ globalThis._qpyodideGetInstance = function() {
 <h3 class="anchored" data-anchor-id="compréhensions-de-dictionnaire">Compréhensions de Dictionnaire</h3>
 <ul>
 <li><p>Semblables aux compréhensions de liste, mais créent des dictionnaires. Elles sont entourées de <code>{}</code> avec une paire clé-valeur suivie d’une clause <code>for</code>.</p>
-<div id="qpyodide-insertion-location-11"></div>
+<div id="qpyodide-insertion-location-17"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
 </ul>
 </section>
@@ -1202,7 +1139,7 @@ globalThis._qpyodideGetInstance = function() {
 <h3 class="anchored" data-anchor-id="compréhensions-densemble">Compréhensions d’Ensemble</h3>
 <ul>
 <li><p>Utilisées pour créer des ensembles de manière similaire aux compréhensions de liste, mais avec des éléments uniques.</p>
-<div id="qpyodide-insertion-location-12"></div>
+<div id="qpyodide-insertion-location-18"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
 </ul>
 </section>
@@ -1213,7 +1150,7 @@ globalThis._qpyodideGetInstance = function() {
 <section id="exemple-pratique-transformation-de-données" class="level3">
 <h3 class="anchored" data-anchor-id="exemple-pratique-transformation-de-données">Exemple Pratique : Transformation de Données</h3>
 <p>Imaginons que nous avons une liste de mots et que nous voulons créer un dictionnaire qui associe chaque mot à sa longueur, mais seulement pour les mots de plus de trois lettres.</p>
-<div id="qpyodide-insertion-location-13"></div>
+<div id="qpyodide-insertion-location-19"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Dans cet exemple, la compréhension de dictionnaire parcourt la liste <code>mots</code>, incluant uniquement les mots dont la longueur dépasse trois lettres. Pour chaque mot éligible, le dictionnaire <code>longueur_mots</code> est construit avec le mot comme clé et sa longueur comme valeur.</p>
 </section>
@@ -1225,7 +1162,7 @@ globalThis._qpyodideGetInstance = function() {
 <h3 class="anchored" data-anchor-id="opérateurs-ternaires">Opérateurs Ternaires</h3>
 <ul>
 <li><p>Les opérateurs ternaires permettent d’écrire des instructions conditionnelles en une seule ligne. La syntaxe est : <code>[valeur_si_vrai] if [condition] else [valeur_si_faux]</code>.</p>
-<div id="qpyodide-insertion-location-14"></div>
+<div id="qpyodide-insertion-location-20"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
 </ul>
 </section>
@@ -1233,7 +1170,7 @@ globalThis._qpyodideGetInstance = function() {
 <h3 class="anchored" data-anchor-id="expressions-lambda">Expressions Lambda</h3>
 <ul>
 <li><p>Les expressions lambda permettent de créer de petites fonctions anonymes. Elles sont utiles pour des opérations simples nécessitant une fonction.</p>
-<div id="qpyodide-insertion-location-15"></div>
+<div id="qpyodide-insertion-location-21"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
 </ul>
 </section>
@@ -1245,7 +1182,7 @@ globalThis._qpyodideGetInstance = function() {
 <h3 class="anchored" data-anchor-id="slicing-avancé">Slicing Avancé</h3>
 <ul>
 <li><p>Le slicing permet de sélectionner des sous-parties d’une séquence. En plus des bases, Python permet des slicings plus complexes.</p>
-<div id="qpyodide-insertion-location-16"></div>
+<div id="qpyodide-insertion-location-22"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
 </ul>
 </section>
@@ -1253,7 +1190,7 @@ globalThis._qpyodideGetInstance = function() {
 <h3 class="anchored" data-anchor-id="listes-et-dictionnaires-imbriqués">Listes et Dictionnaires Imbriqués</h3>
 <ul>
 <li><p>Les listes et dictionnaires peuvent être imbriqués pour créer des structures de données complexes.</p>
-<div id="qpyodide-insertion-location-17"></div>
+<div id="qpyodide-insertion-location-23"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
 </ul>
 </section>
@@ -1264,11 +1201,11 @@ globalThis._qpyodideGetInstance = function() {
 <section id="exemple-filtrage-et-transformation-de-données" class="level3">
 <h3 class="anchored" data-anchor-id="exemple-filtrage-et-transformation-de-données">Exemple : Filtrage et Transformation de Données</h3>
 <p>Supposons que nous avons une liste de dictionnaires représentant des livres, et nous voulons extraire les titres des livres publiés après 2000.</p>
-<div id="qpyodide-insertion-location-18"></div>
+<div id="qpyodide-insertion-location-24"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Dans cet exemple, une compréhension de liste est utilisée pour parcourir <code>livres</code>, en extrayant le <code>titre</code> de chaque livre dont l’<code>année</code> est supérieure à 2000. Cela démontre comment les compréhensions de liste peuvent être utilisées pour filtrer et transformer des données de manière concise et lisible. ```</p>
 <p>Pour vous entrainez à pratiquer ces notions:</p>
-<p><a href="#dnldts2371" onclick="fetch('data:application/x-python;base64,IyBDb3B5cmlnaHQgMjAxMCBHb29nbGUgSW5jLgojIExpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAKIyBodHRwOi8vd3d3LmFwYWNoZS5vcmcvbGljZW5zZXMvTElDRU5TRS0yLjAKCiMgR29vZ2xlJ3MgUHl0aG9uIENsYXNzCiMgaHR0cDovL2NvZGUuZ29vZ2xlLmNvbS9lZHUvbGFuZ3VhZ2VzL2dvb2dsZS1weXRob24tY2xhc3MvCgojIEJhc2ljIGxpc3QgZXhlcmNpc2VzCiMgRmlsbCBpbiB0aGUgY29kZSBmb3IgdGhlIGZ1bmN0aW9ucyBiZWxvdy4gbWFpbigpIGlzIGFscmVhZHkgc2V0IHVwCiMgdG8gY2FsbCB0aGUgZnVuY3Rpb25zIHdpdGggYSBmZXcgZGlmZmVyZW50IGlucHV0cywKIyBwcmludGluZyAnT0snIHdoZW4gZWFjaCBmdW5jdGlvbiBpcyBjb3JyZWN0LgojIFRoZSBzdGFydGVyIGNvZGUgZm9yIGVhY2ggZnVuY3Rpb24gaW5jbHVkZXMgYSAncmV0dXJuJwojIHdoaWNoIGlzIGp1c3QgYSBwbGFjZWhvbGRlciBmb3IgeW91ciBjb2RlLgojIEl0J3Mgb2sgaWYgeW91IGRvIG5vdCBjb21wbGV0ZSBhbGwgdGhlIGZ1bmN0aW9ucywgYW5kIHRoZXJlCiMgYXJlIHNvbWUgYWRkaXRpb25hbCBmdW5jdGlvbnMgdG8gdHJ5IGluIGxpc3QyLnB5LgoKIyBBLiBtYXRjaF9lbmRzCiMgR2l2ZW4gYSBsaXN0IG9mIHN0cmluZ3MsIHJldHVybiB0aGUgY291bnQgb2YgdGhlIG51bWJlciBvZgojIHN0cmluZ3Mgd2hlcmUgdGhlIHN0cmluZyBsZW5ndGggaXMgMiBvciBtb3JlIGFuZCB0aGUgZmlyc3QKIyBhbmQgbGFzdCBjaGFycyBvZiB0aGUgc3RyaW5nIGFyZSB0aGUgc2FtZS4KIyBOb3RlOiBweXRob24gZG9lcyBub3QgaGF2ZSBhICsrIG9wZXJhdG9yLCBidXQgKz0gd29ya3MuCmRlZiBtYXRjaF9lbmRzKHdvcmRzKToKICAgIHJldHVybgoKCiMgQi4gZnJvbnRfeAojIEdpdmVuIGEgbGlzdCBvZiBzdHJpbmdzLCByZXR1cm4gYSBsaXN0IHdpdGggdGhlIHN0cmluZ3MKIyBpbiBzb3J0ZWQgb3JkZXIsIGV4Y2VwdCBncm91cCBhbGwgdGhlIHN0cmluZ3MgdGhhdCBiZWdpbiB3aXRoICd4JyBmaXJzdC4KIyBlLmcuIFsnbWl4JywgJ3h5eicsICdhcHBsZScsICd4YW5hZHUnLCAnYWFyZHZhcmsnXSB5aWVsZHMKIyBbJ3hhbmFkdScsICd4eXonLCAnYWFyZHZhcmsnLCAnYXBwbGUnLCAnbWl4J10KIyBIaW50OiB0aGlzIGNhbiBiZSBkb25lIGJ5IG1ha2luZyAyIGxpc3RzIGFuZCBzb3J0aW5nIGVhY2ggb2YgdGhlbQojIGJlZm9yZSBjb21iaW5pbmcgdGhlbS4KZGVmIGZyb250X3god29yZHMpOgogICAgcmV0dXJuCgoKIyBDLiBzb3J0X2xhc3QKIyBHaXZlbiBhIGxpc3Qgb2Ygbm9uLWVtcHR5IHR1cGxlcywgcmV0dXJuIGEgbGlzdCBzb3J0ZWQgaW4gaW5jcmVhc2luZwojIG9yZGVyIGJ5IHRoZSBsYXN0IGVsZW1lbnQgaW4gZWFjaCB0dXBsZS4KIyBlLmcuIFsoMSwgNyksICgxLCAzKSwgKDMsIDQsIDUpLCAoMiwgMildIHlpZWxkcwojIFsoMiwgMiksICgxLCAzKSwgKDMsIDQsIDUpLCAoMSwgNyldCiMgSGludDogdXNlIGEgY3VzdG9tIGtleT0gZnVuY3Rpb24gdG8gZXh0cmFjdCB0aGUgbGFzdCBlbGVtZW50IGZvcm0gZWFjaCB0dXBsZS4KZGVmIHNvcnRfbGFzdCh0dXBsZXMpOgogICAgcmV0dXJuCgoKIyBTaW1wbGUgcHJvdmlkZWQgdGVzdCgpIGZ1bmN0aW9uIHVzZWQgaW4gbWFpbigpIHRvIHByaW50CiMgd2hhdCBlYWNoIGZ1bmN0aW9uIHJldHVybnMgdnMuIHdoYXQgaXQncyBzdXBwb3NlZCB0byByZXR1cm4uCmRlZiB0ZXN0KGdvdCwgZXhwZWN0ZWQpOgogICAgaWYgZ290ID09IGV4cGVjdGVkOgogICAgICAgIHByZWZpeCA9ICcgT0sgJwogICAgZWxzZToKICAgICAgICBwcmVmaXggPSAnICBYICcKICAgIHByaW50KCclcyBnb3Q6ICVzIGV4cGVjdGVkOiAlcycgJSAocHJlZml4LCByZXByKGdvdCksIHJlcHIoZXhwZWN0ZWQpKSkKCgojIENhbGxzIHRoZSBhYm92ZSBmdW5jdGlvbnMgd2l0aCBpbnRlcmVzdGluZyBpbnB1dHMuCmRlZiBtYWluKCk6CiAgICBwcmludAogICAgJ21hdGNoX2VuZHMnCiAgICB0ZXN0KG1hdGNoX2VuZHMoWydhYmEnLCAneHl6JywgJ2FhJywgJ3gnLCAnYmJiJ10pLCAzKQogICAgdGVzdChtYXRjaF9lbmRzKFsnJywgJ3gnLCAneHknLCAneHl4JywgJ3h4J10pLCAyKQogICAgdGVzdChtYXRjaF9lbmRzKFsnYWFhJywgJ2JlJywgJ2FiYycsICdoZWxsbyddKSwgMSkKCiAgICBwcmludAogICAgcHJpbnQKICAgICdmcm9udF94JwogICAgdGVzdChmcm9udF94KFsnYmJiJywgJ2NjYycsICdheHgnLCAneHp6JywgJ3hhYSddKSwKICAgICAgICAgWyd4YWEnLCAneHp6JywgJ2F4eCcsICdiYmInLCAnY2NjJ10pCiAgICB0ZXN0KGZyb250X3goWydjY2MnLCAnYmJiJywgJ2FhYScsICd4Y2MnLCAneGFhJ10pLAogICAgICAgICBbJ3hhYScsICd4Y2MnLCAnYWFhJywgJ2JiYicsICdjY2MnXSkKICAgIHRlc3QoZnJvbnRfeChbJ21peCcsICd4eXonLCAnYXBwbGUnLCAneGFuYWR1JywgJ2FhcmR2YXJrJ10pLAogICAgICAgICBbJ3hhbmFkdScsICd4eXonLCAnYWFyZHZhcmsnLCAnYXBwbGUnLCAnbWl4J10pCgogICAgcHJpbnQKICAgIHByaW50CiAgICAnc29ydF9sYXN0JwogICAgdGVzdChzb3J0X2xhc3QoWygxLCAzKSwgKDMsIDIpLCAoMiwgMSldKSwKICAgICAgICAgWygyLCAxKSwgKDMsIDIpLCAoMSwgMyldKQogICAgdGVzdChzb3J0X2xhc3QoWygyLCAzKSwgKDEsIDIpLCAoMywgMSldKSwKICAgICAgICAgWygzLCAxKSwgKDEsIDIpLCAoMiwgMyldKQogICAgdGVzdChzb3J0X2xhc3QoWygxLCA3KSwgKDEsIDMpLCAoMywgNCwgNSksICgyLCAyKV0pLAogICAgICAgICBbKDIsIDIpLCAoMSwgMyksICgzLCA0LCA1KSwgKDEsIDcpXSkKCgppZiBfX25hbWVfXyA9PSAnX19tYWluX18nOgogICAgbWFpbigp').then(res => res.blob()).then(blob => {
+<p><a href="#dnldts42885" onclick="fetch('data:application/x-python;base64,IyBDb3B5cmlnaHQgMjAxMCBHb29nbGUgSW5jLgojIExpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAKIyBodHRwOi8vd3d3LmFwYWNoZS5vcmcvbGljZW5zZXMvTElDRU5TRS0yLjAKCiMgR29vZ2xlJ3MgUHl0aG9uIENsYXNzCiMgaHR0cDovL2NvZGUuZ29vZ2xlLmNvbS9lZHUvbGFuZ3VhZ2VzL2dvb2dsZS1weXRob24tY2xhc3MvCgojIEJhc2ljIGxpc3QgZXhlcmNpc2VzCiMgRmlsbCBpbiB0aGUgY29kZSBmb3IgdGhlIGZ1bmN0aW9ucyBiZWxvdy4gbWFpbigpIGlzIGFscmVhZHkgc2V0IHVwCiMgdG8gY2FsbCB0aGUgZnVuY3Rpb25zIHdpdGggYSBmZXcgZGlmZmVyZW50IGlucHV0cywKIyBwcmludGluZyAnT0snIHdoZW4gZWFjaCBmdW5jdGlvbiBpcyBjb3JyZWN0LgojIFRoZSBzdGFydGVyIGNvZGUgZm9yIGVhY2ggZnVuY3Rpb24gaW5jbHVkZXMgYSAncmV0dXJuJwojIHdoaWNoIGlzIGp1c3QgYSBwbGFjZWhvbGRlciBmb3IgeW91ciBjb2RlLgojIEl0J3Mgb2sgaWYgeW91IGRvIG5vdCBjb21wbGV0ZSBhbGwgdGhlIGZ1bmN0aW9ucywgYW5kIHRoZXJlCiMgYXJlIHNvbWUgYWRkaXRpb25hbCBmdW5jdGlvbnMgdG8gdHJ5IGluIGxpc3QyLnB5LgoKIyBBLiBtYXRjaF9lbmRzCiMgR2l2ZW4gYSBsaXN0IG9mIHN0cmluZ3MsIHJldHVybiB0aGUgY291bnQgb2YgdGhlIG51bWJlciBvZgojIHN0cmluZ3Mgd2hlcmUgdGhlIHN0cmluZyBsZW5ndGggaXMgMiBvciBtb3JlIGFuZCB0aGUgZmlyc3QKIyBhbmQgbGFzdCBjaGFycyBvZiB0aGUgc3RyaW5nIGFyZSB0aGUgc2FtZS4KIyBOb3RlOiBweXRob24gZG9lcyBub3QgaGF2ZSBhICsrIG9wZXJhdG9yLCBidXQgKz0gd29ya3MuCmRlZiBtYXRjaF9lbmRzKHdvcmRzKToKICAgIHJldHVybgoKCiMgQi4gZnJvbnRfeAojIEdpdmVuIGEgbGlzdCBvZiBzdHJpbmdzLCByZXR1cm4gYSBsaXN0IHdpdGggdGhlIHN0cmluZ3MKIyBpbiBzb3J0ZWQgb3JkZXIsIGV4Y2VwdCBncm91cCBhbGwgdGhlIHN0cmluZ3MgdGhhdCBiZWdpbiB3aXRoICd4JyBmaXJzdC4KIyBlLmcuIFsnbWl4JywgJ3h5eicsICdhcHBsZScsICd4YW5hZHUnLCAnYWFyZHZhcmsnXSB5aWVsZHMKIyBbJ3hhbmFkdScsICd4eXonLCAnYWFyZHZhcmsnLCAnYXBwbGUnLCAnbWl4J10KIyBIaW50OiB0aGlzIGNhbiBiZSBkb25lIGJ5IG1ha2luZyAyIGxpc3RzIGFuZCBzb3J0aW5nIGVhY2ggb2YgdGhlbQojIGJlZm9yZSBjb21iaW5pbmcgdGhlbS4KZGVmIGZyb250X3god29yZHMpOgogICAgcmV0dXJuCgoKIyBDLiBzb3J0X2xhc3QKIyBHaXZlbiBhIGxpc3Qgb2Ygbm9uLWVtcHR5IHR1cGxlcywgcmV0dXJuIGEgbGlzdCBzb3J0ZWQgaW4gaW5jcmVhc2luZwojIG9yZGVyIGJ5IHRoZSBsYXN0IGVsZW1lbnQgaW4gZWFjaCB0dXBsZS4KIyBlLmcuIFsoMSwgNyksICgxLCAzKSwgKDMsIDQsIDUpLCAoMiwgMildIHlpZWxkcwojIFsoMiwgMiksICgxLCAzKSwgKDMsIDQsIDUpLCAoMSwgNyldCiMgSGludDogdXNlIGEgY3VzdG9tIGtleT0gZnVuY3Rpb24gdG8gZXh0cmFjdCB0aGUgbGFzdCBlbGVtZW50IGZvcm0gZWFjaCB0dXBsZS4KZGVmIHNvcnRfbGFzdCh0dXBsZXMpOgogICAgcmV0dXJuCgoKIyBTaW1wbGUgcHJvdmlkZWQgdGVzdCgpIGZ1bmN0aW9uIHVzZWQgaW4gbWFpbigpIHRvIHByaW50CiMgd2hhdCBlYWNoIGZ1bmN0aW9uIHJldHVybnMgdnMuIHdoYXQgaXQncyBzdXBwb3NlZCB0byByZXR1cm4uCmRlZiB0ZXN0KGdvdCwgZXhwZWN0ZWQpOgogICAgaWYgZ290ID09IGV4cGVjdGVkOgogICAgICAgIHByZWZpeCA9ICcgT0sgJwogICAgZWxzZToKICAgICAgICBwcmVmaXggPSAnICBYICcKICAgIHByaW50KCclcyBnb3Q6ICVzIGV4cGVjdGVkOiAlcycgJSAocHJlZml4LCByZXByKGdvdCksIHJlcHIoZXhwZWN0ZWQpKSkKCgojIENhbGxzIHRoZSBhYm92ZSBmdW5jdGlvbnMgd2l0aCBpbnRlcmVzdGluZyBpbnB1dHMuCmRlZiBtYWluKCk6CiAgICBwcmludAogICAgJ21hdGNoX2VuZHMnCiAgICB0ZXN0KG1hdGNoX2VuZHMoWydhYmEnLCAneHl6JywgJ2FhJywgJ3gnLCAnYmJiJ10pLCAzKQogICAgdGVzdChtYXRjaF9lbmRzKFsnJywgJ3gnLCAneHknLCAneHl4JywgJ3h4J10pLCAyKQogICAgdGVzdChtYXRjaF9lbmRzKFsnYWFhJywgJ2JlJywgJ2FiYycsICdoZWxsbyddKSwgMSkKCiAgICBwcmludAogICAgcHJpbnQKICAgICdmcm9udF94JwogICAgdGVzdChmcm9udF94KFsnYmJiJywgJ2NjYycsICdheHgnLCAneHp6JywgJ3hhYSddKSwKICAgICAgICAgWyd4YWEnLCAneHp6JywgJ2F4eCcsICdiYmInLCAnY2NjJ10pCiAgICB0ZXN0KGZyb250X3goWydjY2MnLCAnYmJiJywgJ2FhYScsICd4Y2MnLCAneGFhJ10pLAogICAgICAgICBbJ3hhYScsICd4Y2MnLCAnYWFhJywgJ2JiYicsICdjY2MnXSkKICAgIHRlc3QoZnJvbnRfeChbJ21peCcsICd4eXonLCAnYXBwbGUnLCAneGFuYWR1JywgJ2FhcmR2YXJrJ10pLAogICAgICAgICBbJ3hhbmFkdScsICd4eXonLCAnYWFyZHZhcmsnLCAnYXBwbGUnLCAnbWl4J10pCgogICAgcHJpbnQKICAgIHByaW50CiAgICAnc29ydF9sYXN0JwogICAgdGVzdChzb3J0X2xhc3QoWygxLCAzKSwgKDMsIDIpLCAoMiwgMSldKSwKICAgICAgICAgWygyLCAxKSwgKDMsIDIpLCAoMSwgMyldKQogICAgdGVzdChzb3J0X2xhc3QoWygyLCAzKSwgKDEsIDIpLCAoMywgMSldKSwKICAgICAgICAgWygzLCAxKSwgKDEsIDIpLCAoMiwgMyldKQogICAgdGVzdChzb3J0X2xhc3QoWygxLCA3KSwgKDEsIDMpLCAoMywgNCwgNSksICgyLCAyKV0pLAogICAgICAgICBbKDIsIDIpLCAoMSwgMyksICgzLCA0LCA1KSwgKDEsIDcpXSkKCgppZiBfX25hbWVfXyA9PSAnX19tYWluX18nOgogICAgbWFpbigp').then(res => res.blob()).then(blob => {
       const downloadURL = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       document.body.appendChild(a);
@@ -1276,7 +1213,7 @@ globalThis._qpyodideGetInstance = function() {
       a.download = '1.1-Exercices.py'; a.click();
       window.URL.revokeObjectURL(downloadURL);
       document.body.removeChild(a);
-        });"><button class="btn btn-success downloadthis  " id="dnldts2371"><i class="bi bi-file-earmark-python"></i> Telecharger le premier jeu d'exercice </button></a></p>
+        });"><button class="btn btn-success downloadthis  " id="dnldts42885"><i class="bi bi-file-earmark-python"></i> Telecharger le premier jeu d'exercice </button></a></p>
 
 
 </section>

@@ -22,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -270,7 +236,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"options":{"message":"true","fig-height":5,"autorun":"","dpi":72,"warning":"true","fig-cap":"","classes":"","comment":"","out-width":"700px","fig-width":7,"read-only":"false","output":"true","context":"interactive","label":"","results":"markup","out-height":""},"code":"class Client:\n    def __init__(self, client_id):\n        self.client_id = client_id\n        self.balance = 0  # Montant en dollars\n        self.portfolio = {}  # Dictionnaire pour stocker les actions: {\"ticker\": quantité}\n\n    def traiter_operation(self, op_type, op_data):\n        \"\"\"\n        Traite une opération donnée et met à jour le solde et le portefeuille du client.\n        :param op_type: Le type d'opération ('deposit', 'withdraw', 'trade')\n        :param op_data: Les données de l'opération (montant ou dict pour 'trade')\n        \"\"\"\n        # À compléter: Traitement de chaque type d'opération\n\n    def afficher_solde_et_portefeuille(self):\n        \"\"\"\n        Affiche le solde en dollars et le portefeuille d'actions du client.\n        \"\"\"\n        # À compléter: Affichage du solde et du portefeuille\n\n# Fonction pour lire les données du fichier CSV et traiter les opérations\ndef traiter_fichier_operations(fichier_csv):\n    \"\"\"\n    Lit un fichier CSV contenant l'historique des opérations et traite chaque opération.\n    :param fichier_csv: Le chemin vers le fichier CSV\n    :return: Dictionnaire des clients avec leurs informations {client_id: Client}\n    \"\"\"\n    clients = {}\n    # À compléter: Lecture du fichier CSV et traitement des opérations\n    return clients\n"}];
+globalThis.qpyodideCellDetails = [{"options":{"output":"true","comment":"","read-only":"false","context":"interactive","autorun":"","results":"markup","warning":"true","classes":"","label":"","fig-height":5,"dpi":72,"fig-cap":"","message":"true","out-width":"700px","fig-width":7,"out-height":""},"code":"class Client:\n    def __init__(self, client_id):\n        self.client_id = client_id\n        self.balance = 0  # Montant en dollars\n        self.portfolio = {}  # Dictionnaire pour stocker les actions: {\"ticker\": quantité}\n\n    def traiter_operation(self, op_type, op_data):\n        \"\"\"\n        Traite une opération donnée et met à jour le solde et le portefeuille du client.\n        :param op_type: Le type d'opération ('deposit', 'withdraw', 'trade')\n        :param op_data: Les données de l'opération (montant ou dict pour 'trade')\n        \"\"\"\n        # À compléter: Traitement de chaque type d'opération\n\n    def afficher_solde_et_portefeuille(self):\n        \"\"\"\n        Affiche le solde en dollars et le portefeuille d'actions du client.\n        \"\"\"\n        # À compléter: Affichage du solde et du portefeuille\n\n# Fonction pour lire les données du fichier CSV et traiter les opérations\ndef traiter_fichier_operations(fichier_csv):\n    \"\"\"\n    Lit un fichier CSV contenant l'historique des opérations et traite chaque opération.\n    :param fichier_csv: Le chemin vers le fichier CSV\n    :return: Dictionnaire des clients avec leurs informations {client_id: Client}\n    \"\"\"\n    clients = {}\n    # À compléter: Lecture du fichier CSV et traitement des opérations\n    return clients\n","id":1},{"options":{"output":"true","comment":"","read-only":"false","context":"interactive","autorun":"","results":"markup","warning":"true","classes":"","label":"","fig-height":5,"dpi":72,"fig-cap":"","message":"true","out-width":"700px","fig-width":7,"out-height":""},"code":"import csv\nimport random\nfrom datetime import datetime, timedelta\n\nclass GenerateurHistorique:\n    def __init__(self, nb_jours=30, nb_clients=10):\n        self.nb_jours = nb_jours\n        self.nb_clients = nb_clients\n        self.operations = [\"deposit\", \"withdraw\", \"trade\"]\n        self.tickers = [\"AAPL\", \"MSFT\", \"GOOGL\", \"AMZN\"]\n        self.clients = {client_id: {\"compte_cree\": False, \"solde\": 0} for client_id in range(1, self.nb_clients + 1)}\n\n    def generer_trade_data(self, solde_client):\n        \"\"\" Génère des données aléatoires pour une opération de type 'trade'. \"\"\"\n        side = random.choice([\"buy\", \"sell\"])\n        ticker = random.choice(self.tickers)\n        price = round(random.uniform(1, min(solde_client, 500)), 2)\n        max_volume = solde_client // price if side == \"buy\" else solde_client // 100\n        volume = random.randint(0, max_volume)\n        return {\"side\": side, \"ticker\": ticker, \"price\": price, \"volume\": volume}\n\n    def generer_ligne(self, client_id, date):\n        \"\"\" Génère une ligne d'opération pour un client_id à une date donnée. \"\"\"\n        client_info = self.clients[client_id]\n\n        if not client_info[\"compte_cree\"]:\n            client_info[\"compte_cree\"] = True\n            return [date.strftime(\"%Y-%m-%d\"), client_id, \"create_account\", \"\"]\n\n        op_type = random.choice(self.operations)\n        op_data = \"\"\n\n        if not client_info[\"solde\"] < 10 or op_type == \"deposit\":\n            montant = random.randint(100, 1000)\n            client_info[\"solde\"] += montant\n            op_data = str(montant)\n\n        elif op_type == \"withdraw\":\n            montant = random.randint(0, int(client_info[\"solde\"]))\n            client_info[\"solde\"] -= montant\n            op_data = str(montant)\n\n        elif op_type == \"trade\":\n            trade_data = self.generer_trade_data(int(client_info[\"solde\"]))\n            op_data = str(trade_data)\n            if trade_data[\"side\"] == \"buy\":\n                client_info[\"solde\"] -= trade_data[\"price\"] * trade_data[\"volume\"]\n            else:\n                client_info[\"solde\"] += trade_data[\"price\"] * trade_data[\"volume\"]\n                \n        return [date.strftime(\"%Y-%m-%d\"), client_id, op_type, op_data]\n\n    def generer_fichier(self, nom_fichier):\n        \"\"\" Génère un fichier CSV avec un historique d'opérations. \"\"\"\n        with open(nom_fichier, mode='w', newline='') as file:\n            writer = csv.writer(file)\n            writer.writerow([\"date\", \"client_id\", \"op_type\", \"op_data\"])\n\n            for client_id in range(1, self.nb_clients + 1):\n                date = datetime.now()\n                for _ in range(random.randint(1, self.nb_jours)):\n                    date -= timedelta(days=1)\n                    ligne = self.generer_ligne(client_id, date)\n                    writer.writerow(ligne)\n\n# Exemple d'utilisation\ngenerateur = GenerateurHistorique()\ngenerateur.generer_fichier(\"operations.csv\")","id":2}];
 
 
 </script>
@@ -914,74 +880,8 @@ globalThis._qpyodideGetInstance = function() {
 <section id="generer-un-jeu-de-donnée" class="level1">
 <h1>Generer un jeu de donnée</h1>
 <p>Pour generer un fichier d’exemple afin d’essayer votre code, et vous donner un exemple simple de comment utiliser la POO vous pouvez utiliser le code ci-dessous qui écrira un fichier csv. Vous pouvez changer la variable nom_fichier pour choisir le path exacte où le fichier sera créer, sinon par défaut celui-ci sera écrit dans le dossier duquel vous lancerez votre code.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime, timedelta</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> GenerateurHistorique:</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nb_jours<span class="op">=</span><span class="dv">30</span>, nb_clients<span class="op">=</span><span class="dv">10</span>):</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.nb_jours <span class="op">=</span> nb_jours</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.nb_clients <span class="op">=</span> nb_clients</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.operations <span class="op">=</span> [<span class="st">"deposit"</span>, <span class="st">"withdraw"</span>, <span class="st">"trade"</span>]</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.tickers <span class="op">=</span> [<span class="st">"AAPL"</span>, <span class="st">"MSFT"</span>, <span class="st">"GOOGL"</span>, <span class="st">"AMZN"</span>]</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.clients <span class="op">=</span> {client_id: {<span class="st">"compte_cree"</span>: <span class="va">False</span>, <span class="st">"solde"</span>: <span class="dv">0</span>} <span class="cf">for</span> client_id <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="va">self</span>.nb_clients <span class="op">+</span> <span class="dv">1</span>)}</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> generer_trade_data(<span class="va">self</span>, solde_client):</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">""" Génère des données aléatoires pour une opération de type 'trade'. """</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        side <span class="op">=</span> random.choice([<span class="st">"buy"</span>, <span class="st">"sell"</span>])</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        ticker <span class="op">=</span> random.choice(<span class="va">self</span>.tickers)</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        price <span class="op">=</span> <span class="bu">round</span>(random.uniform(<span class="dv">1</span>, <span class="bu">min</span>(solde_client, <span class="dv">500</span>)), <span class="dv">2</span>)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        max_volume <span class="op">=</span> solde_client <span class="op">//</span> price <span class="cf">if</span> side <span class="op">==</span> <span class="st">"buy"</span> <span class="cf">else</span> solde_client <span class="op">//</span> <span class="dv">100</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        volume <span class="op">=</span> random.randint(<span class="dv">0</span>, max_volume)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="st">"side"</span>: side, <span class="st">"ticker"</span>: ticker, <span class="st">"price"</span>: price, <span class="st">"volume"</span>: volume}</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> generer_ligne(<span class="va">self</span>, client_id, date):</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="co">""" Génère une ligne d'opération pour un client_id à une date donnée. """</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        client_info <span class="op">=</span> <span class="va">self</span>.clients[client_id]</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> client_info[<span class="st">"compte_cree"</span>]:</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>            client_info[<span class="st">"compte_cree"</span>] <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> [date.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>), client_id, <span class="st">"create_account"</span>, <span class="st">""</span>]</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        op_type <span class="op">=</span> random.choice(<span class="va">self</span>.operations)</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        op_data <span class="op">=</span> <span class="st">""</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> client_info[<span class="st">"solde"</span>] <span class="op">&lt;</span> <span class="dv">10</span> <span class="kw">or</span> op_type <span class="op">==</span> <span class="st">"deposit"</span>:</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>            montant <span class="op">=</span> random.randint(<span class="dv">100</span>, <span class="dv">1000</span>)</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>            client_info[<span class="st">"solde"</span>] <span class="op">+=</span> montant</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>            op_data <span class="op">=</span> <span class="bu">str</span>(montant)</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> op_type <span class="op">==</span> <span class="st">"withdraw"</span>:</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>            montant <span class="op">=</span> random.randint(<span class="dv">0</span>, <span class="bu">int</span>(client_info[<span class="st">"solde"</span>]))</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>            client_info[<span class="st">"solde"</span>] <span class="op">-=</span> montant</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>            op_data <span class="op">=</span> <span class="bu">str</span>(montant)</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> op_type <span class="op">==</span> <span class="st">"trade"</span>:</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>            trade_data <span class="op">=</span> <span class="va">self</span>.generer_trade_data(<span class="bu">int</span>(client_info[<span class="st">"solde"</span>]))</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>            op_data <span class="op">=</span> <span class="bu">str</span>(trade_data)</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> trade_data[<span class="st">"side"</span>] <span class="op">==</span> <span class="st">"buy"</span>:</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>                client_info[<span class="st">"solde"</span>] <span class="op">-=</span> trade_data[<span class="st">"price"</span>] <span class="op">*</span> trade_data[<span class="st">"volume"</span>]</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>                client_info[<span class="st">"solde"</span>] <span class="op">+=</span> trade_data[<span class="st">"price"</span>] <span class="op">*</span> trade_data[<span class="st">"volume"</span>]</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> [date.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>), client_id, op_type, op_data]</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> generer_fichier(<span class="va">self</span>, nom_fichier):</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>        <span class="co">""" Génère un fichier CSV avec un historique d'opérations. """</span></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(nom_fichier, mode<span class="op">=</span><span class="st">'w'</span>, newline<span class="op">=</span><span class="st">''</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>            writer <span class="op">=</span> csv.writer(<span class="bu">file</span>)</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>            writer.writerow([<span class="st">"date"</span>, <span class="st">"client_id"</span>, <span class="st">"op_type"</span>, <span class="st">"op_data"</span>])</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> client_id <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="va">self</span>.nb_clients <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>                date <span class="op">=</span> datetime.now()</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(random.randint(<span class="dv">1</span>, <span class="va">self</span>.nb_jours)):</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>                    date <span class="op">-=</span> timedelta(days<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>                    ligne <span class="op">=</span> <span class="va">self</span>.generer_ligne(client_id, date)</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>                    writer.writerow(ligne)</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple d'utilisation</span></span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>generateur <span class="op">=</span> GenerateurHistorique()</span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>generateur.generer_fichier(<span class="st">"operations.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="qpyodide-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
 
 </section>
