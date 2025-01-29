@@ -97,6 +97,8 @@ website:
        - section: Travaux Pratiques
          expanded: false
          contents:
+         - content/Cours_4/portfolio_tp_uncorrected.ipynb
+         - content/Cours_4/tp_option_seller_uncorrected.ipynb
          - content/Cours_4/TP_OOP_n_ASYNC.ipynb
     - id: advanced_mix_2 
       title: "Concepts avancés"
