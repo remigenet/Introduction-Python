@@ -1,0 +1,2384 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.23">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Remi Genet">
+<meta name="dcterms.date" content="2025-01-29">
+
+<title>Introduction à Python – portfolio_tp_uncorrected</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../content/Cours_4/tp_option_seller_uncorrected.html" rel="next">
+<link href="../../content/Cours_4/3-TournonsAutourduGIL.html" rel="prev">
+<link href="../../content/.img/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Introduction à Python">
+<meta property="og:description" content="">
+<meta property="og:site_name" content="Introduction à Python">
+<meta name="citation_title" content="Modern Portfolio Theory - Practical Work">
+<meta name="citation_author" content="Remi Genet">
+<meta name="citation_publication_date" content="2025-01-29">
+<meta name="citation_cover_date" content="2025-01-29">
+<meta name="citation_year" content="2025">
+<meta name="citation_online_date" content="2025-01-29">
+<meta name="citation_language" content="en">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Introduction à Python</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://remigenet.github.io/"> 
+<span class="menu-text">Back to Main Website</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-comprendre-et-installer-python" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Comprendre Et Installer Python</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-comprendre-et-installer-python">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/index.html">
+ <span class="dropdown-text">Comprendre Et Installer Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/1-Histoire.html">
+ <span class="dropdown-text">Histoire du Langage</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/2-Python_Execution.html">
+ <span class="dropdown-text">Exécution d’un Programme Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/3-ManyPythons.html">
+ <span class="dropdown-text">Versions et Compilation de Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/4-Path.html">
+ <span class="dropdown-text">Le PATH</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/5-PathandVirtualEnv.html">
+ <span class="dropdown-text">Path.. et environnements virtuels!</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/6-IDEs.html">
+ <span class="dropdown-text">Les IDEs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/7-Notebooks.html">
+ <span class="dropdown-text">Les Notebooks</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Quelques IDEs en Python</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/VsCode.html">
+ <span class="dropdown-text">VsCode - L’IDE Flexible et Polyvalent</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Spyder.html">
+ <span class="dropdown-text">Spyder - Un IDE Orienté Science des Données</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Pycharm.html">
+ <span class="dropdown-text">PyCharm - L’IDE orienté Python</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/TP-Version-SimplePyenv.html">
+ <span class="dropdown-text">TP Guidé - Installer plusieurs versions de python avec pyenv</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/TP-ConstruireSonPython.html">
+ <span class="dropdown-text">TP - Construire son python depuis la source</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-syntaxes-et-concepts-de-base" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Syntaxes et Concepts de Base</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-syntaxes-et-concepts-de-base">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/index.html">
+ <span class="dropdown-text">Syntaxes et Concepts de Base</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/1-FondamentauxSyntaxique.html">
+ <span class="dropdown-text">Syntaxe et objets de Base Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/2-FonctionsEtModules.html">
+ <span class="dropdown-text">Fonctions et Modules</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/3-IntroducingPOOConcept.html">
+ <span class="dropdown-text">Introduction à la POO en Python</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/Exercices.html">
+ <span class="dropdown-text">Exercices d’applications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/3.1-ExerciceClass.html">
+ <span class="dropdown-text">Base de la POO: Exercice</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-les-librairies-python" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Les Librairies Python</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-les-librairies-python">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/index.html">
+ <span class="dropdown-text">Les Librairies Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/0-Install_and_import.html">
+ <span class="dropdown-text">Installer et importer des librairies en Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/1-Dataframes.html">
+ <span class="dropdown-text">Les DataFrames</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/pandas_short_example.html">
+ <span class="dropdown-text">Exemple sur pandas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/2-Calcul_Scientifique_et_Optimization.html">
+ <span class="dropdown-text">Calcul Scientifique et Optimization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/3-MachineLearning.html">
+ <span class="dropdown-text">Machine Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/4-Access_Internet.html">
+ <span class="dropdown-text">Recupérer des données du net</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/5-Feed_Internet.html">
+ <span class="dropdown-text">Python - Aussi un language pour servir des données</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/6-Visualisation.html">
+ <span class="dropdown-text">Visualiser et présenter ces données avec Python</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3.html">
+ <span class="dropdown-text">TP-3 Libraries</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/Exercice-pandas_and_geography.html">
+ <span class="dropdown-text">TP - Utiliser pandas</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bonne-pratiques-dangers-et-astuces" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Bonne pratiques, Dangers, et Astuces</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-bonne-pratiques-dangers-et-astuces">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/index.html">
+ <span class="dropdown-text">Bonne pratiques, Dangers, et Astuces</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/1-MutabilitéEtScopes.html">
+ <span class="dropdown-text">Mutabilité et Scope</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/2-TypageEnPython.html">
+ <span class="dropdown-text">Typage en Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/3-TournonsAutourduGIL.html">
+ <span class="dropdown-text">Asynchronie et Multiprocessing</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/portfolio_tp_uncorrected.html">
+ <span class="dropdown-text">Modern Portfolio Theory - Practical Work</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/tp_option_seller_uncorrected.html">
+ <span class="dropdown-text">TP Python for Finance: Introduction to Option Pricing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/TP_OOP_n_ASYNC.html">
+ <span class="dropdown-text">TP - Creer un outil de récupération de donnée</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-concepts-avancés" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Concepts avancés</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-concepts-avancés">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/index.html">
+ <span class="dropdown-text">Concepts avancés</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/1-AST.html">
+ <span class="dropdown-text">L’arbre Syntaxique Abstrait ou AST</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/2-POO_le_retour.html">
+ <span class="dropdown-text">Python Orienté Objet - Les Dunders</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/3-patterndesign.html">
+ <span class="dropdown-text">Python Orienté Objet - les Design Patterns</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/TP5.html">
+ <span class="dropdown-text">TP-5</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sujets-de-projets-possibles" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Sujets de Projets possibles</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+        <li>
+    <a class="dropdown-item" href="../../content/Projets/index.html">
+ <span class="dropdown-text">Projets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Projets/L3_EIF_2024.html">
+ <span class="dropdown-text">Projets Introduction à Python - Millésime 2024</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/remigenet/Introduction-Python">
+            Code source
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_4/portfolio_tp_uncorrected.html">Travaux Pratiques</a></li><li class="breadcrumb-item"><a href="../../content/Cours_4/portfolio_tp_uncorrected.html">Modern Portfolio Theory - Practical Work</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bonne pratiques, Dangers, et Astuces</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/1-MutabilitéEtScopes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mutabilité et Scope</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/2-TypageEnPython.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Typage en Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/3-TournonsAutourduGIL.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Asynchronie et Multiprocessing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Travaux Pratiques</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/portfolio_tp_uncorrected.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Modern Portfolio Theory - Practical Work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/tp_option_seller_uncorrected.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP Python for Finance: Introduction to Option Pricing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/TP_OOP_n_ASYNC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP - Creer un outil de récupération de donnée</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#l3-finance" id="toc-l3-finance" class="nav-link active" data-scroll-target="#l3-finance">L3 Finance</a>
+  <ul class="collapse">
+  <li><a href="#part-1-data-retrieval-and-initial-processing" id="toc-part-1-data-retrieval-and-initial-processing" class="nav-link" data-scroll-target="#part-1-data-retrieval-and-initial-processing">Part 1: Data Retrieval and Initial Processing</a></li>
+  <li><a href="#part-2-portfolio-construction-and-analysis" id="toc-part-2-portfolio-construction-and-analysis" class="nav-link" data-scroll-target="#part-2-portfolio-construction-and-analysis">Part 2: Portfolio Construction and Analysis</a></li>
+  <li><a href="#part-3-sector-based-portfolio-analysis" id="toc-part-3-sector-based-portfolio-analysis" class="nav-link" data-scroll-target="#part-3-sector-based-portfolio-analysis">Part 3: Sector-Based Portfolio Analysis</a></li>
+  </ul></li>
+  <li><a href="#question-3.1-creating-sector-returns" id="toc-question-3.1-creating-sector-returns" class="nav-link" data-scroll-target="#question-3.1-creating-sector-returns">Question 3.1: Creating Sector Returns</a></li>
+  <li><a href="#question-3.2-weight-conversion-function" id="toc-question-3.2-weight-conversion-function" class="nav-link" data-scroll-target="#question-3.2-weight-conversion-function">Question 3.2: Weight Conversion Function</a></li>
+  <li><a href="#question-3.3-sector-portfolio-optimization" id="toc-question-3.3-sector-portfolio-optimization" class="nav-link" data-scroll-target="#question-3.3-sector-portfolio-optimization">Question 3.3: Sector Portfolio Optimization</a></li>
+  <li><a href="#question-3.4-portfolio-visualization" id="toc-question-3.4-portfolio-visualization" class="nav-link" data-scroll-target="#question-3.4-portfolio-visualization">Question 3.4: Portfolio Visualization</a></li>
+  <li><a href="#part-4-risk-analysis" id="toc-part-4-risk-analysis" class="nav-link" data-scroll-target="#part-4-risk-analysis">Part 4: Risk Analysis</a>
+  <ul class="collapse">
+  <li><a href="#question-4.1-risk-metrics-function" id="toc-question-4.1-risk-metrics-function" class="nav-link" data-scroll-target="#question-4.1-risk-metrics-function">Question 4.1: Risk Metrics Function</a></li>
+  <li><a href="#question-4.2-capm-analysis" id="toc-question-4.2-capm-analysis" class="nav-link" data-scroll-target="#question-4.2-capm-analysis">Question 4.2: CAPM Analysis</a></li>
+  <li><a href="#question-4.3-performance-comparison" id="toc-question-4.3-performance-comparison" class="nav-link" data-scroll-target="#question-4.3-performance-comparison">Question 4.3: Performance Comparison</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_4/portfolio_tp_uncorrected.html">Travaux Pratiques</a></li><li class="breadcrumb-item"><a href="../../content/Cours_4/portfolio_tp_uncorrected.html">Modern Portfolio Theory - Practical Work</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Modern Portfolio Theory - Practical Work</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Remi Genet </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2025-01-29</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="l3-finance" class="level2">
+<h2 class="anchored" data-anchor-id="l3-finance">L3 Finance</h2>
+<div id="157ac462-ff3a-485e-87aa-7101d71238af" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="part-1-data-retrieval-and-initial-processing" class="level3">
+<h3 class="anchored" data-anchor-id="part-1-data-retrieval-and-initial-processing">Part 1: Data Retrieval and Initial Processing</h3>
+<section id="question-1.1" class="level4">
+<h4 class="anchored" data-anchor-id="question-1.1">Question 1.1</h4>
+<p>We will work with a diversified portfolio of major stocks covering different sectors of the economy. Using the yfinance library, retrieve daily closing prices for the following stocks from January 1st, 2015 to January 1st, 2025:</p>
+<p><em>Hint:</em> Use <code>yf.download()</code> function with parameters: - <code>tickers</code>: list or string of tickers - <code>start</code>: start date - <code>end</code>: end date - <code>interval</code>: ‘d’ for daily data - Use the ‘Close’ column</p>
+<div id="beaeb7b8-45b9-48ae-8c63-2a3142f5ebf9" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sector_mapping <span class="op">=</span> {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Technology'</span>: [<span class="st">'AAPL'</span>, <span class="st">'MSFT'</span>, <span class="st">'INTC'</span>, <span class="st">'CSCO'</span>, <span class="st">'ORCL'</span>],</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Financial'</span>: [<span class="st">'JPM'</span>, <span class="st">'BAC'</span>, <span class="st">'GS'</span>, <span class="st">'MS'</span>, <span class="st">'C'</span>, <span class="st">'AXP'</span>, <span class="st">'WFC'</span>],</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Healthcare'</span>: [<span class="st">'JNJ'</span>, <span class="st">'PFE'</span>, <span class="st">'MRK'</span>, <span class="st">'ABT'</span>, <span class="st">'BMY'</span>],</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Energy'</span>: [<span class="st">'XOM'</span>, <span class="st">'CVX'</span>, <span class="st">'COP'</span>, <span class="st">'SLB'</span>, <span class="st">'OXY'</span>],</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Consumer_Staples'</span>: [<span class="st">'WMT'</span>, <span class="st">'PG'</span>, <span class="st">'KO'</span>, <span class="st">'PEP'</span>, <span class="st">'CL'</span>, <span class="st">'KMB'</span>, <span class="st">'GIS'</span>],</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Consumer_Discretionary'</span>: [<span class="st">'HD'</span>, <span class="st">'MCD'</span>, <span class="st">'NKE'</span>, <span class="st">'SBUX'</span>, <span class="st">'TJX'</span>, <span class="st">'LOW'</span>, <span class="st">'YUM'</span>],</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Industrial'</span>: [<span class="st">'CAT'</span>, <span class="st">'BA'</span>, <span class="st">'MMM'</span>, <span class="st">'HON'</span>, <span class="st">'GE'</span>, <span class="st">'DE'</span>, <span class="st">'FDX'</span>],</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Materials'</span>: [<span class="st">'APD'</span>, <span class="st">'ECL'</span>, <span class="st">'NEM'</span>, <span class="st">'FCX'</span>, <span class="st">'PPG'</span>, <span class="st">'NUE'</span>],</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Telecommunications'</span>: [<span class="st">'VZ'</span>, <span class="st">'T'</span>, <span class="st">'CMCSA'</span>],</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Real_Estate'</span>: [<span class="st">'SPG'</span>, <span class="st">'PSA'</span>]</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Download the data</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>start_date <span class="op">=</span> <span class="st">'2010-01-01'</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>end_date <span class="op">=</span> <span class="st">'2025-01-01'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>[*********************100%***********************]  54 of 54 completed</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>First few rows of the price data:
+Ticker          AAPL        ABT        APD        AXP         BA        BAC  \
+Date                                                                          
+2010-01-04  6.447412  18.665758  52.804508  32.828983  43.777561  12.451034   
+2010-01-05  6.458560  18.514959  52.366360  32.756783  45.211349  12.855753   
+2010-01-06  6.355827  18.617779  51.934586  33.286285  46.582794  13.006530   
+2010-01-07  6.344077  18.772020  51.636158  33.826145  48.468563  13.435059   
+2010-01-08  6.386254  18.867979  51.966351  33.801979  48.001026  13.316021   
+
+Ticker            BMY          C        CAT         CL  ...      SBUX  \
+Date                                                    ...             
+2010-01-04  15.436789  25.928009  39.738235  28.930437  ...  8.835545   
+2010-01-05  15.195873  26.919380  40.213326  29.164408  ...  9.042539   
+2010-01-06  15.189850  27.758226  40.335484  29.098055  ...  8.977375   
+2010-01-07  15.201899  27.834469  40.498383  28.982828  ...  8.954374   
+2010-01-08  14.948930  27.376934  40.953117  28.462532  ...  8.923708   
+
+Ticker            SLB        SPG         T       TJX         VZ        WFC  \
+Date                                                                         
+2010-01-04  47.246723  39.174126  7.038978  7.384900  14.442019  18.417709   
+2010-01-05  47.380508  38.906082  7.004502  7.583662  14.468057  18.923317   
+2010-01-06  48.436508  38.469257  6.935692  7.614400  14.052043  18.950285   
+2010-01-07  48.936378  38.970608  6.857815  8.003725  13.968397  19.637922   
+2010-01-08  49.738956  38.037426  6.807579  7.899220  13.977206  19.455894   
+
+Ticker            WMT        XOM        YUM  
+Date                                         
+2010-01-04  13.084426  39.272114  18.878279  
+2010-01-05  12.954136  39.425453  18.813725  
+2010-01-06  12.925184  39.766212  18.679226  
+2010-01-07  12.932426  39.641270  18.673841  
+2010-01-08  12.867274  39.482235  18.679226  
+
+[5 rows x 54 columns]</code></pre>
+</div>
+</div>
+</section>
+<section id="question-1.2" class="level4">
+<h4 class="anchored" data-anchor-id="question-1.2">Question 1.2</h4>
+<p>Calculate the daily returns for each asset. The daily return is defined as the percentage change in price from one day to the next.</p>
+<p><em>Hint:</em> - Use the <code>pct_change()</code> method from pandas - Be sure to handle any missing values that might appear</p>
+<div id="743f321b-6ae0-43c5-89ab-928900cdc089" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Summary statistics of daily returns:
+Ticker         AAPL          ABT          APD          AXP           BA  \
+count   3773.000000  3773.000000  3773.000000  3773.000000  3773.000000   
+mean       0.001124     0.000568     0.000567     0.000748     0.000625   
+std        0.017552     0.013505     0.015242     0.018248     0.022538   
+min       -0.128647    -0.097857    -0.155518    -0.148187    -0.238484   
+25%       -0.007398    -0.006053    -0.006462    -0.007042    -0.009198   
+50%        0.001001     0.000596     0.000751     0.000768     0.000676   
+75%        0.010355     0.007639     0.008000     0.009271     0.010452   
+max        0.119808     0.109360     0.137233     0.218822     0.243186   
+
+Ticker          BAC          BMY            C          CAT           CL  ...  \
+count   3773.000000  3773.000000  3773.000000  3773.000000  3773.000000  ...   
+mean       0.000559     0.000449     0.000494     0.000753     0.000365  ...   
+std        0.021172     0.014655     0.021367     0.018295     0.011262  ...   
+min       -0.203182    -0.159851    -0.192986    -0.142822    -0.097829  ...   
+25%       -0.009895    -0.006971    -0.009486    -0.008498    -0.005121  ...   
+50%        0.000349     0.000622     0.000294     0.000584     0.000369  ...   
+75%        0.010749     0.007588     0.010222     0.010267     0.006184  ...   
+max        0.177962     0.114425     0.179843     0.103321     0.126082  ...   
+
+Ticker         SBUX          SLB          SPG            T          TJX  \
+count   3773.000000  3773.000000  3773.000000  3773.000000  3773.000000   
+mean       0.000768     0.000208     0.000605     0.000392     0.000864   
+std        0.017326     0.022881     0.020546     0.012944     0.015659   
+min       -0.162042    -0.274214    -0.267127    -0.104061    -0.203995   
+25%       -0.007363    -0.010883    -0.007593    -0.005913    -0.006955   
+50%        0.000654    -0.000108     0.000992     0.000725     0.000714   
+75%        0.008734     0.010998     0.009068     0.006838     0.008502   
+max        0.244970     0.199080     0.278694     0.100223     0.129033   
+
+Ticker           VZ          WFC          WMT          XOM          YUM  
+count   3773.000000  3773.000000  3773.000000  3773.000000  3773.000000  
+mean       0.000333     0.000532     0.000585     0.000391     0.000631  
+std        0.011605     0.018845     0.012085     0.015723     0.014886  
+min       -0.074978    -0.158676    -0.113757    -0.122248    -0.188324  
+25%       -0.005823    -0.008342    -0.005145    -0.007267    -0.006211  
+50%        0.000496     0.000341     0.000679     0.000133     0.000812  
+75%        0.006458     0.009181     0.006373     0.007995     0.007590  
+max        0.092705     0.145346     0.117085     0.126868     0.232485  
+
+[8 rows x 54 columns]</code></pre>
+</div>
+</div>
+</section>
+<section id="question-1.3" class="level4">
+<h4 class="anchored" data-anchor-id="question-1.3">Question 1.3</h4>
+<p>Create a visualization of the correlation between the assets using a heatmap. Also, compute and display the covariance matrix.</p>
+<p><em>Hint:</em> - Use <code>seaborn.heatmap()</code> for visualization - Use <code>returns.corr()</code> for correlation matrix - Use <code>returns.cov()</code> for covariance matrix</p>
+<div id="fa6e5ddb-be60-4faa-8816-77c79b3db4bc" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="portfolio_tp_uncorrected_files/figure-html/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="portfolio_tp_uncorrected_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Covariance Matrix:
+Ticker      AAPL       ABT       APD       AXP        BA       BAC       BMY  \
+Ticker                                                                         
+AAPL    0.000308  0.000095  0.000105  0.000131  0.000152  0.000141  0.000065   
+ABT     0.000095  0.000182  0.000097  0.000101  0.000103  0.000111  0.000079   
+APD     0.000105  0.000097  0.000232  0.000135  0.000143  0.000158  0.000073   
+AXP     0.000131  0.000101  0.000135  0.000333  0.000237  0.000260  0.000081   
+BA      0.000152  0.000103  0.000143  0.000237  0.000508  0.000236  0.000082   
+BAC     0.000141  0.000111  0.000158  0.000260  0.000236  0.000448  0.000091   
+BMY     0.000065  0.000079  0.000073  0.000081  0.000082  0.000091  0.000215   
+C       0.000147  0.000114  0.000162  0.000265  0.000263  0.000383  0.000097   
+CAT     0.000128  0.000087  0.000147  0.000187  0.000200  0.000226  0.000074   
+CL      0.000059  0.000069  0.000075  0.000064  0.000070  0.000067  0.000055   
+CMCSA   0.000103  0.000081  0.000100  0.000136  0.000133  0.000153  0.000070   
+COP     0.000111  0.000078  0.000134  0.000193  0.000209  0.000226  0.000081   
+CSCO    0.000132  0.000096  0.000110  0.000136  0.000139  0.000163  0.000073   
+CVX     0.000100  0.000080  0.000121  0.000171  0.000187  0.000194  0.000077   
+DE      0.000120  0.000085  0.000131  0.000168  0.000198  0.000198  0.000072   
+ECL     0.000110  0.000097  0.000131  0.000150  0.000153  0.000159  0.000071   
+FCX     0.000186  0.000127  0.000210  0.000263  0.000292  0.000306  0.000103   
+FDX     0.000127  0.000096  0.000130  0.000163  0.000193  0.000199  0.000071   
+GE      0.000118  0.000087  0.000128  0.000196  0.000234  0.000221  0.000074   
+GIS     0.000043  0.000053  0.000058  0.000041  0.000035  0.000051  0.000046   
+GS      0.000131  0.000099  0.000136  0.000217  0.000207  0.000297  0.000081   
+HD      0.000118  0.000091  0.000107  0.000134  0.000144  0.000147  0.000070   
+HON     0.000116  0.000094  0.000130  0.000170  0.000195  0.000188  0.000078   
+INTC    0.000161  0.000108  0.000125  0.000155  0.000181  0.000171  0.000069   
+JNJ     0.000061  0.000078  0.000072  0.000075  0.000076  0.000084  0.000071   
+JPM     0.000119  0.000100  0.000139  0.000225  0.000209  0.000316  0.000083   
+KMB     0.000050  0.000062  0.000066  0.000056  0.000055  0.000058  0.000053   
+KO      0.000064  0.000065  0.000077  0.000090  0.000098  0.000088  0.000053   
+LOW     0.000122  0.000096  0.000113  0.000146  0.000159  0.000165  0.000072   
+MCD     0.000078  0.000066  0.000077  0.000098  0.000110  0.000096  0.000052   
+MMM     0.000099  0.000085  0.000112  0.000135  0.000138  0.000157  0.000071   
+MRK     0.000064  0.000084  0.000078  0.000081  0.000077  0.000096  0.000076   
+MS      0.000151  0.000124  0.000168  0.000256  0.000237  0.000365  0.000100   
+MSFT    0.000166  0.000105  0.000112  0.000136  0.000139  0.000144  0.000066   
+NEM     0.000056  0.000040  0.000070  0.000048  0.000056  0.000044  0.000036   
+NKE     0.000127  0.000093  0.000109  0.000145  0.000164  0.000148  0.000066   
+NUE     0.000125  0.000090  0.000155  0.000192  0.000200  0.000240  0.000079   
+ORCL    0.000128  0.000090  0.000115  0.000135  0.000132  0.000158  0.000066   
+OXY     0.000125  0.000083  0.000147  0.000224  0.000272  0.000269  0.000080   
+PEP     0.000071  0.000069  0.000075  0.000075  0.000079  0.000078  0.000055   
+PFE     0.000072  0.000084  0.000082  0.000090  0.000092  0.000106  0.000090   
+PG      0.000063  0.000068  0.000069  0.000066  0.000066  0.000071  0.000053   
+PPG     0.000113  0.000095  0.000143  0.000167  0.000177  0.000187  0.000076   
+PSA     0.000080  0.000070  0.000084  0.000093  0.000100  0.000104  0.000056   
+SBUX    0.000128  0.000091  0.000119  0.000156  0.000169  0.000161  0.000069   
+SLB     0.000120  0.000073  0.000145  0.000219  0.000237  0.000255  0.000077   
+SPG     0.000112  0.000070  0.000114  0.000218  0.000260  0.000215  0.000071   
+T       0.000064  0.000065  0.000076  0.000099  0.000101  0.000116  0.000055   
+TJX     0.000102  0.000081  0.000099  0.000147  0.000168  0.000153  0.000060   
+VZ      0.000049  0.000057  0.000064  0.000069  0.000066  0.000083  0.000047   
+WFC     0.000119  0.000097  0.000138  0.000237  0.000227  0.000315  0.000085   
+WMT     0.000061  0.000056  0.000058  0.000056  0.000056  0.000065  0.000043   
+XOM     0.000085  0.000065  0.000106  0.000149  0.000169  0.000174  0.000066   
+YUM     0.000098  0.000079  0.000100  0.000131  0.000144  0.000134  0.000061   
+
+Ticker         C       CAT        CL  ...      SBUX       SLB       SPG  \
+Ticker                                ...                                 
+AAPL    0.000147  0.000128  0.000059  ...  0.000128  0.000120  0.000112   
+ABT     0.000114  0.000087  0.000069  ...  0.000091  0.000073  0.000070   
+APD     0.000162  0.000147  0.000075  ...  0.000119  0.000145  0.000114   
+AXP     0.000265  0.000187  0.000064  ...  0.000156  0.000219  0.000218   
+BA      0.000263  0.000200  0.000070  ...  0.000169  0.000237  0.000260   
+BAC     0.000383  0.000226  0.000067  ...  0.000161  0.000255  0.000215   
+BMY     0.000097  0.000074  0.000055  ...  0.000069  0.000077  0.000071   
+C       0.000457  0.000233  0.000072  ...  0.000169  0.000279  0.000238   
+CAT     0.000233  0.000335  0.000058  ...  0.000122  0.000248  0.000160   
+CL      0.000072  0.000058  0.000127  ...  0.000071  0.000055  0.000064   
+CMCSA   0.000160  0.000127  0.000066  ...  0.000113  0.000131  0.000129   
+COP     0.000243  0.000216  0.000055  ...  0.000123  0.000366  0.000190   
+CSCO    0.000166  0.000139  0.000068  ...  0.000120  0.000141  0.000115   
+CVX     0.000210  0.000181  0.000058  ...  0.000111  0.000286  0.000170   
+DE      0.000204  0.000229  0.000061  ...  0.000119  0.000205  0.000155   
+ECL     0.000164  0.000131  0.000072  ...  0.000127  0.000139  0.000141   
+FCX     0.000327  0.000345  0.000069  ...  0.000171  0.000379  0.000240   
+FDX     0.000213  0.000179  0.000065  ...  0.000134  0.000177  0.000157   
+GE      0.000237  0.000190  0.000061  ...  0.000131  0.000222  0.000192   
+GIS     0.000048  0.000038  0.000068  ...  0.000045  0.000036  0.000032   
+GS      0.000303  0.000194  0.000061  ...  0.000139  0.000217  0.000186   
+HD      0.000153  0.000120  0.000070  ...  0.000127  0.000111  0.000139   
+HON     0.000197  0.000172  0.000066  ...  0.000127  0.000175  0.000161   
+INTC    0.000185  0.000155  0.000062  ...  0.000123  0.000153  0.000134   
+JNJ     0.000086  0.000070  0.000060  ...  0.000063  0.000068  0.000060   
+JPM     0.000315  0.000192  0.000065  ...  0.000139  0.000221  0.000188   
+KMB     0.000059  0.000049  0.000086  ...  0.000057  0.000039  0.000054   
+KO      0.000094  0.000074  0.000071  ...  0.000075  0.000082  0.000095   
+LOW     0.000173  0.000135  0.000071  ...  0.000137  0.000133  0.000157   
+MCD     0.000107  0.000077  0.000059  ...  0.000106  0.000088  0.000104   
+MMM     0.000162  0.000154  0.000065  ...  0.000101  0.000142  0.000125   
+MRK     0.000098  0.000078  0.000059  ...  0.000068  0.000083  0.000068   
+MS      0.000367  0.000232  0.000074  ...  0.000167  0.000260  0.000204   
+MSFT    0.000152  0.000123  0.000067  ...  0.000129  0.000107  0.000105   
+NEM     0.000050  0.000078  0.000038  ...  0.000045  0.000099  0.000056   
+NKE     0.000160  0.000129  0.000065  ...  0.000153  0.000125  0.000138   
+NUE     0.000252  0.000230  0.000061  ...  0.000131  0.000243  0.000180   
+ORCL    0.000163  0.000136  0.000068  ...  0.000117  0.000129  0.000104   
+OXY     0.000293  0.000244  0.000058  ...  0.000142  0.000429  0.000262   
+PEP     0.000081  0.000062  0.000079  ...  0.000077  0.000062  0.000075   
+PFE     0.000109  0.000086  0.000056  ...  0.000073  0.000084  0.000079   
+PG      0.000073  0.000056  0.000085  ...  0.000066  0.000050  0.000056   
+PPG     0.000199  0.000167  0.000068  ...  0.000129  0.000165  0.000160   
+PSA     0.000107  0.000084  0.000068  ...  0.000090  0.000076  0.000139   
+SBUX    0.000169  0.000122  0.000071  ...  0.000300  0.000134  0.000157   
+SLB     0.000279  0.000248  0.000055  ...  0.000134  0.000524  0.000229   
+SPG     0.000238  0.000160  0.000064  ...  0.000157  0.000229  0.000422   
+T       0.000122  0.000090  0.000059  ...  0.000072  0.000102  0.000099   
+TJX     0.000158  0.000120  0.000062  ...  0.000125  0.000128  0.000165   
+VZ      0.000083  0.000067  0.000056  ...  0.000059  0.000066  0.000071   
+WFC     0.000311  0.000191  0.000067  ...  0.000144  0.000229  0.000205   
+WMT     0.000063  0.000054  0.000057  ...  0.000060  0.000044  0.000051   
+XOM     0.000188  0.000166  0.000052  ...  0.000093  0.000268  0.000155   
+YUM     0.000144  0.000114  0.000058  ...  0.000141  0.000113  0.000129   
+
+Ticker         T       TJX        VZ       WFC       WMT       XOM       YUM  
+Ticker                                                                        
+AAPL    0.000064  0.000102  0.000049  0.000119  0.000061  0.000085  0.000098  
+ABT     0.000065  0.000081  0.000057  0.000097  0.000056  0.000065  0.000079  
+APD     0.000076  0.000099  0.000064  0.000138  0.000058  0.000106  0.000100  
+AXP     0.000099  0.000147  0.000069  0.000237  0.000056  0.000149  0.000131  
+BA      0.000101  0.000168  0.000066  0.000227  0.000056  0.000169  0.000144  
+BAC     0.000116  0.000153  0.000083  0.000315  0.000065  0.000174  0.000134  
+BMY     0.000055  0.000060  0.000047  0.000085  0.000043  0.000066  0.000061  
+C       0.000122  0.000158  0.000083  0.000311  0.000063  0.000188  0.000144  
+CAT     0.000090  0.000120  0.000067  0.000191  0.000054  0.000166  0.000114  
+CL      0.000059  0.000062  0.000056  0.000067  0.000057  0.000052  0.000058  
+CMCSA   0.000093  0.000100  0.000073  0.000139  0.000057  0.000098  0.000087  
+COP     0.000092  0.000115  0.000065  0.000201  0.000046  0.000263  0.000111  
+CSCO    0.000079  0.000102  0.000061  0.000140  0.000067  0.000103  0.000095  
+CVX     0.000089  0.000108  0.000067  0.000174  0.000047  0.000221  0.000102  
+DE      0.000085  0.000118  0.000063  0.000173  0.000055  0.000138  0.000107  
+ECL     0.000078  0.000115  0.000060  0.000142  0.000055  0.000102  0.000111  
+FCX     0.000119  0.000164  0.000083  0.000259  0.000068  0.000250  0.000165  
+FDX     0.000082  0.000122  0.000063  0.000173  0.000064  0.000120  0.000106  
+GE      0.000099  0.000133  0.000070  0.000203  0.000050  0.000153  0.000111  
+GIS     0.000052  0.000037  0.000050  0.000050  0.000051  0.000039  0.000040  
+GS      0.000097  0.000130  0.000067  0.000247  0.000056  0.000146  0.000117  
+HD      0.000072  0.000125  0.000060  0.000132  0.000070  0.000086  0.000104  
+HON     0.000085  0.000121  0.000063  0.000169  0.000055  0.000122  0.000113  
+INTC    0.000080  0.000112  0.000063  0.000153  0.000065  0.000111  0.000099  
+JNJ     0.000058  0.000058  0.000053  0.000078  0.000048  0.000062  0.000058  
+JPM     0.000102  0.000135  0.000074  0.000265  0.000058  0.000152  0.000119  
+KMB     0.000058  0.000048  0.000057  0.000055  0.000053  0.000043  0.000054  
+KO      0.000065  0.000070  0.000057  0.000087  0.000049  0.000071  0.000069  
+LOW     0.000075  0.000138  0.000060  0.000146  0.000068  0.000098  0.000112  
+MCD     0.000055  0.000083  0.000045  0.000092  0.000045  0.000068  0.000103  
+MMM     0.000076  0.000095  0.000060  0.000143  0.000052  0.000102  0.000090  
+MRK     0.000061  0.000062  0.000057  0.000084  0.000048  0.000070  0.000064  
+MS      0.000114  0.000152  0.000081  0.000293  0.000070  0.000174  0.000137  
+MSFT    0.000061  0.000101  0.000054  0.000124  0.000066  0.000083  0.000104  
+NEM     0.000047  0.000023  0.000040  0.000035  0.000029  0.000072  0.000049  
+NKE     0.000070  0.000130  0.000055  0.000136  0.000059  0.000094  0.000115  
+NUE     0.000096  0.000133  0.000077  0.000209  0.000065  0.000167  0.000115  
+ORCL    0.000073  0.000099  0.000057  0.000135  0.000064  0.000090  0.000089  
+OXY     0.000111  0.000131  0.000070  0.000243  0.000044  0.000303  0.000118  
+PEP     0.000061  0.000066  0.000056  0.000076  0.000060  0.000061  0.000064  
+PFE     0.000065  0.000065  0.000058  0.000096  0.000049  0.000072  0.000063  
+PG      0.000059  0.000053  0.000056  0.000068  0.000058  0.000051  0.000054  
+PPG     0.000078  0.000122  0.000062  0.000168  0.000049  0.000113  0.000117  
+PSA     0.000061  0.000080  0.000057  0.000092  0.000051  0.000064  0.000080  
+SBUX    0.000072  0.000125  0.000059  0.000144  0.000060  0.000093  0.000141  
+SLB     0.000102  0.000128  0.000066  0.000229  0.000044  0.000268  0.000113  
+SPG     0.000099  0.000165  0.000071  0.000205  0.000051  0.000155  0.000129  
+T       0.000168  0.000074  0.000101  0.000110  0.000048  0.000085  0.000063  
+TJX     0.000074  0.000245  0.000056  0.000143  0.000061  0.000097  0.000109  
+VZ      0.000101  0.000056  0.000135  0.000078  0.000046  0.000063  0.000048  
+WFC     0.000110  0.000143  0.000078  0.000355  0.000060  0.000162  0.000118  
+WMT     0.000048  0.000061  0.000046  0.000060  0.000146  0.000044  0.000045  
+XOM     0.000085  0.000097  0.000063  0.000162  0.000044  0.000247  0.000087  
+YUM     0.000063  0.000109  0.000048  0.000118  0.000045  0.000087  0.000222  
+
+[54 rows x 54 columns]</code></pre>
+</div>
+</div>
+</section>
+<section id="question-1.4" class="level4">
+<h4 class="anchored" data-anchor-id="question-1.4">Question 1.4</h4>
+<p>Create a plot showing the evolution of prices for all assets on the same graph. Make sure to normalize the prices to start at 100 to make them comparable.</p>
+<p><em>Hint:</em> - Normalize prices by dividing by the initial price and multiplying by 100 - Use matplotlib’s plot function - Add a legend to distinguish between assets</p>
+<div id="3b12aa3a-5c2f-4ae9-9e05-a0acb90bb6f3" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="portfolio_tp_uncorrected_files/figure-html/cell-6-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="portfolio_tp_uncorrected_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="part-2-portfolio-construction-and-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="part-2-portfolio-construction-and-analysis">Part 2: Portfolio Construction and Analysis</h3>
+<section id="question-2.1" class="level4">
+<h4 class="anchored" data-anchor-id="question-2.1">Question 2.1</h4>
+<p>Create an equally-weighted portfolio from our five assets. Calculate its daily returns and analyze its performance metrics (mean return, volatility, Sharpe ratio assuming risk-free rate = 0).</p>
+<p><em>Hint:</em> - Equal weights means 1/N for each asset - Portfolio return is the weighted sum of individual returns - Portfolio volatility requires using the covariance matrix</p>
+<div id="f70ddee2-abe3-47f3-a367-8d5e8109f876" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Equal-weighted Portfolio Metrics (daily):
+Mean Return: 0.0556%
+Volatility: 1.0755%
+Sharpe Ratio: 0.0517</code></pre>
+</div>
+</div>
+</section>
+<section id="question-2.2" class="level4">
+<h4 class="anchored" data-anchor-id="question-2.2">Question 2.2</h4>
+<p>Write a function that computes the mean return and volatility of a portfolio given: - A set of weights - The mean returns of individual assets - The covariance matrix of returns</p>
+<p><em>Hint:</em> - Portfolio return = weighted sum of individual returns - Portfolio variance = w^T * Σ * w (where Σ is the covariance matrix)</p>
+<div id="29da4bde-17b7-45d8-a300-6e7eca6b0767" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Test with equal weights:
+Portfolio Return: 0.0556%
+Portfolio Volatility: 1.0755%</code></pre>
+</div>
+</div>
+</section>
+<section id="question-2.3" class="level4">
+<h4 class="anchored" data-anchor-id="question-2.3">Question 2.3</h4>
+<p>Split your data into two periods: training (2020-2021) and testing (2022-2023). Calculate the mean returns and covariance matrix for the training period.</p>
+<p><em>Hint:</em> - Use datetime index to split the data - Recalculate all metrics on the training set</p>
+<div id="93128067-4775-45fe-beed-c95f3833444f" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Training Period Statistics:
+
+Mean Returns:
+Ticker
+AAPL     0.001087
+ABT      0.000644
+APD      0.000630
+AXP      0.000605
+BA       0.000918
+BAC      0.000574
+BMY      0.000599
+C        0.000563
+CAT      0.000624
+CL       0.000349
+CMCSA    0.000832
+COP      0.000472
+CSCO     0.000489
+CVX      0.000404
+DE       0.000664
+ECL      0.000692
+FCX      0.000109
+FDX      0.000395
+GE       0.000142
+GIS      0.000354
+GS       0.000303
+HD       0.000980
+HON      0.000778
+INTC     0.000661
+JNJ      0.000488
+JPM      0.000689
+KMB      0.000510
+KO       0.000430
+LOW      0.000846
+MCD      0.000623
+MMM      0.000477
+MRK      0.000569
+MS       0.000478
+MSFT     0.000845
+NEM      0.000262
+NKE      0.000887
+NUE      0.000329
+ORCL     0.000459
+OXY      0.000020
+PEP      0.000477
+PFE      0.000502
+PG       0.000453
+PPG      0.000765
+PSA      0.000599
+SBUX     0.000982
+SLB      0.000046
+SPG      0.000505
+T        0.000470
+TJX      0.000900
+VZ       0.000514
+WFC      0.000488
+WMT      0.000470
+XOM      0.000200
+YUM      0.000729
+dtype: float64
+
+Covariance Matrix:
+Ticker      AAPL       ABT       APD       AXP        BA       BAC       BMY  \
+Ticker                                                                         
+AAPL    0.000263  0.000065  0.000078  0.000089  0.000099  0.000119  0.000058   
+ABT     0.000065  0.000138  0.000072  0.000077  0.000080  0.000091  0.000072   
+APD     0.000078  0.000072  0.000167  0.000095  0.000103  0.000129  0.000062   
+AXP     0.000089  0.000077  0.000095  0.000205  0.000112  0.000177  0.000066   
+BA      0.000099  0.000080  0.000103  0.000112  0.000244  0.000152  0.000069   
+BAC     0.000119  0.000091  0.000129  0.000177  0.000152  0.000419  0.000081   
+BMY     0.000058  0.000072  0.000062  0.000066  0.000069  0.000081  0.000211   
+C       0.000118  0.000099  0.000135  0.000171  0.000153  0.000332  0.000088   
+CAT     0.000120  0.000078  0.000127  0.000130  0.000144  0.000189  0.000068   
+CL      0.000042  0.000047  0.000056  0.000053  0.000058  0.000051  0.000045   
+CMCSA   0.000075  0.000061  0.000080  0.000092  0.000087  0.000123  0.000059   
+COP     0.000088  0.000068  0.000097  0.000100  0.000104  0.000153  0.000061   
+CSCO    0.000105  0.000075  0.000091  0.000098  0.000103  0.000142  0.000062   
+CVX     0.000076  0.000066  0.000089  0.000089  0.000094  0.000131  0.000059   
+DE      0.000101  0.000070  0.000105  0.000107  0.000123  0.000159  0.000061   
+ECL     0.000067  0.000065  0.000089  0.000079  0.000085  0.000111  0.000058   
+FCX     0.000149  0.000111  0.000167  0.000176  0.000178  0.000255  0.000091   
+FDX     0.000094  0.000078  0.000106  0.000114  0.000125  0.000171  0.000067   
+GE      0.000086  0.000069  0.000095  0.000109  0.000107  0.000161  0.000063   
+GIS     0.000034  0.000038  0.000044  0.000040  0.000041  0.000047  0.000034   
+GS      0.000100  0.000080  0.000110  0.000138  0.000122  0.000251  0.000071   
+HD      0.000076  0.000063  0.000076  0.000090  0.000088  0.000115  0.000059   
+HON     0.000093  0.000076  0.000106  0.000110  0.000124  0.000152  0.000068   
+INTC    0.000107  0.000077  0.000086  0.000097  0.000102  0.000129  0.000063   
+JNJ     0.000045  0.000057  0.000055  0.000059  0.000062  0.000069  0.000059   
+JPM     0.000095  0.000081  0.000111  0.000144  0.000125  0.000268  0.000075   
+KMB     0.000032  0.000044  0.000050  0.000042  0.000047  0.000046  0.000045   
+KO      0.000039  0.000043  0.000051  0.000051  0.000052  0.000057  0.000039   
+LOW     0.000077  0.000066  0.000082  0.000096  0.000094  0.000133  0.000061   
+MCD     0.000047  0.000043  0.000050  0.000050  0.000052  0.000060  0.000038   
+MMM     0.000082  0.000069  0.000089  0.000094  0.000101  0.000127  0.000060   
+MRK     0.000052  0.000074  0.000066  0.000072  0.000067  0.000090  0.000062   
+MS      0.000119  0.000105  0.000142  0.000178  0.000156  0.000338  0.000090   
+MSFT    0.000106  0.000076  0.000086  0.000097  0.000096  0.000125  0.000060   
+NEM     0.000043  0.000022  0.000046  0.000035  0.000035  0.000029  0.000029   
+NKE     0.000082  0.000066  0.000082  0.000093  0.000094  0.000114  0.000057   
+NUE     0.000097  0.000077  0.000119  0.000118  0.000124  0.000188  0.000070   
+ORCL    0.000095  0.000073  0.000094  0.000100  0.000101  0.000140  0.000064   
+OXY     0.000088  0.000069  0.000103  0.000097  0.000108  0.000159  0.000062   
+PEP     0.000038  0.000041  0.000046  0.000046  0.000048  0.000049  0.000040   
+PFE     0.000059  0.000069  0.000065  0.000074  0.000068  0.000096  0.000077   
+PG      0.000039  0.000041  0.000044  0.000047  0.000047  0.000050  0.000041   
+PPG     0.000085  0.000078  0.000115  0.000106  0.000110  0.000149  0.000067   
+PSA     0.000051  0.000045  0.000062  0.000068  0.000069  0.000089  0.000044   
+SBUX    0.000087  0.000063  0.000087  0.000093  0.000090  0.000116  0.000058   
+SLB     0.000102  0.000068  0.000111  0.000109  0.000116  0.000177  0.000061   
+SPG     0.000066  0.000053  0.000070  0.000084  0.000081  0.000114  0.000050   
+T       0.000046  0.000044  0.000051  0.000057  0.000056  0.000075  0.000041   
+TJX     0.000067  0.000060  0.000064  0.000075  0.000078  0.000099  0.000049   
+VZ      0.000037  0.000044  0.000048  0.000052  0.000049  0.000063  0.000038   
+WFC     0.000090  0.000077  0.000103  0.000137  0.000122  0.000234  0.000069   
+WMT     0.000040  0.000044  0.000041  0.000047  0.000049  0.000057  0.000039   
+XOM     0.000067  0.000059  0.000080  0.000078  0.000086  0.000116  0.000053   
+YUM     0.000075  0.000060  0.000079  0.000084  0.000086  0.000109  0.000055   
+
+Ticker         C       CAT        CL  ...      SBUX       SLB       SPG  \
+Ticker                                ...                                 
+AAPL    0.000118  0.000120  0.000042  ...  0.000087  0.000102  0.000066   
+ABT     0.000099  0.000078  0.000047  ...  0.000063  0.000068  0.000053   
+APD     0.000135  0.000127  0.000056  ...  0.000087  0.000111  0.000070   
+AXP     0.000171  0.000130  0.000053  ...  0.000093  0.000109  0.000084   
+BA      0.000153  0.000144  0.000058  ...  0.000090  0.000116  0.000081   
+BAC     0.000332  0.000189  0.000051  ...  0.000116  0.000177  0.000114   
+BMY     0.000088  0.000068  0.000045  ...  0.000058  0.000061  0.000050   
+C       0.000381  0.000192  0.000059  ...  0.000117  0.000181  0.000114   
+CAT     0.000192  0.000293  0.000052  ...  0.000095  0.000179  0.000092   
+CL      0.000059  0.000052  0.000105  ...  0.000058  0.000050  0.000053   
+CMCSA   0.000125  0.000109  0.000052  ...  0.000080  0.000096  0.000077   
+COP     0.000153  0.000162  0.000047  ...  0.000072  0.000199  0.000073   
+CSCO    0.000141  0.000126  0.000054  ...  0.000089  0.000112  0.000076   
+CVX     0.000135  0.000135  0.000049  ...  0.000069  0.000158  0.000074   
+DE      0.000159  0.000190  0.000050  ...  0.000083  0.000140  0.000081   
+ECL     0.000112  0.000103  0.000052  ...  0.000077  0.000096  0.000061   
+FCX     0.000260  0.000310  0.000063  ...  0.000110  0.000279  0.000120   
+FDX     0.000173  0.000158  0.000053  ...  0.000095  0.000135  0.000088   
+GE      0.000165  0.000138  0.000050  ...  0.000083  0.000135  0.000082   
+GIS     0.000047  0.000040  0.000051  ...  0.000042  0.000042  0.000046   
+GS      0.000243  0.000154  0.000047  ...  0.000089  0.000142  0.000086   
+HD      0.000116  0.000097  0.000050  ...  0.000087  0.000082  0.000075   
+HON     0.000154  0.000149  0.000058  ...  0.000094  0.000126  0.000084   
+INTC    0.000134  0.000128  0.000046  ...  0.000077  0.000106  0.000072   
+JNJ     0.000074  0.000061  0.000045  ...  0.000051  0.000059  0.000047   
+JPM     0.000257  0.000155  0.000052  ...  0.000094  0.000148  0.000093   
+KMB     0.000049  0.000046  0.000069  ...  0.000047  0.000038  0.000050   
+KO      0.000061  0.000054  0.000052  ...  0.000049  0.000051  0.000050   
+LOW     0.000131  0.000111  0.000051  ...  0.000093  0.000098  0.000081   
+MCD     0.000064  0.000055  0.000042  ...  0.000068  0.000048  0.000046   
+MMM     0.000128  0.000130  0.000052  ...  0.000073  0.000113  0.000073   
+MRK     0.000092  0.000074  0.000046  ...  0.000060  0.000067  0.000058   
+MS      0.000328  0.000198  0.000063  ...  0.000120  0.000192  0.000114   
+MSFT    0.000129  0.000116  0.000050  ...  0.000091  0.000091  0.000066   
+NEM     0.000037  0.000075  0.000027  ...  0.000025  0.000086  0.000044   
+NKE     0.000120  0.000103  0.000051  ...  0.000099  0.000092  0.000075   
+NUE     0.000188  0.000179  0.000052  ...  0.000093  0.000163  0.000091   
+ORCL    0.000146  0.000125  0.000053  ...  0.000090  0.000117  0.000076   
+OXY     0.000164  0.000161  0.000049  ...  0.000082  0.000202  0.000087   
+PEP     0.000055  0.000046  0.000053  ...  0.000046  0.000044  0.000046   
+PFE     0.000099  0.000079  0.000041  ...  0.000061  0.000075  0.000061   
+PG      0.000056  0.000047  0.000063  ...  0.000047  0.000044  0.000046   
+PPG     0.000153  0.000143  0.000059  ...  0.000088  0.000121  0.000084   
+PSA     0.000090  0.000073  0.000050  ...  0.000068  0.000068  0.000111   
+SBUX    0.000117  0.000095  0.000058  ...  0.000221  0.000088  0.000079   
+SLB     0.000181  0.000179  0.000050  ...  0.000088  0.000309  0.000091   
+SPG     0.000114  0.000092  0.000053  ...  0.000079  0.000091  0.000174   
+T       0.000080  0.000069  0.000043  ...  0.000047  0.000066  0.000052   
+TJX     0.000101  0.000082  0.000046  ...  0.000079  0.000071  0.000070   
+VZ      0.000067  0.000056  0.000044  ...  0.000047  0.000053  0.000055   
+WFC     0.000221  0.000139  0.000051  ...  0.000097  0.000136  0.000094   
+WMT     0.000060  0.000049  0.000042  ...  0.000049  0.000041  0.000048   
+XOM     0.000121  0.000118  0.000047  ...  0.000061  0.000137  0.000066   
+YUM     0.000114  0.000098  0.000050  ...  0.000102  0.000078  0.000069   
+
+Ticker         T       TJX        VZ       WFC       WMT       XOM       YUM  
+Ticker                                                                        
+AAPL    0.000046  0.000067  0.000037  0.000090  0.000040  0.000067  0.000075  
+ABT     0.000044  0.000060  0.000044  0.000077  0.000044  0.000059  0.000060  
+APD     0.000051  0.000064  0.000048  0.000103  0.000041  0.000080  0.000079  
+AXP     0.000057  0.000075  0.000052  0.000137  0.000047  0.000078  0.000084  
+BA      0.000056  0.000078  0.000049  0.000122  0.000049  0.000086  0.000086  
+BAC     0.000075  0.000099  0.000063  0.000234  0.000057  0.000116  0.000109  
+BMY     0.000041  0.000049  0.000038  0.000069  0.000039  0.000053  0.000055  
+C       0.000080  0.000101  0.000067  0.000221  0.000060  0.000121  0.000114  
+CAT     0.000069  0.000082  0.000056  0.000139  0.000049  0.000118  0.000098  
+CL      0.000043  0.000046  0.000044  0.000051  0.000042  0.000047  0.000050  
+CMCSA   0.000064  0.000069  0.000058  0.000104  0.000048  0.000076  0.000072  
+COP     0.000056  0.000063  0.000050  0.000117  0.000040  0.000139  0.000076  
+CSCO    0.000057  0.000074  0.000048  0.000110  0.000051  0.000082  0.000078  
+CVX     0.000058  0.000060  0.000054  0.000106  0.000041  0.000124  0.000066  
+DE      0.000061  0.000072  0.000052  0.000121  0.000043  0.000091  0.000082  
+ECL     0.000046  0.000063  0.000044  0.000088  0.000039  0.000071  0.000072  
+FCX     0.000089  0.000105  0.000075  0.000187  0.000061  0.000176  0.000119  
+FDX     0.000062  0.000085  0.000052  0.000132  0.000053  0.000091  0.000091  
+GE      0.000066  0.000074  0.000058  0.000125  0.000044  0.000092  0.000074  
+GIS     0.000039  0.000038  0.000040  0.000044  0.000037  0.000038  0.000039  
+GS      0.000064  0.000078  0.000052  0.000172  0.000047  0.000097  0.000086  
+HD      0.000050  0.000086  0.000046  0.000094  0.000053  0.000064  0.000075  
+HON     0.000059  0.000078  0.000053  0.000122  0.000050  0.000087  0.000086  
+INTC    0.000054  0.000072  0.000048  0.000101  0.000045  0.000082  0.000077  
+JNJ     0.000041  0.000042  0.000043  0.000063  0.000037  0.000053  0.000048  
+JPM     0.000068  0.000083  0.000060  0.000189  0.000051  0.000103  0.000092  
+KMB     0.000043  0.000039  0.000048  0.000045  0.000041  0.000042  0.000046  
+KO      0.000040  0.000038  0.000043  0.000054  0.000037  0.000046  0.000046  
+LOW     0.000052  0.000092  0.000047  0.000106  0.000055  0.000073  0.000079  
+MCD     0.000033  0.000046  0.000035  0.000053  0.000035  0.000042  0.000067  
+MMM     0.000053  0.000063  0.000050  0.000102  0.000045  0.000080  0.000070  
+MRK     0.000049  0.000050  0.000050  0.000074  0.000042  0.000061  0.000058  
+MS      0.000082  0.000102  0.000069  0.000227  0.000062  0.000125  0.000108  
+MSFT    0.000051  0.000066  0.000049  0.000099  0.000048  0.000074  0.000086  
+NEM     0.000031  0.000011  0.000027  0.000022  0.000015  0.000057  0.000026  
+NKE     0.000048  0.000089  0.000044  0.000096  0.000049  0.000065  0.000083  
+NUE     0.000068  0.000080  0.000060  0.000139  0.000054  0.000111  0.000087  
+ORCL    0.000056  0.000071  0.000048  0.000106  0.000046  0.000083  0.000079  
+OXY     0.000060  0.000068  0.000052  0.000123  0.000039  0.000132  0.000078  
+PEP     0.000037  0.000038  0.000042  0.000047  0.000038  0.000042  0.000042  
+PFE     0.000047  0.000051  0.000046  0.000081  0.000041  0.000063  0.000055  
+PG      0.000039  0.000036  0.000042  0.000047  0.000040  0.000044  0.000041  
+PPG     0.000057  0.000079  0.000055  0.000118  0.000046  0.000086  0.000086  
+PSA     0.000042  0.000056  0.000046  0.000076  0.000040  0.000050  0.000065  
+SBUX    0.000047  0.000079  0.000047  0.000097  0.000049  0.000061  0.000102  
+SLB     0.000066  0.000071  0.000053  0.000136  0.000041  0.000137  0.000078  
+SPG     0.000052  0.000070  0.000055  0.000094  0.000048  0.000066  0.000069  
+T       0.000111  0.000045  0.000073  0.000066  0.000039  0.000056  0.000044  
+TJX     0.000045  0.000172  0.000043  0.000082  0.000050  0.000056  0.000070  
+VZ      0.000073  0.000043  0.000111  0.000059  0.000040  0.000048  0.000043  
+WFC     0.000066  0.000082  0.000059  0.000229  0.000050  0.000097  0.000088  
+WMT     0.000039  0.000050  0.000040  0.000050  0.000118  0.000039  0.000041  
+XOM     0.000056  0.000056  0.000048  0.000097  0.000039  0.000136  0.000061  
+YUM     0.000044  0.000070  0.000043  0.000088  0.000041  0.000061  0.000198  
+
+[54 rows x 54 columns]</code></pre>
+</div>
+</div>
+</section>
+<section id="question-2.4" class="level4">
+<h4 class="anchored" data-anchor-id="question-2.4">Question 2.4</h4>
+<p>Create a function to generate random portfolio weights and use it to create the efficient frontier visualization. Generate 1000 random portfolios and plot them on a risk-return graph.</p>
+<p><em>Hint:</em> - Use np.random.random() to generate weights - Normalize weights to sum to 1 - Store results in arrays for plotting - Highlight the minimum variance and maximum Sharpe ratio portfolios</p>
+<div id="c2c83933-f2bc-4e6c-b420-bfda55cf4485" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="portfolio_tp_uncorrected_files/figure-html/cell-10-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="portfolio_tp_uncorrected_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="question-2.5" class="level4">
+<h4 class="anchored" data-anchor-id="question-2.5">Question 2.5</h4>
+<p>Use scipy’s optimize function to find the minimum variance portfolio and the maximum Sharpe ratio portfolio. Make sure to include the constraint that weights must sum to 1 and be non-negative.</p>
+<p><em>Hint:</em> - Use scipy.optimize.minimize - Define objective functions for minimum variance and maximum Sharpe ratio - Use SLSQP optimizer - Check the optimization success flag</p>
+<div id="d4d690c3-3fb1-4e10-af8f-7777aa59c532" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Minimum Variance Portfolio:
+AAPL: 0.0134
+MSFT: 0.0049
+INTC: 0.0000
+CSCO: 0.0000
+ORCL: 0.0000
+JPM: 0.0000
+BAC: 0.0103
+GS: 0.0000
+MS: 0.0000
+C: 0.0000
+AXP: 0.0000
+WFC: 0.0000
+JNJ: 0.0000
+PFE: 0.0000
+MRK: 0.0000
+ABT: 0.0000
+BMY: 0.0000
+XOM: 0.0000
+CVX: 0.0000
+COP: 0.0846
+SLB: 0.0000
+OXY: 0.0000
+WMT: 0.0000
+PG: 0.0000
+KO: 0.0952
+PEP: 0.0000
+CL: 0.0342
+KMB: 0.0841
+GIS: 0.0000
+HD: 0.1474
+MCD: 0.0000
+NKE: 0.0015
+SBUX: 0.0000
+TJX: 0.0000
+LOW: 0.0445
+YUM: 0.0000
+CAT: 0.0000
+BA: 0.0000
+MMM: 0.0000
+HON: 0.1014
+GE: 0.0133
+DE: 0.0877
+FDX: 0.0000
+APD: 0.0061
+ECL: 0.0000
+NEM: 0.0000
+FCX: 0.0000
+PPG: 0.0696
+NUE: 0.0297
+VZ: 0.0575
+T: 0.0000
+CMCSA: 0.1146
+SPG: 0.0000
+PSA: 0.0000
+Expected Return: 0.0499%
+Volatility: 0.6731%
+
+Maximum Sharpe Ratio Portfolio:
+AAPL: 0.1639
+MSFT: 0.0000
+INTC: 0.0000
+CSCO: 0.0000
+ORCL: 0.0310
+JPM: 0.0000
+BAC: 0.0101
+GS: 0.0000
+MS: 0.0000
+C: 0.0000
+AXP: 0.0556
+WFC: 0.0000
+JNJ: 0.0000
+PFE: 0.0000
+MRK: 0.0000
+ABT: 0.0000
+BMY: 0.0000
+XOM: 0.0000
+CVX: 0.0000
+COP: 0.0000
+SLB: 0.0000
+OXY: 0.2121
+WMT: 0.0000
+PG: 0.0000
+KO: 0.0000
+PEP: 0.0000
+CL: 0.0647
+KMB: 0.0000
+GIS: 0.0000
+HD: 0.1537
+MCD: 0.0000
+NKE: 0.0000
+SBUX: 0.0000
+TJX: 0.0015
+LOW: 0.0009
+YUM: 0.0187
+CAT: 0.0000
+BA: 0.0000
+MMM: 0.0000
+HON: 0.0285
+GE: 0.0000
+DE: 0.0000
+FDX: 0.0000
+APD: 0.0000
+ECL: 0.0780
+NEM: 0.0000
+FCX: 0.0000
+PPG: 0.0000
+NUE: 0.1387
+VZ: 0.0425
+T: 0.0000
+CMCSA: 0.0000
+SPG: 0.0000
+PSA: 0.0000
+Expected Return: 0.0850%
+Volatility: 0.8703%</code></pre>
+</div>
+</div>
+</section>
+<section id="question-2.6" class="level4">
+<h4 class="anchored" data-anchor-id="question-2.6">Question 2.6</h4>
+<p>Backtest your optimized portfolios (minimum variance and maximum Sharpe ratio) on the test period. Compare their performance with the equally-weighted portfolio.</p>
+<p><em>Hint:</em> - Use the weights found in the training period - Calculate cumulative returns for each portfolio - Plot the evolution of portfolio values - Calculate key performance metrics (return, volatility, Sharpe ratio, maximum drawdown)</p>
+<div id="6f324bc5-a5ba-472b-97dd-62cbc8802cf0" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="portfolio_tp_uncorrected_files/figure-html/cell-12-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="portfolio_tp_uncorrected_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Train Period Performance:
+
+Equal Weight:
+Mean Return: 0.0553%
+Volatility: 0.9158%
+Sharpe Ratio: 6.0422%
+Cumulative Return: 261.7286%
+
+Min Variance:
+Mean Return: 0.0499%
+Volatility: 0.6731%
+Sharpe Ratio: 7.4197%
+Cumulative Return: 231.6049%
+
+Max Sharpe:
+Mean Return: 0.0850%
+Volatility: 0.8703%
+Sharpe Ratio: 9.7722%
+Cumulative Return: 671.2589%
+
+Test Period Performance:
+
+Equal Weight:
+Mean Return: 0.0563%
+Volatility: 1.3392%
+Sharpe Ratio: 4.2020%
+Cumulative Return: 81.2116%
+
+Min Variance:
+Mean Return: 0.0390%
+Volatility: 1.0081%
+Sharpe Ratio: 3.8640%
+Cumulative Return: 53.1191%
+
+Max Sharpe:
+Mean Return: 0.0595%
+Volatility: 1.3445%
+Sharpe Ratio: 4.4278%
+Cumulative Return: 88.5475%</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="portfolio_tp_uncorrected_files/figure-html/cell-12-output-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="portfolio_tp_uncorrected_files/figure-html/cell-12-output-3.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="part-3-sector-based-portfolio-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="part-3-sector-based-portfolio-analysis">Part 3: Sector-Based Portfolio Analysis</h3>
+</section>
+</section>
+<section id="question-3.1-creating-sector-returns" class="level2">
+<h2 class="anchored" data-anchor-id="question-3.1-creating-sector-returns">Question 3.1: Creating Sector Returns</h2>
+<p>Create sector-based returns by averaging returns of stocks within the same sector. First, define sector mappings, then compute their historical returns using our existing returns data.</p>
+<p><em>Hint:</em> - Define a dictionary mapping sectors to their constituent stocks - Use pandas <code>mean()</code> function to compute average returns - Remember to handle the train/test split consistently with previous analysis</p>
+<div id="5034432c-105e-4bbc-a3de-b061bd2433ac" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Sector Returns Summary (Training Period):
+        Technology    Financial   Healthcare       Energy  Consumer_Staples  \
+count  2515.000000  2515.000000  2515.000000  2515.000000       2515.000000   
+mean      0.000708     0.000529     0.000561     0.000228          0.000435   
+std       0.011622     0.015460     0.009070     0.013255          0.007475   
+min      -0.056637    -0.120743    -0.048842    -0.080151         -0.039052   
+25%      -0.004963    -0.006888    -0.004165    -0.006827         -0.003661   
+50%       0.000966     0.000601     0.000699     0.000480          0.000543   
+75%       0.006897     0.008406     0.005836     0.007352          0.004696   
+max       0.063131     0.090448     0.049754     0.058274          0.035414   
+
+       Consumer_Discretionary   Industrial    Materials  Telecommunications  \
+count             2515.000000  2515.000000  2515.000000         2515.000000   
+mean                 0.000850     0.000571     0.000464            0.000605   
+std                  0.009784     0.011905     0.013003            0.009453   
+min                 -0.055153    -0.069274    -0.058961           -0.054617   
+25%                 -0.004366    -0.005423    -0.006640           -0.004637   
+50%                  0.001120     0.000822     0.000835            0.001034   
+75%                  0.006386     0.006830     0.007747            0.006185   
+max                  0.058083     0.059283     0.075934            0.038374   
+
+       Real_Estate  
+count  2515.000000  
+mean      0.000552  
+std       0.011736  
+min      -0.079154  
+25%      -0.005862  
+50%       0.000981  
+75%       0.007002  
+max       0.109263  
+
+Sector Return Correlations (Training Period):
+                        Technology  Financial  Healthcare    Energy  \
+Technology                1.000000   0.652064    0.603375  0.597924   
+Financial                 0.652064   1.000000    0.572227  0.634610   
+Healthcare                0.603375   0.572227    1.000000  0.527469   
+Energy                    0.597924   0.634610    0.527469  1.000000   
+Consumer_Staples          0.515071   0.434815    0.616829  0.436855   
+Consumer_Discretionary    0.673522   0.631643    0.607782  0.538476   
+Industrial                0.739289   0.762015    0.628253  0.719753   
+Materials                 0.619829   0.639049    0.543687  0.716903   
+Telecommunications        0.553905   0.557995    0.584180  0.523741   
+Real_Estate               0.473704   0.491617    0.476236  0.440345   
+
+                        Consumer_Staples  Consumer_Discretionary  Industrial  \
+Technology                      0.515071                0.673522    0.739289   
+Financial                       0.434815                0.631643    0.762015   
+Healthcare                      0.616829                0.607782    0.628253   
+Energy                          0.436855                0.538476    0.719753   
+Consumer_Staples                1.000000                0.603731    0.535556   
+Consumer_Discretionary          0.603731                1.000000    0.704662   
+Industrial                      0.535556                0.704662    1.000000   
+Materials                       0.466227                0.579457    0.751812   
+Telecommunications              0.613324                0.583881    0.610452   
+Real_Estate                     0.532315                0.572199    0.537836   
+
+                        Materials  Telecommunications  Real_Estate  
+Technology               0.619829            0.553905     0.473704  
+Financial                0.639049            0.557995     0.491617  
+Healthcare               0.543687            0.584180     0.476236  
+Energy                   0.716903            0.523741     0.440345  
+Consumer_Staples         0.466227            0.613324     0.532315  
+Consumer_Discretionary   0.579457            0.583881     0.572199  
+Industrial               0.751812            0.610452     0.537836  
+Materials                1.000000            0.529148     0.465546  
+Telecommunications       0.529148            1.000000     0.499715  
+Real_Estate              0.465546            0.499715     1.000000  </code></pre>
+</div>
+</div>
+</section>
+<section id="question-3.2-weight-conversion-function" class="level2">
+<h2 class="anchored" data-anchor-id="question-3.2-weight-conversion-function">Question 3.2: Weight Conversion Function</h2>
+<p>Create and test a function that converts sector-level portfolio weights into individual stock weights, assuming equal weighting within each sector.</p>
+<p><em>Hint:</em> - Each stock within a sector should have equal weight - The sum of all stock weights should equal 1 - Test the function with simple cases</p>
+<div id="d1958dc4-bdc9-4b11-98eb-042daecc6878" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Test 1: Equal sector weights
+
+Sector weights:
+Technology: 0.1000
+Financial: 0.1000
+Healthcare: 0.1000
+Energy: 0.1000
+Consumer_Staples: 0.1000
+Consumer_Discretionary: 0.1000
+Industrial: 0.1000
+Materials: 0.1000
+Telecommunications: 0.1000
+Real_Estate: 0.1000
+
+Resulting stock weights:
+AAPL: 0.0200
+MSFT: 0.0200
+INTC: 0.0200
+CSCO: 0.0200
+ORCL: 0.0200
+JPM: 0.0143
+BAC: 0.0143
+GS: 0.0143
+MS: 0.0143
+C: 0.0143
+AXP: 0.0143
+WFC: 0.0143
+JNJ: 0.0200
+PFE: 0.0200
+MRK: 0.0200
+ABT: 0.0200
+BMY: 0.0200
+XOM: 0.0200
+CVX: 0.0200
+COP: 0.0200
+SLB: 0.0200
+OXY: 0.0200
+WMT: 0.0143
+PG: 0.0143
+KO: 0.0143
+PEP: 0.0143
+CL: 0.0143
+KMB: 0.0143
+GIS: 0.0143
+HD: 0.0143
+MCD: 0.0143
+NKE: 0.0143
+SBUX: 0.0143
+TJX: 0.0143
+LOW: 0.0143
+YUM: 0.0143
+CAT: 0.0143
+BA: 0.0143
+MMM: 0.0143
+HON: 0.0143
+GE: 0.0143
+DE: 0.0143
+FDX: 0.0143
+APD: 0.0167
+ECL: 0.0167
+NEM: 0.0167
+FCX: 0.0167
+PPG: 0.0167
+NUE: 0.0167
+VZ: 0.0333
+T: 0.0333
+CMCSA: 0.0333
+SPG: 0.0500
+PSA: 0.0500
+
+Test 2: Custom sector weights
+
+Sector weights:
+Technology: 0.3000
+Financial: 0.2000
+Healthcare: 0.2000
+Energy: 0.1000
+Consumer_Staples: 0.1000
+Consumer_Discretionary: 0.1000
+
+Resulting stock weights:
+AAPL: 0.0600
+MSFT: 0.0600
+INTC: 0.0600
+CSCO: 0.0600
+ORCL: 0.0600
+JPM: 0.0286
+BAC: 0.0286
+GS: 0.0286
+MS: 0.0286
+C: 0.0286
+AXP: 0.0286
+WFC: 0.0286
+JNJ: 0.0400
+PFE: 0.0400
+MRK: 0.0400
+ABT: 0.0400
+BMY: 0.0400
+XOM: 0.0200
+CVX: 0.0200
+COP: 0.0200
+SLB: 0.0200
+OXY: 0.0200
+WMT: 0.0143
+PG: 0.0143
+KO: 0.0143
+PEP: 0.0143
+CL: 0.0143
+KMB: 0.0143
+GIS: 0.0143
+HD: 0.0143
+MCD: 0.0143
+NKE: 0.0143
+SBUX: 0.0143
+TJX: 0.0143
+LOW: 0.0143
+YUM: 0.0143
+
+Verification - sum of weights: 1.000000</code></pre>
+</div>
+</div>
+</section>
+<section id="question-3.3-sector-portfolio-optimization" class="level2">
+<h2 class="anchored" data-anchor-id="question-3.3-sector-portfolio-optimization">Question 3.3: Sector Portfolio Optimization</h2>
+<p>Using the training period data, optimize sector-based portfolios for minimum variance and maximum Sharpe ratio. Compare with an equal-weight sector allocation.</p>
+<p><em>Hint:</em> - Use the same optimization approach as in Part 2 - Remember to create new constraints for the number of sectors - Use only training period data for optimization</p>
+<div id="ec3523ef-af2a-467e-8806-84da3cdea55d" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Minimum Variance Portfolio Weights:
+Technology: 0.0000
+Financial: 0.0000
+Healthcare: 0.2300
+Energy: 0.0000
+Consumer_Staples: 0.4999
+Consumer_Discretionary: 0.0869
+Industrial: 0.0000
+Materials: 0.0000
+Telecommunications: 0.1832
+Real_Estate: 0.0000
+
+Maximum Sharpe Ratio Portfolio Weights:
+Technology: 0.0000
+Financial: 0.0000
+Healthcare: 0.0861
+Energy: 0.0000
+Consumer_Staples: 0.0000
+Consumer_Discretionary: 0.7308
+Industrial: 0.0000
+Materials: 0.0000
+Telecommunications: 0.1831
+Real_Estate: 0.0000</code></pre>
+</div>
+</div>
+</section>
+<section id="question-3.4-portfolio-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="question-3.4-portfolio-visualization">Question 3.4: Portfolio Visualization</h2>
+<p>Create visualizations to compare the sector allocations and corresponding stock allocations for each portfolio strategy.</p>
+<p><em>Hint:</em> - Use pie charts to show both sector and stock level allocations - Use the sector_to_stock_weights function from Question 3.2 - Consider using subplots for clear comparison</p>
+<div id="197ed2e8-c666-4f54-86f3-aab804b4a851" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="portfolio_tp_uncorrected_files/figure-html/cell-16-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="portfolio_tp_uncorrected_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="part-4-risk-analysis" class="level1">
+<h1>Part 4: Risk Analysis</h1>
+<section id="question-4.1-risk-metrics-function" class="level2">
+<h2 class="anchored" data-anchor-id="question-4.1-risk-metrics-function">Question 4.1: Risk Metrics Function</h2>
+<p>Create a function to calculate various risk metrics for a return series: - Maximum Drawdown - Sortino Ratio - Value at Risk (VaR) - Conditional Value at Risk (CVaR)</p>
+<p><em>Hint:</em> - Use cumulative returns for drawdown calculation - Consider using numpy percentile for VaR - Remember to annualize metrics where appropriate</p>
+<div id="8d0741a8-f78f-476b-b28f-d8d1d1d22f0e" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Risk Metrics for Equal-Weight Sector Portfolio (Training Period):
+Maximum Drawdown: -0.1618
+Sortino Ratio: 1.0901
+VaR (95%): -0.0144
+CVaR (95%): -0.0216</code></pre>
+</div>
+</div>
+</section>
+<section id="question-4.2-capm-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="question-4.2-capm-analysis">Question 4.2: CAPM Analysis</h2>
+<p>Calculate CAPM metrics (alpha and beta) for sector portfolios. Compare the risk-adjusted performance across different portfolio strategies.</p>
+<p><em>Hint:</em> - Download market data (S&amp;P 500) for the same period - Use linear regression to calculate beta - Remember to annualize alpha</p>
+<div id="a3542341-6e13-42ba-9a80-f69146b09ece" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>[*********************100%***********************]  1 of 1 completed
+/var/folders/dr/3gd86y8j4w19p8jdnqy5s65m0000gp/T/ipykernel_70455/2328182781.py:25: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  alpha = model.params[0] * 252
+/var/folders/dr/3gd86y8j4w19p8jdnqy5s65m0000gp/T/ipykernel_70455/2328182781.py:26: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  beta = model.params[1]
+/var/folders/dr/3gd86y8j4w19p8jdnqy5s65m0000gp/T/ipykernel_70455/2328182781.py:25: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  alpha = model.params[0] * 252
+/var/folders/dr/3gd86y8j4w19p8jdnqy5s65m0000gp/T/ipykernel_70455/2328182781.py:26: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  beta = model.params[1]
+/var/folders/dr/3gd86y8j4w19p8jdnqy5s65m0000gp/T/ipykernel_70455/2328182781.py:25: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  alpha = model.params[0] * 252
+/var/folders/dr/3gd86y8j4w19p8jdnqy5s65m0000gp/T/ipykernel_70455/2328182781.py:26: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  beta = model.params[1]
+/var/folders/dr/3gd86y8j4w19p8jdnqy5s65m0000gp/T/ipykernel_70455/2328182781.py:25: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  alpha = model.params[0] * 252
+/var/folders/dr/3gd86y8j4w19p8jdnqy5s65m0000gp/T/ipykernel_70455/2328182781.py:26: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  beta = model.params[1]
+/var/folders/dr/3gd86y8j4w19p8jdnqy5s65m0000gp/T/ipykernel_70455/2328182781.py:25: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  alpha = model.params[0] * 252
+/var/folders/dr/3gd86y8j4w19p8jdnqy5s65m0000gp/T/ipykernel_70455/2328182781.py:26: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  beta = model.params[1]
+/var/folders/dr/3gd86y8j4w19p8jdnqy5s65m0000gp/T/ipykernel_70455/2328182781.py:25: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  alpha = model.params[0] * 252
+/var/folders/dr/3gd86y8j4w19p8jdnqy5s65m0000gp/T/ipykernel_70455/2328182781.py:26: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  beta = model.params[1]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Equal-Weight Portfolio CAPM Metrics:
+Training Period - Alpha: 2.8582%, Beta: 0.9390
+Testing Period - Alpha: 0.6888%, Beta: 0.9013
+
+Min Variance Portfolio CAPM Metrics:
+Training Period - Alpha: 5.2233%, Beta: 0.6415
+Testing Period - Alpha: -1.0409%, Beta: 0.5726
+
+Max Sharpe Portfolio CAPM Metrics:
+Training Period - Alpha: 9.7843%, Beta: 0.8203
+Testing Period - Alpha: -1.7344%, Beta: 0.8535</code></pre>
+</div>
+</div>
+</section>
+<section id="question-4.3-performance-comparison" class="level2">
+<h2 class="anchored" data-anchor-id="question-4.3-performance-comparison">Question 4.3: Performance Comparison</h2>
+<p>Compare the performance of sector-based portfolios with the individual stock portfolios from Part 2. Create visualizations showing the cumulative returns and risk metrics for both approaches.</p>
+<p><em>Hint:</em> - Use the optimal portfolios from both Parts 2 and 3 - Plot cumulative returns on the same graph - Create a summary table of risk metrics</p>
+<div id="aa09548b-7c0f-4b46-b308-0b4e870c2a78" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="portfolio_tp_uncorrected_files/figure-html/cell-19-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="portfolio_tp_uncorrected_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Risk Metrics Comparison (Testing Period):
+
+Sector Equal-Weight:
+Maximum Drawdown: -0.3801
+Sortino Ratio: 0.6716
+VaR (95%): -0.0170
+CVaR (95%): -0.0311
+
+Sector Min Variance:
+Maximum Drawdown: -0.2407
+Sortino Ratio: 0.4855
+VaR (95%): -0.0136
+CVaR (95%): -0.0229
+
+Sector Max Sharpe:
+Maximum Drawdown: -0.3563
+Sortino Ratio: 0.5206
+VaR (95%): -0.0174
+CVaR (95%): -0.0301
+
+Stock Min Variance:
+Maximum Drawdown: -0.2395
+Sortino Ratio: 0.6236
+VaR (95%): -0.0134
+CVaR (95%): -0.0226
+
+Stock Max Sharpe:
+Maximum Drawdown: -0.3405
+Sortino Ratio: 0.7347
+VaR (95%): -0.0177
+CVaR (95%): -0.0309</code></pre>
+</div>
+</div>
+<div id="13a8c44f-a114-4a28-b233-8a2dbb437e13" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="portfolio_tp_uncorrected_files/figure-html/cell-20-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="portfolio_tp_uncorrected_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Risk Metrics Comparison (Testing Period):
+
+Sector Equal-Weight:
+Maximum Drawdown: -0.3801
+Sortino Ratio: 0.6716
+VaR (95%): -0.0170
+CVaR (95%): -0.0311
+
+Sector Min Variance:
+Maximum Drawdown: -0.2407
+Sortino Ratio: 0.4855
+VaR (95%): -0.0136
+CVaR (95%): -0.0229
+
+Sector Max Sharpe:
+Maximum Drawdown: -0.3563
+Sortino Ratio: 0.5206
+VaR (95%): -0.0174
+CVaR (95%): -0.0301
+
+Stock Min Variance:
+Maximum Drawdown: -0.2395
+Sortino Ratio: 0.6236
+VaR (95%): -0.0134
+CVaR (95%): -0.0226
+
+Stock Max Sharpe:
+Maximum Drawdown: -0.3405
+Sortino Ratio: 0.7347
+VaR (95%): -0.0177
+CVaR (95%): -0.0309</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/Cours_4/3-TournonsAutourduGIL.html" class="pagination-link" aria-label="Asynchronie et Multiprocessing">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Asynchronie et Multiprocessing</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/Cours_4/tp_option_seller_uncorrected.html" class="pagination-link" aria-label="TP Python for Finance: Introduction to Option Pricing">
+        <span class="nav-page-text">TP Python for Finance: Introduction to Option Pricing</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Introduction à Python, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></p>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","loop":false});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
+
+
+
+</body></html>

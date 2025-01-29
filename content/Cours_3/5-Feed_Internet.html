@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Remi Genet">
-<meta name="dcterms.date" content="2024-03-04">
+<meta name="dcterms.date" content="2025-01-29">
 <meta name="description" content="Django, FastAPI, Flask, Bottle, Pyramid, Falcon, Sanic, Tornado, AIOHTTP, Starlette,… La liste est longue">
 
 <title>Introduction à Python – Python - Aussi un language pour servir des données</title>
@@ -272,7 +272,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"from flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef hello():\n    return \"Hello, World!\"\n\nif __name__ == '__main__':\n    app.run(debug=True)","options":{"message":"true","output":"true","classes":"","autorun":"","results":"markup","comment":"","read-only":"false","context":"interactive","warning":"true","out-height":"","label":"","fig-cap":"","fig-width":7,"out-width":"700px","dpi":72,"fig-height":5},"id":1},{"code":"from fastapi import FastAPI\nfrom sqlalchemy import create_engine\n\napp = FastAPI()\nengine = create_engine('postgresql://user:password@localhost/dbname')\n\n@app.get(\"/items/\")\nasync def read_items():\n    with engine.connect() as connection:\n        result = connection.execute(\"SELECT * FROM items\")\n        items = result.fetchall()\n    return items","options":{"message":"true","output":"true","classes":"","autorun":"","results":"markup","comment":"","read-only":"false","context":"interactive","warning":"true","out-height":"","label":"","fig-cap":"","fig-width":7,"out-width":"700px","dpi":72,"fig-height":5},"id":2},{"code":"from pydantic import BaseModel\n\nclass User(BaseModel):\n    username: str\n    full_name: str = None\n\n@app.post(\"/users/\")\nasync def create_user(user: User):\n    return user","options":{"message":"true","output":"true","classes":"","autorun":"","results":"markup","comment":"","read-only":"false","context":"interactive","warning":"true","out-height":"","label":"","fig-cap":"","fig-width":7,"out-width":"700px","dpi":72,"fig-height":5},"id":3},{"code":"from fastapi import Depends, FastAPI, HTTPException, status\nfrom fastapi.security import OAuth2PasswordBearer\n\noauth2_scheme = OAuth2PasswordBearer(tokenUrl=\"token\")\n\n@app.get(\"/users/me\")\nasync def read_users_me(token: str = Depends(oauth2_scheme)):\n    return {\"token\": token}","options":{"message":"true","output":"true","classes":"","autorun":"","results":"markup","comment":"","read-only":"false","context":"interactive","warning":"true","out-height":"","label":"","fig-cap":"","fig-width":7,"out-width":"700px","dpi":72,"fig-height":5},"id":4},{"code":"import redis\nfrom fastapi import FastAPI\n\napp = FastAPI()\nredis_client = redis.Redis(host='localhost', port=6379, db=0)\n\n@app.get(\"/items/{item_id}\")\nasync def read_item(item_id: int):\n    cached_item = redis_client.get(item_id)\n    if cached_item:\n        return cached_item\n    # Sinon, récupérer l'élément de la base de données, le mettre en cache, et le retourner","options":{"message":"true","output":"true","classes":"","autorun":"","results":"markup","comment":"","read-only":"false","context":"interactive","warning":"true","out-height":"","label":"","fig-cap":"","fig-width":7,"out-width":"700px","dpi":72,"fig-height":5},"id":5},{"code":"@app.get(\"/items/{item_id}\")\nasync def read_item(item_id: int):\n    # Opération asynchrone, comme une requête de base de données\n    item = await get_item(item_id)\n    return item","options":{"message":"true","output":"true","classes":"","autorun":"","results":"markup","comment":"","read-only":"false","context":"interactive","warning":"true","out-height":"","label":"","fig-cap":"","fig-width":7,"out-width":"700px","dpi":72,"fig-height":5},"id":6}];
+globalThis.qpyodideCellDetails = [{"code":"from flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef hello():\n    return \"Hello, World!\"\n\nif __name__ == '__main__':\n    app.run(debug=True)","options":{"label":"","fig-cap":"","comment":"","read-only":"false","results":"markup","out-width":"700px","output":"true","context":"interactive","message":"true","fig-height":5,"fig-width":7,"classes":"","autorun":"","dpi":72,"out-height":"","warning":"true"},"id":1},{"code":"from fastapi import FastAPI\nfrom sqlalchemy import create_engine\n\napp = FastAPI()\nengine = create_engine('postgresql://user:password@localhost/dbname')\n\n@app.get(\"/items/\")\nasync def read_items():\n    with engine.connect() as connection:\n        result = connection.execute(\"SELECT * FROM items\")\n        items = result.fetchall()\n    return items","options":{"label":"","fig-cap":"","comment":"","read-only":"false","results":"markup","out-width":"700px","output":"true","context":"interactive","message":"true","fig-height":5,"fig-width":7,"classes":"","autorun":"","dpi":72,"out-height":"","warning":"true"},"id":2},{"code":"from pydantic import BaseModel\n\nclass User(BaseModel):\n    username: str\n    full_name: str = None\n\n@app.post(\"/users/\")\nasync def create_user(user: User):\n    return user","options":{"label":"","fig-cap":"","comment":"","read-only":"false","results":"markup","out-width":"700px","output":"true","context":"interactive","message":"true","fig-height":5,"fig-width":7,"classes":"","autorun":"","dpi":72,"out-height":"","warning":"true"},"id":3},{"code":"from fastapi import Depends, FastAPI, HTTPException, status\nfrom fastapi.security import OAuth2PasswordBearer\n\noauth2_scheme = OAuth2PasswordBearer(tokenUrl=\"token\")\n\n@app.get(\"/users/me\")\nasync def read_users_me(token: str = Depends(oauth2_scheme)):\n    return {\"token\": token}","options":{"label":"","fig-cap":"","comment":"","read-only":"false","results":"markup","out-width":"700px","output":"true","context":"interactive","message":"true","fig-height":5,"fig-width":7,"classes":"","autorun":"","dpi":72,"out-height":"","warning":"true"},"id":4},{"code":"import redis\nfrom fastapi import FastAPI\n\napp = FastAPI()\nredis_client = redis.Redis(host='localhost', port=6379, db=0)\n\n@app.get(\"/items/{item_id}\")\nasync def read_item(item_id: int):\n    cached_item = redis_client.get(item_id)\n    if cached_item:\n        return cached_item\n    # Sinon, récupérer l'élément de la base de données, le mettre en cache, et le retourner","options":{"label":"","fig-cap":"","comment":"","read-only":"false","results":"markup","out-width":"700px","output":"true","context":"interactive","message":"true","fig-height":5,"fig-width":7,"classes":"","autorun":"","dpi":72,"out-height":"","warning":"true"},"id":5},{"code":"@app.get(\"/items/{item_id}\")\nasync def read_item(item_id: int):\n    # Opération asynchrone, comme une requête de base de données\n    item = await get_item(item_id)\n    return item","options":{"label":"","fig-cap":"","comment":"","read-only":"false","results":"markup","out-width":"700px","output":"true","context":"interactive","message":"true","fig-height":5,"fig-width":7,"classes":"","autorun":"","dpi":72,"out-height":"","warning":"true"},"id":6}];
 
 
 </script>
@@ -471,10 +471,10 @@ globalThis._qpyodideGetInstance = function() {
 <meta property="og:site_name" content="Introduction à Python">
 <meta name="citation_title" content="Python - Aussi un language pour servir des données">
 <meta name="citation_author" content="Remi Genet">
-<meta name="citation_publication_date" content="2024-03-04">
-<meta name="citation_cover_date" content="2024-03-04">
-<meta name="citation_year" content="2024">
-<meta name="citation_online_date" content="2024-03-04">
+<meta name="citation_publication_date" content="2025-01-29">
+<meta name="citation_cover_date" content="2025-01-29">
+<meta name="citation_year" content="2025">
+<meta name="citation_online_date" content="2025-01-29">
 <meta name="citation_language" content="en">
 </head>
 
@@ -675,6 +675,14 @@ globalThis._qpyodideGetInstance = function() {
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/portfolio_tp_uncorrected.html">
+ <span class="dropdown-text">Modern Portfolio Theory - Practical Work</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/tp_option_seller_uncorrected.html">
+ <span class="dropdown-text">TP Python for Finance: Introduction to Option Pricing</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_4/TP_OOP_n_ASYNC.html">
  <span class="dropdown-text">TP - Creer un outil de récupération de donnée</span></a>
@@ -916,7 +924,7 @@ globalThis._qpyodideGetInstance = function() {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-03-04</p>
+      <p class="date">2025-01-29</p>
     </div>
   </div>
   
@@ -1005,7 +1013,7 @@ globalThis._qpyodideGetInstance = function() {
 <li><strong>Création d’une API CRUD (Create, Read, Update, Delete)</strong>:
 <ul>
 <li>FastAPI simplifie la création d’APIs CRUD, qui sont essentielles dans de nombreuses applications web pour gérer les données.</li>
-<li>Exemple de base : ```upwtpugtmfdqxajd from fastapi import FastAPI from pydantic import BaseModel</li>
+<li>Exemple de base : ```uhcsrqtdfhjqcgxo from fastapi import FastAPI from pydantic import BaseModel</li>
 </ul></li>
 </ol>
 <p>app = FastAPI()</p>
