@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Remi Genet">
-<meta name="dcterms.date" content="2025-01-30">
+<meta name="dcterms.date" content="2025-02-06">
 <meta name="description" content="Python, où le ML à deux cliques de souris">
 
 <title>Introduction à Python – Machine Learning</title>
@@ -238,7 +238,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"options":{"label":"","fig-height":5,"fig-width":7,"context":"interactive","read-only":"false","fig-cap":"","out-height":"","output":"true","message":"true","autorun":"","comment":"","dpi":72,"classes":"","warning":"true","results":"markup","out-width":"700px"},"id":1,"code":"from sklearn.datasets import load_iris\nfrom sklearn.ensemble import RandomForestClassifier\n\n# Chargement des données\niris = load_iris()\nX, y = iris.data, iris.target\n\n# Entraînement d'un modèle de forêt aléatoire\nclf = RandomForestClassifier()\nclf.fit(X, y)"},{"options":{"label":"","fig-height":5,"fig-width":7,"context":"interactive","read-only":"false","fig-cap":"","out-height":"","output":"true","message":"true","autorun":"","comment":"","dpi":72,"classes":"","warning":"true","results":"markup","out-width":"700px"},"id":2,"code":"from sklearn.model_selection import train_test_split\nfrom sklearn.metrics import accuracy_score\n\n# Division en ensembles d'entraînement et de test\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)\n\n# Entraînement du modèle\nclf.fit(X_train, y_train)\n\n# Évaluation du modèle\ny_pred = clf.predict(X_test)\nprint(\"Accuracy:\", accuracy_score(y_test, y_pred))"},{"options":{"label":"","fig-height":5,"fig-width":7,"context":"interactive","read-only":"false","fig-cap":"","out-height":"","output":"true","message":"true","autorun":"","comment":"","dpi":72,"classes":"","warning":"true","results":"markup","out-width":"700px"},"id":3,"code":"import torch\nimport torch.nn as nn\nimport torch.optim as optim\nfrom torchvision import datasets, transforms\nfrom torch.utils.data import DataLoader\n\n# Chargement des données\ntransform = transforms.ToTensor()\ntrain_dataset = datasets.MNIST(root='./data', train=True, transform=transform, download=True)\ntrain_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)\n\n# Définition du modèle\nclass SimpleNN(nn.Module):\n    def __init__(self):\n        super(SimpleNN, self).__init__()\n        self.linear = nn.Linear(784, 10)\n\n    def forward(self, x):\n        x = x.view(x.size(0), -1)  # Aplatir l'image\n        return self.linear(x)\n\nmodel = SimpleNN()\ncriterion = nn.CrossEntropyLoss()\noptimizer = optim.SGD(model.parameters(), lr=0.01)\n\n# Entraînement du modèle\nfor epoch in range(5):\n    for data, target in train_loader:\n        optimizer.zero_grad()\n        output = model(data)\n        loss = criterion(output, target)\n        loss.backward()\n        optimizer.step()\n    print(f'Epoch {epoch}, Loss: {loss.item()}')"}];
+globalThis.qpyodideCellDetails = [{"code":"from sklearn.datasets import load_iris\nfrom sklearn.ensemble import RandomForestClassifier\n\n# Chargement des données\niris = load_iris()\nX, y = iris.data, iris.target\n\n# Entraînement d'un modèle de forêt aléatoire\nclf = RandomForestClassifier()\nclf.fit(X, y)","id":1,"options":{"results":"markup","output":"true","fig-height":5,"label":"","read-only":"false","out-height":"","classes":"","fig-cap":"","out-width":"700px","context":"interactive","fig-width":7,"dpi":72,"comment":"","warning":"true","autorun":"","message":"true"}},{"code":"from sklearn.model_selection import train_test_split\nfrom sklearn.metrics import accuracy_score\n\n# Division en ensembles d'entraînement et de test\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)\n\n# Entraînement du modèle\nclf.fit(X_train, y_train)\n\n# Évaluation du modèle\ny_pred = clf.predict(X_test)\nprint(\"Accuracy:\", accuracy_score(y_test, y_pred))","id":2,"options":{"results":"markup","output":"true","fig-height":5,"label":"","read-only":"false","out-height":"","classes":"","fig-cap":"","out-width":"700px","context":"interactive","fig-width":7,"dpi":72,"comment":"","warning":"true","autorun":"","message":"true"}},{"code":"import torch\nimport torch.nn as nn\nimport torch.optim as optim\nfrom torchvision import datasets, transforms\nfrom torch.utils.data import DataLoader\n\n# Chargement des données\ntransform = transforms.ToTensor()\ntrain_dataset = datasets.MNIST(root='./data', train=True, transform=transform, download=True)\ntrain_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)\n\n# Définition du modèle\nclass SimpleNN(nn.Module):\n    def __init__(self):\n        super(SimpleNN, self).__init__()\n        self.linear = nn.Linear(784, 10)\n\n    def forward(self, x):\n        x = x.view(x.size(0), -1)  # Aplatir l'image\n        return self.linear(x)\n\nmodel = SimpleNN()\ncriterion = nn.CrossEntropyLoss()\noptimizer = optim.SGD(model.parameters(), lr=0.01)\n\n# Entraînement du modèle\nfor epoch in range(5):\n    for data, target in train_loader:\n        optimizer.zero_grad()\n        output = model(data)\n        loss = criterion(output, target)\n        loss.backward()\n        optimizer.step()\n    print(f'Epoch {epoch}, Loss: {loss.item()}')","id":3,"options":{"results":"markup","output":"true","fig-height":5,"label":"","read-only":"false","out-height":"","classes":"","fig-cap":"","out-width":"700px","context":"interactive","fig-width":7,"dpi":72,"comment":"","warning":"true","autorun":"","message":"true"}}];
 
 
 </script>
@@ -437,10 +437,10 @@ globalThis._qpyodideGetInstance = function() {
 <meta property="og:site_name" content="Introduction à Python">
 <meta name="citation_title" content="Machine Learning">
 <meta name="citation_author" content="Remi Genet">
-<meta name="citation_publication_date" content="2025-01-30">
-<meta name="citation_cover_date" content="2025-01-30">
+<meta name="citation_publication_date" content="2025-02-06">
+<meta name="citation_cover_date" content="2025-02-06">
 <meta name="citation_year" content="2025">
-<meta name="citation_online_date" content="2025-01-30">
+<meta name="citation_online_date" content="2025-02-06">
 <meta name="citation_language" content="en">
 </head>
 
@@ -644,6 +644,10 @@ globalThis._qpyodideGetInstance = function() {
         <li>
     <a class="dropdown-item" href="../../content/Cours_4/portfolio_tp_uncorrected.html">
  <span class="dropdown-text">Modern Portfolio Theory - Practical Work</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/portfolio_tp_corrected.html">
+ <span class="dropdown-text">Modern Portfolio Theory - Practical Work - Corrected version</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_4/tp_option_seller_uncorrected.html">
@@ -890,7 +894,7 @@ globalThis._qpyodideGetInstance = function() {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-01-30</p>
+      <p class="date">2025-02-06</p>
     </div>
   </div>
   
