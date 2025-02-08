@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Remi Genet">
-<meta name="dcterms.date" content="2025-02-06">
+<meta name="dcterms.date" content="2025-02-08">
 <meta name="description" content="Rappel sur les bibliothèques Python, la gestion des paquets et les environnements virtuels">
 
 <title>Introduction à Python – Installer et importer des librairies en Python</title>
@@ -272,7 +272,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"options":{"results":"markup","fig-height":5,"fig-cap":"","read-only":"false","output":"true","label":"","comment":"","context":"interactive","classes":"","message":"true","dpi":72,"autorun":"","out-width":"700px","warning":"true","out-height":"","fig-width":7},"code":"import pandas as pd\ndata = pd.read_csv('chemin/vers/fichier.csv')  # Lit un fichier CSV\nprint(data.head())  # Affiche les premières lignes du DataFrame","id":1},{"options":{"results":"markup","fig-height":5,"fig-cap":"","read-only":"false","output":"true","label":"","comment":"","context":"interactive","classes":"","message":"true","dpi":72,"autorun":"","out-width":"700px","warning":"true","out-height":"","fig-width":7},"code":"import pandas as pd\ndf = pd.read_csv('data.csv')\nprint(df.head())","id":2}];
+globalThis.qpyodideCellDetails = [{"id":1,"code":"import pandas as pd\ndata = pd.read_csv('chemin/vers/fichier.csv')  # Lit un fichier CSV\nprint(data.head())  # Affiche les premières lignes du DataFrame","options":{"warning":"true","out-width":"700px","label":"","fig-width":7,"output":"true","fig-height":5,"message":"true","comment":"","results":"markup","out-height":"","fig-cap":"","context":"interactive","autorun":"","classes":"","read-only":"false","dpi":72}},{"id":2,"code":"import pandas as pd\ndf = pd.read_csv('data.csv')\nprint(df.head())","options":{"warning":"true","out-width":"700px","label":"","fig-width":7,"output":"true","fig-height":5,"message":"true","comment":"","results":"markup","out-height":"","fig-cap":"","context":"interactive","autorun":"","classes":"","read-only":"false","dpi":72}}];
 
 
 </script>
@@ -471,10 +471,10 @@ globalThis._qpyodideGetInstance = function() {
 <meta property="og:site_name" content="Introduction à Python">
 <meta name="citation_title" content="Installer et importer des librairies en Python">
 <meta name="citation_author" content="Remi Genet">
-<meta name="citation_publication_date" content="2025-02-06">
-<meta name="citation_cover_date" content="2025-02-06">
+<meta name="citation_publication_date" content="2025-02-08">
+<meta name="citation_cover_date" content="2025-02-08">
 <meta name="citation_year" content="2025">
-<meta name="citation_online_date" content="2025-02-06">
+<meta name="citation_online_date" content="2025-02-08">
 <meta name="citation_language" content="en">
 </head>
 
@@ -739,6 +739,10 @@ globalThis._qpyodideGetInstance = function() {
     <a class="dropdown-item" href="../../content/Projets/L3_EIF_2024.html">
  <span class="dropdown-text">Projets Introduction à Python - Millésime 2024</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Projets/projet_2025.html">
+ <span class="dropdown-text">Licence Finance Python Project: Analyse et Optimisation de Portefeuille par Secteur</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -918,7 +922,7 @@ globalThis._qpyodideGetInstance = function() {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-02-06</p>
+      <p class="date">2025-02-08</p>
     </div>
   </div>
   
@@ -933,7 +937,7 @@ globalThis._qpyodideGetInstance = function() {
 <section id="rappel-sur-les-bibliothèques-python" class="level3">
 <h3 class="anchored" data-anchor-id="rappel-sur-les-bibliothèques-python">1. Rappel sur les Bibliothèques Python</h3>
 <p><strong>Définition et Utilisation :</strong> Une bibliothèque Python est un ensemble de modules et de fonctions pré-écrits qui peuvent être importés dans un programme pour ajouter des fonctionnalités sans écrire de code supplémentaire. Ces bibliothèques sont essentielles pour étendre les capacités de Python au-delà de ses fonctionnalités de base.</p>
-<p><strong>Exemples Pratiques :</strong> - <strong>Importation et Utilisation de la Bibliothèque Mathématique (math) :</strong> <code>walmszqyfohuarqx   import math   print(math.sqrt(16))  # Affiche 4.0, la racine carrée de 16</code></p>
+<p><strong>Exemples Pratiques :</strong> - <strong>Importation et Utilisation de la Bibliothèque Mathématique (math) :</strong> <code>smrjxtfzwsrfzisf   import math   print(math.sqrt(16))  # Affiche 4.0, la racine carrée de 16</code></p>
 <ul>
 <li><p><strong>Manipulation de Données avec Pandas :</strong></p>
 <div id="qpyodide-insertion-location-1"></div>
@@ -1029,7 +1033,7 @@ globalThis._qpyodideGetInstance = function() {
 <section id="utilisation-des-bibliothèques-importées" class="level3">
 <h3 class="anchored" data-anchor-id="utilisation-des-bibliothèques-importées">7. Utilisation des Bibliothèques Importées</h3>
 <p><strong>Principes de Base de l’Importation en Python :</strong> Après avoir installé une bibliothèque, elle doit être importée dans votre script pour être utilisée. L’importation en Python est réalisée à l’aide du mot-clé <code>import</code>, suivi du nom de la bibliothèque. Cette étape est cruciale pour accéder aux fonctions, classes et méthodes que la bibliothèque offre.</p>
-<p><strong>Exemples Pratiques d’Importation et d’Utilisation de Bibliothèques :</strong> - <strong>Utilisation de la Bibliothèque Requests :</strong> <code>walmszqyfohuarqx   import requests   response = requests.get('https://www.example.com')   print(response.text)</code> Dans cet exemple, <code>requests</code> est utilisée pour effectuer une requête HTTP vers un site web, et le contenu de la réponse est affiché.</p>
+<p><strong>Exemples Pratiques d’Importation et d’Utilisation de Bibliothèques :</strong> - <strong>Utilisation de la Bibliothèque Requests :</strong> <code>smrjxtfzwsrfzisf   import requests   response = requests.get('https://www.example.com')   print(response.text)</code> Dans cet exemple, <code>requests</code> est utilisée pour effectuer une requête HTTP vers un site web, et le contenu de la réponse est affiché.</p>
 <ul>
 <li><p><strong>Travail avec Pandas :</strong></p>
 <div id="qpyodide-insertion-location-2"></div>

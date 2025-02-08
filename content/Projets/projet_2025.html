@@ -8,9 +8,9 @@
 
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2025-02-08">
-<meta name="description" content="Explorer les mécanismes sous-jacents à l’exécution d’un programme Python pour une compréhension approfondie des processus de compilation et d’interprétation.">
+<meta name="description" content="Projet d’analyse et d’optimisation de portefeuille en finance à l’aide de yfinance, pandas, SciPy, matplotlib/seaborn et scikit-learn">
 
-<title>Introduction à Python – Exécution d’un Programme Python</title>
+<title>Introduction à Python – Licence Finance Python Project: Analyse et Optimisation de Portefeuille par Secteur</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -33,8 +67,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Cours_1/3-ManyPythons.html" rel="next">
-<link href="../../content/Cours_1/1-Histoire.html" rel="prev">
+<link href="../../content/Projets/L3_EIF_2024.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -79,11 +112,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction à Python - Exécution d’un Programme Python">
-<meta property="og:description" content="Explorer les mécanismes sous-jacents à l’exécution d’un programme Python pour une compréhension approfondie des processus de compilation et d’interprétation.">
-<meta property="og:image" content=".img/compiled_vs_interpreted.png">
+<meta property="og:title" content="Introduction à Python - Licence Finance Python Project: Analyse et Optimisation de Portefeuille par Secteur">
+<meta property="og:description" content="Projet d’analyse et d’optimisation de portefeuille en finance à l’aide de yfinance, pandas, SciPy, matplotlib/seaborn et scikit-learn">
+<meta property="og:image" content=".img/projets_finance.webp">
 <meta property="og:site_name" content="Introduction à Python">
-<meta name="citation_title" content="Exécution d&amp;amp;#039;un Programme Python">
+<meta name="citation_title" content="Licence Finance Python Project: Analyse et Optimisation de Portefeuille par Secteur">
 <meta name="citation_author" content="Remi Genet">
 <meta name="citation_publication_date" content="2025-02-08">
 <meta name="citation_cover_date" content="2025-02-08">
@@ -386,7 +419,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_1/2-Python_Execution.html">Exécution d’un Programme Python</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Projets/projet_2025.html">Licence Finance Python Project: Analyse et Optimisation de Portefeuille par Secteur</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -400,104 +433,22 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Comprendre Et Installer Python</span></a>
+  <a href="../../content/Projets/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projets</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/1-Histoire.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Histoire du Langage</span></a>
+  <a href="../../content/Projets/L3_EIF_2024.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projets Introduction à Python - Millésime 2024</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/2-Python_Execution.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Exécution d’un Programme Python</span></a>
+  <a href="../../content/Projets/projet_2025.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Licence Finance Python Project: Analyse et Optimisation de Portefeuille par Secteur</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/3-ManyPythons.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Versions et Compilation de Python</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/4-Path.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Le PATH</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/5-PathandVirtualEnv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Path.. et environnements virtuels!</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/6-IDEs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Les IDEs</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/7-Notebooks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Les Notebooks</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Quelques IDEs en Python</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/IDEs/VsCode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">VsCode - L’IDE Flexible et Polyvalent</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/IDEs/Spyder.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spyder - Un IDE Orienté Science des Données</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/IDEs/Pycharm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PyCharm - L’IDE orienté Python</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Travaux Pratiques</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/TP-Version-SimplePyenv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TP Guidé - Installer plusieurs versions de python avec pyenv</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/TP-ConstruireSonPython.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TP - Construire son python depuis la source</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -508,12 +459,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#chapitre-2---dabord-un-petit-cours-dinformatique" id="toc-chapitre-2---dabord-un-petit-cours-dinformatique" class="nav-link active" data-scroll-target="#chapitre-2---dabord-un-petit-cours-dinformatique">Chapitre 2 - D’abord, un petit cours d’informatique !</a>
+  <li><a href="#projet-analyse-et-optimisation-de-portefeuille-par-secteur-avec-yfinance" id="toc-projet-analyse-et-optimisation-de-portefeuille-par-secteur-avec-yfinance" class="nav-link active" data-scroll-target="#projet-analyse-et-optimisation-de-portefeuille-par-secteur-avec-yfinance">Projet: Analyse et Optimisation de Portefeuille par Secteur avec yfinance</a>
   <ul class="collapse">
-  <li><a href="#section-2.1---un-programme---comment-ca-marche" id="toc-section-2.1---un-programme---comment-ca-marche" class="nav-link" data-scroll-target="#section-2.1---un-programme---comment-ca-marche">Section 2.1 - Un programme - Comment ca marche ?</a></li>
-  <li><a href="#section-2.2---la-compilation" id="toc-section-2.2---la-compilation" class="nav-link" data-scroll-target="#section-2.2---la-compilation">Section 2.2 - La compilation ?</a></li>
-  <li><a href="#section-2.3---linterprétation" id="toc-section-2.3---linterprétation" class="nav-link" data-scroll-target="#section-2.3---linterprétation">Section 2.3 - L’interprétation !</a></li>
-  <li><a href="#section-2.4---binaire-compilé-et-interprétation-du-code-python" id="toc-section-2.4---binaire-compilé-et-interprétation-du-code-python" class="nav-link" data-scroll-target="#section-2.4---binaire-compilé-et-interprétation-du-code-python">Section 2.4 - Binaire Compilé et Interprétation du Code Python</a></li>
+  <li><a href="#contexte-et-objectif" id="toc-contexte-et-objectif" class="nav-link" data-scroll-target="#contexte-et-objectif">Contexte et Objectif</a></li>
+  <li><a href="#période-et-sources-de-données" id="toc-période-et-sources-de-données" class="nav-link" data-scroll-target="#période-et-sources-de-données">Période et Sources de Données</a></li>
+  <li><a href="#plan-du-projet" id="toc-plan-du-projet" class="nav-link" data-scroll-target="#plan-du-projet">Plan du Projet</a>
+  <ul class="collapse">
+  <li><a href="#collecte-et-préparation-des-données" id="toc-collecte-et-préparation-des-données" class="nav-link" data-scroll-target="#collecte-et-préparation-des-données">1. Collecte et Préparation des Données</a></li>
+  <li><a href="#analyse-de-performance-par-secteur-analyse-intrasectorielle" id="toc-analyse-de-performance-par-secteur-analyse-intrasectorielle" class="nav-link" data-scroll-target="#analyse-de-performance-par-secteur-analyse-intrasectorielle">2. Analyse de Performance par Secteur (Analyse Intrasectorielle)</a></li>
+  <li><a href="#optimisation-de-portefeuille-intrasectorielle" id="toc-optimisation-de-portefeuille-intrasectorielle" class="nav-link" data-scroll-target="#optimisation-de-portefeuille-intrasectorielle">3. Optimisation de Portefeuille Intrasectorielle</a></li>
+  <li><a href="#optimisation-et-comparaison-intersectorielle" id="toc-optimisation-et-comparaison-intersectorielle" class="nav-link" data-scroll-target="#optimisation-et-comparaison-intersectorielle">4. Optimisation et Comparaison Intersectorielle</a></li>
+  <li><a href="#clustering-et-optimisation-par-groupes" id="toc-clustering-et-optimisation-par-groupes" class="nav-link" data-scroll-target="#clustering-et-optimisation-par-groupes">5. Clustering et Optimisation par Groupes</a></li>
+  <li><a href="#visualisation-et-analyse-des-résultats" id="toc-visualisation-et-analyse-des-résultats" class="nav-link" data-scroll-target="#visualisation-et-analyse-des-résultats">6. Visualisation et Analyse des Résultats</a></li>
+  </ul></li>
+  <li><a href="#format-de-rendu" id="toc-format-de-rendu" class="nav-link" data-scroll-target="#format-de-rendu">Format de Rendu</a></li>
+  <li><a href="#conseils-et-astuces" id="toc-conseils-et-astuces" class="nav-link" data-scroll-target="#conseils-et-astuces">Conseils et Astuces</a></li>
+  <li><a href="#ressources-utiles" id="toc-ressources-utiles" class="nav-link" data-scroll-target="#ressources-utiles">Ressources Utiles</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -523,16 +484,17 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Exécution d’un Programme Python</h1>
+<h1 class="title">Licence Finance Python Project: Analyse et Optimisation de Portefeuille par Secteur</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Cours</div>
-    <div class="quarto-category">Introduction</div>
+    <div class="quarto-category">Projet</div>
+    <div class="quarto-category">Finance</div>
+    <div class="quarto-category">Analyse de Données</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Explorer les mécanismes sous-jacents à l’exécution d’un programme Python pour une compréhension approfondie des processus de compilation et d’interprétation.
+    Projet d’analyse et d’optimisation de portefeuille en finance à l’aide de yfinance, pandas, SciPy, matplotlib/seaborn et scikit-learn
   </div>
 </div>
 
@@ -561,37 +523,196 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="chapitre-2---dabord-un-petit-cours-dinformatique" class="level1">
-<h1>Chapitre 2 - D’abord, un petit cours d’informatique !</h1>
-<hr>
-<section id="section-2.1---un-programme---comment-ca-marche" class="level2">
-<h2 class="anchored" data-anchor-id="section-2.1---un-programme---comment-ca-marche">Section 2.1 - Un programme - Comment ca marche ?</h2>
-<p>L’apprentissage de la programmation en Python ne nécessite pas de connaissances préalables en informatique, mais comprendre comment un programme est exécuté est essentiel. Cette compréhension aide à gérer les packages, à résoudre les problèmes de version et à collaborer efficacement.</p>
-<p>Un programme est une série d’instructions écrites dans un langage compréhensible par un ordinateur, connu sous le nom de langage machine, composé de séquences binaires (0 et 1). Pour traduire un langage de haut niveau en langage machine, un processus de compilation est nécessaire.</p>
+<section id="projet-analyse-et-optimisation-de-portefeuille-par-secteur-avec-yfinance" class="level1">
+<h1>Projet: Analyse et Optimisation de Portefeuille par Secteur avec yfinance</h1>
+<section id="contexte-et-objectif" class="level2">
+<h2 class="anchored" data-anchor-id="contexte-et-objectif">Contexte et Objectif</h2>
+<p>Ce projet a pour but de vous familiariser avec la collecte, l’analyse et l’optimisation de données financières en utilisant Python. Vous allez :</p>
+<ul>
+<li><strong>Collecter et manipuler des données</strong> financières à l’aide de <strong>yfinance</strong> et <strong>pandas</strong>.</li>
+<li><strong>Analyser la performance</strong> des instruments (ETFs, compagnies et fonds mutuels) pour <strong>l’ensemble des secteurs</strong>.</li>
+<li>Réaliser <strong>une optimisation intrasectorielle</strong> (c’est-à-dire, au sein de chaque secteur, optimiser la composition du portefeuille parmi les actions/instruments du secteur) ainsi que <strong>une optimisation intersectorielle</strong> :
+<ul>
+<li><strong>Entre les secteurs :</strong> Optimiser la répartition globale entre secteurs.</li>
+<li><strong>Sur les actions indépendamment :</strong> Optimiser un portefeuille constitué de l’ensemble des instruments, sans tenir compte des secteurs.</li>
+</ul></li>
+<li><strong>Simuler un rééquilibrage trimestriel</strong> des portefeuilles en utilisant des données historiques (allant de 3 mois à 5 années précédant chaque rééquilibrage).</li>
+<li><strong>Comparer différentes stratégies de portefeuilles</strong> et benchmarks, incluant notamment :
+<ul>
+<li>L’indice <strong>S&amp;P500</strong>.</li>
+<li>Un portefeuille <strong>équi-pondéré par secteur</strong>.</li>
+</ul></li>
+</ul>
 </section>
-<section id="section-2.2---la-compilation" class="level2">
-<h2 class="anchored" data-anchor-id="section-2.2---la-compilation">Section 2.2 - La compilation ?</h2>
-<p>La compilation est le processus qui consiste à traduire le code source en code machine, mais cela ne fait pas “que” cela, il va aussi vérifier que le code source est correcte. C’est à dire qu’il va vérifier que le code source est bien écrit dans le language que l’on a choisi. C’est ce que l’on appelle la syntaxe. Il va aussi vérifier que le code source est logique. C’est à dire qu’il va vérifier que le code source est bien écrit dans le bon ordre. C’est ce que l’on appelle la sémantique. Si le code source n’est pas correcte, le compilateur va nous renvoyer une erreur. C’est ce que l’on appelle une erreur de compilation. C’est une erreur qui se produit avant l’exécution du programme.</p>
-<p>Mais la compilation va également permettre d’optimiser le code source. C’est à dire qu’il va le rendre plus rapide à l’exécution. Durant cette phase le compilateur va, en fonction des options choisi par le développeur, optimiser le code source, en supprimant par exemple les lignes de code qui ne sont pas utilisées, en supprimant des boucles ou recursion, en réduisant le nombre de variables, en réduisant le nombre d’instructions, en réduisant le nombre de sauts, en réduisant le nombre d’opérations, en réduisant le nombre de tests, en réduisant le nombre de fonctions, en réduisant le nombre de paramètres, en réduisant le nombre de variables locales, …</p>
-<p>C’est optimisation prennent cependant du temps, et ne sont pas toutes sans risques et les erreurs de compilations peuvent être nombreuses sur des programmes complexes, et la compilations peut demander un temps considérable à chaque fois que l’on apporte une modification.</p>
-<p><strong>Mais en Python, il n’y a pas de compilation ! Magie ?</strong></p>
+<section id="période-et-sources-de-données" class="level2">
+<h2 class="anchored" data-anchor-id="période-et-sources-de-données">Période et Sources de Données</h2>
+<ul>
+<li><strong>Période d’étude :</strong> de 2010 à 2024 (2025 exclu)</li>
+<li><strong>Sources de données :</strong><br>
+Pour <strong>chaque secteur</strong>, utilisez les fonctions de <strong>yfinance</strong> afin de récupérer les listes d’instruments suivants :
+<ul>
+<li><code>yf.Sector('technology').top_etfs</code>, <code>yf.Sector('technology').top_mutual_funds</code>, <code>yf.Sector('technology').top_companies</code></li>
+<li>Et ainsi de suite pour <strong>tous les secteurs disponibles</strong>.</li>
+</ul></li>
+</ul>
 </section>
-<section id="section-2.3---linterprétation" class="level2">
-<h2 class="anchored" data-anchor-id="section-2.3---linterprétation">Section 2.3 - L’interprétation !</h2>
-<p>Python, comme tout les programmes qui s’execute sur l’ordinateur, provient bien d’un code qui a été compilé à un moment. La différence vient du fait que c’est l’interpreteur qui a été compilé, et qui est un programme va être capable de lire le code python et de le transformé au fur et à mesure en code machine. C’est ce que l’on appelle l’interprétation. C’est un processus qui se fait en deux étapes.</p>
-<p>La première étape est <strong>l’analyse lexicale</strong>. C’est à dire que l’interpreteur va lire le code source et le découper en morceaux. C’est ce que l’on appelle les tokens. Il va ensuite les analyser pour vérifier que le code source est correcte. C’est à dire qu’il va vérifier que le code source est bien écrit dans le language que l’on a choisi. C’est ce que l’on appelle la syntaxe. Il va aussi vérifier que le code source est logique. C’est à dire qu’il va vérifier que le code source est bien écrit dans le bon ordre. C’est ce que l’on appelle la sémantique. Si le code source n’est pas correcte, l’interpreteur va nous renvoyer une erreur. C’est ce que l’on appelle une erreur d’analyse lexicale. C’est une erreur qui se produit avant l’exécution du programme.</p>
-<p>En Python, l’interpreteur va alors produire un <strong>Bytecode</strong>. C’est un code intermédiaire qui est plus proche du language machine que le code source, mais qui n’est pas encore du language machine. C’est ce que l’on appelle parfois la compilation, mais cette étape est presque instantanée. Toutefois l’interpreteur stocke quand même ce bytecode pour ne pas le recalculer à chaque fois, vous le verrez dans le dossier <strong>pycache</strong> de vos projets python, qui sera crée automatiquement dès que vous lancerez un code.</p>
-<p>L’interpréteur exécute ce bytecode, ce qui entraîne l’exécution des instructions écrites dans le fichier source. Ce processus diffère de celui des langages compilés comme C ou Java, où le code source est d’abord entièrement transformé en code machine avant l’exécution. En Python, la compilation en bytecode et l’exécution sont des étapes dynamiques, ce qui confère au langage sa flexibilité et sa facilité de débogage, mais aussi impacte sa vitesse d’exécution.</p>
+<section id="plan-du-projet" class="level2">
+<h2 class="anchored" data-anchor-id="plan-du-projet">Plan du Projet</h2>
+<section id="collecte-et-préparation-des-données" class="level3">
+<h3 class="anchored" data-anchor-id="collecte-et-préparation-des-données">1. Collecte et Préparation des Données</h3>
+<ul>
+<li><p><strong>Récupération des instruments :</strong><br>
+Récupérez, pour <strong>tous les secteurs</strong>, les top ETFs, compagnies et fonds mutuels.</p></li>
+<li><p><strong>Téléchargement des données historiques :</strong><br>
+Pour chaque instrument, téléchargez les données quotidiennes (prix, volumes, etc.) pour la période 2010-2024.</p></li>
+<li><p><strong>Nettoyage et structuration :</strong><br>
+Utilisez <strong>pandas</strong> pour organiser et préparer les données, en assurant leur cohérence sur la période d’étude.</p></li>
+</ul>
 </section>
-<section id="section-2.4---binaire-compilé-et-interprétation-du-code-python" class="level2">
-<h2 class="anchored" data-anchor-id="section-2.4---binaire-compilé-et-interprétation-du-code-python">Section 2.4 - Binaire Compilé et Interprétation du Code Python</h2>
-<p>L’exécution d’un programme Python implique l’utilisation d’un binaire compilé de l’interpréteur Python. Ce processus est fondamental pour comprendre comment Python fonctionne sous le capot.</p>
+<section id="analyse-de-performance-par-secteur-analyse-intrasectorielle" class="level3">
+<h3 class="anchored" data-anchor-id="analyse-de-performance-par-secteur-analyse-intrasectorielle">2. Analyse de Performance par Secteur (Analyse Intrasectorielle)</h3>
+<ul>
+<li><p><strong>Calcul des rendements :</strong><br>
+Pour chaque instrument, calculez les rendements historiques.<br>
+Au sein de chaque secteur, comparez la performance des ETFs, compagnies et fonds mutuels.<br>
+Utilisez par exemple le rendement moyen des ETFs comme estimation indicative du rendement du secteur.</p></li>
+<li><p><strong>Visualisations :</strong><br>
+Créez des graphiques (avec <strong>matplotlib</strong> ou <strong>seaborn</strong>) pour illustrer l’évolution et la comparaison des performances au sein de chaque secteur.</p></li>
+</ul>
+</section>
+<section id="optimisation-de-portefeuille-intrasectorielle" class="level3">
+<h3 class="anchored" data-anchor-id="optimisation-de-portefeuille-intrasectorielle">3. Optimisation de Portefeuille Intrasectorielle</h3>
+<p>Cette étape concerne l’optimisation <strong>au sein de chaque secteur</strong> indépendamment :</p>
+<ul>
+<li><p><strong>Objectif :</strong><br>
+Pour chaque secteur, optimisez la composition du portefeuille parmi les instruments du secteur en appliquant trois fonctions d’optimisation via <strong>SciPy</strong> :</p>
+<ul>
+<li><p><strong>Minimisation de la Variance :</strong><br>
+Identifiez la combinaison d’instruments qui minimise la volatilité globale.</p></li>
+<li><p><strong>Maximisation du Ratio de Sharpe :</strong><br>
+Optimisez pour obtenir le meilleur compromis rendement/risque.</p></li>
+<li><p><strong>Maximisation du Ratio de Diversification :</strong><br>
+Cherchez à maximiser la diversification du portefeuille.</p></li>
+</ul></li>
+<li><p><strong>Méthodologie :</strong></p>
+<ul>
+<li>Les optimisations doivent être réalisées sur des données historiques précédant chaque rééquilibrage.<br>
+Par exemple, utilisez les données couvrant une période allant de 3 mois à 5 années avant chaque rééquilibrage trimestriel.</li>
+<li>Rééquilibrez le portefeuille <strong>intrasectoriel</strong> tous les 3 mois pour recalculer les pondérations optimales selon chaque stratégie.</li>
+<li>Comparez la performance de ces portefeuilles optimisés (intra-secteur) sur la période complète d’étude (2010-2024).</li>
+</ul></li>
+</ul>
+</section>
+<section id="optimisation-et-comparaison-intersectorielle" class="level3">
+<h3 class="anchored" data-anchor-id="optimisation-et-comparaison-intersectorielle">4. Optimisation et Comparaison Intersectorielle</h3>
+<p>Cette partie se concentre sur l’optimisation <strong>entre les secteurs</strong> et sur une optimisation globale <strong>sur l’ensemble des actions</strong> :</p>
+<ul>
+<li><strong>Optimisation entre les secteurs :</strong>
+<ul>
+<li><strong>Agrégation des performances sectorielles :</strong><br>
+Pour chaque secteur, agrégez les performances (par exemple, à l’aide du rendement moyen des ETFs ou d’autres indicateurs pertinents).</li>
+<li><strong>Optimisation de la répartition globale entre secteurs :</strong><br>
+Appliquez les mêmes fonctions d’optimisation (minimisation de la variance, maximisation du ratio de Sharpe, et maximisation du ratio de diversification) pour déterminer la répartition optimale entre les secteurs.</li>
+</ul></li>
+<li><strong>Optimisation sur les actions indépendamment :</strong>
+<ul>
+<li>Réalisez une optimisation globale sur l’ensemble des instruments disponibles, sans tenir compte de leur appartenance sectorielle.</li>
+</ul></li>
+<li><strong>Comparaisons et Benchmarks :</strong><br>
+Comparez la performance sur la période complète (2010-2024) des portefeuilles suivants :
+<ul>
+<li>L’indice <strong>S&amp;P500</strong>.</li>
+<li>Un portefeuille <strong>équi-pondéré par secteur</strong>.</li>
+<li>Le portefeuille optimisé <strong>entre secteurs</strong>.</li>
+<li>Le portefeuille optimisé <strong>sur l’ensemble des actions indépendamment</strong>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="clustering-et-optimisation-par-groupes" class="level3">
+<h3 class="anchored" data-anchor-id="clustering-et-optimisation-par-groupes">5. Clustering et Optimisation par Groupes</h3>
+<ul>
+<li><p><strong>Clustering :</strong><br>
+À chaque rééquilibrage trimestriel, appliquez le K-means (de <strong>scikit-learn</strong>) directement sur les rendements passés des instruments (ou d’autres caractéristiques pertinentes) pour regrouper les actions en groupes homogènes.</p></li>
+<li><p><strong>Optimisation par groupes :</strong></p>
+<ul>
+<li>Traitez chaque groupe comme une entité équi-pondérée.<br>
+</li>
+<li>Optimisez la répartition globale du portefeuille en imposant des contraintes sur le poids maximum attribué à chaque groupe.</li>
+</ul></li>
+</ul>
+</section>
+<section id="visualisation-et-analyse-des-résultats" class="level3">
+<h3 class="anchored" data-anchor-id="visualisation-et-analyse-des-résultats">6. Visualisation et Analyse des Résultats</h3>
+<ul>
+<li><strong>Graphiques et Tableaux :</strong>
+<ul>
+<li>Visualisez l’évolution des portefeuilles optimisés (intrasectoriels et intersectoriels) et comparez-les aux benchmarks.</li>
+<li>Affichez l’évolution des pondérations lors des rééquilibrages.</li>
+<li>Illustrez les clusters obtenus via K-means et l’impact de ces regroupements sur l’optimisation.</li>
+</ul></li>
+<li><strong>Commentaires et Interprétations :</strong>
+<ul>
+<li>Documentez et justifiez vos choix méthodologiques.</li>
+<li>Analysez les résultats obtenus à chaque étape et discutez des avantages et limites des différentes approches d’optimisation.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="format-de-rendu" class="level2">
+<h2 class="anchored" data-anchor-id="format-de-rendu">Format de Rendu</h2>
+<ul>
+<li><strong>Livrable :</strong> Un Notebook Jupyter (<code>.ipynb</code>) par groupe (groupes de 4).</li>
+<li><strong>Structure recommandée du Notebook :</strong>
 <ol type="1">
-<li><p><strong>Le Binaire Compilé</strong>: Lorsqu’on installe Python, on télécharge en fait un binaire compilé de l’interpréteur Python, ou selon les cas l’ensemble des morceaux necessaire pour que notre machine le construise. Ce binaire est spécifique à chaque système d’exploitation et architecture matérielle. Par exemple, les binaires pour Windows diffèrent de ceux pour Linux ou MacOS, comme les binaires des Mac M1 sont très différents de ceux des Mac avec les anciens processeurs Intel.</p></li>
-<li><p><strong>Avantages du Binaire Compilé</strong>: Le fait d’avoir un binaire compilé spécifique à chaque plateforme permet à Python d’être portable et facile à déployer. Les développeurs peuvent écrire un script Python et s’attendre à ce qu’il fonctionne de la même manière sur différentes machines, à condition que l’interpréteur Python approprié soit installé.</p></li>
-</ol>
-<p>Ce mécanisme d’interprétation via un binaire compilé est une caractéristique clé de Python, contribuant à sa polyvalence et sa facilité d’utilisation dans divers environnements de développement.</p>
-<p><span class="animate__animated animate__pulse animate__infinite" style="display:inline-block;"><a href="../../content/Cours_1/3-ManyPythons.html"><strong>Mais donc, qui produit se binaire ? Y’en a-t-il une seule implémentation ? Puis-je le compiler moi même ? </strong></a></span></p>
+<li><p><strong>Première cellule :</strong> Installation des packages avec leurs versions (assurez-vous que le Notebook s’exécute de bout en bout sans erreur).<br>
+<em>Exemple :</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installation des packages (versions indiquées)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install yfinance<span class="op">==</span><span class="fl">0.2.18</span> pandas<span class="op">==</span><span class="fl">1.5.3</span> scipy<span class="op">==</span><span class="fl">1.9.3</span> matplotlib<span class="op">==</span><span class="fl">3.6.2</span> seaborn<span class="op">==</span><span class="fl">0.12.2</span> scikit<span class="op">-</span>learn<span class="op">==</span><span class="fl">1.2.2</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Importations</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Première cellule :</strong> importation des packages. <em>Exemple :</em></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importations</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Cellules suivantes :</strong> Code commenté, analyses étape par étape, visualisations et explications détaillées des choix méthodologiques.</p></li>
+<li><p><strong>Conclusion :</strong> Synthèse des résultats et discussion des performances des différentes stratégies de portefeuille.</p></li>
+</ol></li>
+</ul>
+</section>
+<section id="conseils-et-astuces" class="level2">
+<h2 class="anchored" data-anchor-id="conseils-et-astuces">Conseils et Astuces</h2>
+<ul>
+<li><strong>Documentation :</strong> Utilisez abondamment les commentaires et les cellules Markdown pour expliquer votre démarche.</li>
+<li><strong>Validation :</strong> Assurez-vous que le Notebook fonctionne intégralement du début à la fin en un lancement.</li>
+<li><strong>Visualisations :</strong> La clarté et la qualité des graphiques sont essentielles pour illustrer vos analyses.</li>
+<li><strong>Extensions :</strong> Toute analyse ou visualisation supplémentaire sera appréciée et valorisée.</li>
+</ul>
+</section>
+<section id="ressources-utiles" class="level2">
+<h2 class="anchored" data-anchor-id="ressources-utiles">Ressources Utiles</h2>
+<ul>
+<li><a href="https://ranaroussi.github.io/yfinance/reference/index.html">Documentation yfinance</a></li>
+<li><a href="https://pandas.pydata.org/docs/">Documentation Pandas</a></li>
+<li><a href="https://docs.scipy.org/doc/scipy/reference/optimize.html">Documentation SciPy (optimisation)</a></li>
+<li><a href="https://matplotlib.org/stable/contents.html">Documentation Matplotlib</a></li>
+<li><a href="https://seaborn.pydata.org/">Documentation Seaborn</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/clustering.html#k-means">Documentation scikit-learn (K-means)</a></li>
+</ul>
+<hr>
+<p><strong>Bonne chance à tous !</strong><br>
+N’oubliez pas de bien commenter votre code et d’expliquer vos choix méthodologiques. La clarté et la qualité de votre présentation seront des éléments essentiels de votre évaluation.</p>
 
 
 </section>
@@ -1153,14 +1274,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../../content/Cours_1/1-Histoire.html" class="pagination-link" aria-label="Histoire du Langage">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Histoire du Langage</span>
+      <a href="../../content/Projets/L3_EIF_2024.html" class="pagination-link" aria-label="Projets Introduction à Python - Millésime 2024">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Projets Introduction à Python - Millésime 2024</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../content/Cours_1/3-ManyPythons.html" class="pagination-link" aria-label="Versions et Compilation de Python">
-        <span class="nav-page-text">Versions et Compilation de Python</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
