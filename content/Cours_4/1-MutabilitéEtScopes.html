@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Remi Genet">
-<meta name="dcterms.date" content="2025-02-08">
+<meta name="dcterms.date" content="2025-02-12">
 
 <title>Introduction à Python – Mutabilité et Scope</title>
 <style>
@@ -271,7 +271,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"options":{"comment":"","out-height":"","fig-height":5,"label":"","output":"true","fig-cap":"","dpi":72,"autorun":"","results":"markup","message":"true","classes":"","warning":"true","fig-width":7,"context":"interactive","read-only":"false","out-width":"700px"},"code":"# Un entier est immuable\nx = 10\nprint(id(x))  # Identifiant de l'objet 'x'\nx += 1\nprint(id(x))  # L'identifiant a changé car un nouvel objet a été créé\n\n# Un tuple est immuable\nt = (1, 2, 3)\ntry:\n    t[0] = 10  # Essaie de modifier le tuple\nexcept TypeError as e:\n    print(e)  # Affiche une erreur"},{"id":2,"options":{"comment":"","out-height":"","fig-height":5,"label":"","output":"true","fig-cap":"","dpi":72,"autorun":"","results":"markup","message":"true","classes":"","warning":"true","fig-width":7,"context":"interactive","read-only":"false","out-width":"700px"},"code":"# Une liste est mutable\nmy_list = [1, 2, 3]\nprint(id(my_list))  # Identifiant de 'my_list'\nmy_list.append(4)  # Modification de la liste\nprint(id(my_list))  # L'identifiant reste le même"},{"id":3,"options":{"comment":"","out-height":"","fig-height":5,"label":"","output":"true","fig-cap":"","dpi":72,"autorun":"","results":"markup","message":"true","classes":"","warning":"true","fig-width":7,"context":"interactive","read-only":"false","out-width":"700px"},"code":"\ndef outer_function():\n    x = \"local to outer_function\"\n\n    def inner_function():\n        nonlocal x  # Référence à 'x' dans le scope englobant\n        x = \"modified by inner_function\"\n        print(\"Inner function:\", x)\n\n    inner_function()\n    print(\"Outer function:\", x)\n\nouter_function()"}];
+globalThis.qpyodideCellDetails = [{"options":{"fig-width":7,"autorun":"","message":"true","label":"","results":"markup","output":"true","dpi":72,"out-width":"700px","fig-height":5,"out-height":"","warning":"true","fig-cap":"","context":"interactive","read-only":"false","comment":"","classes":""},"code":"# Un entier est immuable\nx = 10\nprint(id(x))  # Identifiant de l'objet 'x'\nx += 1\nprint(id(x))  # L'identifiant a changé car un nouvel objet a été créé\n\n# Un tuple est immuable\nt = (1, 2, 3)\ntry:\n    t[0] = 10  # Essaie de modifier le tuple\nexcept TypeError as e:\n    print(e)  # Affiche une erreur","id":1},{"options":{"fig-width":7,"autorun":"","message":"true","label":"","results":"markup","output":"true","dpi":72,"out-width":"700px","fig-height":5,"out-height":"","warning":"true","fig-cap":"","context":"interactive","read-only":"false","comment":"","classes":""},"code":"# Une liste est mutable\nmy_list = [1, 2, 3]\nprint(id(my_list))  # Identifiant de 'my_list'\nmy_list.append(4)  # Modification de la liste\nprint(id(my_list))  # L'identifiant reste le même","id":2},{"options":{"fig-width":7,"autorun":"","message":"true","label":"","results":"markup","output":"true","dpi":72,"out-width":"700px","fig-height":5,"out-height":"","warning":"true","fig-cap":"","context":"interactive","read-only":"false","comment":"","classes":""},"code":"\ndef outer_function():\n    x = \"local to outer_function\"\n\n    def inner_function():\n        nonlocal x  # Référence à 'x' dans le scope englobant\n        x = \"modified by inner_function\"\n        print(\"Inner function:\", x)\n\n    inner_function()\n    print(\"Outer function:\", x)\n\nouter_function()","id":3}];
 
 
 </script>
@@ -469,10 +469,10 @@ globalThis._qpyodideGetInstance = function() {
 <meta property="og:site_name" content="Introduction à Python">
 <meta name="citation_title" content="Mutabilité et Scope ">
 <meta name="citation_author" content="Remi Genet">
-<meta name="citation_publication_date" content="2025-02-08">
-<meta name="citation_cover_date" content="2025-02-08">
+<meta name="citation_publication_date" content="2025-02-12">
+<meta name="citation_cover_date" content="2025-02-12">
 <meta name="citation_year" content="2025">
-<meta name="citation_online_date" content="2025-02-08">
+<meta name="citation_online_date" content="2025-02-12">
 <meta name="citation_language" content="en">
 </head>
 
@@ -739,7 +739,7 @@ globalThis._qpyodideGetInstance = function() {
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Projets/projet_2025.html">
- <span class="dropdown-text">Licence Finance Python Project: Analyse et Optimisation de Portefeuille par Secteur</span></a>
+ <span class="dropdown-text">Projets Introduction à Python - Millésime 2025</span></a>
   </li>  
     </ul>
   </li>
@@ -900,7 +900,7 @@ globalThis._qpyodideGetInstance = function() {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-02-08</p>
+      <p class="date">2025-02-12</p>
     </div>
   </div>
   
@@ -987,7 +987,7 @@ globalThis._qpyodideGetInstance = function() {
 <li>Les modifications apportées à un objet mutable peuvent avoir des effets inattendus, en particulier lors de la copie d’objets ou du passage d’objets comme arguments à des fonctions.</li>
 </ul>
 <p>Exemple 3: Classes et Mutabilité</p>
-<div id="8b1d138a" class="cell" data-execution_count="1">
+<div id="75b0e81d" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Car:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, color):</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.color <span class="op">=</span> color</span>
@@ -1007,7 +1007,7 @@ blue</code></pre>
 </section>
 <section id="quatrième-partie-implications-pratiques-et-bonnes-pratiques" class="level4">
 <h4 class="anchored" data-anchor-id="quatrième-partie-implications-pratiques-et-bonnes-pratiques">Quatrième Partie: Implications Pratiques et Bonnes Pratiques</h4>
-<div id="d653e2dd" class="cell" data-execution_count="2">
+<div id="73a44bc0" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_to_list(element, target_list<span class="op">=</span>[]):  <span class="co"># Liste mutable comme argument par défaut</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    target_list.append(element)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> target_list</span>
@@ -1033,7 +1033,7 @@ blue</code></pre>
 <li><strong>Prudence avec les Objets Globaux</strong> : Être prudent lors de la modification de variables globales, surtout si elles sont mutables.</li>
 <li><strong>Documentation et Commentaires</strong> : Documenter clairement l’utilisation et les modifications des objets mutables, surtout dans les grandes bases de code et les projets de groupe.</li>
 </ul>
-<div id="297a7e57" class="cell" data-execution_count="3">
+<div id="f3ee6ddd" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> copy</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>original_list <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]]</span>

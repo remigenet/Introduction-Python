@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Remi Genet">
-<meta name="dcterms.date" content="2025-02-08">
+<meta name="dcterms.date" content="2025-02-12">
 <meta name="description" content="Requête HTTP, Webscrapping, websockets, API, JSON, XML, CSV, HTML, SQL, NoSQL, FTP, SSH, …">
 
 <title>Introduction à Python – Recupérer des données du net</title>
@@ -238,7 +238,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"options":{"output":"true","dpi":72,"autorun":"","context":"interactive","out-height":"","classes":"","read-only":"false","comment":"","results":"markup","label":"","out-width":"700px","warning":"true","fig-width":7,"fig-height":5,"fig-cap":"","message":"true"},"code":"import requests\nresponse = requests.get('https://api.exemple.com/data')\ndata = response.json()"},{"id":2,"options":{"output":"true","dpi":72,"autorun":"","context":"interactive","out-height":"","classes":"","read-only":"false","comment":"","results":"markup","label":"","out-width":"700px","warning":"true","fig-width":7,"fig-height":5,"fig-cap":"","message":"true"},"code":"from bs4 import BeautifulSoup\nsoup = BeautifulSoup(html_content, 'html.parser')\ntitles = soup.find_all('h1')"},{"id":3,"options":{"output":"true","dpi":72,"autorun":"","context":"interactive","out-height":"","classes":"","read-only":"false","comment":"","results":"markup","label":"","out-width":"700px","warning":"true","fig-width":7,"fig-height":5,"fig-cap":"","message":"true"},"code":"import scrapy\n\nclass MySpider(scrapy.Spider):\n    name = 'exemple_spider'\n    start_urls = ['http://exemple.com']\n\n    def parse(self, response):\n        # Extraction de données\n        pass"},{"id":4,"options":{"output":"true","dpi":72,"autorun":"","context":"interactive","out-height":"","classes":"","read-only":"false","comment":"","results":"markup","label":"","out-width":"700px","warning":"true","fig-width":7,"fig-height":5,"fig-cap":"","message":"true"},"code":"import requests\nfrom bs4 import BeautifulSoup\n\nresponse = requests.get('https://news.exemple.com')\nsoup = BeautifulSoup(response.content, 'html.parser')\n\nfor title in soup.find_all('h2'):\n    print(title.text.strip())"}];
+globalThis.qpyodideCellDetails = [{"options":{"comment":"","context":"interactive","fig-width":7,"dpi":72,"results":"markup","fig-cap":"","label":"","output":"true","autorun":"","message":"true","fig-height":5,"out-height":"","warning":"true","read-only":"false","out-width":"700px","classes":""},"id":1,"code":"import requests\nresponse = requests.get('https://api.exemple.com/data')\ndata = response.json()"},{"options":{"comment":"","context":"interactive","fig-width":7,"dpi":72,"results":"markup","fig-cap":"","label":"","output":"true","autorun":"","message":"true","fig-height":5,"out-height":"","warning":"true","read-only":"false","out-width":"700px","classes":""},"id":2,"code":"from bs4 import BeautifulSoup\nsoup = BeautifulSoup(html_content, 'html.parser')\ntitles = soup.find_all('h1')"},{"options":{"comment":"","context":"interactive","fig-width":7,"dpi":72,"results":"markup","fig-cap":"","label":"","output":"true","autorun":"","message":"true","fig-height":5,"out-height":"","warning":"true","read-only":"false","out-width":"700px","classes":""},"id":3,"code":"import scrapy\n\nclass MySpider(scrapy.Spider):\n    name = 'exemple_spider'\n    start_urls = ['http://exemple.com']\n\n    def parse(self, response):\n        # Extraction de données\n        pass"},{"options":{"comment":"","context":"interactive","fig-width":7,"dpi":72,"results":"markup","fig-cap":"","label":"","output":"true","autorun":"","message":"true","fig-height":5,"out-height":"","warning":"true","read-only":"false","out-width":"700px","classes":""},"id":4,"code":"import requests\nfrom bs4 import BeautifulSoup\n\nresponse = requests.get('https://news.exemple.com')\nsoup = BeautifulSoup(response.content, 'html.parser')\n\nfor title in soup.find_all('h2'):\n    print(title.text.strip())"}];
 
 
 </script>
@@ -437,10 +437,10 @@ globalThis._qpyodideGetInstance = function() {
 <meta property="og:site_name" content="Introduction à Python">
 <meta name="citation_title" content="Recupérer des données du net">
 <meta name="citation_author" content="Remi Genet">
-<meta name="citation_publication_date" content="2025-02-08">
-<meta name="citation_cover_date" content="2025-02-08">
+<meta name="citation_publication_date" content="2025-02-12">
+<meta name="citation_cover_date" content="2025-02-12">
 <meta name="citation_year" content="2025">
-<meta name="citation_online_date" content="2025-02-08">
+<meta name="citation_online_date" content="2025-02-12">
 <meta name="citation_language" content="en">
 </head>
 
@@ -707,7 +707,7 @@ globalThis._qpyodideGetInstance = function() {
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Projets/projet_2025.html">
- <span class="dropdown-text">Licence Finance Python Project: Analyse et Optimisation de Portefeuille par Secteur</span></a>
+ <span class="dropdown-text">Projets Introduction à Python - Millésime 2025</span></a>
   </li>  
     </ul>
   </li>
@@ -885,7 +885,7 @@ globalThis._qpyodideGetInstance = function() {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-02-08</p>
+      <p class="date">2025-02-12</p>
     </div>
   </div>
   
